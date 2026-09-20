@@ -4,750 +4,306 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NameCraft - Stylish Name Generator</title>
+<title>NameCraft - 100 Stylish Names</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#020817;
+    background:linear-gradient(135deg,#080b24,#17104a,#071b38);
     color:white;
-    overflow-x:hidden;
+    min-height:100vh;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* NAVBAR */
 
-.navbar{
-    height:68px;
-    padding:0 5%;
+nav{
+    width:100%;
+    padding:18px 6%;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-
-    background:#030a1c;
-
-    border-bottom:1px solid #183d7c;
-
+    align-items:center;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:100;
 }
 
 .logo{
-    font-size:28px;
+    font-size:25px;
     font-weight:bold;
-    white-space:nowrap;
+    color:#8f7cff;
 }
 
-.logo span{
-    color:#a855f7;
-}
-
-.menu{
-    height:100%;
+nav ul{
     display:flex;
-    align-items:center;
-    gap:32px;
+    gap:25px;
+    list-style:none;
 }
 
-.menu a{
-    height:100%;
-    display:flex;
-    align-items:center;
-
-    color:#dbe5f5;
-
+nav a{
+    color:white;
     text-decoration:none;
-
     font-size:15px;
-    font-weight:bold;
-
-    position:relative;
-
-    transition:.3s;
 }
 
-.menu a:hover{
-    color:#b84cff;
+nav a:hover{
+    color:#9d8cff;
 }
 
-/* Active Home */
-
-.menu a.active{
-    color:#b84cff;
-}
-
-.menu a.active::after{
-    content:"";
-
-    position:absolute;
-
-    bottom:0;
-    left:0;
-
-    width:100%;
-    height:3px;
-
-    background:linear-gradient(
-        90deg,
-        #b000ff,
-        #008cff
-    );
-
-    box-shadow:0 0 10px #9d00ff;
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-    min-height:390px;
-
     text-align:center;
-
-    padding:55px 15px 35px;
-
-    background:
-    radial-gradient(
-        circle at 10% 30%,
-        #7b00ff25,
-        transparent 28%
-    ),
-    radial-gradient(
-        circle at 90% 30%,
-        #0066ff25,
-        transparent 28%
-    );
-}
-
-.badge{
-    display:inline-block;
-
-    padding:10px 22px;
-
-    border-radius:30px;
-
-    background:linear-gradient(
-        90deg,
-        #7b2cff,
-        #008cff
-    );
-
-    font-weight:bold;
-
-    box-shadow:
-    0 0 25px #7137ff55;
+    padding:70px 20px 50px;
 }
 
 .hero h1{
-    margin-top:18px;
-
-    font-size:54px;
-
-    line-height:1.05;
-}
-
-.hero h1 span{
-    background:linear-gradient(
-        90deg,
-        #d000ff,
-        #008cff
-    );
-
+    font-size:45px;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#9d8cff,#e38cff);
     -webkit-background-clip:text;
-
     color:transparent;
 }
 
 .hero p{
-    max-width:720px;
-
-    margin:17px auto 28px;
-
-    color:#aebbd0;
-
-    line-height:1.5;
-
-    font-size:16px;
+    color:#bdb9d8;
+    margin-bottom:30px;
 }
 
-/* =========================
-   SEARCH
-========================= */
-
-.search{
-    max-width:830px;
-
-    height:60px;
-
+.search-box{
+    max-width:650px;
     margin:auto;
-
     display:flex;
-
-    align-items:center;
-
-    background:#06142c;
-
-    border:1px solid #1682ff;
-
-    border-radius:35px;
-
-    box-shadow:
-    0 0 25px #006eff25,
-    inset 0 0 15px #001c44;
+    gap:10px;
 }
 
-.search input{
+.search-box input{
     flex:1;
-
-    width:100%;
-    height:100%;
-
-    background:transparent;
-
-    border:0;
-    outline:0;
-
-    color:white;
-
-    padding:0 25px;
-
+    padding:17px;
+    border:none;
+    outline:none;
+    border-radius:12px;
     font-size:16px;
+    background:#ffffff12;
+    color:white;
+    border:1px solid #ffffff25;
 }
 
-.search input::placeholder{
-    color:#7f91ad;
+.search-box input::placeholder{
+    color:#aaa;
 }
 
-.search button{
-    height:50px;
-
-    margin-right:5px;
-
-    padding:0 32px;
-
-    border:0;
-
-    border-radius:30px;
-
+.search-box button{
+    padding:17px 25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#765cff,#b85cff);
     color:white;
-
-    font-size:16px;
-
     font-weight:bold;
-
     cursor:pointer;
-
-    background:linear-gradient(
-        90deg,
-        #b000ff,
-        #008cff
-    );
-
-    transition:.3s;
 }
 
-.search button:hover{
+.search-box button:hover{
     transform:scale(1.03);
-
-    box-shadow:
-    0 0 25px #8b00ff88;
 }
 
-/* =========================
-   CATEGORIES
-========================= */
+/* CATEGORY */
 
 .categories{
-    display:flex;
-
-    gap:12px;
-
-    padding:20px 3%;
-
-    overflow-x:auto;
-
-    scrollbar-width:none;
+    padding:20px 6%;
 }
 
-.categories::-webkit-scrollbar{
-    display:none;
+.categories h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:15px;
+    max-width:1000px;
+    margin:auto;
 }
 
 .category{
-    min-width:120px;
-
-    height:90px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
+    padding:20px;
+    text-align:center;
+    background:#ffffff0d;
+    border:1px solid #ffffff18;
     border-radius:15px;
-
-    background:#06152d;
-
-    border:1px solid #164b91;
-
     cursor:pointer;
-
     transition:.3s;
 }
 
-.category:hover,
-.category.active{
-    border-color:#b000ff;
-
-    box-shadow:
-    0 0 20px #8b00ff66;
-
-    transform:translateY(-3px);
+.category:hover{
+    background:#ffffff18;
+    transform:translateY(-5px);
 }
 
-.category .icon{
-    font-size:27px;
-
-    margin-bottom:8px;
-}
-
-.category p{
-    font-size:14px;
-}
-
-/* =========================
-   RESULTS
-========================= */
+/* RESULTS */
 
 .results{
-    margin:5px 2%;
-
-    padding:25px;
-
-    background:#041126;
-
-    border:1px solid #1450a0;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 0 35px #001b4c55;
+    padding:50px 6%;
 }
 
-.result-header{
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
+.results h2{
+    text-align:center;
+    margin-bottom:30px;
 }
-
-.result-header h2{
-    font-size:24px;
-}
-
-.top-buttons{
-    display:flex;
-
-    gap:10px;
-}
-
-.top-buttons button{
-    padding:10px 16px;
-
-    background:#071a37;
-
-    color:white;
-
-    border:1px solid #315b91;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.top-buttons button:hover{
-    border-color:#b000ff;
-
-    box-shadow:
-    0 0 12px #8b00ff55;
-}
-
-/* =========================
-   NAME GRID
-========================= */
 
 .name-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:10px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+    max-width:1200px;
+    margin:auto;
 }
 
 .name-card{
-    min-height:60px;
-
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:22px;
+    min-height:110px;
     display:flex;
-
-    align-items:center;
-
+    flex-direction:column;
     justify-content:space-between;
-
-    padding:7px 8px 7px 15px;
-
-    background:#061a37;
-
-    border:1px solid #1552a3;
-
-    border-radius:12px;
-
+    gap:15px;
     transition:.3s;
 }
 
 .name-card:hover{
-    transform:translateY(-3px);
-
-    border-color:#8e42ff;
-
-    box-shadow:
-    0 0 18px #006eff55;
+    transform:translateY(-4px);
+    border-color:#8d7aff;
+    box-shadow:0 10px 30px #0005;
 }
 
 .styled-name{
-    font-size:18px;
-
-    font-weight:bold;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
+    text-align:center;
+    font-size:23px;
+    word-break:break-word;
+    line-height:1.5;
 }
 
 /* COLORS */
 
-.purple{
-    color:#db50ff;
-}
+.color1{color:#ff7cff;}
+.color2{color:#7cbcff;}
+.color3{color:#7cffc4;}
+.color4{color:#ffe27c;}
+.color5{color:#ff8f8f;}
+.color6{color:#b58cff;}
+.color7{color:#8ffff0;}
+.color8{color:#ffffff;}
+.color9{color:#ffb76b;}
+.color10{color:#c7ff7c;}
 
-.red{
-    color:#ff3b46;
-}
-
-.blue{
-    color:#18caff;
-}
-
-.green{
-    color:#28ff91;
-}
-
-.gold{
-    color:#ffc62b;
-}
-
-.pink{
-    color:#ff4fcf;
-}
-
-.orange{
-    color:#ff741c;
-}
-
-.white{
-    color:white;
-}
-
-/* CARD BUTTONS */
+/* BUTTONS */
 
 .card-buttons{
     display:flex;
-
-    gap:5px;
-
-    margin-left:8px;
+    justify-content:center;
+    gap:10px;
 }
 
 .card-buttons button{
-    width:34px;
-
-    height:34px;
-
-    flex-shrink:0;
-
-    border-radius:9px;
-
-    background:#0a2348;
-
-    color:white;
-
-    border:1px solid #315a8e;
-
+    width:45px;
+    height:38px;
+    border:none;
+    border-radius:10px;
     cursor:pointer;
-
-    transition:.2s;
+    background:#ffffff12;
+    color:white;
+    font-size:18px;
 }
 
 .card-buttons button:hover{
-    background:#7525bd;
-
-    border-color:#c35cff;
+    background:#ffffff25;
 }
 
-/* =========================
-   ABOUT
-========================= */
-
-.about{
-    margin:30px 5%;
-
-    padding:35px;
-
-    text-align:center;
-
-    background:#041126;
-
-    border:1px solid #1450a0;
-
-    border-radius:20px;
-}
-
-.about h2{
-    font-size:30px;
-
-    margin-bottom:12px;
-}
-
-.about h2 span{
-    color:#a855f7;
-}
-
-.about p{
-    max-width:700px;
-
-    margin:auto;
-
-    color:#aebbd0;
-
-    line-height:1.7;
-}
-
-/* =========================
-   FAVORITES
-========================= */
+/* FAVORITES */
 
 .favorites{
-    display:none;
-
-    margin:30px 5%;
-
-    padding:30px;
-
+    padding:50px 6%;
     text-align:center;
-
-    background:#041126;
-
-    border:1px solid #1450a0;
-
-    border-radius:20px;
-}
-
-.favorites h2{
-    margin-bottom:10px;
 }
 
 .favorites p{
-    color:#9eabc0;
+    color:#aaa;
+    margin-top:10px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ABOUT */
+
+.about{
+    padding:60px 20px;
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.about h2{
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+/* FOOTER */
 
 footer{
-    margin-top:30px;
-
-    min-height:80px;
-
-    padding:20px 5%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    border-top:1px solid #19457f;
-
-    color:#9faec5;
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    background:#0004;
+    color:#999;
 }
 
-.footer-logo{
-    font-size:22px;
+/* MOBILE */
 
-    font-weight:bold;
+@media(max-width:600px){
 
-    color:white;
-}
-
-.footer-logo span{
-    color:#a855f7;
-}
-
-.social{
-    display:flex;
-
-    gap:15px;
-
-    font-size:20px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:1000px){
-
-    .name-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+    nav{
+        padding:15px 20px;
     }
 
-}
-
-@media(max-width:700px){
-
-    .navbar{
-        padding:0 15px;
-    }
-
-    .logo{
-        font-size:22px;
-    }
-
-    .menu{
+    nav ul{
         gap:12px;
     }
 
-    .menu a{
+    nav a{
         font-size:12px;
     }
 
-    .hero h1{
-        font-size:40px;
-    }
-
-    .name-grid{
-        grid-template-columns:1fr;
-    }
-
-    .results{
-        padding:15px;
-    }
-
-}
-
-@media(max-width:500px){
-
-    .navbar{
-        height:60px;
-    }
-
-    .logo{
-        font-size:19px;
-    }
-
-    .menu{
-        gap:8px;
-    }
-
-    .menu a{
-        font-size:0;
-    }
-
-    .menu a:first-letter{
-        font-size:20px;
-    }
-
     .hero{
-        padding-top:40px;
+        padding-top:50px;
     }
 
     .hero h1{
         font-size:34px;
     }
 
-    .search{
-        height:auto;
-
+    .search-box{
         flex-direction:column;
-
-        border-radius:15px;
-
-        padding:5px;
     }
 
-    .search input{
-        height:55px;
-    }
-
-    .search button{
-        width:100%;
-
-        height:48px;
-
-        margin:0;
-    }
-
-    .result-header{
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:15px;
-    }
-
-    .top-buttons{
+    .search-box button{
         width:100%;
     }
 
-    .top-buttons button{
-        flex:1;
-    }
-
-    footer{
-        flex-direction:column;
-
-        gap:15px;
-
-        text-align:center;
+    .name-grid{
+        grid-template-columns:1fr;
     }
 
 }
@@ -755,77 +311,47 @@ footer{
 </style>
 </head>
 
-
 <body>
 
+<!-- NAVBAR -->
 
-<!-- ==================================================
-     NAVBAR
-================================================== -->
-
-<header class="navbar">
+<nav>
 
     <div class="logo">
-        👑 Name<span>Craft</span>
+        NameCraft
     </div>
 
-    <nav class="menu">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#favorites">Favorites</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
-        <a href="#home" class="active">
-            🏠 Home
-        </a>
-
-        <a href="#styles">
-            ✦ Styles
-        </a>
-
-        <a href="#favorites">
-            ♥ Favorites
-        </a>
-
-        <a href="#about">
-            ⓘ About
-        </a>
-
-    </nav>
-
-</header>
+</nav>
 
 
-<!-- ==================================================
-     HOME
-================================================== -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-    <div class="badge">
-        ✨ Stylish Name Generator
-    </div>
-
-    <h1>
-        Create Your<br>
-        <span>Stylish Name</span>
-    </h1>
+    <h1>Stylish Name Generator</h1>
 
     <p>
-        Turn your normal name into a cool, stylish and unique name
-        with different fonts, symbols and styles.
-        Stand out from the crowd!
+        Enter your name and generate 100 stylish names instantly.
     </p>
 
-
-    <!-- SEARCH -->
-
-    <div class="search">
+    <div class="search-box">
 
         <input
-            id="nameInput"
             type="text"
-            placeholder="Enter your name (e.g. White444)"
+            id="nameInput"
+            placeholder="Enter your name..."
+            autocomplete="off"
         >
 
-        <button onclick="generate()">
-            ✨ Generate
+        <button id="generateBtn">
+            Generate
         </button>
 
     </div>
@@ -833,374 +359,337 @@ footer{
 </section>
 
 
-<!-- ==================================================
-     STYLES
-================================================== -->
+<!-- CATEGORIES -->
 
 <section class="categories" id="styles">
 
-    <div class="category active">
+    <h2>Choose Your Style</h2>
 
-        <div class="icon">
-            ✨
+    <div class="category-grid">
+
+        <div class="category" data-style="gaming">
+            🎮 Gaming
         </div>
 
-        <p>
-            All Styles
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            🎮
+        <div class="category" data-style="cool">
+            😎 Cool
         </div>
 
-        <p>
-            Gaming
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            🔥
+        <div class="category" data-style="royal">
+            👑 Royal
         </div>
 
-        <p>
-            Cool
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            👑
+        <div class="category" data-style="fire">
+            🔥 Fire
         </div>
 
-        <p>
-            Royal
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            ❤️
+        <div class="category" data-style="love">
+            ❤️ Love
         </div>
 
-        <p>
-            Love
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            🌿
+        <div class="category" data-style="danger">
+            ☠️ Danger
         </div>
-
-        <p>
-            Aesthetic
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            ⚡
-        </div>
-
-        <p>
-            Neon
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            A⁺
-        </div>
-
-        <p>
-            Unicode
-        </p>
-
-    </div>
-
-
-    <div class="category">
-
-        <div class="icon">
-            ★
-        </div>
-
-        <p>
-            Symbols
-        </p>
 
     </div>
 
 </section>
 
 
-<!-- ==================================================
-     STYLISH NAMES
-================================================== -->
+<!-- RESULTS -->
 
 <section class="results">
 
-    <div class="result-header">
+    <h2>100 Stylish Names</h2>
 
-        <h2>
-            ✨ Your Stylish Names
-        </h2>
-
-        <div class="top-buttons">
-
-            <button onclick="copyAll()">
-                📋 Copy All
-            </button>
-
-            <button onclick="saveAll()">
-                ❤️ Save All
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="nameGrid"
-        class="name-grid">
-    </div>
+    <div class="name-grid" id="nameGrid"></div>
 
 </section>
 
 
-<!-- ==================================================
-     FAVORITES
-================================================== -->
+<!-- FAVORITES -->
 
-<section
-    class="favorites"
-    id="favorites">
+<section class="favorites" id="favorites">
 
-    <h2>
-        ❤️ Favorites
-    </h2>
+    <h2>❤️ Favorites</h2>
 
-    <p>
-        Your favorite stylish names will appear here.
+    <p id="favoriteText">
+        Your favorite names will appear here.
     </p>
 
 </section>
 
 
-<!-- ==================================================
-     ABOUT
-================================================== -->
+<!-- ABOUT -->
 
-<section
-    class="about"
-    id="about">
+<section class="about" id="about">
 
-    <h2>
-        About <span>NameCraft</span>
-    </h2>
+    <h2>About NameCraft</h2>
 
     <p>
-        NameCraft is a stylish name generator where you can
-        create gaming names, cool names, royal names,
-        aesthetic names and unique names using symbols
-        and different styles.
+        NameCraft is a stylish name generator that helps you create
+        unique gaming, social media and profile names.
+        Enter your name and get 100 different stylish designs.
     </p>
 
 </section>
 
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+<!-- FOOTER -->
 
 <footer>
 
-    <div class="footer-logo">
-        👑 Name<span>Craft</span>
-    </div>
-
-    <div>
-        © 2026 NameCraft. All rights reserved.
-    </div>
-
-    <div class="social">
-        ▶️
-        📷
-        ✈️
-    </div>
+    © 2026 NameCraft | Stylish Name Generator
 
 </footer>
 
 
 <script>
 
-/* ==================================================
-   DEFAULT NAMES
-================================================== */
+/* =========================
+   VARIABLES
+========================= */
 
-let names = [
+let names = [];
 
-    "WHITE444",
-    "RIOTFF",
-    "ANKUSHFF",
-    "PRINCE",
-    "SHADOWFF",
-    "LEGEND7",
-    "DEVIL",
-    "TITAN",
-    "GAMER",
-    "X-RAJ",
-    "BOSS",
-    "BADSHAH",
-    "SURAJ",
-    "KILLER",
-    "ALONE",
-    "VILLAIN",
-    "CR7",
-    "DARK",
-    "SPEED",
-    "BLAZE",
-    "NOTHING",
-    "KING",
-    "NOOB",
-    "HUNTER"
+let favorites = [];
+
+const colors = [
+    "color1",
+    "color2",
+    "color3",
+    "color4",
+    "color5",
+    "color6",
+    "color7",
+    "color8",
+    "color9",
+    "color10"
+];
+
+
+/* =========================
+   100 STYLES
+========================= */
+
+const styles = [
+
+"꧁༺ NAME ༻꧂",
+"亗 NAME 亗",
+"乂 NAME 乂",
+"『 NAME 』",
+"★彡 NAME 彡★",
+"♛ NAME ♛",
+"☠ NAME ☠",
+"⚡ NAME ⚡",
+"🔥 NAME 🔥",
+"༺ NAME ༻",
+
+"꧁ NAME ꧂",
+"✦ NAME ✦",
+"♕ NAME ♕",
+"乂『 NAME 』乂",
+"★ NAME ★",
+"♚ NAME ♚",
+"ツ NAME ツ",
+"么 NAME 么",
+"彡 NAME 彡",
+"×͜× NAME",
+
+"『★』NAME『★』",
+"༒ NAME ༒",
+"☬ NAME ☬",
+"⚔ NAME ⚔",
+"♠ NAME ♠",
+"♥ NAME ♥",
+"♦ NAME ♦",
+"♣ NAME ♣",
+"☯ NAME ☯",
+"☮ NAME ☮",
+
+"☢ NAME ☢",
+"☣ NAME ☣",
+"⚡︎ NAME ⚡︎",
+"★彡[NAME]彡★",
+"꧁[NAME]꧂",
+"『NAME』",
+"【NAME】",
+"《NAME》",
+"〈NAME〉",
+"〔NAME〕",
+
+"〘NAME〙",
+"〚NAME〛",
+"⫷ NAME ⫸",
+"⟦ NAME ⟧",
+"⟨ NAME ⟩",
+"✧ NAME ✧",
+"✩ NAME ✩",
+"✪ NAME ✪",
+"✯ NAME ✯",
+"✰ NAME ✰",
+
+"✵ NAME ✵",
+"✺ NAME ✺",
+"❖ NAME ❖",
+"◇ NAME ◇",
+"◆ NAME ◆",
+"◈ NAME ◈",
+"⬢ NAME ⬢",
+"♤ NAME ♤",
+"♡ NAME ♡",
+"♧ NAME ♧",
+
+"♢ NAME ♢",
+"☾ NAME ☽",
+"☀ NAME ☀",
+"☁ NAME ☁",
+"☄ NAME ☄",
+"☘ NAME ☘",
+"⚜ NAME ⚜",
+"♜ NAME ♜",
+"♞ NAME ♞",
+"♟ NAME ♟",
+
+"♨ NAME ♨",
+"⚜️ NAME ⚜️",
+"👑 NAME 👑",
+"💀 NAME 💀",
+"🔥 NAME 🔥",
+"💎 NAME 💎",
+"⚡ NAME ⚡",
+"🚀 NAME 🚀",
+"🎯 NAME 🎯",
+"🎮 NAME 🎮",
+
+"🖤 NAME 🖤",
+"❤️ NAME ❤️",
+"💜 NAME 💜",
+"💙 NAME 💙",
+"💚 NAME 💚",
+"💛 NAME 💛",
+"🩷 NAME 🩷",
+"🌟 NAME 🌟",
+"🌙 NAME 🌙",
+"☠️ NAME ☠️",
+
+"😈 NAME 😈",
+"👿 NAME 👿",
+"🐉 NAME 🐉",
+"🦅 NAME 🦅",
+"🐺 NAME 🐺",
+"⚔️ NAME ⚔️",
+"🏆 NAME 🏆",
+"★『NAME』★",
+"亗『NAME』亗",
+"꧁༒NAME༒꧂"
 
 ];
 
 
-/* COLORS */
+/* =========================
+   GENERATE
+========================= */
 
-let colors = [
+function generate(){
 
-    "purple",
-    "red",
-    "blue",
-    "gold",
-    "green",
-    "pink",
-    "orange",
-    "white"
+    const input = document.getElementById("nameInput");
 
-];
+    const value = input.value.trim();
 
+    if(!value){
 
-/* ==================================================
-   CREATE STYLES
-================================================== */
+        alert("Please enter your name!");
 
-function createStyles(name){
+        input.focus();
 
-    return [
+        return;
+    }
 
-        "♛ " + name + " ♛",
+    const name = value.toUpperCase();
 
-        "🔥 " + name + " 🔥",
+    names = styles.map(function(style){
 
-        "༺ " + name + " ༻",
+        return style.replace(/NAME/g, name);
 
-        "『 " + name + " 』",
+    });
 
-        "亗 " + name + " 亗",
+    display();
 
-        "乂 " + name + " 乂",
-
-        "★彡 " + name + " 彡★",
-
-        "꧁ " + name + " ꧂",
-
-        "⚡ " + name + " ⚡",
-
-        "☠ " + name + " ☠",
-
-        "✦ " + name + " ✦",
-
-        "♛ " + name + " ♛"
-
-    ];
+    input.value = "";
 
 }
 
 
-/* ==================================================
-   DISPLAY NAMES
-================================================== */
+/* =========================
+   DISPLAY 100 NAMES
+========================= */
 
 function display(){
 
-    let grid =
-        document.getElementById("nameGrid");
+    const grid = document.getElementById("nameGrid");
 
     grid.innerHTML = "";
 
+    names.forEach(function(style,index){
 
-    names.forEach(function(name,index){
+        const card = document.createElement("div");
 
-        let styles =
-            createStyles(name);
+        card.className = "name-card";
 
-        let style =
-            styles[index % styles.length];
 
-        let color =
+        const nameSpan = document.createElement("span");
+
+        nameSpan.className =
+            "styled-name " +
             colors[index % colors.length];
 
-
-        let card =
-            document.createElement("div");
-
-        card.className =
-            "name-card";
+        nameSpan.textContent = style;
 
 
-        card.innerHTML = `
+        const buttons = document.createElement("div");
 
-            <span
-                class="styled-name ${color}">
-                ${style}
-            </span>
+        buttons.className = "card-buttons";
 
 
-            <div class="card-buttons">
+        /* COPY BUTTON */
 
-                <button
-                    onclick="copyName('${escapeName(style)}')">
-                    📋
-                </button>
+        const copyBtn = document.createElement("button");
 
-                <button
-                    onclick="favorite(this,'${escapeName(style)}')">
-                    ♡
-                </button>
+        copyBtn.textContent = "📋";
 
-            </div>
+        copyBtn.title = "Copy";
 
-        `;
+        copyBtn.addEventListener("click",function(){
 
+            copyName(style);
+
+        });
+
+
+        /* FAVORITE BUTTON */
+
+        const favBtn = document.createElement("button");
+
+        favBtn.textContent = "♡";
+
+        favBtn.title = "Favorite";
+
+        favBtn.addEventListener("click",function(){
+
+            favorite(favBtn,style);
+
+        });
+
+
+        buttons.appendChild(copyBtn);
+
+        buttons.appendChild(favBtn);
+
+
+        card.appendChild(nameSpan);
+
+        card.appendChild(buttons);
 
         grid.appendChild(card);
 
@@ -1209,222 +698,140 @@ function display(){
 }
 
 
-/* ==================================================
-   GENERATE
-================================================== */
+/* =========================
+   COPY NAME
+========================= */
 
-function generate(){
+function copyName(text){
 
-    let input =
-        document
-        .getElementById("nameInput")
-        .value
-        .trim();
+    navigator.clipboard.writeText(text)
+    .then(function(){
+
+        alert("Name copied! ✅");
+
+    })
+    .catch(function(){
+
+        alert("Copy failed. Please copy manually.");
+
+    });
+
+}
 
 
-    if(input === ""){
+/* =========================
+   FAVORITE
+========================= */
 
-        alert("Please enter your name!");
+function favorite(button,text){
+
+    if(!favorites.includes(text)){
+
+        favorites.push(text);
+
+        button.textContent = "❤️";
+
+        updateFavorites();
+
+    }
+    else{
+
+        favorites =
+            favorites.filter(function(item){
+
+                return item !== text;
+
+            });
+
+        button.textContent = "♡";
+
+        updateFavorites();
+
+    }
+
+}
+
+
+/* =========================
+   UPDATE FAVORITES
+========================= */
+
+function updateFavorites(){
+
+    const favoriteText =
+        document.getElementById("favoriteText");
+
+    if(favorites.length === 0){
+
+        favoriteText.textContent =
+            "Your favorite names will appear here.";
 
         return;
 
     }
 
-
-    let newName =
-        input.toUpperCase();
-
-
-    names =
-    [
-        newName,
-
-        ...names.filter(
-            function(n){
-                return n !== newName;
-            }
-        )
-    ];
-
-
-    display();
+    favoriteText.innerHTML =
+        favorites.join("<br><br>");
 
 }
 
 
-/* ==================================================
-   COPY ONE
-================================================== */
+/* =========================
+   ENTER KEY
+========================= */
 
-function copyName(text){
+document
+.getElementById("nameInput")
+.addEventListener("keydown",function(event){
 
-    navigator.clipboard
-    .writeText(text)
-    .then(function(){
+    if(event.key === "Enter"){
 
-        alert(
-            "Copied: " + text
-        );
+        generate();
+
+    }
+
+});
+
+
+/* =========================
+   GENERATE BUTTON
+========================= */
+
+document
+.getElementById("generateBtn")
+.addEventListener("click",function(){
+
+    generate();
+
+});
+
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+document
+.querySelectorAll(".category")
+.forEach(function(category){
+
+    category.addEventListener("click",function(){
+
+        const input =
+            document.getElementById("nameInput");
+
+        input.focus();
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
 
     });
 
-}
-
-
-/* ==================================================
-   COPY ALL
-================================================== */
-
-function copyAll(){
-
-    let all =
-        names.map(
-            function(name){
-
-                return createStyles(name)[0];
-
-            }
-        )
-        .join("\n");
-
-
-    navigator.clipboard
-    .writeText(all)
-    .then(function(){
-
-        alert(
-            "All stylish names copied!"
-        );
-
-    });
-
-}
-
-
-/* ==================================================
-   FAVORITE
-================================================== */
-
-function favorite(button,name){
-
-    if(button.innerText === "♡"){
-
-        button.innerText = "♥";
-
-        button.style.color =
-            "#ff3b81";
-
-
-        let saved =
-            JSON.parse(
-                localStorage
-                .getItem("favorites") || "[]"
-            );
-
-
-        if(!saved.includes(name)){
-
-            saved.push(name);
-
-        }
-
-
-        localStorage.setItem(
-            "favorites",
-            JSON.stringify(saved)
-        );
-
-
-        alert("Added to Favorites ❤️");
-
-    }
-
-    else{
-
-        button.innerText = "♡";
-
-        button.style.color =
-            "white";
-
-    }
-
-}
-
-
-/* ==================================================
-   SAVE ALL
-================================================== */
-
-function saveAll(){
-
-    localStorage.setItem(
-        "NameCraftNames",
-        JSON.stringify(names)
-    );
-
-
-    alert(
-        "Names saved successfully!"
-    );
-
-}
-
-
-/* ==================================================
-   ESCAPE
-================================================== */
-
-function escapeName(text){
-
-    return text
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'");
-
-}
-
-
-/* ==================================================
-   CATEGORY CLICK
-================================================== */
-
-let categories =
-    document.querySelectorAll(
-        ".category"
-    );
-
-
-categories.forEach(
-    function(category){
-
-        category.addEventListener(
-            "click",
-            function(){
-
-                categories.forEach(
-                    function(c){
-                        c.classList.remove(
-                            "active"
-                        );
-                    }
-                );
-
-
-                category.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-    }
-);
-
-
-/* ==================================================
-   START
-================================================== */
-
-display();
+});
 
 </script>
 
