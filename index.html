@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NameCraft - 500 Stylish Names</title>
+<title>NameCraft - Stylish Name Generator</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -18,76 +14,50 @@
     font-family:Arial,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:linear-gradient(
-        135deg,
-        #080b24,
-        #17104a,
-        #071b38
-    );
+    background:linear-gradient(135deg,#08001c,#150044,#050014);
     color:white;
     min-height:100vh;
 }
 
-/* NAVBAR */
-
 nav{
     width:100%;
-    padding:18px 6%;
+    padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,.45);
+    background:rgba(0,0,0,.35);
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:100;
+    backdrop-filter:blur(10px);
 }
 
 .logo{
     font-size:25px;
     font-weight:bold;
-    color:#9b8cff;
-}
-
-nav ul{
-    display:flex;
-    gap:22px;
-    list-style:none;
+    color:#b96cff;
 }
 
 nav a{
     color:white;
     text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
 }
-
-nav a:hover{
-    color:#9b8cff;
-}
-
-/* HERO */
 
 .hero{
     text-align:center;
-    padding:70px 20px 50px;
+    padding:70px 15px 40px;
 }
 
 .hero h1{
-    font-size:45px;
-    margin-bottom:15px;
+    font-size:42px;
+    margin-bottom:12px;
+}
 
-    background:
-    linear-gradient(
-        90deg,
-        #9d8cff,
-        #e38cff
-    );
-
-    -webkit-background-clip:text;
-    color:transparent;
+.hero h1 span{
+    color:#b96cff;
 }
 
 .hero p{
@@ -95,1125 +65,634 @@ nav a:hover{
     margin-bottom:30px;
 }
 
-.search-box{
+.searchBox{
     max-width:650px;
     margin:auto;
     display:flex;
     gap:10px;
 }
 
-.search-box input{
+.searchBox input{
     flex:1;
-    padding:17px;
-
-    border-radius:12px;
-    border:1px solid #ffffff30;
-
+    padding:16px;
+    border:none;
     outline:none;
-
-    background:#ffffff12;
-    color:white;
-
+    border-radius:12px;
     font-size:16px;
 }
 
-.search-box input::placeholder{
-    color:#aaa;
-}
-
-.search-box button{
-    padding:17px 25px;
-
+.searchBox button{
+    padding:0 25px;
     border:none;
     border-radius:12px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #765cff,
-        #b85cff
-    );
-
+    background:#8d35ff;
     color:white;
-    font-weight:bold;
-
+    font-size:16px;
     cursor:pointer;
 }
 
-/* CATEGORIES */
+.searchBox button:hover{
+    background:#a957ff;
+}
 
 .categories{
-    padding:30px 6%;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:30px auto;
+    padding:0 15px;
 }
 
-.categories h2,
-.results h2,
-.favorites h2,
-.about h2{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.category-grid{
-    max-width:1000px;
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-
-    gap:12px;
-}
-
-.category{
-    padding:18px 10px;
-
-    text-align:center;
-
-    background:#ffffff10;
-
-    border:1px solid #ffffff20;
-
-    border-radius:15px;
-
+.categories button{
+    padding:10px 18px;
+    border:1px solid #7135bd;
+    border-radius:20px;
+    background:#18052f;
+    color:white;
     cursor:pointer;
-
-    transition:.3s;
 }
 
-.category:hover{
-    transform:translateY(-4px);
-    background:#ffffff20;
+.categories button:hover{
+    background:#7135bd;
 }
 
-.category.active{
-    background:
-    linear-gradient(
-        135deg,
-        #765cff,
-        #b85cff
-    );
+#count{
+    text-align:center;
+    color:#aaa;
+    margin:20px;
 }
 
-/* RESULTS */
-
-.results{
-    padding:50px 6%;
-}
-
-.name-grid{
+.grid{
+    width:90%;
     max-width:1200px;
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:15px;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    padding-bottom:50px;
 }
 
-.name-card{
-    background:#ffffff0d;
-
-    border:1px solid #ffffff18;
-
+.card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
     border-radius:16px;
-
-    padding:20px;
-
-    min-height:155px;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    gap:10px;
-
+    padding:20px 12px;
+    text-align:center;
     transition:.3s;
 }
 
-.name-card:hover{
+.card:hover{
     transform:translateY(-5px);
-    border-color:#8d7aff;
-    box-shadow:0 10px 30px #0005;
+    border-color:#a64cff;
+    box-shadow:0 0 20px rgba(166,76,255,.25);
 }
 
-.name-number{
-    color:#777;
-    font-size:12px;
-}
-
-.styled-name{
-    text-align:center;
-
-    font-size:23px;
-
-    line-height:1.7;
-
-    word-break:break-word;
-
-    min-height:55px;
-
+.name{
+    min-height:65px;
     display:flex;
     justify-content:center;
     align-items:center;
+    font-size:25px;
+    word-break:break-word;
+    margin-bottom:15px;
 }
 
-/* COLORS */
-
-.color1{color:#ff7cff;}
-.color2{color:#7cbcff;}
-.color3{color:#7cffc4;}
-.color4{color:#ffe27c;}
-.color5{color:#ff8f8f;}
-.color6{color:#b58cff;}
-.color7{color:#8ffff0;}
-.color8{color:white;}
-.color9{color:#ffb76b;}
-.color10{color:#c7ff7c;}
-
-/* BUTTONS */
-
-.card-buttons{
+.buttons{
     display:flex;
     justify-content:center;
-    gap:10px;
+    gap:8px;
 }
 
-.card-buttons button{
-    width:45px;
-    height:38px;
-
+.buttons button{
     border:none;
-    border-radius:10px;
-
-    background:#ffffff15;
-
-    color:white;
-
-    font-size:18px;
-
+    border-radius:8px;
+    padding:8px 12px;
     cursor:pointer;
+    color:white;
+    background:#52209a;
 }
 
-.card-buttons button:hover{
-    background:#ffffff30;
+.buttons button:hover{
+    background:#793bd0;
 }
-
-/* FAVORITES */
-
-.favorites{
-    padding:60px 6%;
-}
-
-.favorite-list{
-    max-width:800px;
-    margin:auto;
-}
-
-.favorite-item{
-    padding:15px;
-
-    margin:10px 0;
-
-    background:#ffffff10;
-
-    border-radius:12px;
-
-    text-align:center;
-
-    word-break:break-word;
-}
-
-.empty{
-    text-align:center;
-    color:#999;
-}
-
-/* ABOUT */
-
-.about{
-    max-width:800px;
-
-    margin:auto;
-
-    padding:60px 20px;
-
-    text-align:center;
-}
-
-.about p{
-    color:#bbb;
-    line-height:1.7;
-}
-
-/* FOOTER */
 
 footer{
-    margin-top:40px;
-
-    padding:25px;
-
     text-align:center;
-
+    padding:25px;
+    background:rgba(0,0,0,.3);
     color:#999;
-
-    background:#0005;
 }
 
-/* MOBILE */
+/* Different styles */
+
+.s1{font-family:Georgia,serif;font-weight:bold}
+.s2{font-family:"Courier New",monospace;font-weight:bold}
+.s3{font-family:Impact,sans-serif;letter-spacing:2px}
+.s4{font-family:cursive;font-weight:bold}
+.s5{font-family:Trebuchet MS,sans-serif;font-style:italic;font-weight:bold}
+.s6{font-family:Arial Black,sans-serif}
+.s7{font-family:Verdana,sans-serif;letter-spacing:3px}
+.s8{font-family:serif;font-style:italic}
+.s9{font-family:monospace;letter-spacing:2px}
+.s10{font-family:Tahoma,sans-serif;font-weight:bold}
 
 @media(max-width:900px){
-
-    .name-grid{
+    .grid{
         grid-template-columns:repeat(2,1fr);
-    }
-
-    .category-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
-
-@media(max-width:600px){
-
-    nav{
-        padding:15px;
-    }
-
-    nav ul{
-        gap:10px;
-    }
-
-    nav a{
-        font-size:12px;
-    }
-
-    .hero{
-        padding:50px 15px;
     }
 
     .hero h1{
         font-size:34px;
     }
+}
 
-    .search-box{
+@media(max-width:500px){
+    nav{
+        padding:15px;
+    }
+
+    nav a{
+        margin-left:8px;
+        font-size:12px;
+    }
+
+    .searchBox{
         flex-direction:column;
     }
 
-    .search-box button{
-        width:100%;
+    .searchBox button{
+        padding:14px;
     }
 
-    .category-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .name-grid{
+    .grid{
         grid-template-columns:1fr;
+        width:92%;
     }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- NAVBAR -->
-
 <nav>
+    <div class="logo">NameCraft</div>
 
-<div class="logo">
-NameCraft
-</div>
-
-<ul>
-
-<li>
-<a href="#home">Home</a>
-</li>
-
-<li>
-<a href="#styles">Styles</a>
-</li>
-
-<li>
-<a href="#favorites">Favorites</a>
-</li>
-
-<li>
-<a href="#about">About</a>
-</li>
-
-</ul>
-
+    <div>
+        <a href="#home">Home</a>
+        <a href="#styles">Styles</a>
+        <a href="#about">About</a>
+    </div>
 </nav>
-
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
-<h1>
-500 Stylish Names
-</h1>
+    <h1>Stylish <span>Name Generator</span></h1>
 
-<p>
-500 different names with different fonts and designs.
-</p>
+    <p>Create beautiful stylish names for Gaming, Instagram, YouTube & more.</p>
 
-<div class="search-box">
+    <div class="searchBox">
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter your name..."
+        >
 
-<input
-id="searchInput"
-type="text"
-placeholder="Search name..."
-autocomplete="off"
->
-
-<button onclick="searchNames()">
-Search
-</button>
-
-</div>
+        <button onclick="generateNames()">
+            Generate
+        </button>
+    </div>
 
 </section>
 
+<div class="categories" id="styles">
 
-<!-- CATEGORIES -->
-
-<section class="categories" id="styles">
-
-<h2>
-Choose Category
-</h2>
-
-<div class="category-grid">
-
-<div
-class="category active"
-onclick="filterNames('all',this)">
-✨ All
-</div>
-
-<div
-class="category"
-onclick="filterNames('gaming',this)">
-🎮 Gaming
-</div>
-
-<div
-class="category"
-onclick="filterNames('cool',this)">
-😎 Cool
-</div>
-
-<div
-class="category"
-onclick="filterNames('royal',this)">
-👑 Royal
-</div>
-
-<div
-class="category"
-onclick="filterNames('fire',this)">
-🔥 Fire
-</div>
-
-<div
-class="category"
-onclick="filterNames('love',this)">
-❤️ Love
-</div>
+    <button onclick="showAll()">All</button>
+    <button onclick="generateCategory('Gaming')">Gaming</button>
+    <button onclick="generateCategory('Cool')">Cool</button>
+    <button onclick="generateCategory('Royal')">Royal</button>
+    <button onclick="generateCategory('Fire')">Fire</button>
+    <button onclick="generateCategory('Love')">Love</button>
+    <button onclick="generateCategory('Danger')">Danger</button>
 
 </div>
 
+<div id="count">500 Stylish Names</div>
+
+<div class="grid" id="nameGrid"></div>
+
+<section id="about" style="text-align:center;padding:50px 20px;">
+    <h2>About NameCraft</h2>
+    <p style="color:#aaa;margin-top:12px;">
+        NameCraft helps you create stylish names for gaming,
+        social media, YouTube and more.
+    </p>
 </section>
-
-
-<!-- RESULTS -->
-
-<section class="results">
-
-<h2 id="resultTitle">
-500 Different Stylish Names
-</h2>
-
-<div
-class="name-grid"
-id="nameGrid">
-</div>
-
-</section>
-
-
-<!-- FAVORITES -->
-
-<section
-class="favorites"
-id="favorites">
-
-<h2>
-❤️ Favorites
-</h2>
-
-<div
-class="favorite-list"
-id="favoriteList">
-
-<p class="empty">
-Your favorite names will appear here.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section
-class="about"
-id="about">
-
-<h2>
-About NameCraft
-</h2>
-
-<p>
-NameCraft gives you 500 different names
-with different stylish fonts and designs
-for gaming, Instagram, social media and
-profiles.
-</p>
-
-</section>
-
 
 <footer>
-
-© 2026 NameCraft | 500 Stylish Names
-
+    © 2026 NameCraft | Stylish Name Generator
 </footer>
 
 
 <script>
 
-/* =========================================
+/* =========================
    500 DIFFERENT NAMES
-========================================= */
+========================= */
 
 const names = [
+"Aarav","Aadi","Aakash","Aarush","Abhay","Abhinav","Abhishek","Adarsh","Aditya","Advait",
+"Agastya","Ajay","Akash","Akhil","Akshay","Alok","Aman","Amar","Amit","Aniket",
+"Anil","Anirudh","Ankit","Anmol","Ansh","Anshul","Arjun","Arnav","Arpit","Aryan",
+"Ashish","Atharv","Ayush","Bharat","Bhavesh","Bhavin","Bhupendra","Chetan","Chirag","Daksh",
+"Darshan","Deepak","Dev","Devansh","Dhananjay","Dhruv","Dinesh","Divyansh","Gaurav","Gautam",
+"Girish","Govind","Harish","Harshit","Harsh","Himanshu","Hitesh","Hrithik","Ishan","Ishaan",
+"Jagdish","Jatin","Jay","Jayesh","Jitesh","Kailash","Karan","Kartik","Kartikeya","Keshav",
+"Kiran","Krishna","Kunal","Lakshya","Lalit","Lokesh","Madhav","Manish","Manoj","Mayank",
+"Mohit","Mukul","Naman","Nandish","Naveen","Navneet","Neeraj","Nikhil","Nilesh","Niraj",
+"Nitin","Om","Omkar","Pankaj","Parth","Piyush","Pradeep","Pranav","Pratik","Prem",
+"Rahul","Raj","Rajat","Rajeev","Rajesh","Rakesh","Raman","Ramesh","Ravi","Rishabh",
+"Rishi","Ritesh","Ritvik","Rohan","Rohit","Ronit","Roshan","Sachin","Sahil","Sameer",
+"Samir","Sanjay","Sanket","Sarthak","Shashank","Shiv","Shivam","Shrey","Shreyansh","Siddharth",
+"Simranjit","Soham","Sonu","Sourabh","Sourav","Srinivas","Sumit","Sunny","Suraj","Suresh",
+"Tanish","Tanishq","Tanmay","Tarun","Tejas","Uday","Ujjwal","Utkarsh","Varun","Ved",
+"Vedant","Veer","Vikas","Vikash","Vikram","Vimal","Vineet","Vinay","Vishal","Vivek",
+"Yash","Yashraj","Yogesh","Zaid","Zayan","Aanya","Aaradhya","Aadhya","Aashi","Aashika",
+"Aastha","Aditi","Ahana","Akanksha","Akshara","Alia","Alisha","Amisha","Amrita","Ananya",
+"Anika","Anisha","Anjali","Ankita","Anushka","Anvi","Aradhya","Arpita","Arya","Ashima",
+"Ashwini","Avani","Avantika","Bhavna","Bhumika","Chahat","Charu","Diya","Eesha","Ekta",
+"Elina","Garima","Gauri","Geetika","Isha","Ishita","Jahnavi","Janhvi","Jiya","Juhi",
+"Kajal","Kangana","Kashish","Kavita","Khushi","Kirti","Komal","Kriti","Lakshmi","Lavanya",
+"Mahima","Mahi","Mansi","Meera","Mehak","Mitali","Muskan","Naina","Nandini","Navya",
+"Neha","Nidhi","Nikita","Nisha","Nitya","Palak","Pallavi","Pooja","Prachi","Preeti",
+"Priya","Priyanka","Radhika","Ragini","Riya","Roshni","Ruhi","Sakshi","Saloni","Sana",
+"Sanaya","Sanjana","Sapna","Sara","Sanya","Shalini","Shanaya","Shikha","Shivani","Shraddha",
+"Simran","Sneha","Sonali","Sonia","Srishti","Supriya","Swati","Tanisha","Tanya","Trisha",
+"Twinkle","Vaishnavi","Vandana","Varsha","Vidhi","Vijaya","Vini","Yamini","Zara","Zoya",
 
-"Aarav","Aakash","Aadi","Aahan","Aarush",
-"Aayush","Abhay","Abhishek","Adarsh","Aditya",
-"Advait","Agastya","Ajay","Ajit","Akash",
-"Akshay","Aman","Amar","Amit","Anand",
-"Aniket","Anil","Anirudh","Ankit","Anmol",
-"Ansh","Anshul","Anuj","Anup","Arjun",
-"Armaan","Aryan","Ashish","Ashok","Atul",
-"Avinash","Ayush","Bharat","Bhavesh","Chandan",
-"Chetan","Daksh","Danish","Darshan","Deepak",
-"Dev","Devansh","Dhanraj","Dhruv","Dinesh",
+"DarkHunter","ShadowKing","NightWolf","FireDragon","GhostRider","SilentKiller","DeathWish","DarkKnight","BlackStorm","RedDevil",
+"AlphaWolf","LoneWolf","RoyalKing","KingSlayer","GameMaster","ProPlayer","HeadHunter","SniperKing","CrazyGamer","LegendGamer",
+"GamingBeast","BattleKing","WarriorX","DragonX","VenomX","ToxicBoy","ToxicGirl","SavageKing","SavageQueen","Fearless",
+"DeadShot","QuickShot","OneTap","RushMaster","ClutchKing","GodMode","NoMercy","DarkAngel","DarkQueen","DarkPrince",
+"DarkPrincess","ShadowHunter","GhostHunter","NightHunter","FireKing","FireQueen","IceKing","IceQueen","StormBreaker","ThunderKing",
+"ThunderGod","LightningX","BlazeKing","InfernoX","FlameBoy","FlameGirl","RoyalPrince","RoyalPrincess","CrownKing","CrownQueen",
+"KingOfGame","QueenOfGame","GameChanger","GameLegend","UltimateX","PowerKing","PowerQueen","WarLord","BattleLord","WarMachine",
+"CyberKing","CyberQueen","CyberWolf","CyberGhost","TechKing","TechWizard","CodeMaster","CodeKing","CodeQueen","DevMaster",
+"WebWizard","AppMaster","PythonKing","JavaMaster","CodeWarrior","DigitalKing","PixelKing","PixelQueen","ByteKing","ByteWizard",
+"AlphaKing","AlphaQueen","OmegaKing","OmegaQueen","TitanKing","TitanQueen","MegaKing","MegaQueen","SuperKing","SuperQueen",
 
-"Divyansh","Eshan","Farhan","Gaurav","Girish",
-"Gopal","Harish","Harsh","Harshit","Himanshu",
-"Hrithik","Ishan","Ishaan","Ishwar","Jatin",
-"Jay","Jai","Karan","Kartik","Kartikeya",
-"Keshav","Kunal","Laksh","Lakshay","Lalit",
-"Lokesh","Madhav","Manish","Manoj","Mayank",
-"Mihir","Mohit","Moksh","Monty","Monu",
-"Naman","Naveen","Navneet","Neeraj","Nikhil",
-"Nilesh","Nirav","Nishant","Nitin","Om",
-"Omkar","Pankaj","Parth","Pradeep","Pranav",
+"LoveKing","LoveQueen","LoveBoy","LoveGirl","HeartKing","HeartQueen","SweetBoy","SweetGirl","CuteKing","CuteQueen",
+"LovelyBoy","LovelyGirl","AngelBoy","AngelGirl","DreamBoy","DreamGirl","PrinceHeart","PrincessHeart","TrueLove","ForeverLove",
+"LoveStar","HeartBeat","SoulMate","LoveBird","RomanticKing","RomanticQueen","HappySoul","SweetSoul","PureHeart","GoldenHeart",
 
-"Prashant","Prateek","Prem","Rahul","Raj",
-"Rajat","Rajeev","Rajesh","Rajiv","Rakesh",
-"Raman","Ramesh","Ranbir","Ranveer","Ravi",
-"Ravindra","Rishabh","Rishi","Ritesh","Ritvik",
-"Rohan","Rohit","Ronit","Roshan","Sachin",
-"Sahil","Samarth","Sameer","Samar","Sanjay",
-"Sanjeev","Sarthak","Satish","Shaurya","Shiv",
-"Shiva","Shivam","Shivansh","Shrey","Shreyas",
-"Shubham","Siddhant","Siddharth","Sohan","Sonu",
-"Sourabh","Sumit","Suraj","Suresh","Tanish",
+"FireBoy","FireGirl","FireLord","FireLady","FireWarrior","FireStorm","FireStar","FirePower","FireShot","FireRush",
+"DangerBoy","DangerGirl","DangerKing","DangerQueen","DangerZone","DangerX","RiskTaker","FearKing","FearQueen","FearLess",
+"Destroyer","DestroyerX","KillerX","KillerKing","KillerQueen","DeathKing","DeathQueen","DeadlyX","DeadlyKing","DeadlyQueen",
 
-"Tanishq","Tarun","Tejas","Uday","Utkarsh",
-"Varun","Ved","Vedant","Veer","Vicky",
-"Vijay","Vikas","Vikram","Vimal","Vineet",
-"Vinay","Vishal","Vishnu","Yash","Yashraj",
-"Yogesh","Zaid","Aanya","Aaradhya","Aashi",
-"Aastha","Aditi","Ahana","Akanksha","Akshara",
-"Alisha","Alka","Amisha","Amrita","Ananya",
-"Anika","Anisha","Anjali","Ankita","Anshika",
-"Anushka","Apoorva","Aradhya","Arpita","Aruhi",
-"Ashima","Asmita","Avani","Avantika","Ayushi",
+"CoolBoy","CoolGirl","CoolKing","CoolQueen","CoolDude","CoolGirlX","MrCool","MissCool","CoolStar","CoolLegend",
+"RoyalBoy","RoyalGirl","RoyalX","RoyalStar","RoyalLegend","RoyalHero","RoyalQueenX","RoyalKingX","RoyalSoul","RoyalBlood",
 
-"Bhavna","Bhumika","Charu","Diya","Divya",
-"Ekta","Esha","Garima","Gauri","Geetika",
-"Isha","Ishita","Jahnavi","Jiya","Jyoti",
-"Kajal","Kalpana","Kangana","Kashish","Kavita",
-"Khushi","Kirti","Komal","Kritika","Lakshmi",
-"Lavanya","Madhuri","Mahima","Mahi","Mansi",
-"Meera","Muskan","Naina","Nandini","Navya",
-"Neha","Nehal","Nidhi","Nikita","Nisha",
-"Pallavi","Palak","Pari","Pooja","Prachi",
-"Pragya","Pranjal","Preeti","Priya","Radhika",
-
-"Ragini","Riya","Roshni","Rupali","Sakshi",
-"Saloni","Samaira","Sana","Sanchi","Sanya",
-"Sarika","Shalini","Shanaya","Shivani","Shraddha",
-"Shreya","Sneha","Sonali","Sonam","Srishti",
-"Swati","Tanisha","Tanya","Tara","Trisha",
-"Vaishnavi","Vani","Varsha","Vasudha","Vidhi",
-"Vijaya","Vrinda","Yamini","Yashika","Zara",
-
-"Alpha","Legend","King","Queen","Warrior",
-"Shadow","Hunter","Sniper","Killer","Ninja",
-"Dragon","Phoenix","Falcon","Wolf","Tiger",
-"Lion","Eagle","Storm","Thunder","Blaze",
-"Flame","Inferno","Venom","Ghost","Demon",
-"Angel","Devil","Titan","Spartan","Samurai",
-"Viper","Reaper","Ranger","Soldier","Captain",
-"Master","Boss","Chief","Leader","Champion",
-"Hero","Villain","Wizard","Knight","Prince",
-"Princess","Emperor","Empress","Maverick","Rocker",
-
-"Rider","Gamer","Player","Pro","God",
-"Godfather","Don","Kingdom","Royal","Crown",
-"Power","Beast","Monster","Destroyer","Avenger",
-"Batman","Superman","Joker","Flash","Thor",
-"Loki","Hulk","VenomX","GhostX","ShadowX",
-"FireX","DarkX","NightX","StarX","MoonX",
-"SkyX","IceX","StormX","ThunderX","BlazeX",
-"LegendX","KingX","AlphaX","WolfX","DragonX",
-"NinjaX","SniperX","HunterX","WarriorX","ChampionX",
-
-"MasterX","BossX","ProX","GamerX","PlayerX",
-"HeroX","DemonX","AngelX","TitanX","SpartanX",
-"RoyalX","CrownX","PowerX","BeastX","MonsterX",
-"AvengerX","RangerX","KnightX","PrinceX","EmperorX",
-"CoolBoy","CoolGirl","BadBoy","BadGirl","SweetBoy",
-"SweetGirl","CuteBoy","CuteGirl","SmartBoy","SmartGirl",
-"CrazyBoy","CrazyGirl","LovelyBoy","LovelyGirl","SilentBoy",
-"SilentGirl","DarkBoy","DarkGirl","FireBoy","FireGirl",
-"KingBoy","QueenGirl","RoyalBoy","RoyalGirl","GamingBoy",
-"GamingGirl","ProBoy","ProGirl","StarBoy","StarGirl",
-
-"MoonBoy","MoonGirl","DreamBoy","DreamGirl","LuckyBoy",
-"LuckyGirl","HappyBoy","HappyGirl","BraveBoy","BraveGirl",
-"StrongBoy","StrongGirl","MagicBoy","MagicGirl","RockBoy",
-"RockGirl","MusicBoy","MusicGirl","TechBoy","TechGirl",
-"CyberBoy","CyberGirl","FutureBoy","FutureGirl","Dreamer",
-"Explorer","Adventurer","Creator","Designer","Coder",
-"Developer","Programmer","Genius","MasterMind","TechKing",
-"TechQueen","CodeKing","CodeQueen","WebKing","WebQueen",
-"AppKing","AppQueen","DigitalKing","DigitalQueen","CyberKing",
-"CyberQueen","PixelKing","PixelQueen","GameKing","GameQueen",
-
-"StarKing","StarQueen","NightKing","NightQueen","SkyKing",
-"SkyQueen","FireKing","FireQueen","IceKing","DarkKing",
-"DarkQueen","MoonKing","MoonQueen","Legendary","Ultimate",
-"Infinity","Eternal","Fearless","Limitless","Powerful",
-"FearlessX","InfiniteX","UltimateX","LegendaryX","CyberLord",
-"GameLord","DarkLord","FireLord","ShadowLord","KingLord",
-"QueenLord","AlphaLord","DragonLord","WolfLord","NightLord",
-"StormLord","ThunderLord","IceLord","SkyLord","StarLord",
-"RoyalLord","GamingLord","ProLord","MasterLord","LegendLord"
-
+"LegendBoy","LegendGirl","LegendX","LegendKing","LegendQueen","LegendPro","MasterBoy","MasterGirl","MasterX","MasterKing",
+"MasterQueen","ProBoy","ProGirl","ProKing","ProQueen","ProX","ChampionX","ChampionKing","ChampionQueen","VictoryKing"
 ];
 
 
-/* =========================================
-   FONT MAPS
-========================================= */
-
-const font1 = {
-a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",f:"𝐟",
-g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",k:"𝐤",l:"𝐥",
-m:"𝐦",n:"𝐧",o:"𝐨",p:"𝐩",q:"𝐪",r:"𝐫",
-s:"𝐬",t:"𝐭",u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",
-y:"𝐲",z:"𝐳"
-};
-
-const font2 = {
-a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",f:"𝑓",
-g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",k:"𝑘",l:"𝑙",
-m:"𝑚",n:"𝑛",o:"𝑜",p:"𝑝",q:"𝑞",r:"𝑟",
-s:"𝑠",t:"𝑡",u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",
-y:"𝑦",z:"𝑧"
-};
-
-const font3 = {
-a:"𝒂",b:"𝒃",c:"𝒄",d:"𝒅",e:"𝒆",f:"𝒇",
-g:"𝒈",h:"𝒉",i:"𝒊",j:"𝒋",k:"𝒌",l:"𝒍",
-m:"𝒎",n:"𝒏",o:"𝒐",p:"𝒑",q:"𝒒",r:"𝒓",
-s:"𝒔",t:"𝒕",u:"𝒖",v:"𝒗",w:"𝒘",x:"𝒙",
-y:"𝒚",z:"𝒛"
-};
-
-const font4 = {
-a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"ℯ",f:"𝒻",
-g:"ℊ",h:"𝒽",i:"𝒾",j:"𝒿",k:"𝓀",l:"𝓁",
-m:"𝓂",n:"𝓃",o:"ℴ",p:"𝓅",q:"𝓆",r:"𝓇",
-s:"𝓈",t:"𝓉",u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",
-y:"𝓎",z:"𝓏"
-};
-
-const font5 = {
-a:"𝔞",b:"𝔟",c:"𝔠",d:"𝔡",e:"𝔢",f:"𝔣",
-g:"𝔤",h:"𝔥",i:"𝔦",j:"𝔧",k:"𝔨",l:"𝔩",
-m:"𝔪",n:"𝔫",o:"𝔬",p:"𝔭",q:"𝔮",r:"𝔯",
-s:"𝔰",t:"𝔱",u:"𝔲",v:"𝔳",w:"𝔴",x:"𝔵",
-y:"𝔶",z:"𝔷"
-};
-
-const font6 = {
-a:"𝕒",b:"𝕓",c:"𝕔",d:"𝕕",e:"𝕖",f:"𝕗",
-g:"𝕘",h:"𝕙",i:"𝕚",j:"𝕛",k:"𝕜",l:"𝕝",
-m:"𝕞",n:"𝕟",o:"𝕠",p:"𝕡",q:"𝕢",r:"𝕣",
-s:"𝕤",t:"𝕥",u:"𝕦",v:"𝕧",w:"𝕨",x:"𝕩",
-y:"𝕪",z:"𝕫"
-};
-
-const font7 = {
-a:"𝚊",b:"𝚋",c:"𝚌",d:"𝚍",e:"𝚎",f:"𝚏",
-g:"𝚐",h:"𝚑",i:"𝚒",j:"𝚓",k:"𝚔",l:"𝚕",
-m:"𝚖",n:"𝚗",o:"𝚘",p:"𝚙",q:"𝚚",r:"𝚛",
-s:"𝚜",t:"𝚝",u:"𝚞",v:"𝚟",w:"𝚠",x:"𝚡",
-y:"𝚢",z:"𝚣"
-};
-
-const font8 = {
-a:"𝗮",b:"𝗯",c:"𝗰",d:"𝗱",e:"𝗲",f:"𝗳",
-g:"𝗴",h:"𝗵",i:"𝗶",j:"𝗷",k:"𝗸",l:"𝗹",
-m:"𝗺",n:"𝗻",o:"𝗼",p:"𝗽",q:"𝗾",r:"𝗿",
-s:"𝘀",t:"𝘁",u:"𝘂",v:"𝘃",w:"𝘄",x:"𝘅",
-y:"𝘆",z:"𝘇"
-};
-
-const font9 = {
-a:"𝘢",b:"𝘣",c:"𝘤",d:"𝘥",e:"𝘦",f:"𝘧",
-g:"𝘨",h:"𝘩",i:"𝘪",j:"𝘫",k:"𝘬",l:"𝘭",
-m:"𝘮",n:"𝘯",o:"𝘰",p:"𝘱",q:"𝘲",r:"𝘳",
-s:"𝘴",t:"𝘵",u:"𝘶",v:"𝘷",w:"𝘸",x:"𝘹",
-y:"𝘺",z:"𝘻"
-};
-
-const font10 = {
-a:"𝙖",b:"𝙗",c:"𝙘",d:"𝙙",e:"𝙚",f:"𝙛",
-g:"𝙜",h:"𝙝",i:"𝙞",j:"𝙟",k:"𝙠",l:"𝙡",
-m:"𝙢",n:"𝙣",o:"𝙤",p:"𝙥",q:"𝙦",r:"𝙧",
-s:"𝙨",t:"𝙩",u:"𝙪",v:"𝙫",w:"𝙬",x:"𝙭",
-y:"𝙮",z:"𝙯"
-};
-
-
-/* =========================================
-   ALL FONTS
-========================================= */
-
-const fonts = [
-    font1,
-    font2,
-    font3,
-    font4,
-    font5,
-    font6,
-    font7,
-    font8,
-    font9,
-    font10
-];
-
-
-/* =========================================
-   DESIGNS
-========================================= */
+/* =========================
+   STYLE DESIGNS
+========================= */
 
 const designs = [
-
-"꧁༺ {NAME} ༻꧂",
-"꧁༒ {NAME} ༒꧂",
-"꧁ {NAME} ꧂",
-"『 {NAME} 』",
-"【 {NAME} 】",
-"《 {NAME} 》",
-"〈 {NAME} 〉",
-"〔 {NAME} 〕",
-"〘 {NAME} 〙",
-"〚 {NAME} 〛",
-
-"乂 {NAME} 乂",
-"亗 {NAME} 亗",
-"★彡 {NAME} 彡★",
-"✦ {NAME} ✦",
-"✧ {NAME} ✧",
-"✯ {NAME} ✯",
-"✰ {NAME} ✰",
-"❖ {NAME} ❖",
-"◇ {NAME} ◇",
-"◆ {NAME} ◆",
-
-"♛ {NAME} ♛",
-"♕ {NAME} ♕",
-"♚ {NAME} ♚",
-"☠ {NAME} ☠",
-"⚡ {NAME} ⚡",
-"🔥 {NAME} 🔥",
-"☬ {NAME} ☬",
-"༒ {NAME} ༒",
-"⚔ {NAME} ⚔",
-"☯ {NAME} ☯",
-
-"👑 {NAME} 👑",
-"💎 {NAME} 💎",
-"😈 {NAME} 😈",
-"🐉 {NAME} 🐉",
-"🦅 {NAME} 🦅",
-"🐺 {NAME} 🐺",
-"🚀 {NAME} 🚀",
-"🎮 {NAME} 🎮",
-"🏆 {NAME} 🏆",
-"💀 {NAME} 💀",
-
-"❤️ {NAME} ❤️",
-"🖤 {NAME} 🖤",
-"💜 {NAME} 💜",
-"💙 {NAME} 💙",
-"🌟 {NAME} 🌟",
-"🌙 {NAME} 🌙",
-"☀️ {NAME} ☀️",
-"⚜ {NAME} ⚜",
-"×͜× {NAME} ×͜×",
-"乂× {NAME} ×乂"
-
+"꧁༺ NAME ༻꧂",
+"꧁ঔৣ☬ NAME ☬ঔৣ꧂",
+"『 NAME 』",
+"【 NAME 】",
+"乂 NAME 乂",
+"亗 NAME 亗",
+"么 NAME 么",
+"メ NAME メ",
+"彡 NAME 彡",
+"ツ NAME ツ",
+"★彡 NAME 彡★",
+"✦ NAME ✦",
+"✧ NAME ✧",
+"★ NAME ★",
+"☆ NAME ☆",
+"⚡ NAME ⚡",
+"☠ NAME ☠",
+"♛ NAME ♛",
+"♕ NAME ♕",
+"♡ NAME ♡",
+"♥ NAME ♥",
+"❥ NAME ❥",
+"☯ NAME ☯",
+"☬ NAME ☬",
+"⚔ NAME ⚔",
+"⚡『 NAME 』⚡",
+"🔥 NAME 🔥",
+"💀 NAME 💀",
+"👑 NAME 👑",
+"❤️ NAME ❤️",
+"❄ NAME ❄",
+"☾ NAME ☽",
+"☀ NAME ☀",
+"✰ NAME ✰",
+"✪ NAME ✪",
+"✯ NAME ✯",
+"✵ NAME ✵",
+"✺ NAME ✺",
+"➳ NAME ➳",
+"➵ NAME ➵",
+"➤ NAME ➤",
+"➹ NAME ➹",
+"༒ NAME ༒",
+"࿐ NAME ࿐",
+"༺ NAME ༻",
+"༻ NAME ༺",
+"╰┈➤ NAME",
+"➤ NAME ♡",
+"♚ NAME ♚"
 ];
 
 
-/* =========================================
-   FAVORITES
-========================================= */
+/* =========================
+   FONT STYLES
+========================= */
 
-let favorites =
-JSON.parse(
-localStorage.getItem(
-"namecraftFavorites"
-)
-) || [];
+const fontClasses = [
+"s1","s2","s3","s4","s5",
+"s6","s7","s8","s9","s10"
+];
 
 
-/* =========================================
-   CONVERT FONT
-========================================= */
+/* =========================
+   CATEGORY DATA
+========================= */
 
-function convertFont(
-text,
-font
-){
+const categories = {
+    Gaming: [
+        "Gaming","Gamer","King","Queen","Player","Hunter",
+        "Sniper","Battle","Game","Warrior","Killer","Master"
+    ],
 
-    return text
-    .toLowerCase()
-    .split("")
-    .map(
-        function(char){
+    Cool: [
+        "Cool","Legend","Pro","Star","Hero","Champion",
+        "Master","X"
+    ],
 
-            return font[char] || char;
+    Royal: [
+        "Royal","King","Queen","Prince","Princess",
+        "Crown","Lord","Lady"
+    ],
 
-        }
-    )
-    .join("");
+    Fire: [
+        "Fire","Flame","Blaze","Inferno","Thunder","Lightning"
+    ],
 
-}
+    Love: [
+        "Love","Heart","Sweet","Cute","Lovely","Angel",
+        "Dream","Soul"
+    ],
+
+    Danger: [
+        "Danger","Killer","Death","Deadly","Destroyer",
+        "Savage","Fear","Risk"
+    ]
+};
 
 
-/* =========================================
-   MAKE STYLE
-========================================= */
+/* =========================
+   MAIN DISPLAY
+========================= */
 
-function makeStyle(
-name,
-index
-){
+const grid = document.getElementById("nameGrid");
 
-    const font =
-    fonts[
-        index % fonts.length
-    ];
+function createCard(name,index){
 
     const design =
-    designs[
-        index % designs.length
-    ];
+        designs[index % designs.length];
 
-    const fontName =
-    convertFont(
-        name,
-        font
-    );
+    const font =
+        fontClasses[index % fontClasses.length];
 
-    return design.replace(
-        "{NAME}",
-        fontName
-    );
+    const styledName =
+        design.replace("NAME",name);
 
+    const card =
+        document.createElement("div");
+
+    card.className="card";
+
+    card.innerHTML=`
+
+        <div class="name ${font}">
+            ${styledName}
+        </div>
+
+        <div class="buttons">
+
+            <button onclick="copyName(this)">
+                Copy
+            </button>
+
+            <button onclick="favoriteName(this)">
+                ♡
+            </button>
+
+        </div>
+    `;
+
+    return card;
 }
 
 
-/* =========================================
-   DISPLAY
-========================================= */
+function displayNames(list){
 
-function displayNames(
-list
-){
+    grid.innerHTML="";
 
-    const grid =
-    document.getElementById(
-        "nameGrid"
-    );
+    list.forEach((name,index)=>{
 
-    grid.innerHTML = "";
-
-
-    list.forEach(
-    function(name,index){
-
-        const card =
-        document.createElement(
-            "div"
+        grid.appendChild(
+            createCard(name,index)
         );
-
-        card.className =
-        "name-card";
-
-
-        const number =
-        document.createElement(
-            "div"
-        );
-
-        number.className =
-        "name-number";
-
-        number.textContent =
-        "#" +
-        (index + 1);
-
-
-        const styled =
-        document.createElement(
-            "div"
-        );
-
-        styled.className =
-        "styled-name color" +
-        ((index % 10) + 1);
-
-        styled.textContent =
-        makeStyle(
-            name,
-            index
-        );
-
-
-        const buttons =
-        document.createElement(
-            "div"
-        );
-
-        buttons.className =
-        "card-buttons";
-
-
-        const copy =
-        document.createElement(
-            "button"
-        );
-
-        copy.textContent =
-        "📋";
-
-        copy.onclick =
-        function(){
-
-            copyName(
-                styled.textContent
-            );
-
-        };
-
-
-        const fav =
-        document.createElement(
-            "button"
-        );
-
-        fav.textContent =
-        favorites.includes(name)
-        ? "❤️"
-        : "♡";
-
-        fav.onclick =
-        function(){
-
-            toggleFavorite(
-                name,
-                fav
-            );
-
-        };
-
-
-        buttons.appendChild(copy);
-
-        buttons.appendChild(fav);
-
-
-        card.appendChild(number);
-
-        card.appendChild(styled);
-
-        card.appendChild(buttons);
-
-
-        grid.appendChild(card);
 
     });
 
+    document.getElementById("count").innerText =
+        list.length + " Stylish Names";
 }
 
 
-/* =========================================
-   SEARCH
-========================================= */
+/* =========================
+   GENERATE
+========================= */
 
-function searchNames(){
+function generateNames(){
 
-    const value =
-    document.getElementById(
-        "searchInput"
-    ).value
-    .trim()
-    .toLowerCase();
+    const input =
+        document.getElementById("nameInput")
+        .value
+        .trim();
 
+    if(input===""){
 
-    if(!value){
-
-        displayNames(names);
-
-        document.getElementById(
-            "resultTitle"
-        ).textContent =
-        "500 Different Stylish Names";
+        alert("Please enter your name!");
 
         return;
-
     }
 
+    const result=[];
 
-    const result =
-    names.filter(
-    function(name){
+    for(let i=0;i<500;i++){
 
-        return name
-        .toLowerCase()
-        .includes(value);
+        result.push(input);
 
-    });
-
+    }
 
     displayNames(result);
+}
 
 
-    document.getElementById(
-        "resultTitle"
-    ).textContent =
-    result.length +
-    " Names Found";
+/* =========================
+   SHOW ALL
+========================= */
+
+function showAll(){
+
+    displayNames(names);
 
 }
 
 
-/* =========================================
+/* =========================
+   CATEGORY
+========================= */
+
+function generateCategory(category){
+
+    const words =
+        categories[category];
+
+    const result =
+        names.filter(name=>{
+
+            return words.some(word=>
+                name.toLowerCase()
+                .includes(word.toLowerCase())
+            );
+
+        });
+
+    if(result.length===0){
+
+        alert(
+            "Is category ke names abhi available nahi hain."
+        );
+
+        return;
+    }
+
+    displayNames(result);
+}
+
+
+/* =========================
    COPY
-========================================= */
+========================= */
 
-function copyName(text){
+function copyName(button){
 
-    navigator.clipboard
-    .writeText(text)
-    .then(
-    function(){
+    const text =
+        button
+        .parentElement
+        .previousElementSibling
+        .innerText;
 
-        alert(
-            "Copied! ✅"
-        );
+    if(navigator.clipboard){
 
-    })
-    .catch(
-    function(){
+        navigator.clipboard.writeText(text)
+        .then(()=>{
 
-        const area =
-        document.createElement(
-            "textarea"
-        );
+            button.innerText="Copied!";
 
-        area.value =
-        text;
+            setTimeout(()=>{
 
-        document.body.appendChild(
-            area
-        );
+                button.innerText="Copy";
 
-        area.select();
+            },1200);
 
-        document.execCommand(
-            "copy"
-        );
+        });
 
-        document.body.removeChild(
-            area
-        );
+    }else{
 
-        alert(
-            "Copied! ✅"
-        );
+        const temp =
+            document.createElement("textarea");
 
-    });
+        temp.value=text;
 
-}
+        document.body.appendChild(temp);
 
+        temp.select();
 
-/* =========================================
-   FAVORITE
-========================================= */
+        document.execCommand("copy");
 
-function toggleFavorite(
-    name,
-    button
-){
+        temp.remove();
 
-    const index =
-    favorites.indexOf(name);
+        button.innerText="Copied!";
 
+        setTimeout(()=>{
 
-    if(index === -1){
+            button.innerText="Copy";
 
-        favorites.push(name);
-
-        button.textContent =
-        "❤️";
+        },1200);
 
     }
-    else{
 
-        favorites.splice();
+}
+
+
+/* =========================
+   FAVORITE
+========================= */
+
+function favoriteName(button){
+
+    if(button.innerText==="♡"){
+
+        button.innerText="♥";
+
+    }else{
+
+        button.innerText="♡";
+
+    }
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+.getElementById("nameInput")
+.addEventListener("keydown",function(event){
+
+    if(event.key==="Enter"){
+
+        generateNames();
+
+    }
+
+});
+
+
+/* =========================
+   START
+========================= */
+
+displayNames(names);
+
 </script>
+
 </body>
-</html>
+    </html>
