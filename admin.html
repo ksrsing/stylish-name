@@ -75,10 +75,6 @@ button{
     margin-top:8px;
 }
 
-button:hover{
-    opacity:.85;
-}
-
 .delete{
     background:#d60000;
 }
@@ -144,7 +140,6 @@ button:hover{
 
 <div class="container">
 
-    <!-- DASHBOARD -->
     <div class="card">
 
         <h2>📊 Dashboard</h2>
@@ -175,7 +170,6 @@ button:hover{
     </div>
 
 
-    <!-- ADD NAME -->
     <div class="card">
 
         <h2>➕ Add Stylish Name</h2>
@@ -204,7 +198,6 @@ button:hover{
     </div>
 
 
-    <!-- SAVED NAMES -->
     <div class="card">
 
         <h2>📋 Saved Names</h2>
@@ -216,7 +209,6 @@ button:hover{
     </div>
 
 
-    <!-- WEBSITE -->
     <div class="card">
 
         <h2>🌐 Website</h2>
@@ -236,25 +228,25 @@ button:hover{
    SUPABASE SETTINGS
    ===================================== */
 
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
+
+
 /*
    IMPORTANT:
-
-   1. PASTE YOUR SUPABASE PROJECT URL
-   2. PASTE YOUR PUBLISHABLE/ANON KEY
-
-   DO NOT USE SECRET/SERVICE_ROLE KEY.
+   YAHAN APNI PUBLISHABLE / ANON KEY
+   EK HI LINE ME PASTE KARNA HAI.
 */
-
-const SUPABASE_URL ="https://ujpzkpeslemcuizylymi.supabase.co";
 
 const SUPABASE_KEY =
 "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
 
-/* CREATE SUPABASE CONNECTION */
+/* =====================================
+   CREATE CONNECTION
+   ===================================== */
 
-const db =
-window.supabase.createClient(
+const db = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
@@ -272,12 +264,11 @@ function showMessage(text){
     message.style.display = "block";
 
     message.innerText = text;
-
 }
 
 
 /* =====================================
-   DATABASE CONNECTION TEST
+   DATABASE CONNECTION
    ===================================== */
 
 async function testConnection(){
@@ -287,26 +278,43 @@ async function testConnection(){
         "connectionStatus"
     );
 
-    const { data, error } =
-    await db
-    .from("names")
-    .select("id")
-    .limit(1);
+    status.innerText =
+    "Connecting to database...";
 
-    if(error){
+    try{
+
+        const { data, error } =
+        await db
+        .from("names")
+        .select("id")
+        .limit(1);
+
+        if(error){
+
+            console.error(error);
+
+            status.innerText =
+            "❌ Database error: " +
+            error.message;
+
+            return false;
+        }
+
+        status.innerText =
+        "✅ Database connected";
+
+        return true;
+
+    }catch(error){
 
         console.error(error);
 
         status.innerText =
-        "❌ Database connection error";
+        "❌ Connection failed: " +
+        error.message;
 
         return false;
     }
-
-    status.innerText =
-    "✅ Database connected";
-
-    return true;
 }
 
 
@@ -322,7 +330,6 @@ async function loadNames(){
     list.innerHTML =
     "Loading...";
 
-
     const { data, error } =
     await db
     .from("names")
@@ -332,17 +339,16 @@ async function loadNames(){
         {ascending:false}
     );
 
-
     if(error){
 
         console.error(error);
 
         list.innerHTML =
-        "❌ Error loading names";
+        "❌ Error: " +
+        error.message;
 
         return;
     }
-
 
     document.getElementById(
         "nameCount"
@@ -412,13 +418,9 @@ async function loadNames(){
 
 
         div.appendChild(title);
-
         div.appendChild(br);
-
         div.appendChild(style);
-
         div.appendChild(br2);
-
         div.appendChild(button);
 
 
