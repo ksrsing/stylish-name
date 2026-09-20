@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NameCraft - Stylish Name Generator</title>
+<title>NameCraft - 500 Stylish Names</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -14,50 +16,65 @@
     font-family:Arial,sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:linear-gradient(135deg,#08001c,#150044,#050014);
+    background:linear-gradient(135deg,#080b24,#17104a,#071b38);
     color:white;
     min-height:100vh;
 }
 
+/* NAVBAR */
+
 nav{
     width:100%;
-    padding:18px 7%;
+    padding:18px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,.35);
+    background:rgba(0,0,0,.45);
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:1000;
     backdrop-filter:blur(10px);
 }
 
 .logo{
     font-size:25px;
     font-weight:bold;
-    color:#b96cff;
+    color:#9b8cff;
+}
+
+nav ul{
+    display:flex;
+    gap:22px;
+    list-style:none;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:20px;
-    font-size:14px;
 }
+
+nav a:hover{
+    color:#9b8cff;
+}
+
+/* HERO */
 
 .hero{
     text-align:center;
-    padding:70px 15px 40px;
+    padding:70px 20px 50px;
 }
 
 .hero h1{
-    font-size:42px;
-    margin-bottom:12px;
-}
-
-.hero h1 span{
-    color:#b96cff;
+    font-size:45px;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#9d8cff,#e38cff);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .hero p{
@@ -65,543 +82,1148 @@ nav a{
     margin-bottom:30px;
 }
 
-.searchBox{
+.search-box{
     max-width:650px;
     margin:auto;
     display:flex;
     gap:10px;
 }
 
-.searchBox input{
+.search-box input{
     flex:1;
-    padding:16px;
-    border:none;
-    outline:none;
+    padding:17px;
     border-radius:12px;
+    border:1px solid #ffffff30;
+    outline:none;
+    background:#ffffff12;
+    color:white;
     font-size:16px;
 }
 
-.searchBox button{
-    padding:0 25px;
+.search-box input::placeholder{
+    color:#aaa;
+}
+
+.search-box button{
+    padding:17px 25px;
     border:none;
     border-radius:12px;
-    background:#8d35ff;
+    background:linear-gradient(135deg,#765cff,#b85cff);
     color:white;
-    font-size:16px;
+    font-weight:bold;
     cursor:pointer;
 }
 
-.searchBox button:hover{
-    background:#a957ff;
-}
+/* CATEGORIES */
 
 .categories{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:30px auto;
-    padding:0 15px;
+    padding:30px 6%;
 }
 
-.categories button{
-    padding:10px 18px;
-    border:1px solid #7135bd;
-    border-radius:20px;
-    background:#18052f;
-    color:white;
+.categories h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.category-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.category{
+    padding:18px 10px;
+    text-align:center;
+    background:#ffffff10;
+    border:1px solid #ffffff20;
+    border-radius:15px;
     cursor:pointer;
 }
 
-.categories button:hover{
-    background:#7135bd;
+.category:hover,
+.category.active{
+    background:linear-gradient(135deg,#765cff,#b85cff);
 }
 
-#count{
+/* RESULTS */
+
+.results{
+    padding:50px 6%;
+}
+
+.results h2{
     text-align:center;
-    color:#aaa;
-    margin:20px;
+    margin-bottom:25px;
 }
 
-.grid{
-    width:90%;
-    max-width:1200px;
+.name-grid{
+    max-width:1250px;
     margin:auto;
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    padding-bottom:50px;
+    gap:15px;
 }
 
-.card{
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.12);
+.name-card{
+    background:#ffffff0d;
+    border:1px solid #ffffff18;
     border-radius:16px;
-    padding:20px 12px;
-    text-align:center;
+    padding:20px;
+    min-height:150px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:15px;
     transition:.3s;
 }
 
-.card:hover{
+.name-card:hover{
     transform:translateY(-5px);
-    border-color:#a64cff;
-    box-shadow:0 0 20px rgba(166,76,255,.25);
+    border-color:#8d7aff;
+    box-shadow:0 10px 30px #0005;
 }
 
-.name{
-    min-height:65px;
+.styled-name{
+    text-align:center;
+    font-size:24px;
+    min-height:70px;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:25px;
     word-break:break-word;
-    margin-bottom:15px;
+    line-height:1.5;
 }
 
-.buttons{
+/* MANY FONT LOOKS */
+
+.font1{font-family:Georgia,serif;font-weight:bold;}
+.font2{font-family:"Courier New",monospace;font-weight:bold;}
+.font3{font-family:Impact,sans-serif;letter-spacing:2px;}
+.font4{font-family:cursive;font-weight:bold;}
+.font5{font-family:Trebuchet MS,sans-serif;font-style:italic;}
+.font6{font-family:Arial Black,sans-serif;}
+.font7{font-family:Verdana,sans-serif;letter-spacing:3px;}
+.font8{font-family:serif;font-style:italic;}
+.font9{font-family:monospace;letter-spacing:2px;}
+.font10{font-family:Tahoma,sans-serif;font-weight:bold;}
+.font11{font-family:Times New Roman,serif;font-weight:bold;}
+.font12{font-family:Palatino Linotype,serif;font-style:italic;}
+.font13{font-family:Lucida Console,monospace;}
+.font14{font-family:Century Gothic,sans-serif;font-weight:bold;}
+.font15{font-family:Franklin Gothic Medium,sans-serif;}
+.font16{font-family:Gill Sans,sans-serif;font-weight:bold;}
+.font17{font-family:Book Antiqua,serif;}
+.font18{font-family:Lucida Sans,sans-serif;}
+.font19{font-family:Consolas,monospace;font-weight:bold;}
+.font20{font-family:Arial,sans-serif;font-weight:900;letter-spacing:1px;}
+
+/* COLORS */
+
+.color1{color:#ff7cff;}
+.color2{color:#7cbcff;}
+.color3{color:#7cffc4;}
+.color4{color:#ffe27c;}
+.color5{color:#ff8f8f;}
+.color6{color:#b58cff;}
+.color7{color:#8ffff0;}
+.color8{color:white;}
+.color9{color:#ffb76b;}
+.color10{color:#c7ff7c;}
+
+/* BUTTONS */
+
+.card-buttons{
     display:flex;
     justify-content:center;
-    gap:8px;
+    gap:10px;
 }
 
-.buttons button{
+.card-buttons button{
+    width:45px;
+    height:38px;
     border:none;
-    border-radius:8px;
-    padding:8px 12px;
-    cursor:pointer;
+    border-radius:10px;
+    background:#ffffff15;
     color:white;
-    background:#52209a;
+    font-size:18px;
+    cursor:pointer;
 }
 
-.buttons button:hover{
-    background:#793bd0;
+.card-buttons button:hover{
+    background:#ffffff30;
 }
 
-footer{
+/* FAVORITES */
+
+.favorites{
+    padding:60px 6%;
+}
+
+.favorites h2{
     text-align:center;
-    padding:25px;
-    background:rgba(0,0,0,.3);
+    margin-bottom:25px;
+}
+
+.favorite-list{
+    max-width:800px;
+    margin:auto;
+}
+
+.favorite-item{
+    padding:15px;
+    margin:10px 0;
+    background:#ffffff10;
+    border-radius:12px;
+    text-align:center;
+    word-break:break-word;
+}
+
+.empty{
+    text-align:center;
     color:#999;
 }
 
-/* Different styles */
+/* ABOUT */
 
-.s1{font-family:Georgia,serif;font-weight:bold}
-.s2{font-family:"Courier New",monospace;font-weight:bold}
-.s3{font-family:Impact,sans-serif;letter-spacing:2px}
-.s4{font-family:cursive;font-weight:bold}
-.s5{font-family:Trebuchet MS,sans-serif;font-style:italic;font-weight:bold}
-.s6{font-family:Arial Black,sans-serif}
-.s7{font-family:Verdana,sans-serif;letter-spacing:3px}
-.s8{font-family:serif;font-style:italic}
-.s9{font-family:monospace;letter-spacing:2px}
-.s10{font-family:Tahoma,sans-serif;font-weight:bold}
+.about{
+    max-width:800px;
+    margin:auto;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.about h2{
+    margin-bottom:20px;
+}
+
+.about p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    padding:25px;
+    text-align:center;
+    color:#999;
+    background:#0005;
+}
+
+/* MOBILE */
 
 @media(max-width:900px){
-    .grid{
+
+    .name-grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:15px;
+    }
+
+    nav ul{
+        gap:10px;
+    }
+
+    nav a{
+        font-size:11px;
+    }
+
+    .hero{
+        padding:50px 15px;
     }
 
     .hero h1{
         font-size:34px;
     }
-}
 
-@media(max-width:500px){
-    nav{
-        padding:15px;
-    }
-
-    nav a{
-        margin-left:8px;
-        font-size:12px;
-    }
-
-    .searchBox{
+    .search-box{
         flex-direction:column;
     }
 
-    .searchBox button{
-        padding:14px;
+    .search-box button{
+        width:100%;
     }
 
-    .grid{
-        grid-template-columns:1fr;
-        width:92%;
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
     }
+
+    .name-grid{
+        grid-template-columns:1fr;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">NameCraft</div>
+<!-- NAVBAR -->
 
-    <div>
-        <a href="#home">Home</a>
-        <a href="#styles">Styles</a>
-        <a href="#about">About</a>
-    </div>
+<nav>
+
+<div class="logo">
+NameCraft
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#styles">Styles</a></li>
+<li><a href="#favorites">Favorites</a></li>
+<li><a href="#about">About</a></li>
+</ul>
+
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
-    <h1>Stylish <span>Name Generator</span></h1>
+<h1>
+Stylish Name Generator
+</h1>
 
-    <p>Create beautiful stylish names for Gaming, Instagram, YouTube & more.</p>
+<p>
+500 different names with 500 stylish designs
+</p>
 
-    <div class="searchBox">
-        <input
-            type="text"
-            id="nameInput"
-            placeholder="Enter your name..."
-        >
+<div class="search-box">
 
-        <button onclick="generateNames()">
-            Generate
-        </button>
-    </div>
+<input
+id="nameInput"
+type="text"
+placeholder="Enter your name..."
+autocomplete="off"
+>
 
-</section>
-
-<div class="categories" id="styles">
-
-    <button onclick="showAll()">All</button>
-    <button onclick="generateCategory('Gaming')">Gaming</button>
-    <button onclick="generateCategory('Cool')">Cool</button>
-    <button onclick="generateCategory('Royal')">Royal</button>
-    <button onclick="generateCategory('Fire')">Fire</button>
-    <button onclick="generateCategory('Love')">Love</button>
-    <button onclick="generateCategory('Danger')">Danger</button>
+<button onclick="generateName()">
+Generate
+</button>
 
 </div>
 
-<div id="count">500 Stylish Names</div>
-
-<div class="grid" id="nameGrid"></div>
-
-<section id="about" style="text-align:center;padding:50px 20px;">
-    <h2>About NameCraft</h2>
-    <p style="color:#aaa;margin-top:12px;">
-        NameCraft helps you create stylish names for gaming,
-        social media, YouTube and more.
-    </p>
 </section>
 
+
+<!-- CATEGORIES -->
+
+<section class="categories" id="styles">
+
+<h2>
+Choose Your Style
+</h2>
+
+<div class="category-grid">
+
+<div class="category" onclick="filterCategory('gaming')">
+🎮 Gaming
+</div>
+
+<div class="category" onclick="filterCategory('cool')">
+😎 Cool
+</div>
+
+<div class="category" onclick="filterCategory('royal')">
+👑 Royal
+</div>
+
+<div class="category" onclick="filterCategory('fire')">
+🔥 Fire
+</div>
+
+<div class="category" onclick="filterCategory('love')">
+❤️ Love
+</div>
+
+<div class="category" onclick="filterCategory('danger')">
+☠️ Danger
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESULTS -->
+
+<section class="results">
+
+<h2 id="resultTitle">
+500 Stylish Names
+</h2>
+
+<div
+class="name-grid"
+id="nameGrid">
+</div>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section
+class="favorites"
+id="favorites">
+
+<h2>
+❤️ Favorites
+</h2>
+
+<div
+class="favorite-list"
+id="favoriteList">
+
+<p class="empty">
+Your favorite names will appear here.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section
+class="about"
+id="about">
+
+<h2>
+About NameCraft
+</h2>
+
+<p>
+NameCraft helps you create stylish names for
+gaming, Instagram, YouTube, social media and profiles.
+Choose from 500 different names and stylish designs.
+</p>
+
+</section>
+
+
 <footer>
-    © 2026 NameCraft | Stylish Name Generator
+
+© 2026 NameCraft | Stylish Name Generator
+
 </footer>
 
 
 <script>
 
-/* =========================
-   500 DIFFERENT NAMES
-========================= */
+/* =================================
+500 DIFFERENT NAMES
+================================= */
 
 const names = [
-"Aarav","Aadi","Aakash","Aarush","Abhay","Abhinav","Abhishek","Adarsh","Aditya","Advait",
-"Agastya","Ajay","Akash","Akhil","Akshay","Alok","Aman","Amar","Amit","Aniket",
-"Anil","Anirudh","Ankit","Anmol","Ansh","Anshul","Arjun","Arnav","Arpit","Aryan",
-"Ashish","Atharv","Ayush","Bharat","Bhavesh","Bhavin","Bhupendra","Chetan","Chirag","Daksh",
-"Darshan","Deepak","Dev","Devansh","Dhananjay","Dhruv","Dinesh","Divyansh","Gaurav","Gautam",
-"Girish","Govind","Harish","Harshit","Harsh","Himanshu","Hitesh","Hrithik","Ishan","Ishaan",
-"Jagdish","Jatin","Jay","Jayesh","Jitesh","Kailash","Karan","Kartik","Kartikeya","Keshav",
-"Kiran","Krishna","Kunal","Lakshya","Lalit","Lokesh","Madhav","Manish","Manoj","Mayank",
-"Mohit","Mukul","Naman","Nandish","Naveen","Navneet","Neeraj","Nikhil","Nilesh","Niraj",
-"Nitin","Om","Omkar","Pankaj","Parth","Piyush","Pradeep","Pranav","Pratik","Prem",
-"Rahul","Raj","Rajat","Rajeev","Rajesh","Rakesh","Raman","Ramesh","Ravi","Rishabh",
-"Rishi","Ritesh","Ritvik","Rohan","Rohit","Ronit","Roshan","Sachin","Sahil","Sameer",
-"Samir","Sanjay","Sanket","Sarthak","Shashank","Shiv","Shivam","Shrey","Shreyansh","Siddharth",
-"Simranjit","Soham","Sonu","Sourabh","Sourav","Srinivas","Sumit","Sunny","Suraj","Suresh",
-"Tanish","Tanishq","Tanmay","Tarun","Tejas","Uday","Ujjwal","Utkarsh","Varun","Ved",
-"Vedant","Veer","Vikas","Vikash","Vikram","Vimal","Vineet","Vinay","Vishal","Vivek",
-"Yash","Yashraj","Yogesh","Zaid","Zayan","Aanya","Aaradhya","Aadhya","Aashi","Aashika",
-"Aastha","Aditi","Ahana","Akanksha","Akshara","Alia","Alisha","Amisha","Amrita","Ananya",
-"Anika","Anisha","Anjali","Ankita","Anushka","Anvi","Aradhya","Arpita","Arya","Ashima",
-"Ashwini","Avani","Avantika","Bhavna","Bhumika","Chahat","Charu","Diya","Eesha","Ekta",
-"Elina","Garima","Gauri","Geetika","Isha","Ishita","Jahnavi","Janhvi","Jiya","Juhi",
-"Kajal","Kangana","Kashish","Kavita","Khushi","Kirti","Komal","Kriti","Lakshmi","Lavanya",
-"Mahima","Mahi","Mansi","Meera","Mehak","Mitali","Muskan","Naina","Nandini","Navya",
-"Neha","Nidhi","Nikita","Nisha","Nitya","Palak","Pallavi","Pooja","Prachi","Preeti",
-"Priya","Priyanka","Radhika","Ragini","Riya","Roshni","Ruhi","Sakshi","Saloni","Sana",
-"Sanaya","Sanjana","Sapna","Sara","Sanya","Shalini","Shanaya","Shikha","Shivani","Shraddha",
-"Simran","Sneha","Sonali","Sonia","Srishti","Supriya","Swati","Tanisha","Tanya","Trisha",
-"Twinkle","Vaishnavi","Vandana","Varsha","Vidhi","Vijaya","Vini","Yamini","Zara","Zoya",
 
-"DarkHunter","ShadowKing","NightWolf","FireDragon","GhostRider","SilentKiller","DeathWish","DarkKnight","BlackStorm","RedDevil",
-"AlphaWolf","LoneWolf","RoyalKing","KingSlayer","GameMaster","ProPlayer","HeadHunter","SniperKing","CrazyGamer","LegendGamer",
-"GamingBeast","BattleKing","WarriorX","DragonX","VenomX","ToxicBoy","ToxicGirl","SavageKing","SavageQueen","Fearless",
-"DeadShot","QuickShot","OneTap","RushMaster","ClutchKing","GodMode","NoMercy","DarkAngel","DarkQueen","DarkPrince",
-"DarkPrincess","ShadowHunter","GhostHunter","NightHunter","FireKing","FireQueen","IceKing","IceQueen","StormBreaker","ThunderKing",
-"ThunderGod","LightningX","BlazeKing","InfernoX","FlameBoy","FlameGirl","RoyalPrince","RoyalPrincess","CrownKing","CrownQueen",
-"KingOfGame","QueenOfGame","GameChanger","GameLegend","UltimateX","PowerKing","PowerQueen","WarLord","BattleLord","WarMachine",
-"CyberKing","CyberQueen","CyberWolf","CyberGhost","TechKing","TechWizard","CodeMaster","CodeKing","CodeQueen","DevMaster",
-"WebWizard","AppMaster","PythonKing","JavaMaster","CodeWarrior","DigitalKing","PixelKing","PixelQueen","ByteKing","ByteWizard",
-"AlphaKing","AlphaQueen","OmegaKing","OmegaQueen","TitanKing","TitanQueen","MegaKing","MegaQueen","SuperKing","SuperQueen",
+"Rahul","Sonu","Monu","Aman","Aarav",
+"Aditya","Aryan","Rohit","Karan","Arjun",
+"Raj","Rajat","Ravi","Rohan","Rahul Kumar",
+"Ankit","Anmol","Ansh","Anshul","Ayush",
+"Abhay","Abhishek","Akhil","Akshay","Amit",
+"Aniket","Anirudh","Adarsh","Ashish","Atharv",
+"Bhavesh","Bharat","Chetan","Chirag","Daksh",
+"Darshan","Deepak","Dev","Devansh","Dhruv",
+"Dinesh","Divyansh","Gaurav","Gautam","Harsh",
+"Harshit","Himanshu","Hitesh","Ishan","Ishaan",
+"Jatin","Jay","Jayesh","Jitesh","Kartik",
+"Kartikeya","Keshav","Kunal","Lakshya","Lalit",
+"Lokesh","Madhav","Manish","Manoj","Mayank",
+"Mohit","Mukul","Naman","Naveen","Navneet",
+"Neeraj","Nikhil","Nilesh","Nitin","Om",
+"Omkar","Pankaj","Parth","Piyush","Pradeep",
+"Pranav","Pratik","Prem","Rajesh","Rakesh",
+"Ramesh","Rishabh","Rishi","Ritesh","Ritvik",
+"Rohit Sharma","Sachin","Sahil","Sameer","Samir",
+"Sanjay","Sanket","Sarthak","Shashank","Shiv",
+"Shivam","Shrey","Shreyansh","Siddharth","Soham",
+"Sonu Singh","Sourabh","Sourav","Sumit","Sunny",
+"Suraj","Suresh","Tanish","Tanishq","Tanmay",
+"Tarun","Tejas","Uday","Ujjwal","Utkarsh",
+"Varun","Ved","Vedant","Veer","Vikas",
+"Vikash","Vikram","Vimal","Vineet","Vinay",
+"Vishal","Vivek","Yash","Yashraj","Yogesh",
+"Zaid","Zayan","Aadi","Aakash","Aarush",
 
-"LoveKing","LoveQueen","LoveBoy","LoveGirl","HeartKing","HeartQueen","SweetBoy","SweetGirl","CuteKing","CuteQueen",
-"LovelyBoy","LovelyGirl","AngelBoy","AngelGirl","DreamBoy","DreamGirl","PrinceHeart","PrincessHeart","TrueLove","ForeverLove",
-"LoveStar","HeartBeat","SoulMate","LoveBird","RomanticKing","RomanticQueen","HappySoul","SweetSoul","PureHeart","GoldenHeart",
+"Aanya","Aaradhya","Aadhya","Aashi","Aashika",
+"Aastha","Aditi","Ahana","Akanksha","Akshara",
+"Alia","Alisha","Amisha","Amrita","Ananya",
+"Anika","Anisha","Anjali","Ankita","Anushka",
+"Anvi","Aradhya","Arpita","Arya","Ashima",
+"Ashwini","Avani","Avantika","Bhavna","Bhumika",
+"Chahat","Charu","Diya","Eesha","Ekta",
+"Elina","Garima","Gauri","Geetika","Isha",
+"Ishita","Jahnavi","Janhvi","Jiya","Juhi",
+"Kajal","Kangana","Kashish","Kavita","Khushi",
+"Kirti","Komal","Kriti","Lakshmi","Lavanya",
+"Mahima","Mahi","Mansi","Meera","Mehak",
+"Mitali","Muskan","Naina","Nandini","Navya",
+"Neha","Nidhi","Nikita","Nisha","Nitya",
+"Palak","Pallavi","Pooja","Prachi","Preeti",
+"Priya","Priyanka","Radhika","Ragini","Riya",
+"Roshni","Ruhi","Sakshi","Saloni","Sana",
+"Sanaya","Sanjana","Sapna","Sara","Sanya",
+"Shalini","Shanaya","Shikha","Shivani","Shraddha",
+"Simran","Sneha","Sonali","Sonia","Srishti",
+"Supriya","Swati","Tanisha","Tanya","Trisha",
+"Twinkle","Vaishnavi","Vandana","Varsha","Vidhi",
+"Vijaya","Vini","Yamini","Zara","Zoya",
 
-"FireBoy","FireGirl","FireLord","FireLady","FireWarrior","FireStorm","FireStar","FirePower","FireShot","FireRush",
-"DangerBoy","DangerGirl","DangerKing","DangerQueen","DangerZone","DangerX","RiskTaker","FearKing","FearQueen","FearLess",
-"Destroyer","DestroyerX","KillerX","KillerKing","KillerQueen","DeathKing","DeathQueen","DeadlyX","DeadlyKing","DeadlyQueen",
+"DarkHunter","ShadowKing","NightWolf","FireDragon",
+"GhostRider","SilentKiller","DeathWish","DarkKnight",
+"BlackStorm","RedDevil","AlphaWolf","LoneWolf",
+"RoyalKing","KingSlayer","GameMaster","ProPlayer",
+"HeadHunter","SniperKing","CrazyGamer","LegendGamer",
+"GamingBeast","BattleKing","WarriorX","DragonX",
+"VenomX","ToxicBoy","ToxicGirl","SavageKing",
+"SavageQueen","Fearless","DeadShot","QuickShot",
+"OneTap","RushMaster","ClutchKing","GodMode",
+"NoMercy","DarkAngel","DarkQueen","DarkPrince",
+"DarkPrincess","ShadowHunter","GhostHunter","NightHunter",
+"FireKing","FireQueen","IceKing","IceQueen",
+"StormBreaker","ThunderKing","ThunderGod","LightningX",
+"BlazeKing","InfernoX","FlameBoy","FlameGirl",
+"RoyalPrince","RoyalPrincess","CrownKing","CrownQueen",
+"GameChanger","GameLegend","UltimateX","PowerKing",
+"PowerQueen","WarLord","BattleLord","WarMachine",
+"CyberKing","CyberQueen","CyberWolf","CyberGhost",
+"TechKing","TechWizard","CodeMaster","CodeKing",
+"CodeQueen","DevMaster","WebWizard","AppMaster",
+"PythonKing","JavaMaster","CodeWarrior","DigitalKing",
+"PixelKing","PixelQueen","ByteKing","ByteWizard",
+"AlphaKing","AlphaQueen","OmegaKing","OmegaQueen",
+"TitanKing","TitanQueen","MegaKing","MegaQueen",
+"SuperKing","SuperQueen","LegendBoy","LegendGirl",
+"LegendX","LegendKing","LegendQueen","LegendPro",
+"MasterBoy","MasterGirl","MasterX","MasterKing",
+"MasterQueen","ProBoy","ProGirl","ProKing",
+"ProQueen","ProX","ChampionX","ChampionKing",
+"ChampionQueen","VictoryKing","VictoryQueen","HeroX",
+"HeroKing","HeroQueen","WarriorKing","WarriorQueen",
+"BattleX","BattleMaster","GamerKing","GamerQueen",
+"GamingKing","GamingQueen","GamingLord","GamingLady",
+"SniperX","SniperPro","SniperLord","SniperLady",
+"RushKing","RushQueen","ClutchMaster","ClutchLord",
+"HeadshotKing","HeadshotQueen","AimKing","AimQueen",
+"TargetKing","TargetQueen","KillShot","KillMaster",
+"NightKing","NightQueen","ShadowLord","ShadowLady",
+"GhostKing","GhostQueen","DarkLord","DarkLady",
+"BlackKing","BlackQueen","RedKing","RedQueen",
+"FireLord","FireLady","FireWarrior","FireStorm",
+"FireStar","FirePower","FireShot","FireRush",
+"DangerBoy","DangerGirl","DangerKing","DangerQueen",
+"DangerZone","DangerX","RiskTaker","FearKing",
+"FearQueen","Destroyer","DestroyerX","KillerX",
+"KillerKing","KillerQueen","DeathKing","DeathQueen",
+"DeadlyX","DeadlyKing","DeadlyQueen","SavageX",
+"SavageLord","SavageLady","ToxicKing","ToxicQueen",
+"PoisonX","PoisonKing","PoisonQueen","VenomKing",
+"VenomQueen","MonsterX","MonsterKing","MonsterQueen",
+"BeastX","BeastKing","BeastQueen","DemonX",
+"DemonKing","DemonQueen","DevilX","DevilKing",
+"DevilQueen","HellKing","HellQueen","InfernoKing",
+"InfernoQueen","BlazeX","BlazeLord","BlazeLady",
+"ThunderX","ThunderLord","ThunderLady","LightningKing",
+"LightningQueen","StormKing","StormQueen","IceLord",
+"IceLady","FrostKing","FrostQueen","SnowKing",
+"SnowQueen","WinterKing","WinterQueen","CoolBoy",
+"CoolGirl","CoolKing","CoolQueen","CoolDude",
+"CoolStar","CoolLegend","MrCool","MissCool",
+"CoolX","CoolMaster","CoolHero","CoolPro",
+"RoyalBoy","RoyalGirl","RoyalX","RoyalStar",
+"RoyalLegend","RoyalHero","RoyalSoul","RoyalBlood",
+"RoyalMaster","RoyalWarrior","RoyalKingX","RoyalQueenX",
+"LoveKing","LoveQueen","LoveBoy","LoveGirl",
+"HeartKing","HeartQueen","SweetBoy","SweetGirl",
+"CuteKing","CuteQueen","LovelyBoy","LovelyGirl",
+"AngelBoy","AngelGirl","DreamBoy","DreamGirl",
+"TrueLove","ForeverLove","LoveStar","HeartBeat",
+"SoulMate","LoveBird","RomanticKing","RomanticQueen",
+"HappySoul","SweetSoul","PureHeart","GoldenHeart",
+"LoveHero","LovePrincess","LovePrince","HeartHero",
+"HeartPrincess","HeartPrince","DreamKing","DreamQueen",
+"AngelKing","AngelQueen","SweetKing","SweetQueen",
+"CuteBoyX","CuteGirlX","LovelyKing","LovelyQueen",
+"SmileKing","SmileQueen","HappyKing","HappyQueen",
+"StarBoy","StarGirl","StarKing","StarQueen",
+"MoonKing","MoonQueen","SunKing","SunQueen",
+"GalaxyKing","GalaxyQueen","UniverseX","SpaceKing",
+"SpaceQueen","CosmicKing","CosmicQueen","SkyKing",
+"SkyQueen","CloudKing","CloudQueen","OceanKing",
+"OceanQueen","WaveKing","WaveQueen","NatureKing",
+"NatureQueen","EarthKing","EarthQueen","MountainKing",
+"MountainQueen","DreamKingX","DreamQueenX","MagicKing",
+"MagicQueen","MysticKing","MysticQueen","WizardKing",
+"WizardQueen","NinjaKing","NinjaQueen","SamuraiKing",
+"SamuraiQueen","PirateKing","PirateQueen","VikingKing",
+"VikingQueen","SpartanKing","SpartanQueen","GladiatorX",
+"GladiatorKing","GladiatorQueen","WarriorX","WarriorPro",
+"WarriorLord","WarriorLady","HeroKing","HeroQueen",
+"SuperHero","SuperGirl","SuperBoy","MegaHero",
+"MegaGirl","MegaBoy","UltraKing","UltraQueen",
+"UltraX","ExtremeKing","ExtremeQueen","PowerX",
+"PowerLord","PowerLady","EnergyKing","EnergyQueen",
+"SpeedKing","SpeedQueen","FastKing","FastQueen",
+"TurboKing","TurboQueen","RocketKing","RocketQueen",
+"FlashKing","FlashQueen","SwiftKing","SwiftQueen",
+"RapidKing","RapidQueen","CrazyKing","CrazyQueen",
+"MadKing","MadQueen","WildKing","WildQueen",
+"FreeSoul","FreeSpirit","BraveKing","BraveQueen",
+"FearlessKing","FearlessQueen","BoldKing","BoldQueen",
+"StrongKing","StrongQueen","MightyKing","MightyQueen",
+"EpicKing","EpicQueen","EpicX","UltimateKing",
+"UltimateQueen","InfinityKing","InfinityQueen","ForeverKing",
+"ForeverQueen","ImmortalKing","ImmortalQueen","EternalKing",
+"EternalQueen","InfiniteX","LimitlessKing","LimitlessQueen",
+"UnstoppableKing","UnstoppableQueen","PowerfulKing","PowerfulQueen",
+"MasterX","MasterPro","ProLegend","ProHero",
+"GameHero","GameWarrior","GameLord","GameLady",
+"PlayKing","PlayQueen","GameStar","GameQueen",
+"GamePrince","GamePrincess","GamingHero","GamingLegend",
+"GamingLord","GamingLady","BattleHero","BattleLegend",
+"BattlePrince","BattlePrincess","WarHero","WarLegend",
+"WarPrince","WarPrincess","VictoryHero","VictoryLegend",
+"VictoryPrince","VictoryPrincess","ChampionHero","ChampionLegend",
+"ChampionPrince","ChampionPrincess","WinnerKing","WinnerQueen",
+"WinnerX","WinnerPro","TopPlayer","TopGamer",
+"ProGamerX","GamerX","GamerPro","GamerLegend",
+"GamerHero","GamerLord","GamerLady","GamingX",
+"GamingPro","GamingMaster","GamingHeroX","GamingLegendX"
 
-"CoolBoy","CoolGirl","CoolKing","CoolQueen","CoolDude","CoolGirlX","MrCool","MissCool","CoolStar","CoolLegend",
-"RoyalBoy","RoyalGirl","RoyalX","RoyalStar","RoyalLegend","RoyalHero","RoyalQueenX","RoyalKingX","RoyalSoul","RoyalBlood",
-
-"LegendBoy","LegendGirl","LegendX","LegendKing","LegendQueen","LegendPro","MasterBoy","MasterGirl","MasterX","MasterKing",
-"MasterQueen","ProBoy","ProGirl","ProKing","ProQueen","ProX","ChampionX","ChampionKing","ChampionQueen","VictoryKing"
 ];
 
 
-/* =========================
-   STYLE DESIGNS
-========================= */
+/* =================================
+500 DIFFERENT STYLE DESIGNS
+================================= */
 
-const designs = [
+const decorations = [
+
 "꧁༺ NAME ༻꧂",
-"꧁ঔৣ☬ NAME ☬ঔৣ꧂",
+"꧁ NAME ꧂",
 "『 NAME 』",
 "【 NAME 】",
+"《 NAME 》",
+"〈 NAME 〉",
+"〔 NAME 〕",
+"〘 NAME 〙",
+"〚 NAME 〛",
 "乂 NAME 乂",
 "亗 NAME 亗",
 "么 NAME 么",
-"メ NAME メ",
 "彡 NAME 彡",
 "ツ NAME ツ",
-"★彡 NAME 彡★",
-"✦ NAME ✦",
-"✧ NAME ✧",
+"メ NAME メ",
 "★ NAME ★",
 "☆ NAME ☆",
-"⚡ NAME ⚡",
-"☠ NAME ☠",
+"✦ NAME ✦",
+"✧ NAME ✧",
+"✪ NAME ✪",
+"✯ NAME ✯",
+"✰ NAME ✰",
+"✵ NAME ✵",
+"✺ NAME ✺",
+"❖ NAME ❖",
+"◇ NAME ◇",
+"◆ NAME ◆",
+"◈ NAME ◈",
 "♛ NAME ♛",
 "♕ NAME ♕",
-"♡ NAME ♡",
-"♥ NAME ♥",
-"❥ NAME ❥",
-"☯ NAME ☯",
+"♚ NAME ♚",
+"♜ NAME ♜",
+"♞ NAME ♞",
+"♟ NAME ♟",
+"☠ NAME ☠",
 "☬ NAME ☬",
+"☯ NAME ☯",
+"☮ NAME ☮",
 "⚔ NAME ⚔",
-"⚡『 NAME 』⚡",
+"⚡ NAME ⚡",
 "🔥 NAME 🔥",
-"💀 NAME 💀",
-"👑 NAME 👑",
-"❤️ NAME ❤️",
 "❄ NAME ❄",
 "☾ NAME ☽",
 "☀ NAME ☀",
-"✰ NAME ✰",
-"✪ NAME ✪",
-"✯ NAME ✯",
-"✵ NAME ✵",
-"✺ NAME ✺",
+"☄ NAME ☄",
+"⚜ NAME ⚜",
+"༒ NAME ༒",
+"༺ NAME ༻",
+"༻ NAME ༺",
+"࿐ NAME ࿐",
+"⫷ NAME ⫸",
+"⟦ NAME ⟧",
+"⟨ NAME ⟩",
 "➳ NAME ➳",
 "➵ NAME ➵",
 "➤ NAME ➤",
 "➹ NAME ➹",
-"༒ NAME ༒",
-"࿐ NAME ࿐",
-"༺ NAME ༻",
-"༻ NAME ༺",
+"➺ NAME ➺",
+"➻ NAME ➻",
+"➼ NAME ➼",
+"➽ NAME ➽",
+"➸ NAME ➸",
+"❥ NAME ❥",
+"♡ NAME ♡",
+"♥ NAME ♥",
+"♦ NAME ♦",
+"♣ NAME ♣",
+"♠ NAME ♠",
+"♤ NAME ♤",
+"♧ NAME ♧",
+"♢ NAME ♢",
+"☢ NAME ☢",
+"☣ NAME ☣",
+"☪ NAME ☪",
+"☫ NAME ☫",
+"☦ NAME ☦",
+"☥ NAME ☥",
+"☘ NAME ☘",
+"🌟 NAME 🌟",
+"🌙 NAME 🌙",
+"💎 NAME 💎",
+"👑 NAME 👑",
+"💀 NAME 💀",
+"😈 NAME 😈",
+"👿 NAME 👿",
+"🐉 NAME 🐉",
+"🐺 NAME 🐺",
+"🦅 NAME 🦅",
+"🚀 NAME 🚀",
+"🎯 NAME 🎯",
+"🎮 NAME 🎮",
+"🏆 NAME 🏆",
+"💜 NAME 💜",
+"💙 NAME 💙",
+"💚 NAME 💚",
+"❤️ NAME ❤️",
+"🖤 NAME 🖤",
+"💛 NAME 💛",
+"🩷 NAME 🩷",
+"⚜️ NAME ⚜️",
+"⚔️ NAME ⚔️",
+"☠️ NAME ☠️",
+
+"꧁༒ NAME ༒꧂",
+"꧁⚡ NAME ⚡꧂",
+"꧁🔥 NAME 🔥꧂",
+"꧁👑 NAME 👑꧂",
+"꧁💀 NAME 💀꧂",
+"꧁💎 NAME 💎꧂",
+"꧁☠ NAME ☠꧂",
+"꧁♛ NAME ♛꧂",
+"꧁♕ NAME ♕꧂",
+"꧁⚔ NAME ⚔꧂",
+"꧁亗 NAME 亗꧂",
+"꧁乂 NAME 乂꧂",
+"꧁★ NAME ★꧂",
+"꧁✦ NAME ✦꧂",
+"꧁✪ NAME ✪꧂",
+"꧁☬ NAME ☬꧂",
+"꧁☯ NAME ☯꧂",
+"꧁☠️ NAME ☠️꧂",
+"꧁🐉 NAME 🐉꧂",
+"꧁🐺 NAME 🐺꧂",
+
+"★彡 NAME 彡★",
+"★彡 NAME 彡☆",
+"☆彡 NAME 彡★",
+"☆彡 NAME 彡☆",
+"亗『 NAME 』亗",
+"乂『 NAME 』乂",
+"么『 NAME 』么",
+"彡『 NAME 』彡",
+"ツ『 NAME 』ツ",
+"メ『 NAME 』メ",
+"★『 NAME 』★",
+"☆『 NAME 』☆",
+"♛『 NAME 』♛",
+"♕『 NAME 』♕",
+"♚『 NAME 』♚",
+"☠『 NAME 』☠",
+"⚡『 NAME 』⚡",
+"🔥『 NAME 』🔥",
+"❄『 NAME 』❄",
+"💎『 NAME 』💎",
+
+"★【 NAME 】★",
+"☆【 NAME 】☆",
+"亗【 NAME 】亗",
+"乂【 NAME 】乂",
+"♛【 NAME 】♛",
+"♕【 NAME 】♕",
+"☠【 NAME 】☠",
+"⚡【 NAME 】⚡",
+"🔥【 NAME 】🔥",
+"💎【 NAME 】💎",
+
+"★《 NAME 》★",
+"☆《 NAME 》☆",
+"亗《 NAME 》亗",
+"乂《 NAME 》乂",
+"♛《 NAME 》♛",
+"♕《 NAME 》♕",
+"☠《 NAME 》☠",
+"⚡《 NAME 》⚡",
+"🔥《 NAME 》🔥",
+"💎《 NAME 》💎",
+
+"★〈 NAME 〉★",
+"☆〈 NAME 〉☆",
+"亗〈 NAME 〉亗",
+"乂〈 NAME 〉乂",
+"♛〈 NAME 〉♛",
+"♕〈 NAME 〉♕",
+"☠〈 NAME 〉☠",
+"⚡〈 NAME 〉⚡",
+"🔥〈 NAME 〉🔥",
+"💎〈 NAME 〉💎",
+
+"★〔 NAME 〕★",
+"☆〔 NAME 〕☆",
+"亗〔 NAME 〕亗",
+"乂〔 NAME 〕乂",
+"♛〔 NAME 〕♛",
+"♕〔 NAME 〕♕",
+"☠〔 NAME 〕☠",
+"⚡〔 NAME 〕⚡",
+"🔥〔 NAME 〕🔥",
+"💎〔 NAME 〕💎",
+
+"༺★ NAME ★༻",
+"༺☆ NAME ☆༻",
+"༺亗 NAME 亗༻",
+"༺乂 NAME 乂༻",
+"༺♛ NAME ♛༻",
+"༺♕ NAME ♕༻",
+"༺☠ NAME ☠༻",
+"༺⚡ NAME ⚡༻",
+"༺🔥 NAME 🔥༻",
+"༺💎 NAME 💎༻",
+
+"⫷★ NAME ★⫸",
+"⫷☆ NAME ☆⫸",
+"⫷亗 NAME 亗⫸",
+"⫷乂 NAME 乂⫸",
+"⫷♛ NAME ♛⫸",
+"⫷♕ NAME ♕⫸",
+"⫷☠ NAME ☠⫸",
+"⫷⚡ NAME ⚡⫸",
+"⫷🔥 NAME 🔥⫸",
+"⫷💎 NAME 💎⫸",
+
+"꧁༺★ NAME ★༻꧂",
+"꧁༺☆ NAME ☆༻꧂",
+"꧁༺亗 NAME 亗༻꧂",
+"꧁༺乂 NAME 乂༻꧂",
+"꧁༺♛ NAME ♛༻꧂",
+"꧁༺♕ NAME ♕༻꧂",
+"꧁༺☠ NAME ☠༻꧂",
+"꧁༺⚡ NAME ⚡༻꧂",
+"꧁༺🔥 NAME 🔥༻꧂",
+"꧁༺💎 NAME 💎༻꧂",
+
 "╰┈➤ NAME",
 "➤ NAME ♡",
-"♚ NAME ♚"
+"➤ NAME ♥",
+"➤ NAME ★",
+"➤ NAME ✦",
+"➤ NAME ⚡",
+"➤ NAME 🔥",
+"➤ NAME 👑",
+"➤ NAME 💎",
+"➤ NAME ☠",
+
+"『★』 NAME 『★』",
+"『☆』 NAME 『☆』",
+"『亗』 NAME 『亗』",
+"『乂』 NAME 『乂』",
+"『♛』 NAME 『♛』",
+"『♕』 NAME 『♕』",
+"『☠』 NAME 『☠』",
+"『⚡』 NAME 『⚡』",
+"『🔥』 NAME 『🔥』",
+"『💎』 NAME 『💎』",
+
+"×͜× NAME",
+"×͜×『NAME』",
+"×͜× NAME ×͜×",
+"乂×͜× NAME ×͜×乂",
+"亗×͜× NAME ×͜×亗",
+"★×͜× NAME ×͜×★",
+"♛×͜× NAME ×͜×♛",
+"☠×͜× NAME ×͜×☠",
+"⚡×͜× NAME ×͜×⚡",
+"🔥×͜× NAME ×͜×🔥",
+
+"Ꭰ NAME Ꭰ",
+"Ꭰ『NAME』Ꭰ",
+"Ꮶ NAME Ꮶ",
+"Ꮶ『NAME』Ꮶ",
+"Ꮢ NAME Ꮢ",
+"Ꮢ『NAME』Ꮢ",
+"Ꮥ NAME Ꮥ",
+"Ꮥ『NAME』Ꮥ",
+"Ꮙ NAME Ꮙ",
+"Ꮙ『NAME』Ꮙ",
+
+"乂• NAME •乂",
+"亗• NAME •亗",
+"★• NAME •★",
+"☆• NAME •☆",
+"♛• NAME •♛",
+"♕• NAME •♕",
+"☠• NAME •☠",
+"⚡• NAME •⚡",
+"🔥• NAME •🔥",
+"💎• NAME •💎",
+
+"乂丨 NAME 丨乂",
+"亗丨 NAME 丨亗",
+"★丨 NAME 丨★",
+"☆丨 NAME 丨☆",
+"♛丨 NAME 丨♛",
+"♕丨 NAME 丨♕",
+"☠丨 NAME 丨☠",
+"⚡丨 NAME 丨⚡",
+"🔥丨 NAME 丨🔥",
+"💎丨 NAME 丨💎",
+
+"乂〆 NAME 〆乂",
+"亗〆 NAME 〆亗",
+"★〆 NAME 〆★",
+"☆〆 NAME 〆☆",
+"♛〆 NAME 〆♛",
+"♕〆 NAME 〆♕",
+"☠〆 NAME 〆☠",
+"⚡〆 NAME 〆⚡",
+"🔥〆 NAME 〆🔥",
+"💎〆 NAME 〆💎",
+
+"乂々 NAME 々乂",
+"亗々 NAME 々亗",
+"★々 NAME 々★",
+"☆々 NAME 々☆",
+"♛々 NAME 々♛",
+"♕々 NAME 々♕",
+"☠々 NAME 々☠",
+"⚡々 NAME 々⚡",
+"🔥々 NAME 々🔥",
+"💎々 NAME 々💎",
+
+"༒☬ NAME ☬༒",
+"༒⚔ NAME ⚔༒",
+"༒☠ NAME ☠༒",
+"༒⚡ NAME ⚡༒",
+"༒🔥 NAME 🔥༒",
+"༒👑 NAME 👑༒",
+"༒💎 NAME 💎༒",
+"༒亗 NAME 亗༒",
+"༒乂 NAME 乂༒",
+"༒★ NAME ★༒",
+
+"☬ NAME ☬",
+"☬『 NAME 』☬",
+"☬【 NAME 】☬",
+"☬《 NAME 》☬",
+"☬〈 NAME 〉☬",
+"☬〔 NAME 〕☬",
+"☬★ NAME ★☬",
+"☬♛ NAME ♛☬",
+"☬⚡ NAME ⚡☬",
+"☬🔥 NAME 🔥☬",
+
+"⚔ NAME ⚔",
+"⚔『 NAME 』⚔",
+"⚔【 NAME 】⚔",
+"⚔《 NAME 》⚔",
+"⚔〈 NAME 〉⚔",
+"⚔〔 NAME 〕⚔",
+"⚔★ NAME ★⚔",
+"⚔♛ NAME ♛⚔",
+"⚔⚡ NAME ⚡⚔",
+"⚔🔥 NAME 🔥⚔",
+
+"☠ NAME ☠",
+"☠『 NAME 』☠",
+"☠【 NAME 】☠",
+"☠《 NAME 》☠",
+"☠〈 NAME 〉☠",
+"☠〔 NAME 〕☠",
+"☠★ NAME ★☠",
+"☠♛ NAME ♛☠",
+"☠⚡ NAME ⚡☠",
+"☠🔥 NAME 🔥☠",
+
+"👑 NAME 👑",
+"👑『 NAME 』👑",
+"👑【 NAME 】👑",
+"👑《 NAME 》👑",
+"👑〈 NAME 〉👑",
+"👑〔 NAME 〕👑",
+"👑★ NAME ★👑",
+"👑♛ NAME ♛👑",
+"👑⚡ NAME ⚡👑",
+"👑🔥 NAME 🔥👑",
+
+"💎 NAME 💎",
+"💎『 NAME 』💎",
+"💎【 NAME 】💎",
+"💎《 NAME 》💎",
+"💎〈 NAME 〉💎",
+"💎〔 NAME 〕💎",
+"💎★ NAME ★💎",
+"💎♛ NAME ♛💎",
+"💎⚡ NAME ⚡💎",
+"💎🔥 NAME 🔥💎"
+
 ];
 
 
-/* =========================
-   FONT STYLES
-========================= */
+/* =================================
+FONT LIST
+================================= */
 
-const fontClasses = [
-"s1","s2","s3","s4","s5",
-"s6","s7","s8","s9","s10"
+const fonts = [
+
+"font1","font2","font3","font4","font5",
+"font6","font7","font8","font9","font10",
+"font11","font12","font13","font14","font15",
+"font16","font17","font18","font19","font20"
+
 ];
 
 
-/* =========================
-   CATEGORY DATA
-========================= */
+/* =================================
+FAVORITES
+================================= */
 
-const categories = {
-    Gaming: [
-        "Gaming","Gamer","King","Queen","Player","Hunter",
-        "Sniper","Battle","Game","Warrior","Killer","Master"
-    ],
-
-    Cool: [
-        "Cool","Legend","Pro","Star","Hero","Champion",
-        "Master","X"
-    ],
-
-    Royal: [
-        "Royal","King","Queen","Prince","Princess",
-        "Crown","Lord","Lady"
-    ],
-
-    Fire: [
-        "Fire","Flame","Blaze","Inferno","Thunder","Lightning"
-    ],
-
-    Love: [
-        "Love","Heart","Sweet","Cute","Lovely","Angel",
-        "Dream","Soul"
-    ],
-
-    Danger: [
-        "Danger","Killer","Death","Deadly","Destroyer",
-        "Savage","Fear","Risk"
-    ]
-};
+let favorites=[];
 
 
-/* =========================
-   MAIN DISPLAY
-========================= */
-
-const grid = document.getElementById("nameGrid");
-
-function createCard(name,index){
-
-    const design =
-        designs[index % designs.length];
-
-    const font =
-        fontClasses[index % fontClasses.length];
-
-    const styledName =
-        design.replace("NAME",name);
-
-    const card =
-        document.createElement("div");
-
-    card.className="card";
-
-    card.innerHTML=`
-
-        <div class="name ${font}">
-            ${styledName}
-        </div>
-
-        <div class="buttons">
-
-            <button onclick="copyName(this)">
-                Copy
-            </button>
-
-            <button onclick="favoriteName(this)">
-                ♡
-            </button>
-
-        </div>
-    `;
-
-    return card;
-}
-
+/* =================================
+DISPLAY
+================================= */
 
 function displayNames(list){
 
+    const grid=document.getElementById("nameGrid");
+
     grid.innerHTML="";
 
-    list.forEach((name,index)=>{
+    list.forEach(function(name,index){
 
-        grid.appendChild(
-            createCard(name,index)
-        );
+        let design=
+            decorations[index % decorations.length];
+
+        let font=
+            fonts[index % fonts.length];
+
+        let color=
+            "color"+((index % 10)+1);
+
+        let styled=
+            design.replace(/NAME/g,name);
+
+        const card=
+            document.createElement("div");
+
+        card.className="name-card";
+
+        card.innerHTML=`
+
+            <div class="styled-name ${font} ${color}">
+                ${styled}
+            </div>
+
+            <div class="card-buttons">
+
+                <button onclick="copyText(this)">
+                    📋
+                </button>
+
+                <button onclick="toggleFavorite(this)">
+                    ♡
+                </button>
+
+            </div>
+        `;
+
+        grid.appendChild(card);
 
     });
 
-    document.getElementById("count").innerText =
-        list.length + " Stylish Names";
+    document.getElementById("resultTitle").innerText=
+        list.length+" Stylish Names";
+
 }
 
 
-/* =========================
-   GENERATE
-========================= */
+/* =================================
+GENERATE CUSTOM NAME
+================================= */
 
-function generateNames(){
+function generateName(){
 
-    const input =
-        document.getElementById("nameInput")
-        .value
-        .trim();
+    const input=
+        document.getElementById("nameInput");
 
-    if(input===""){
+    const value=
+        input.value.trim();
 
-        alert("Please enter your name!");
+    if(value===""){
+
+        alert("Pehle naam enter karo!");
+
+        input.focus();
 
         return;
+
     }
 
-    const result=[];
+    const customNames=[];
 
     for(let i=0;i<500;i++){
 
-        result.push(input);
+        customNames.push(value);
 
     }
 
-    displayNames(result);
+    displayNames(customNames);
+
+    document.getElementById("resultTitle").innerText=
+        "500 Stylish Designs for "+value;
+
+    document
+    .querySelector(".results")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
 }
 
 
-/* =========================
-   SHOW ALL
-========================= */
+/* =================================
+COPY
+================================= */
 
-function showAll(){
+function copyText(button){
 
-    displayNames(names);
-
-}
-
-
-/* =========================
-   CATEGORY
-========================= */
-
-function generateCategory(category){
-
-    const words =
-        categories[category];
-
-    const result =
-        names.filter(name=>{
-
-            return words.some(word=>
-                name.toLowerCase()
-                .includes(word.toLowerCase())
-            );
-
-        });
-
-    if(result.length===0){
-
-        alert(
-            "Is category ke names abhi available nahi hain."
-        );
-
-        return;
-    }
-
-    displayNames(result);
-}
-
-
-/* =========================
-   COPY
-========================= */
-
-function copyName(button){
-
-    const text =
+    const name=
         button
         .parentElement
         .previousElementSibling
@@ -609,90 +1231,228 @@ function copyName(button){
 
     if(navigator.clipboard){
 
-        navigator.clipboard.writeText(text)
-        .then(()=>{
+        navigator.clipboard.writeText(name)
+        .then(function(){
 
-            button.innerText="Copied!";
+            button.innerText="✅";
 
-            setTimeout(()=>{
+            setTimeout(function(){
 
-                button.innerText="Copy";
+                button.innerText="📋";
 
-            },1200);
+            },1000);
+
+        })
+        .catch(function(){
+
+            oldCopy(name);
 
         });
 
     }else{
 
-        const temp =
-            document.createElement("textarea");
-
-        temp.value=text;
-
-        document.body.appendChild(temp);
-
-        temp.select();
-
-        document.execCommand("copy");
-
-        temp.remove();
-
-        button.innerText="Copied!";
-
-        setTimeout(()=>{
-
-            button.innerText="Copy";
-
-        },1200);
+        oldCopy(name);
 
     }
 
 }
 
 
-/* =========================
-   FAVORITE
-========================= */
+function oldCopy(text){
 
-function favoriteName(button){
+    const area=
+        document.createElement("textarea");
 
-    if(button.innerText==="♡"){
+    area.value=text;
 
-        button.innerText="♥";
+    document.body.appendChild(area);
+
+    area.select();
+
+    document.execCommand("copy");
+
+    area.remove();
+
+    alert("Copied! ✅");
+
+}
+
+
+/* =================================
+FAVORITE
+================================= */
+
+function toggleFavorite(button){
+
+    const name=
+        button
+        .parentElement
+        .previousElementSibling
+        .innerText;
+
+    const index=
+        favorites.indexOf(name);
+
+    if(index===-1){
+
+        favorites.push(name);
+
+        button.innerText="❤️";
 
     }else{
+
+        favorites.splice(index,1);
 
         button.innerText="♡";
 
     }
 
+    showFavorites();
+
 }
 
 
-/* =========================
-   ENTER KEY
-========================= */
+/* =================================
+SHOW FAVORITES
+================================= */
+
+function showFavorites(){
+
+    const box=
+        document.getElementById("favoriteList");
+
+    box.innerHTML="";
+
+    if(favorites.length===0){
+
+        box.innerHTML=
+        '<p class="empty">Your favorite names will appear here.</p>';
+
+        return;
+
+    }
+
+    favorites.forEach(function(name){
+
+        const item=
+            document.createElement("div");
+
+        item.className="favorite-item";
+
+        item.innerText="❤️ "+name;
+
+        box.appendChild(item);
+
+    });
+
+}
+
+
+/* =================================
+CATEGORY
+================================= */
+
+function filterCategory(type){
+
+    let result=[];
+
+    if(type==="gaming"){
+
+        result=names.filter(function(n){
+
+            return /king|gamer|gaming|game|war|battle|sniper|hunter|killer|player|warrior|master|pro/i.test(n);
+
+        });
+
+    }
+
+    else if(type==="cool"){
+
+        result=names.filter(function(n){
+
+            return /cool|legend|hero|pro|star|master|champion/i.test(n);
+
+        });
+
+    }
+
+    else if(type==="royal"){
+
+        result=names.filter(function(n){
+
+            return /king|queen|royal|prince|princess|crown|lord|lady/i.test(n);
+
+        });
+
+    }
+
+    else if(type==="fire"){
+
+        result=names.filter(function(n){
+
+            return /fire|flame|blaze|inferno|thunder|lightning|storm/i.test(n);
+
+        });
+
+    }
+
+    else if(type==="love"){
+
+        result=names.filter(function(n){
+
+            return /love|heart|sweet|cute|angel|dream|soul/i.test(n);
+
+        });
+
+    }
+
+    else if(type==="danger"){
+
+        result=names.filter(function(n){
+
+            return /danger|killer|death|deadly|destroy|savage|fear|venom|devil|demon/i.test(n);
+
+        });
+
+    }
+
+    if(result.length===0){
+
+        result=names;
+
+    }
+
+    displayNames(result);
+
+}
+
+
+/* =================================
+ENTER KEY
+================================= */
 
 document
 .getElementById("nameInput")
-.addEventListener("keydown",function(event){
+.addEventListener("keydown",function(e){
 
-    if(event.key==="Enter"){
+    if(e.key==="Enter"){
 
-        generateNames();
+        generateName();
 
     }
 
 });
 
 
-/* =========================
-   START
-========================= */
+/* =================================
+START
+================================= */
 
 displayNames(names);
+
+showFavorites();
 
 </script>
 
 </body>
-    </html>
+</html>
