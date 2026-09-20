@@ -1115,22 +1115,32 @@ function setCategory(category,button){
    SHARE
 ========================================== */
 
-async function shareName(index){
+    async function shareName(index){
 
-    const name =
-        window.currentDisplayedNames[index];
+    const name = window.currentDisplayedNames[index];
+
+    if(window.AndroidShare){
+        window.AndroidShare.shareText(name);
+        return;
+    }
 
     if(navigator.share){
+        try{
+            await navigator.share({
+                title: "NameCraft Stylish Name",
+                text: name,
+                url: window.location.href
+            });
+        }catch(error){
+            console.log("Share cancelled");
+        }
+    }else{
+        await navigator.clipboard.writeText(name);
+        alert("Name copied!");
+    }
+    }
 
-        await navigator.share({
-
-            title:"NameCraft Stylish Name",
-
-            text:name,
-
-            url:location.href
-
-        });
+ 
 
     }else{
 
