@@ -1103,41 +1103,57 @@ function setCategory(category,button){
     );
 }
 
+
 /* ==========================================
    SHARE
 ========================================== */
 
-    async function shareName(index){
+async function shareName(index){
 
     const name = window.currentDisplayedNames[index];
 
+    if(!name){
+        return;
+    }
+
+    // Android App
     if(window.AndroidShare){
         window.AndroidShare.shareText(name);
         return;
     }
 
+    // Browser
     if(navigator.share){
         try{
+
             await navigator.share({
                 title: "NameCraft Stylish Name",
                 text: name,
                 url: window.location.href
             });
-        }catch(error){
-            console.log("Share cancelled");
-        }
-    }
- 
 
-    }else{
+        }catch(error){
+
+            console.log("Share cancelled");
+
+        }
+
+        return;
+    }
+
+    // Fallback
+    try{
 
         await navigator.clipboard.writeText(name);
-
         alert("Name copied!");
+
+    }catch(error){
+
+        alert("Unable to share");
 
     }
 }
-
+    
 /* ==========================================
    THEME
 ========================================== */
