@@ -583,40 +583,8 @@ const baseNames = [
 "Panther","Leopard","Bear","Fox","Hawk"
 
 ];
-    async function loadAdminNames() {
-    try {
-        const { data, error } = await db
-            .from("names")
-            .select("name, style")
-            .order("id", { ascending: false });
-
-        if (error) {
-            console.error("Supabase Error:", error);
-            return;
-        }
-
-        const dbNames = [];
-
-        data.forEach(item => {
-            if (item.style) {
-                dbNames.push(item.style);
-            } else if (item.name) {
-                dbNames.push(item.name);
-            }
-        });
-
-        allNames = [
-            ...dbNames,
-            ...allNames.filter(name => !dbNames.includes(name))
-        ];
-
-        displayNames(allNames);
-
-    } catch (error) {
-        console.error("Error:", error);
-    }
-    }
-
+    
+        
 /* ==========================================
    500+ STYLE PATTERNS
 ========================================== */
