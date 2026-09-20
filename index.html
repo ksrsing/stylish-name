@@ -36,9 +36,7 @@ body{
     min-height:100vh;
 }
 
-/* =========================
-   NAVBAR
-========================= */
+/* ================= NAVBAR ================= */
 
 nav{
     width:100%;
@@ -73,9 +71,7 @@ nav a:hover{
     color:#9b8cff;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
     text-align:center;
@@ -151,9 +147,7 @@ nav a:hover{
     transform:scale(.96);
 }
 
-/* =========================
-   CATEGORIES
-========================= */
+/* ================= CATEGORIES ================= */
 
 .categories{
     padding:30px 6%;
@@ -209,9 +203,7 @@ nav a:hover{
     );
 }
 
-/* =========================
-   RESULTS
-========================= */
+/* ================= RESULTS ================= */
 
 .results{
     padding:50px 6%;
@@ -253,7 +245,6 @@ nav a:hover{
 
 .name-card:hover{
     transform:translateY(-4px);
-
     border-color:#8d7aff;
 }
 
@@ -262,14 +253,12 @@ nav a:hover{
 
     font-size:21px;
 
-    line-height:1.6;
+    line-height:1.7;
 
     word-break:break-word;
 }
 
-/* =========================
-   COLORS
-========================= */
+/* ================= COLORS ================= */
 
 .color1{color:#ff7cff;}
 .color2{color:#7cbcff;}
@@ -282,15 +271,11 @@ nav a:hover{
 .color9{color:#ffb76b;}
 .color10{color:#c7ff7c;}
 
-/* =========================
-   BUTTONS
-========================= */
+/* ================= BUTTONS ================= */
 
 .card-buttons{
     display:flex;
-
     justify-content:center;
-
     gap:10px;
 }
 
@@ -299,7 +284,6 @@ nav a:hover{
     height:38px;
 
     border:none;
-
     border-radius:10px;
 
     background:#ffffff15;
@@ -315,9 +299,7 @@ nav a:hover{
     background:#ffffff30;
 }
 
-/* =========================
-   FAVORITES
-========================= */
+/* ================= FAVORITES ================= */
 
 .favorites{
     padding:60px 6%;
@@ -347,9 +329,7 @@ nav a:hover{
     color:#999;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ================= ABOUT ================= */
 
 .about{
     max-width:800px;
@@ -367,9 +347,7 @@ nav a:hover{
     line-height:1.7;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
     margin-top:40px;
@@ -383,9 +361,7 @@ footer{
     background:#0005;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -398,6 +374,7 @@ footer{
         grid-template-columns:
         repeat(3,1fr);
     }
+
 }
 
 @media(max-width:600px){
@@ -438,266 +415,237 @@ footer{
     .name-grid{
         grid-template-columns:1fr;
     }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 
-<!-- =========================
-     NAVBAR
-========================= -->
+<!-- ================= NAVBAR ================= -->
 
 <nav>
 
-    <div class="logo">
-        NameCraft
-    </div>
+<div class="logo">
+    NameCraft
+</div>
 
-    <ul>
+<ul>
 
-        <li>
-            <a href="#home">
-                Home
-            </a>
-        </li>
+<li>
+<a href="#home">
+Home
+</a>
+</li>
 
-        <li>
-            <a href="#styles">
-                Styles
-            </a>
-        </li>
+<li>
+<a href="#styles">
+Styles
+</a>
+</li>
 
-        <li>
-            <a href="#favorites">
-                Favorites
-            </a>
-        </li>
+<li>
+<a href="#favorites">
+Favorites
+</a>
+</li>
 
-        <li>
-            <a href="#about">
-                About
-            </a>
-        </li>
+<li>
+<a href="#about">
+About
+</a>
+</li>
 
-    </ul>
+</ul>
 
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- ================= HERO ================= -->
 
 <section
 class="hero"
 id="home">
 
-    <h1>
-        Stylish Name Generator
-    </h1>
+<h1>
+Stylish Name Generator
+</h1>
 
-    <p>
-        Enter your name and generate
-        500 stylish names.
-    </p>
+<p>
+Enter your name and generate
+500 different stylish names.
+</p>
 
-    <div class="search-box">
+<div class="search-box">
 
-        <input
-            id="nameInput"
-            type="text"
-            placeholder="Enter your name..."
-            autocomplete="off"
-        >
+<input
+id="nameInput"
+type="text"
+placeholder="Enter your name..."
+autocomplete="off"
+>
 
-        <button
-            id="generateBtn">
+<button id="generateBtn">
+Generate
+</button>
 
-            Generate
-
-        </button>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     CATEGORIES
-========================= -->
+<!-- ================= CATEGORIES ================= -->
 
 <section
 class="categories"
 id="styles">
 
-    <h2>
-        Choose Your Style
-    </h2>
+<h2>
+Choose Your Style
+</h2>
 
-    <div class="category-grid">
+<div class="category-grid">
 
-        <div
-        class="category"
-        data-type="gaming">
+<div
+class="category"
+data-type="gaming">
 
-            🎮 Gaming
+🎮 Gaming
 
-        </div>
+</div>
 
-        <div
-        class="category"
-        data-type="cool">
+<div
+class="category"
+data-type="cool">
 
-            😎 Cool
+😎 Cool
 
-        </div>
+</div>
 
-        <div
-        class="category"
-        data-type="royal">
+<div
+class="category"
+data-type="royal">
 
-            👑 Royal
+👑 Royal
 
-        </div>
+</div>
 
-        <div
-        class="category"
-        data-type="fire">
+<div
+class="category"
+data-type="fire">
 
-            🔥 Fire
+🔥 Fire
 
-        </div>
+</div>
 
-        <div
-        class="category"
-        data-type="love">
+<div
+class="category"
+data-type="love">
 
-            ❤️ Love
+❤️ Love
 
-        </div>
+</div>
 
-        <div
-        class="category"
-        data-type="danger">
+<div
+class="category"
+data-type="danger">
 
-            ☠️ Danger
+☠️ Danger
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     RESULTS
-========================= -->
+<!-- ================= RESULTS ================= -->
 
 <section class="results">
 
-    <h2 id="resultTitle">
+<h2 id="resultTitle">
+500 Stylish Names
+</h2>
 
-        500 Stylish Names
-
-    </h2>
-
-    <div
-    class="name-grid"
-    id="nameGrid">
-
-    </div>
+<div
+class="name-grid"
+id="nameGrid">
+</div>
 
 </section>
 
 
-<!-- =========================
-     FAVORITES
-========================= -->
+<!-- ================= FAVORITES ================= -->
 
 <section
 class="favorites"
 id="favorites">
 
-    <h2>
-        ❤️ Favorites
-    </h2>
+<h2>
+❤️ Favorites
+</h2>
 
-    <div
-    class="favorite-list"
-    id="favoriteList">
+<div
+class="favorite-list"
+id="favoriteList">
 
-        <p class="empty">
+<p class="empty">
+Your favorite names will appear here.
+</p>
 
-            Your favorite names
-            will appear here.
-
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ================= ABOUT ================= -->
 
 <section
 class="about"
 id="about">
 
-    <h2>
-        About NameCraft
-    </h2>
+<h2>
+About NameCraft
+</h2>
 
-    <p>
+<p>
+NameCraft helps you create stylish
+names for gaming, social media and
+profiles.
 
-        NameCraft helps you create
-        stylish names for gaming,
-        social media and profiles.
-
-        Enter your name and generate
-        500 different stylish designs
-        instantly.
-
-    </p>
+Enter your name and generate
+500 different stylish designs
+instantly.
+</p>
 
 </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-    © 2026 NameCraft |
-    500 Stylish Name Generator
+© 2026 NameCraft |
+500 Stylish Name Generator
 
 </footer>
 
 
 <script>
 
-/* ==============================
+/* ==================================================
    SUPABASE
-============================== */
+================================================== */
 
 const SUPABASE_URL =
 "https://ujpzkpeslemcuizylymi.supabase.co";
 
-/*
-   Apni Publishable / anon key
-   yahan EK HI LINE me paste karo.
-*/
-
 const SUPABASE_KEY =
-"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
-
+"PASTE_YOUR_PUBLISHABLE_KEY_HERE";
 
 const db =
 window.supabase.createClient(
@@ -706,18 +654,18 @@ window.supabase.createClient(
 );
 
 
-/* ==============================
+/* ==================================================
    VARIABLES
-============================== */
+================================================== */
 
 let currentName = "";
 
 let favorites = [];
 
 
-/* ==============================
+/* ==================================================
    COLORS
-============================== */
+================================================== */
 
 const colors = [
 
@@ -735,133 +683,15 @@ const colors = [
 ];
 
 
-/* ==============================
-   FONT MAPS
-============================== */
-
-const fontMaps = {
-
-normal: {
-
-a:"a",b:"b",c:"c",d:"d",e:"e",
-f:"f",g:"g",h:"h",i:"i",j:"j",
-k:"k",l:"l",m:"m",n:"n",o:"o",
-p:"p",q:"q",r:"r",s:"s",t:"t",
-u:"u",v:"v",w:"w",x:"x",y:"y",z:"z"
-
-},
-
-bold: {
-
-a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",
-f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
-k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",
-p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
-u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳"
-
-},
-
-italic: {
-
-a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",
-f:"𝑓",g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",
-k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",o:"𝑜",
-p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",
-u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧"
-
-},
-
-boldItalic: {
-
-a:"𝒂",b:"𝒃",c:"𝒄",d:"𝒅",e:"𝒆",
-f:"𝒇",g:"𝒈",h:"𝒉",i:"𝒊",j:"𝒋",
-k:"𝒌",l:"𝒍",m:"𝒎",n:"𝒏",o:"𝒐",
-p:"𝒑",q:"𝒒",r:"𝒓",s:"𝒔",t:"𝒕",
-u:"𝒖",v:"𝒗",w:"𝒘",x:"𝒙",y:"𝒚",z:"𝒛"
-
-},
-
-script: {
-
-a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"ℯ",
-f:"𝒻",g:"ℊ",h:"𝒽",i:"𝒾",j:"𝒿",
-k:"𝓀",l:"𝓁",m:"𝓂",n:"𝓃",o:"ℴ",
-p:"𝓅",q:"𝓆",r:"𝓇",s:"𝓈",t:"𝓉",
-u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",y:"𝓎",z:"𝓏"
-
-},
-
-fraktur: {
-
-a:"𝔞",b:"𝔟",c:"𝔠",d:"𝔡",e:"𝔢",
-f:"𝔣",g:"𝔤",h:"𝔥",i:"𝔦",j:"𝔧",
-k:"𝔨",l:"𝔩",m:"𝔪",n:"𝔫",o:"𝔬",
-p:"𝔭",q:"𝔮",r:"𝔯",s:"𝔰",t:"𝔱",
-u:"𝔲",v:"𝔳",w:"𝔴",x:"𝔵",y:"𝔶",z:"𝔷"
-
-},
-
-double: {
-
-a:"𝕒",b:"𝕓",c:"𝕔",d:"𝕕",e:"𝕖",
-f:"𝕗",g:"𝕘",h:"𝕙",i:"𝕚",j:"𝕛",
-k:"𝕜",l:"𝕝",m:"𝕞",n:"𝕟",o:"𝕠",
-p:"𝕡",q:"𝕢",r:"𝕣",s:"𝕤",t:"𝕥",
-u:"𝕦",v:"𝕧",w:"𝕨",x:"𝕩",y:"𝕪",z:"𝕫"
-
-},
-
-mono: {
-
-a:"𝚊",b:"𝚋",c:"𝚌",d:"𝚍",e:"𝚎",
-f:"𝚏",g:"𝚐",h:"𝚑",i:"𝚒",j:"𝚓",
-k:"𝚔",l:"𝚕",m:"𝚖",n:"𝚗",o:"𝚘",
-p:"𝚙",q:"𝚚",r:"𝚛",s:"𝚜",t:"𝚝",
-u:"𝚞",v:"𝚟",w:"𝚠",x:"𝚡",y:"𝚢",z:"𝚣"
-
-},
-
-sansBold: {
-
-a:"𝗮",b:"𝗯",c:"𝗰",d:"𝗱",e:"𝗲",
-f:"𝗳",g:"𝗴",h:"𝗵",i:"𝗶",j:"𝗷",
-k:"𝗸",l:"𝗹",m:"𝗺",n:"𝗻",o:"𝗼",
-p:"𝗽",q:"𝗾",r:"𝗿",s:"𝘀",t:"𝘁",
-u:"𝘂",v:"𝘃",w:"𝘄",x:"𝘅",y:"𝘆",z:"𝘇"
-
-},
-
-sansItalic: {
-
-a:"𝘢",b:"𝘣",c:"𝘤",d:"𝘥",e:"𝘦",
-f:"𝘧",g:"𝘨",h:"𝘩",i:"𝘪",j:"𝘫",
-k:"𝘬",l:"𝘭",m:"𝘮",n:"𝘯",o:"𝘰",
-p:"𝘱",q:"𝘲",r:"𝘳",s:"𝘴",t:"𝘵",
-u:"𝘶",v:"𝘷",w:"𝘸",x:"𝘹",y:"𝘺",z:"𝘻"
-
-},
-
-sansBoldItalic: {
-
-a:"𝙖",b:"𝙗",c:"𝙘",d:"𝙙",e:"𝙚",
-f:"𝙛",g:"𝙜",h:"𝙝",i:"𝙞",j:"𝙟",
-k:"𝙠",l:"𝙡",m:"𝙢",n:"𝙣",o:"𝙤",
-p:"𝙥",q:"𝙦",r:"𝙧",s:"𝙨",t:"𝙩",
-u:"𝙪",v:"𝙫",w:"𝙬",x:"𝙭",y:"𝙮",z:"𝙯"
-
-}
-
-};
-
-
-/* ==============================
-   DECORATIONS
-============================== */
+/* ==================================================
+   50 DECORATIONS
+================================================== */
 
 const decorations = [
 
+["꧁༺ "," ༻꧂"],
+["꧁༒ "," ༒꧂"],
 ["꧁ "," ꧂"],
-["༺ "," ༻"],
 ["『 "," 』"],
 ["【 "," 】"],
 ["《 "," 》"],
@@ -869,10 +699,10 @@ const decorations = [
 ["〔 "," 〕"],
 ["〘 "," 〙"],
 ["〚 "," 〛"],
-["乂 "," 乂"],
 
+["乂 "," 乂"],
 ["亗 "," 亗"],
-["★ "," ★"],
+["★彡 "," 彡★"],
 ["✦ "," ✦"],
 ["✧ "," ✧"],
 ["✯ "," ✯"],
@@ -880,8 +710,8 @@ const decorations = [
 ["❖ "," ❖"],
 ["◇ "," ◇"],
 ["◆ "," ◆"],
-["♛ "," ♛"],
 
+["♛ "," ♛"],
 ["♕ "," ♕"],
 ["♚ "," ♚"],
 ["☠ "," ☠"],
@@ -891,8 +721,8 @@ const decorations = [
 ["༒ "," ༒"],
 ["⚔ "," ⚔"],
 ["☯ "," ☯"],
-["👑 "," 👑"],
 
+["👑 "," 👑"],
 ["💎 "," 💎"],
 ["😈 "," 😈"],
 ["🐉 "," 🐉"],
@@ -902,30 +732,196 @@ const decorations = [
 ["🎮 "," 🎮"],
 ["🏆 "," 🏆"],
 ["💀 "," 💀"],
-["❤️ "," ❤️"],
 
+["❤️ "," ❤️"],
 ["🖤 "," 🖤"],
 ["💜 "," 💜"],
 ["💙 "," 💙"],
 ["🌟 "," 🌟"],
 ["🌙 "," 🌙"],
-["☀ "," ☀"],
-["☁ "," ☁"],
-["☄ "," ☄"],
+["☀️ "," ☀️"],
+["☁️ "," ☁️"],
 ["⚜ "," ⚜"],
 ["×͜× "," ×͜×"]
 
 ];
 
 
-/* ==============================
-   CONVERT FONT
-============================== */
+/* ==================================================
+   FONT 1 - BOLD
+================================================== */
 
-function convertFont(
-    text,
-    map
-){
+const font1 = {
+
+a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",
+f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
+k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",
+p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
+u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳"
+
+};
+
+
+/* ==================================================
+   FONT 2 - ITALIC
+================================================== */
+
+const font2 = {
+
+a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",
+f:"𝑓",g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",
+k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",o:"𝑜",
+p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",
+u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧"
+
+};
+
+
+/* ==================================================
+   FONT 3 - BOLD ITALIC
+================================================== */
+
+const font3 = {
+
+a:"𝒂",b:"𝒃",c:"𝒄",d:"𝒅",e:"𝒆",
+f:"𝒇",g:"𝒈",h:"𝒉",i:"𝒊",j:"𝒋",
+k:"𝒌",l:"𝒍",m:"𝒎",n:"𝒏",o:"𝒐",
+p:"𝒑",q:"𝒒",r:"𝒓",s:"𝒔",t:"𝒕",
+u:"𝒖",v:"𝒗",w:"𝒘",x:"𝒙",y:"𝒚",z:"𝒛"
+
+};
+
+
+/* ==================================================
+   FONT 4 - SCRIPT
+================================================== */
+
+const font4 = {
+
+a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"ℯ",
+f:"𝒻",g:"ℊ",h:"𝒽",i:"𝒾",j:"𝒿",
+k:"𝓀",l:"𝓁",m:"𝓂",n:"𝓃",o:"ℴ",
+p:"𝓅",q:"𝓆",r:"𝓇",s:"𝓈",t:"𝓉",
+u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",y:"𝓎",z:"𝓏"
+
+};
+
+
+/* ==================================================
+   FONT 5 - FRAKTUR
+================================================== */
+
+const font5 = {
+
+a:"𝔞",b:"𝔟",c:"𝔠",d:"𝔡",e:"𝔢",
+f:"𝔣",g:"𝔤",h:"𝔥",i:"𝔦",j:"𝔧",
+k:"𝔨",l:"𝔩",m:"𝔪",n:"𝔫",o:"𝔬",
+p:"𝔭",q:"𝔮",r:"𝔯",s:"𝔰",t:"𝔱",
+u:"𝔲",v:"𝔳",w:"𝔴",x:"𝔵",y:"𝔶",z:"𝔷"
+
+};
+
+
+/* ==================================================
+   FONT 6 - DOUBLE
+================================================== */
+
+const font6 = {
+
+a:"𝕒",b:"𝕓",c:"𝕔",d:"𝕕",e:"𝕖",
+f:"𝕗",g:"𝕘",h:"𝕙",i:"𝕚",j:"𝕛",
+k:"𝕜",l:"𝕝",m:"𝕞",n:"𝕟",o:"𝕠",
+p:"𝕡",q:"𝕢",r:"𝕣",s:"𝕤",t:"𝕥",
+u:"𝕦",v:"𝕧",w:"𝕨",x:"𝕩",y:"𝕪",z:"𝕫"
+
+};
+
+
+/* ==================================================
+   FONT 7 - MONO
+================================================== */
+
+const font7 = {
+
+a:"𝚊",b:"𝚋",c:"𝚌",d:"𝚍",e:"𝚎",
+f:"𝚏",g:"𝚐",h:"𝚑",i:"𝚒",j:"𝚓",
+k:"𝚔",l:"𝚕",m:"𝚖",n:"𝚗",o:"𝚘",
+p:"𝚙",q:"𝚚",r:"𝚛",s:"𝚜",t:"𝚝",
+u:"𝚞",v:"𝚟",w:"𝚠",x:"𝚡",y:"𝚢",z:"𝚣"
+
+};
+
+
+/* ==================================================
+   FONT 8 - SANS BOLD
+================================================== */
+
+const font8 = {
+
+a:"𝗮",b:"𝗯",c:"𝗰",d:"𝗱",e:"𝗲",
+f:"𝗳",g:"𝗴",h:"𝗵",i:"𝗶",j:"𝗷",
+k:"𝗸",l:"𝗹",m:"𝗺",n:"𝗻",o:"𝗼",
+p:"𝗽",q:"𝗾",r:"𝗿",s:"𝘀",t:"𝘁",
+u:"𝘂",v:"𝘃",w:"𝘄",x:"𝘅",y:"𝘆",z:"𝘇"
+
+};
+
+
+/* ==================================================
+   FONT 9 - SANS ITALIC
+================================================== */
+
+const font9 = {
+
+a:"𝘢",b:"𝘣",c:"𝘤",d:"𝘥",e:"𝘦",
+f:"𝘧",g:"𝘨",h:"𝘩",i:"𝘪",j:"𝘫",
+k:"𝘬",l:"𝘭",m:"𝘮",n:"𝘯",o:"𝘰",
+p:"𝘱",q:"𝘲",r:"𝘳",s:"𝘴",t:"𝘵",
+u:"𝘶",v:"𝘷",w:"𝘸",x:"𝘹",y:"𝘺",z:"𝘻"
+
+};
+
+
+/* ==================================================
+   FONT 10 - BOLD SANS ITALIC
+================================================== */
+
+const font10 = {
+
+a:"𝙖",b:"𝙗",c:"𝙘",d:"𝙙",e:"𝙚",
+f:"𝙛",g:"𝙜",h:"𝙝",i:"𝙞",j:"𝙟",
+k:"𝙠",l:"𝙡",m:"𝙢",n:"𝙣",o:"𝙤",
+p:"𝙥",q:"𝙦",r:"𝙧",s:"𝙨",t:"𝙩",
+u:"𝙪",v:"𝙫",w:"𝙬",x:"𝙭",y:"𝙮",z:"𝙯"
+
+};
+
+
+/* ==================================================
+   ALL 10 FONTS
+================================================== */
+
+const fonts = [
+
+font1,
+font2,
+font3,
+font4,
+font5,
+font6,
+font7,
+font8,
+font9,
+font10
+
+];
+
+
+/* ==================================================
+   CONVERT TEXT
+================================================== */
+
+function convertText(text,map){
 
     return text
     .toLowerCase()
@@ -940,53 +936,43 @@ function convertFont(
 }
 
 
-/* ==============================
-   CREATE 500 STYLES
-============================== */
+/* ==================================================
+   CREATE EXACTLY 500 STYLES
+================================================== */
 
-const styles = [];
+function createStyles(name){
 
-const fontNames =
-Object.keys(fontMaps);
+    let result = [];
 
+    fonts.forEach(function(font){
 
-fontNames.forEach(
-function(fontName){
+        decorations.forEach(function(decoration){
 
-    const map =
-        fontMaps[fontName];
+            const converted =
+                convertText(
+                    name,
+                    font
+                );
 
-    decorations.forEach(
-    function(decoration){
+            const styled =
+                decoration[0] +
+                converted +
+                decoration[1];
 
-        const styled =
-            convertFont(
-                "NAME",
-                map
-            );
+            result.push(styled);
 
-        styles.push(
-
-            decoration[0] +
-            styled +
-            decoration[1]
-
-        );
+        });
 
     });
 
-});
+    return result.slice(0,500);
+
+}
 
 
-console.log(
-    "Total styles:",
-    styles.length
-);
-
-
-/* ==============================
+/* ==================================================
    GENERATE
-============================== */
+================================================== */
 
 function generate(){
 
@@ -1012,12 +998,11 @@ function generate(){
     }
 
 
-    currentName =
-        value;
+    currentName = value;
 
 
-    const name =
-        value;
+    const styles =
+        createStyles(value);
 
 
     const grid =
@@ -1032,14 +1017,8 @@ function generate(){
     styles.forEach(
     function(style,index){
 
-        const finalName =
-            style
-            .split("NAME")
-            .join(name);
-
-
         createCard(
-            finalName,
+            style,
             index
         );
 
@@ -1050,7 +1029,7 @@ function generate(){
         "resultTitle"
     ).textContent =
         "500 Stylish Names for " +
-        name;
+        value;
 
 
     document
@@ -1062,9 +1041,9 @@ function generate(){
 }
 
 
-/* ==============================
+/* ==================================================
    CREATE CARD
-============================== */
+================================================== */
 
 function createCard(
     name,
@@ -1097,7 +1076,6 @@ function createCard(
             index %
             colors.length
         ];
-
 
     text.textContent =
         name;
@@ -1187,9 +1165,9 @@ function createCard(
 }
 
 
-/* ==============================
+/* ==================================================
    COPY
-============================== */
+================================================== */
 
 function copyName(text){
 
@@ -1224,9 +1202,9 @@ function copyName(text){
 }
 
 
-/* ==============================
+/* ==================================================
    OLD COPY
-============================== */
+================================================== */
 
 function oldCopy(text){
 
@@ -1275,8 +1253,7 @@ function oldCopy(text){
     catch(error){
 
         alert(
-            "Copy failed. " +
-            "Name ko long press karke copy karo."
+            "Copy failed. Name ko long press karke copy karo."
         );
 
     }
@@ -1289,9 +1266,9 @@ function oldCopy(text){
 }
 
 
-/* ==============================
+/* ==================================================
    FAVORITE
-============================== */
+================================================== */
 
 function toggleFavorite(
     name,
@@ -1333,9 +1310,9 @@ function toggleFavorite(
 }
 
 
-/* ==============================
+/* ==================================================
    SHOW FAVORITES
-============================== */
+================================================== */
 
 function showFavorites(){
 
@@ -1361,8 +1338,7 @@ function showFavorites(){
             "empty";
 
         empty.textContent =
-            "Your favorite names " +
-            "will appear here.";
+            "Your favorite names will appear here.";
 
 
         box.appendChild(
@@ -1398,9 +1374,9 @@ function showFavorites(){
 }
 
 
-/* ==============================
+/* ==================================================
    ENTER KEY
-============================== */
+================================================== */
 
 document
 .getElementById(
@@ -1422,9 +1398,9 @@ document
 );
 
 
-/* ==============================
+/* ==================================================
    GENERATE BUTTON
-============================== */
+================================================== */
 
 document
 .getElementById(
@@ -1440,9 +1416,9 @@ document
 );
 
 
-/* ==============================
+/* ==================================================
    CATEGORY BUTTONS
-============================== */
+================================================== */
 
 document
 .querySelectorAll(
@@ -1521,14 +1497,13 @@ function(category){
 });
 
 
-/* ==============================
+/* ==================================================
    START
-============================== */
+================================================== */
 
 showFavorites();
 
 </script>
 
 </body>
-
 </html>
