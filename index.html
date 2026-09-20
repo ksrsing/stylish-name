@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NameCraft - Stylish Name Generator</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>NameCraft - 500 Stylish Names</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -20,12 +26,19 @@ html{
 }
 
 body{
-    background:linear-gradient(135deg,#080b24,#17104a,#071b38);
+    background:linear-gradient(
+        135deg,
+        #080b24,
+        #17104a,
+        #071b38
+    );
     color:white;
     min-height:100vh;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
     width:100%;
@@ -60,7 +73,9 @@ nav a:hover{
     color:#9b8cff;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     text-align:center;
@@ -70,7 +85,14 @@ nav a:hover{
 .hero h1{
     font-size:45px;
     margin-bottom:15px;
-    background:linear-gradient(90deg,#9d8cff,#e38cff);
+
+    background:
+    linear-gradient(
+        90deg,
+        #9d8cff,
+        #e38cff
+    );
+
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -90,11 +112,15 @@ nav a:hover{
 .search-box input{
     flex:1;
     padding:17px;
+
     border-radius:12px;
     border:1px solid #ffffff30;
+
     outline:none;
+
     background:#ffffff12;
     color:white;
+
     font-size:16px;
 }
 
@@ -104,11 +130,20 @@ nav a:hover{
 
 .search-box button{
     padding:17px 25px;
+
     border:none;
     border-radius:12px;
-    background:linear-gradient(135deg,#765cff,#b85cff);
+
+    background:
+    linear-gradient(
+        135deg,
+        #765cff,
+        #b85cff
+    );
+
     color:white;
     font-weight:bold;
+
     cursor:pointer;
 }
 
@@ -116,7 +151,9 @@ nav a:hover{
     transform:scale(.96);
 }
 
-/* CATEGORIES */
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
     padding:30px 6%;
@@ -133,18 +170,28 @@ nav a:hover{
 .category-grid{
     max-width:1000px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+
+    grid-template-columns:
+    repeat(6,1fr);
+
     gap:12px;
 }
 
 .category{
     padding:18px 10px;
+
     text-align:center;
+
     background:#ffffff10;
+
     border:1px solid #ffffff20;
+
     border-radius:15px;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
@@ -154,10 +201,17 @@ nav a:hover{
 }
 
 .category.active{
-    background:linear-gradient(135deg,#765cff,#b85cff);
+    background:
+    linear-gradient(
+        135deg,
+        #765cff,
+        #b85cff
+    );
 }
 
-/* RESULTS */
+/* =========================
+   RESULTS
+========================= */
 
 .results{
     padding:50px 6%;
@@ -166,37 +220,56 @@ nav a:hover{
 .name-grid{
     max-width:1200px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:15px;
 }
 
 .name-card{
     background:#ffffff0d;
+
     border:1px solid #ffffff18;
+
     border-radius:16px;
+
     padding:20px;
+
     min-height:125px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
+
     gap:15px;
+
     transition:.3s;
 }
 
 .name-card:hover{
     transform:translateY(-4px);
+
     border-color:#8d7aff;
 }
 
 .styled-name{
     text-align:center;
+
     font-size:21px;
-    line-height:1.5;
+
+    line-height:1.6;
+
     word-break:break-word;
 }
 
-/* COLORS */
+/* =========================
+   COLORS
+========================= */
 
 .color1{color:#ff7cff;}
 .color2{color:#7cbcff;}
@@ -209,22 +282,32 @@ nav a:hover{
 .color9{color:#ffb76b;}
 .color10{color:#c7ff7c;}
 
-/* BUTTONS */
+/* =========================
+   BUTTONS
+========================= */
 
 .card-buttons{
     display:flex;
+
     justify-content:center;
+
     gap:10px;
 }
 
 .card-buttons button{
     width:45px;
     height:38px;
+
     border:none;
+
     border-radius:10px;
+
     background:#ffffff15;
+
     color:white;
+
     font-size:18px;
+
     cursor:pointer;
 }
 
@@ -232,7 +315,9 @@ nav a:hover{
     background:#ffffff30;
 }
 
-/* FAVORITES */
+/* =========================
+   FAVORITES
+========================= */
 
 .favorites{
     padding:60px 6%;
@@ -245,10 +330,15 @@ nav a:hover{
 
 .favorite-item{
     padding:15px;
+
     margin:10px 0;
+
     background:#ffffff10;
+
     border-radius:12px;
+
     text-align:center;
+
     word-break:break-word;
 }
 
@@ -257,40 +347,56 @@ nav a:hover{
     color:#999;
 }
 
-/* ABOUT */
+/* =========================
+   ABOUT
+========================= */
 
 .about{
     max-width:800px;
+
     margin:auto;
+
     padding:60px 20px;
+
     text-align:center;
 }
 
 .about p{
     color:#bbb;
+
     line-height:1.7;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     margin-top:40px;
+
     padding:25px;
+
     text-align:center;
+
     color:#999;
+
     background:#0005;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
 
     .name-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .category-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+        repeat(3,1fr);
     }
 }
 
@@ -325,42 +431,78 @@ footer{
     }
 
     .category-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .name-grid{
         grid-template-columns:1fr;
     }
 }
+
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+
+<!-- =========================
+     NAVBAR
+========================= -->
 
 <nav>
 
-    <div class="logo">NameCraft</div>
+    <div class="logo">
+        NameCraft
+    </div>
 
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#styles">Styles</a></li>
-        <li><a href="#favorites">Favorites</a></li>
-        <li><a href="#about">About</a></li>
+
+        <li>
+            <a href="#home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#styles">
+                Styles
+            </a>
+        </li>
+
+        <li>
+            <a href="#favorites">
+                Favorites
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
     </ul>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home">
 
-    <h1>Stylish Name Generator</h1>
+    <h1>
+        Stylish Name Generator
+    </h1>
 
     <p>
-        Enter your name and generate 100 stylish names.
+        Enter your name and generate
+        500 stylish names.
     </p>
 
     <div class="search-box">
@@ -372,8 +514,11 @@ footer{
             autocomplete="off"
         >
 
-        <button id="generateBtn">
+        <button
+            id="generateBtn">
+
             Generate
+
         </button>
 
     </div>
@@ -381,36 +526,66 @@ footer{
 </section>
 
 
-<!-- CATEGORIES -->
+<!-- =========================
+     CATEGORIES
+========================= -->
 
-<section class="categories" id="styles">
+<section
+class="categories"
+id="styles">
 
-    <h2>Choose Your Style</h2>
+    <h2>
+        Choose Your Style
+    </h2>
 
     <div class="category-grid">
 
-        <div class="category" data-type="gaming">
+        <div
+        class="category"
+        data-type="gaming">
+
             🎮 Gaming
+
         </div>
 
-        <div class="category" data-type="cool">
+        <div
+        class="category"
+        data-type="cool">
+
             😎 Cool
+
         </div>
 
-        <div class="category" data-type="royal">
+        <div
+        class="category"
+        data-type="royal">
+
             👑 Royal
+
         </div>
 
-        <div class="category" data-type="fire">
+        <div
+        class="category"
+        data-type="fire">
+
             🔥 Fire
+
         </div>
 
-        <div class="category" data-type="love">
+        <div
+        class="category"
+        data-type="love">
+
             ❤️ Love
+
         </div>
 
-        <div class="category" data-type="danger">
+        <div
+        class="category"
+        data-type="danger">
+
             ☠️ Danger
+
         </div>
 
     </div>
@@ -418,36 +593,48 @@ footer{
 </section>
 
 
-<!-- RESULTS -->
+<!-- =========================
+     RESULTS
+========================= -->
 
 <section class="results">
 
     <h2 id="resultTitle">
-        100 Stylish Names
+
+        500 Stylish Names
+
     </h2>
 
     <div
-        class="name-grid"
-        id="nameGrid">
+    class="name-grid"
+    id="nameGrid">
+
     </div>
 
 </section>
 
 
-<!-- FAVORITES -->
+<!-- =========================
+     FAVORITES
+========================= -->
 
 <section
-    class="favorites"
-    id="favorites">
+class="favorites"
+id="favorites">
 
-    <h2>❤️ Favorites</h2>
+    <h2>
+        ❤️ Favorites
+    </h2>
 
     <div
-        class="favorite-list"
-        id="favoriteList">
+    class="favorite-list"
+    id="favoriteList">
 
         <p class="empty">
-            Your favorite names will appear here.
+
+            Your favorite names
+            will appear here.
+
         </p>
 
     </div>
@@ -455,34 +642,69 @@ footer{
 </section>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section
-    class="about"
-    id="about">
+class="about"
+id="about">
 
-    <h2>About NameCraft</h2>
+    <h2>
+        About NameCraft
+    </h2>
 
     <p>
-        NameCraft helps you create stylish names for
-        gaming, social media and profiles.
-        Enter your name and generate 100 different
-        stylish designs instantly.
+
+        NameCraft helps you create
+        stylish names for gaming,
+        social media and profiles.
+
+        Enter your name and generate
+        500 different stylish designs
+        instantly.
+
     </p>
 
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    © 2026 NameCraft | Stylish Name Generator
+    © 2026 NameCraft |
+    500 Stylish Name Generator
 
 </footer>
 
 
 <script>
+
+/* ==============================
+   SUPABASE
+============================== */
+
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
+
+/*
+   Apni Publishable / anon key
+   yahan EK HI LINE me paste karo.
+*/
+
+const SUPABASE_KEY =
+"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
+
+
+const db =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 
 /* ==============================
    VARIABLES
@@ -498,6 +720,7 @@ let favorites = [];
 ============================== */
 
 const colors = [
+
     "color1",
     "color2",
     "color3",
@@ -508,126 +731,257 @@ const colors = [
     "color8",
     "color9",
     "color10"
+
 ];
 
 
 /* ==============================
-   100 STYLES
+   FONT MAPS
 ============================== */
 
-const styles = [
+const fontMaps = {
 
-"꧁༺ NAME ༻꧂",
-"亗 NAME 亗",
-"乂 NAME 乂",
-"『 NAME 』",
-"★彡 NAME 彡★",
-"♛ NAME ♛",
-"☠ NAME ☠",
-"⚡ NAME ⚡",
-"🔥 NAME 🔥",
-"༺ NAME ༻",
+normal: {
 
-"꧁ NAME ꧂",
-"✦ NAME ✦",
-"♕ NAME ♕",
-"乂『 NAME 』乂",
-"★ NAME ★",
-"♚ NAME ♚",
-"ツ NAME ツ",
-"么 NAME 么",
-"彡 NAME 彡",
-"×͜× NAME",
+a:"a",b:"b",c:"c",d:"d",e:"e",
+f:"f",g:"g",h:"h",i:"i",j:"j",
+k:"k",l:"l",m:"m",n:"n",o:"o",
+p:"p",q:"q",r:"r",s:"s",t:"t",
+u:"u",v:"v",w:"w",x:"x",y:"y",z:"z"
 
-"『★』NAME『★』",
-"༒ NAME ༒",
-"☬ NAME ☬",
-"⚔ NAME ⚔",
-"♠ NAME ♠",
-"♥ NAME ♥",
-"♦ NAME ♦",
-"♣ NAME ♣",
-"☯ NAME ☯",
-"☮ NAME ☮",
+},
 
-"☢ NAME ☢",
-"☣ NAME ☣",
-"⚡︎ NAME ⚡︎",
-"★彡[NAME]彡★",
-"꧁[NAME]꧂",
-"『NAME』",
-"【NAME】",
-"《NAME》",
-"〈NAME〉",
-"〔NAME〕",
+bold: {
 
-"〘NAME〙",
-"〚NAME〛",
-"⫷ NAME ⫸",
-"⟦ NAME ⟧",
-"⟨ NAME ⟩",
-"✧ NAME ✧",
-"✩ NAME ✩",
-"✪ NAME ✪",
-"✯ NAME ✯",
-"✰ NAME ✰",
+a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",
+f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
+k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",
+p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
+u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳"
 
-"✵ NAME ✵",
-"✺ NAME ✺",
-"❖ NAME ❖",
-"◇ NAME ◇",
-"◆ NAME ◆",
-"◈ NAME ◈",
-"⬢ NAME ⬢",
-"♤ NAME ♤",
-"♡ NAME ♡",
-"♧ NAME ♧",
+},
 
-"♢ NAME ♢",
-"☾ NAME ☽",
-"☀ NAME ☀",
-"☁ NAME ☁",
-"☄ NAME ☄",
-"☘ NAME ☘",
-"⚜ NAME ⚜",
-"♜ NAME ♜",
-"♞ NAME ♞",
-"♟ NAME ♟",
+italic: {
 
-"♨ NAME ♨",
-"⚜️ NAME ⚜️",
-"👑 NAME 👑",
-"💀 NAME 💀",
-"💎 NAME 💎",
-"🚀 NAME 🚀",
-"🎯 NAME 🎯",
-"🎮 NAME 🎮",
-"🖤 NAME 🖤",
-"❤️ NAME ❤️",
+a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",
+f:"𝑓",g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",
+k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",o:"𝑜",
+p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",
+u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧"
 
-"💜 NAME 💜",
-"💙 NAME 💙",
-"💚 NAME 💚",
-"💛 NAME 💛",
-"🩷 NAME 🩷",
-"🌟 NAME 🌟",
-"🌙 NAME 🌙",
-"☠️ NAME ☠️",
-"😈 NAME 😈",
-"👿 NAME 👿",
+},
 
-"🐉 NAME 🐉",
-"🦅 NAME 🦅",
-"🐺 NAME 🐺",
-"⚔️ NAME ⚔️",
-"🏆 NAME 🏆",
-"★『NAME』★",
-"亗『NAME』亗",
-"꧁༒NAME༒꧂",
-"『亗 NAME 亗』",
-"꧁👑 NAME 👑꧂"
+boldItalic: {
+
+a:"𝒂",b:"𝒃",c:"𝒄",d:"𝒅",e:"𝒆",
+f:"𝒇",g:"𝒈",h:"𝒉",i:"𝒊",j:"𝒋",
+k:"𝒌",l:"𝒍",m:"𝒎",n:"𝒏",o:"𝒐",
+p:"𝒑",q:"𝒒",r:"𝒓",s:"𝒔",t:"𝒕",
+u:"𝒖",v:"𝒗",w:"𝒘",x:"𝒙",y:"𝒚",z:"𝒛"
+
+},
+
+script: {
+
+a:"𝒶",b:"𝒷",c:"𝒸",d:"𝒹",e:"ℯ",
+f:"𝒻",g:"ℊ",h:"𝒽",i:"𝒾",j:"𝒿",
+k:"𝓀",l:"𝓁",m:"𝓂",n:"𝓃",o:"ℴ",
+p:"𝓅",q:"𝓆",r:"𝓇",s:"𝓈",t:"𝓉",
+u:"𝓊",v:"𝓋",w:"𝓌",x:"𝓍",y:"𝓎",z:"𝓏"
+
+},
+
+fraktur: {
+
+a:"𝔞",b:"𝔟",c:"𝔠",d:"𝔡",e:"𝔢",
+f:"𝔣",g:"𝔤",h:"𝔥",i:"𝔦",j:"𝔧",
+k:"𝔨",l:"𝔩",m:"𝔪",n:"𝔫",o:"𝔬",
+p:"𝔭",q:"𝔮",r:"𝔯",s:"𝔰",t:"𝔱",
+u:"𝔲",v:"𝔳",w:"𝔴",x:"𝔵",y:"𝔶",z:"𝔷"
+
+},
+
+double: {
+
+a:"𝕒",b:"𝕓",c:"𝕔",d:"𝕕",e:"𝕖",
+f:"𝕗",g:"𝕘",h:"𝕙",i:"𝕚",j:"𝕛",
+k:"𝕜",l:"𝕝",m:"𝕞",n:"𝕟",o:"𝕠",
+p:"𝕡",q:"𝕢",r:"𝕣",s:"𝕤",t:"𝕥",
+u:"𝕦",v:"𝕧",w:"𝕨",x:"𝕩",y:"𝕪",z:"𝕫"
+
+},
+
+mono: {
+
+a:"𝚊",b:"𝚋",c:"𝚌",d:"𝚍",e:"𝚎",
+f:"𝚏",g:"𝚐",h:"𝚑",i:"𝚒",j:"𝚓",
+k:"𝚔",l:"𝚕",m:"𝚖",n:"𝚗",o:"𝚘",
+p:"𝚙",q:"𝚚",r:"𝚛",s:"𝚜",t:"𝚝",
+u:"𝚞",v:"𝚟",w:"𝚠",x:"𝚡",y:"𝚢",z:"𝚣"
+
+},
+
+sansBold: {
+
+a:"𝗮",b:"𝗯",c:"𝗰",d:"𝗱",e:"𝗲",
+f:"𝗳",g:"𝗴",h:"𝗵",i:"𝗶",j:"𝗷",
+k:"𝗸",l:"𝗹",m:"𝗺",n:"𝗻",o:"𝗼",
+p:"𝗽",q:"𝗾",r:"𝗿",s:"𝘀",t:"𝘁",
+u:"𝘂",v:"𝘃",w:"𝘄",x:"𝘅",y:"𝘆",z:"𝘇"
+
+},
+
+sansItalic: {
+
+a:"𝘢",b:"𝘣",c:"𝘤",d:"𝘥",e:"𝘦",
+f:"𝘧",g:"𝘨",h:"𝘩",i:"𝘪",j:"𝘫",
+k:"𝘬",l:"𝘭",m:"𝘮",n:"𝘯",o:"𝘰",
+p:"𝘱",q:"𝘲",r:"𝘳",s:"𝘴",t:"𝘵",
+u:"𝘶",v:"𝘷",w:"𝘸",x:"𝘹",y:"𝘺",z:"𝘻"
+
+},
+
+sansBoldItalic: {
+
+a:"𝙖",b:"𝙗",c:"𝙘",d:"𝙙",e:"𝙚",
+f:"𝙛",g:"𝙜",h:"𝙝",i:"𝙞",j:"𝙟",
+k:"𝙠",l:"𝙡",m:"𝙢",n:"𝙣",o:"𝙤",
+p:"𝙥",q:"𝙦",r:"𝙧",s:"𝙨",t:"𝙩",
+u:"𝙪",v:"𝙫",w:"𝙬",x:"𝙭",y:"𝙮",z:"𝙯"
+
+}
+
+};
+
+
+/* ==============================
+   DECORATIONS
+============================== */
+
+const decorations = [
+
+["꧁ "," ꧂"],
+["༺ "," ༻"],
+["『 "," 』"],
+["【 "," 】"],
+["《 "," 》"],
+["〈 "," 〉"],
+["〔 "," 〕"],
+["〘 "," 〙"],
+["〚 "," 〛"],
+["乂 "," 乂"],
+
+["亗 "," 亗"],
+["★ "," ★"],
+["✦ "," ✦"],
+["✧ "," ✧"],
+["✯ "," ✯"],
+["✰ "," ✰"],
+["❖ "," ❖"],
+["◇ "," ◇"],
+["◆ "," ◆"],
+["♛ "," ♛"],
+
+["♕ "," ♕"],
+["♚ "," ♚"],
+["☠ "," ☠"],
+["⚡ "," ⚡"],
+["🔥 "," 🔥"],
+["☬ "," ☬"],
+["༒ "," ༒"],
+["⚔ "," ⚔"],
+["☯ "," ☯"],
+["👑 "," 👑"],
+
+["💎 "," 💎"],
+["😈 "," 😈"],
+["🐉 "," 🐉"],
+["🦅 "," 🦅"],
+["🐺 "," 🐺"],
+["🚀 "," 🚀"],
+["🎮 "," 🎮"],
+["🏆 "," 🏆"],
+["💀 "," 💀"],
+["❤️ "," ❤️"],
+
+["🖤 "," 🖤"],
+["💜 "," 💜"],
+["💙 "," 💙"],
+["🌟 "," 🌟"],
+["🌙 "," 🌙"],
+["☀ "," ☀"],
+["☁ "," ☁"],
+["☄ "," ☄"],
+["⚜ "," ⚜"],
+["×͜× "," ×͜×"]
 
 ];
+
+
+/* ==============================
+   CONVERT FONT
+============================== */
+
+function convertFont(
+    text,
+    map
+){
+
+    return text
+    .toLowerCase()
+    .split("")
+    .map(function(char){
+
+        return map[char] || char;
+
+    })
+    .join("");
+
+}
+
+
+/* ==============================
+   CREATE 500 STYLES
+============================== */
+
+const styles = [];
+
+const fontNames =
+Object.keys(fontMaps);
+
+
+fontNames.forEach(
+function(fontName){
+
+    const map =
+        fontMaps[fontName];
+
+    decorations.forEach(
+    function(decoration){
+
+        const styled =
+            convertFont(
+                "NAME",
+                map
+            );
+
+        styles.push(
+
+            decoration[0] +
+            styled +
+            decoration[1]
+
+        );
+
+    });
+
+});
+
+
+console.log(
+    "Total styles:",
+    styles.length
+);
 
 
 /* ==============================
@@ -637,14 +991,19 @@ const styles = [
 function generate(){
 
     const input =
-        document.getElementById("nameInput");
+        document.getElementById(
+            "nameInput"
+        );
 
     const value =
         input.value.trim();
 
+
     if(value === ""){
 
-        alert("Pehle naam enter karo!");
+        alert(
+            "Pehle naam enter karo!"
+        );
 
         input.focus();
 
@@ -652,20 +1011,32 @@ function generate(){
 
     }
 
-    currentName = value;
+
+    currentName =
+        value;
+
 
     const name =
-        value.toUpperCase();
+        value;
+
 
     const grid =
-        document.getElementById("nameGrid");
+        document.getElementById(
+            "nameGrid"
+        );
+
 
     grid.innerHTML = "";
 
-    styles.forEach(function(style,index){
+
+    styles.forEach(
+    function(style,index){
 
         const finalName =
-            style.split("NAME").join(name);
+            style
+            .split("NAME")
+            .join(name);
+
 
         createCard(
             finalName,
@@ -674,14 +1045,17 @@ function generate(){
 
     });
 
+
     document.getElementById(
         "resultTitle"
     ).textContent =
-        "100 Stylish Names for " + name;
+        "500 Stylish Names for " +
+        name;
 
-    document.querySelector(
-        ".results"
-    ).scrollIntoView({
+
+    document
+    .querySelector(".results")
+    .scrollIntoView({
         behavior:"smooth"
     });
 
@@ -692,32 +1066,47 @@ function generate(){
    CREATE CARD
 ============================== */
 
-function createCard(name,index){
+function createCard(
+    name,
+    index
+){
 
     const grid =
-        document.getElementById("nameGrid");
+        document.getElementById(
+            "nameGrid"
+        );
 
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     card.className =
         "name-card";
 
 
     const text =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     text.className =
         "styled-name " +
-        colors[index % colors.length];
+        colors[
+            index %
+            colors.length
+        ];
+
 
     text.textContent =
         name;
 
 
     const buttons =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     buttons.className =
         "card-buttons";
@@ -726,7 +1115,9 @@ function createCard(name,index){
     /* COPY */
 
     const copyButton =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     copyButton.textContent =
         "📋";
@@ -734,36 +1125,41 @@ function createCard(name,index){
     copyButton.title =
         "Copy";
 
+
     copyButton.onclick =
-        function(){
+    function(){
 
-            copyName(name);
+        copyName(name);
 
-        };
+    };
 
 
     /* FAVORITE */
 
     const favoriteButton =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     favoriteButton.textContent =
         favorites.includes(name)
         ? "❤️"
         : "♡";
 
+
     favoriteButton.title =
         "Favorite";
 
+
     favoriteButton.onclick =
-        function(){
+    function(){
 
-            toggleFavorite(
-                name,
-                favoriteButton
-            );
+        toggleFavorite(
+            name,
+            favoriteButton
+        );
 
-        };
+    };
 
 
     buttons.appendChild(
@@ -775,11 +1171,18 @@ function createCard(name,index){
     );
 
 
-    card.appendChild(text);
+    card.appendChild(
+        text
+    );
 
-    card.appendChild(buttons);
+    card.appendChild(
+        buttons
+    );
 
-    grid.appendChild(card);
+
+    grid.appendChild(
+        card
+    );
 
 }
 
@@ -799,7 +1202,9 @@ function copyName(text){
         .writeText(text)
         .then(function(){
 
-            alert("Copied! ✅");
+            alert(
+                "Copied! ✅"
+            );
 
         })
         .catch(function(){
@@ -808,7 +1213,9 @@ function copyName(text){
 
         });
 
-    }else{
+    }
+
+    else{
 
         oldCopy(text);
 
@@ -818,16 +1225,20 @@ function copyName(text){
 
 
 /* ==============================
-   OLD COPY METHOD
+   OLD COPY
 ============================== */
 
 function oldCopy(text){
 
     const textarea =
-        document.createElement("textarea");
+        document.createElement(
+            "textarea"
+        );
+
 
     textarea.value =
         text;
+
 
     textarea.style.position =
         "fixed";
@@ -838,29 +1249,38 @@ function oldCopy(text){
     textarea.style.top =
         "0";
 
+
     document.body.appendChild(
         textarea
     );
+
 
     textarea.focus();
 
     textarea.select();
 
+
     try{
 
-        document.execCommand("copy");
+        document.execCommand(
+            "copy"
+        );
 
-        alert("Copied! ✅");
+        alert(
+            "Copied! ✅"
+        );
 
     }
 
     catch(error){
 
         alert(
-            "Copy failed. Name ko long press karke copy karo."
+            "Copy failed. " +
+            "Name ko long press karke copy karo."
         );
 
     }
+
 
     document.body.removeChild(
         textarea
@@ -879,12 +1299,16 @@ function toggleFavorite(
 ){
 
     const index =
-        favorites.indexOf(name);
+        favorites.indexOf(
+            name
+        );
 
 
     if(index === -1){
 
-        favorites.push(name);
+        favorites.push(
+            name
+        );
 
         button.textContent =
             "❤️";
@@ -924,28 +1348,39 @@ function showFavorites(){
     box.innerHTML = "";
 
 
-    if(favorites.length === 0){
+    if(
+        favorites.length === 0
+    ){
 
         const empty =
-            document.createElement("p");
+            document.createElement(
+                "p"
+            );
 
         empty.className =
             "empty";
 
         empty.textContent =
-            "Your favorite names will appear here.";
+            "Your favorite names " +
+            "will appear here.";
 
-        box.appendChild(empty);
+
+        box.appendChild(
+            empty
+        );
 
         return;
 
     }
 
 
-    favorites.forEach(function(name){
+    favorites.forEach(
+    function(name){
 
         const item =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         item.className =
             "favorite-item";
@@ -953,7 +1388,10 @@ function showFavorites(){
         item.textContent =
             "❤️ " + name;
 
-        box.appendChild(item);
+
+        box.appendChild(
+            item
+        );
 
     });
 
@@ -965,12 +1403,16 @@ function showFavorites(){
 ============================== */
 
 document
-.getElementById("nameInput")
+.getElementById(
+    "nameInput"
+)
 .addEventListener(
     "keydown",
     function(event){
 
-        if(event.key === "Enter"){
+        if(
+            event.key === "Enter"
+        ){
 
             generate();
 
@@ -985,7 +1427,9 @@ document
 ============================== */
 
 document
-.getElementById("generateBtn")
+.getElementById(
+    "generateBtn"
+)
 .addEventListener(
     "click",
     function(){
@@ -1001,78 +1445,80 @@ document
 ============================== */
 
 document
-.querySelectorAll(".category")
+.querySelectorAll(
+    ".category"
+)
 .forEach(
-    function(category){
+function(category){
 
-        category.addEventListener(
-            "click",
-            function(){
+    category.addEventListener(
+        "click",
+        function(){
 
-                document
-                .querySelectorAll(
-                    ".category"
-                )
-                .forEach(
-                    function(item){
+            document
+            .querySelectorAll(
+                ".category"
+            )
+            .forEach(
+            function(item){
 
-                        item.classList
-                        .remove("active");
+                item.classList
+                .remove(
+                    "active"
+                );
 
-                    }
+            });
+
+
+            category.classList
+            .add("active");
+
+
+            const type =
+                category.getAttribute(
+                    "data-type"
                 );
 
 
-                category.classList
-                .add("active");
+            const input =
+                document.getElementById(
+                    "nameInput"
+                );
 
 
-                const type =
-                    category.getAttribute(
-                        "data-type"
-                    );
+            const placeholders = {
+
+                gaming:
+                "Enter gaming name...",
+
+                cool:
+                "Enter cool name...",
+
+                royal:
+                "Enter royal name...",
+
+                fire:
+                "Enter fire name...",
+
+                love:
+                "Enter love name...",
+
+                danger:
+                "Enter danger name..."
+
+            };
 
 
-                const input =
-                    document.getElementById(
-                        "nameInput"
-                    );
+            input.placeholder =
+                placeholders[type];
 
 
-                const placeholders = {
+            input.focus();
 
-                    gaming:
-                    "Enter gaming name...",
+        }
+    );
 
-                    cool:
-                    "Enter cool name...",
-
-                    royal:
-                    "Enter royal name...",
-
-                    fire:
-                    "Enter fire name...",
-
-                    love:
-                    "Enter love name...",
-
-                    danger:
-                    "Enter danger name..."
-
-                };
-
-
-                input.placeholder =
-                    placeholders[type];
-
-
-                input.focus();
-
-            }
-        );
-
-    }
-);
+});
 
 
 /* ==============================
@@ -1082,19 +1528,7 @@ document
 showFavorites();
 
 </script>
-<script>
 
-const SUPABASE_URL =
-"https://ujpzkpeslemcuizylymi.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
-
-const db = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-);
-
-</script>
 </body>
+
 </html>
