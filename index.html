@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#090d25">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <title>NameCraft - 1500+ Stylish Names</title>
 
@@ -555,6 +556,14 @@ body.light .empty{
 /* ==========================================
    BASE NAMES
 ========================================== */
+const SUPABASE_URL = "https://ujpzkpeslemcuizylymi.supabase.co";
+const SUPABASE_KEY = "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
+
+const db = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
 
 const baseNames = [
 
@@ -582,6 +591,39 @@ const baseNames = [
 "Panther","Leopard","Bear","Fox","Hawk"
 
 ];
+    async function loadAdminNames() {
+    try {
+        const { data, error } = await db
+            .from("names")
+            .select("name, style")
+            .order("id", { ascending: false });
+
+        if (error) {
+            console.error("Supabase Error:", error);
+            return;
+        }
+
+        const dbNames = [];
+
+        data.forEach(item => {
+            if (item.style) {
+                dbNames.push(item.style);
+            } else if (item.name) {
+                dbNames.push(item.name);
+            }
+        });
+
+        allNames = [
+            ...dbNames,
+            ...allNames.filter(name => !dbNames.includes(name))
+        ];
+
+        displayNames(allNames);
+
+    } catch (error) {
+        console.error("Error:", error);
+    }
+    }
 
 /* ==========================================
    500+ STYLE PATTERNS
@@ -1189,10 +1231,9 @@ function escapeHTML(str){
 ========================================== */
 
 buildNames();
-
 createParticles();
-
 displayNames(allNames);
+loadAdminNames();
 
 </script>
 
