@@ -6,6 +6,8 @@
 
 <title>Admin Panel - Stylish Name</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 *{
     margin:0;
@@ -50,7 +52,8 @@ header h1{
     color:#00c6ff;
 }
 
-input,textarea{
+input,
+textarea{
     width:100%;
     padding:13px;
     margin:8px 0;
@@ -74,6 +77,10 @@ button{
 
 button:hover{
     opacity:.85;
+}
+
+.delete{
+    background:#d60000;
 }
 
 .stats{
@@ -102,9 +109,28 @@ button:hover{
     display:none;
 }
 
+.name-item{
+    padding:15px;
+    margin-bottom:10px;
+    background:#252525;
+    border-radius:10px;
+}
+
+.status{
+    margin-top:10px;
+    padding:10px;
+    border-radius:8px;
+    background:#202020;
+}
+
 @media(max-width:600px){
+
     .stats{
         grid-template-columns:1fr;
+    }
+
+    header h1{
+        font-size:22px;
     }
 }
 </style>
@@ -118,10 +144,13 @@ button:hover{
 
 <div class="container">
 
+    <!-- DASHBOARD -->
     <div class="card">
+
         <h2>📊 Dashboard</h2>
 
         <div class="stats">
+
             <div class="stat">
                 <h3 id="nameCount">0</h3>
                 <p>Names</p>
@@ -136,150 +165,403 @@ button:hover{
                 <h3>Online</h3>
                 <p>Status</p>
             </div>
+
         </div>
+
+        <div class="status" id="connectionStatus">
+            Connecting to database...
+        </div>
+
     </div>
 
+
+    <!-- ADD NAME -->
     <div class="card">
+
         <h2>➕ Add Stylish Name</h2>
 
         <input
             type="text"
             id="nameInput"
-            placeholder="Enter stylish name"
+            placeholder="Enter name"
         >
 
         <textarea
             id="styleInput"
-            placeholder="Enter styled version"
+            placeholder="Enter stylish version"
             rows="4"
         ></textarea>
 
-        <button onclick="addName()">Add Name</button>
+        <button onclick="addName()">
+            Add Name
+        </button>
 
-        <div class="message" id="message"></div>
+        <div
+            class="message"
+            id="message">
+        </div>
+
     </div>
 
+
+    <!-- SAVED NAMES -->
     <div class="card">
+
         <h2>📋 Saved Names</h2>
 
         <div id="nameList">
-            No names added yet.
+            Loading...
         </div>
+
     </div>
 
+
+    <!-- WEBSITE -->
     <div class="card">
+
         <h2>🌐 Website</h2>
 
         <button onclick="openWebsite()">
             Open Stylish Name
         </button>
+
     </div>
 
 </div>
 
+
 <script>
 
-let names = JSON.parse(
-    localStorage.getItem("stylishNames") || "[]"
+/* =====================================
+   SUPABASE SETTINGS
+   ===================================== */
+
+/*
+   IMPORTANT:
+
+   1. PASTE YOUR SUPABASE PROJECT URL
+   2. PASTE YOUR PUBLISHABLE/ANON KEY
+
+   DO NOT USE SECRET/SERVICE_ROLE KEY.
+*/
+
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB
+
+
+
+
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVqcHprcGVzbGVtY3VpenlseW1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk4NTY5OTYsImV4cCI6MjEwNTQzMjk5Nn0.n20U7Dm9eWVyCKguETwILxBQhuJJxD2ufIMt7zFCrCY";
+
+
+/* CREATE SUPABASE CONNECTION */
+
+const db =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
 
-let visits = Number(
-    localStorage.getItem("siteVisits") || "0"
-);
 
-function updateDashboard(){
+/* =====================================
+   MESSAGE
+   ===================================== */
 
-    document.getElementById("nameCount").innerText =
-        names.length;
+function showMessage(text){
 
-    document.getElementById("visitCount").innerText =
-        visits;
+    const message =
+    document.getElementById("message");
 
-    let list = document.getElementById("nameList");
+    message.style.display = "block";
 
-    if(names.length === 0){
+    message.innerText = text;
 
-        list.innerHTML = "No names added yet.";
+}
+
+
+/* =====================================
+   DATABASE CONNECTION TEST
+   ===================================== */
+
+async function testConnection(){
+
+    const status =
+    document.getElementById(
+        "connectionStatus"
+    );
+
+    const { data, error } =
+    await db
+    .from("names")
+    .select("id")
+    .limit(1);
+
+    if(error){
+
+        console.error(error);
+
+        status.innerText =
+        "❌ Database connection error";
+
+        return false;
+    }
+
+    status.innerText =
+    "✅ Database connected";
+
+    return true;
+}
+
+
+/* =====================================
+   LOAD NAMES
+   ===================================== */
+
+async function loadNames(){
+
+    const list =
+    document.getElementById("nameList");
+
+    list.innerHTML =
+    "Loading...";
+
+
+    const { data, error } =
+    await db
+    .from("names")
+    .select("*")
+    .order(
+        "id",
+        {ascending:false}
+    );
+
+
+    if(error){
+
+        console.error(error);
+
+        list.innerHTML =
+        "❌ Error loading names";
 
         return;
     }
 
+
+    document.getElementById(
+        "nameCount"
+    ).innerText =
+    data.length;
+
+
+    if(data.length === 0){
+
+        list.innerHTML =
+        "No names added yet.";
+
+        return;
+    }
+
+
     list.innerHTML = "";
 
-    names.forEach((item,index)=>{
 
-        let div = document.createElement("div");
+    data.forEach(item => {
 
-        div.style.padding = "12px";
-        div.style.marginBottom = "10px";
-        div.style.background = "#252525";
-        div.style.borderRadius = "8px";
+        const div =
+        document.createElement("div");
 
-        div.innerHTML = `
-            <b>${item.name}</b>
-            <br>
-            <span>${item.style}</span>
-            <br>
-            <button onclick="deleteName(${index})">
-                Delete
-            </button>
-        `;
+        div.className =
+        "name-item";
+
+
+        const title =
+        document.createElement("b");
+
+        title.innerText =
+        item.name;
+
+
+        const br =
+        document.createElement("br");
+
+
+        const style =
+        document.createElement("span");
+
+        style.innerText =
+        item.style;
+
+
+        const br2 =
+        document.createElement("br");
+
+
+        const button =
+        document.createElement("button");
+
+        button.className =
+        "delete";
+
+        button.innerText =
+        "Delete";
+
+
+        button.onclick =
+        function(){
+
+            deleteName(item.id);
+
+        };
+
+
+        div.appendChild(title);
+
+        div.appendChild(br);
+
+        div.appendChild(style);
+
+        div.appendChild(br2);
+
+        div.appendChild(button);
+
 
         list.appendChild(div);
 
     });
+
 }
 
-function addName(){
 
-    let name =
-        document.getElementById("nameInput").value.trim();
+/* =====================================
+   ADD NAME
+   ===================================== */
 
-    let style =
-        document.getElementById("styleInput").value.trim();
+async function addName(){
 
-    let message =
-        document.getElementById("message");
+    const name =
+    document
+    .getElementById("nameInput")
+    .value
+    .trim();
 
-    if(name === "" || style === ""){
 
-        message.style.display = "block";
-        message.innerText =
-            "Please fill both fields.";
+    const style =
+    document
+    .getElementById("styleInput")
+    .value
+    .trim();
+
+
+    if(
+        name === "" ||
+        style === ""
+    ){
+
+        showMessage(
+            "Please fill both fields."
+        );
 
         return;
     }
 
-    names.push({
-        name:name,
-        style:style
-    });
 
-    localStorage.setItem(
-        "stylishNames",
-        JSON.stringify(names)
+    const { error } =
+    await db
+    .from("names")
+    .insert([
+        {
+            name:name,
+            style:style
+        }
+    ]);
+
+
+    if(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ " + error.message
+        );
+
+        return;
+    }
+
+
+    document
+    .getElementById("nameInput")
+    .value = "";
+
+
+    document
+    .getElementById("styleInput")
+    .value = "";
+
+
+    showMessage(
+        "✅ Name added successfully!"
     );
 
-    document.getElementById("nameInput").value = "";
-    document.getElementById("styleInput").value = "";
 
-    message.style.display = "block";
-    message.innerText = "Name added successfully!";
+    loadNames();
 
-    updateDashboard();
 }
 
-function deleteName(index){
 
-    names.splice(index,1);
+/* =====================================
+   DELETE NAME
+   ===================================== */
 
-    localStorage.setItem(
-        "stylishNames",
-        JSON.stringify(names)
+async function deleteName(id){
+
+    const confirmDelete =
+    confirm(
+        "Are you sure you want to delete this name?"
     );
 
-    updateDashboard();
+
+    if(!confirmDelete){
+
+        return;
+    }
+
+
+    const { error } =
+    await db
+    .from("names")
+    .delete()
+    .eq("id",id);
+
+
+    if(error){
+
+        console.error(error);
+
+        showMessage(
+            "❌ " + error.message
+        );
+
+        return;
+    }
+
+
+    showMessage(
+        "✅ Name deleted successfully!"
+    );
+
+
+    loadNames();
+
 }
+
+
+/* =====================================
+   OPEN WEBSITE
+   ===================================== */
 
 function openWebsite(){
 
@@ -287,9 +569,30 @@ function openWebsite(){
         "https://ksrsing.github.io/stylish-name/",
         "_blank"
     );
+
 }
 
-updateDashboard();
+
+/* =====================================
+   START
+   ===================================== */
+
+async function start(){
+
+    const connected =
+    await testConnection();
+
+
+    if(connected){
+
+        await loadNames();
+
+    }
+
+}
+
+
+start();
 
 </script>
 
