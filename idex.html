@@ -1,378 +1,839 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NameCraft - Stylish Name Generator</title><style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#020817;color:white;overflow-x:hidden
+
+<title>NameCraft - 100 Stylish Names</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
-.navbar{
-height:68px;padding:0 5%;display:flex;align-items:center;
-justify-content:space-between;background:#030a1c;
-border-bottom:1px solid #183d7c;position:sticky;top:0;z-index:1000
+body{
+    background:linear-gradient(135deg,#080b24,#17104a,#071b38);
+    color:white;
+    min-height:100vh;
 }
-.logo{font-size:28px;font-weight:bold;white-space:nowrap}
-.logo span{color:#a855f7}
-.menu{height:100%;display:flex;align-items:center;gap:32px}
-.menu a{
-height:100%;display:flex;align-items:center;color:#dbe5f5;
-text-decoration:none;font-size:15px;font-weight:bold;position:relative
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:100;
 }
-.menu a:hover,.menu a.active{color:#b84cff}
-.menu a.active::after{
-content:"";position:absolute;bottom:0;left:0;width:100%;height:3px;
-background:linear-gradient(90deg,#b000ff,#008cff)
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#8f7cff;
 }
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+}
+
+nav a:hover{
+    color:#9d8cff;
+}
+
+/* HERO */
 
 .hero{
-min-height:390px;text-align:center;padding:55px 15px 35px;
-background:
-radial-gradient(circle at 10% 30%,#7b00ff25,transparent 28%),
-radial-gradient(circle at 90% 30%,#0066ff25,transparent 28%)
-}
-.badge{
-display:inline-block;padding:10px 22px;border-radius:30px;
-background:linear-gradient(90deg,#7b2cff,#008cff);
-font-weight:bold
-}
-.hero h1{margin-top:18px;font-size:54px;line-height:1.05}
-.hero h1 span{
-background:linear-gradient(90deg,#d000ff,#008cff);
--webkit-background-clip:text;color:transparent
-}
-.hero p{
-max-width:720px;margin:17px auto 28px;color:#aebbd0;
-line-height:1.5;font-size:16px
+    text-align:center;
+    padding:70px 20px 50px;
 }
 
-.search{
-max-width:830px;height:60px;margin:auto;display:flex;align-items:center;
-background:#06142c;border:1px solid #1682ff;border-radius:35px
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+    background:linear-gradient(90deg,#9d8cff,#e38cff);
+    -webkit-background-clip:text;
+    color:transparent;
 }
-.search input{
-flex:1;width:100%;height:100%;background:transparent;border:0;outline:0;
-color:white;padding:0 25px;font-size:16px
+
+.hero p{
+    color:#bdb9d8;
+    margin-bottom:30px;
 }
-.search input::placeholder{color:#7f91ad}
-.search button{
-height:50px;margin-right:5px;padding:0 32px;border:0;border-radius:30px;
-color:white;font-size:16px;font-weight:bold;cursor:pointer;
-background:linear-gradient(90deg,#b000ff,#008cff)
+
+.search-box{
+    max-width:650px;
+    margin:auto;
+    display:flex;
+    gap:10px;
 }
-.search button:hover{transform:scale(1.03)}
+
+.search-box input{
+    flex:1;
+    padding:17px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    font-size:16px;
+    background:#ffffff12;
+    color:white;
+    border:1px solid #ffffff25;
+}
+
+.search-box input::placeholder{
+    color:#aaa;
+}
+
+.search-box button{
+    padding:17px 25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#765cff,#b85cff);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-box button:hover{
+    transform:scale(1.03);
+}
+
+/* CATEGORY */
 
 .categories{
-display:flex;gap:12px;padding:20px 3%;overflow-x:auto;scrollbar-width:none
+    padding:20px 6%;
 }
-.categories::-webkit-scrollbar{display:none}
+
+.categories h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.category-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:15px;
+    max-width:1000px;
+    margin:auto;
+}
+
 .category{
-min-width:120px;height:90px;display:flex;flex-direction:column;
-align-items:center;justify-content:center;border-radius:15px;
-background:#06152d;border:1px solid #164b91;cursor:pointer;transition:.3s
+    padding:20px;
+    text-align:center;
+    background:#ffffff0d;
+    border:1px solid #ffffff18;
+    border-radius:15px;
+    cursor:pointer;
+    transition:.3s;
 }
-.category:hover,.category.active{
-border-color:#b000ff;box-shadow:0 0 20px #8b00ff66;
-transform:translateY(-3px)
+
+.category:hover{
+    background:#ffffff18;
+    transform:translateY(-5px);
 }
-.category .icon{font-size:27px;margin-bottom:8px}
-.category p{font-size:14px}
+
+/* RESULTS */
 
 .results{
-margin:5px 2%;padding:25px;background:#041126;
-border:1px solid #1450a0;border-radius:20px
+    padding:50px 6%;
 }
-.result-header{
-display:flex;justify-content:space-between;align-items:center;margin-bottom:20px
-}
-.result-header h2{font-size:24px}
-.top-buttons{display:flex;gap:10px}
-.top-buttons button{
-padding:10px 16px;background:#071a37;color:white;
-border:1px solid #315b91;border-radius:10px;cursor:pointer
+
+.results h2{
+    text-align:center;
+    margin-bottom:30px;
 }
 
 .name-grid{
-display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;
+    max-width:1200px;
+    margin:auto;
 }
+
 .name-card{
-min-height:60px;display:flex;align-items:center;justify-content:space-between;
-padding:7px 8px 7px 15px;background:#061a37;
-border:1px solid #1552a3;border-radius:12px
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    padding:22px;
+    min-height:110px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:15px;
+    transition:.3s;
 }
+
+.name-card:hover{
+    transform:translateY(-4px);
+    border-color:#8d7aff;
+    box-shadow:0 10px 30px #0005;
+}
+
 .styled-name{
-font-size:18px;font-weight:bold;white-space:nowrap;
-overflow:hidden;text-overflow:ellipsis
+    text-align:center;
+    font-size:23px;
+    word-break:break-word;
+    line-height:1.5;
 }
 
-.purple{color:#db50ff}.red{color:#ff3b46}.blue{color:#18caff}
-.green{color:#28ff91}.gold{color:#ffc62b}.pink{color:#ff4fcf}
-.orange{color:#ff741c}.white{color:white}
+/* COLORS */
 
-.card-buttons{display:flex;gap:5px;margin-left:8px}
+.color1{color:#ff7cff;}
+.color2{color:#7cbcff;}
+.color3{color:#7cffc4;}
+.color4{color:#ffe27c;}
+.color5{color:#ff8f8f;}
+.color6{color:#b58cff;}
+.color7{color:#8ffff0;}
+.color8{color:#ffffff;}
+.color9{color:#ffb76b;}
+.color10{color:#c7ff7c;}
+
+/* BUTTONS */
+
+.card-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
 .card-buttons button{
-width:34px;height:34px;flex-shrink:0;border-radius:9px;
-background:#0a2348;color:white;border:1px solid #315a8e;cursor:pointer
+    width:45px;
+    height:38px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ffffff12;
+    color:white;
+    font-size:18px;
 }
-.card-buttons button:hover{background:#7525bd}
 
-.about{
-margin:30px 5%;padding:35px;text-align:center;background:#041126;
-border:1px solid #1450a0;border-radius:20px
+.card-buttons button:hover{
+    background:#ffffff25;
 }
-.about h2{font-size:30px;margin-bottom:12px}
-.about h2 span{color:#a855f7}
-.about p{max-width:700px;margin:auto;color:#aebbd0;line-height:1.7}
+
+/* FAVORITES */
 
 .favorites{
-display:none;margin:30px 5%;padding:30px;text-align:center;
-background:#041126;border:1px solid #1450a0;border-radius:20px
+    padding:50px 6%;
+    text-align:center;
 }
-.favorites h2{margin-bottom:10px}
-.favorites p{color:#9eabc0}
+
+.favorites p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+/* ABOUT */
+
+.about{
+    padding:60px 20px;
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.about h2{
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+/* FOOTER */
 
 footer{
-margin-top:30px;min-height:80px;padding:20px 5%;display:flex;
-align-items:center;justify-content:space-between;border-top:1px solid #19457f;
-color:#9faec5
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    background:#0004;
+    color:#999;
 }
-.footer-logo{font-size:22px;font-weight:bold;color:white}
-.footer-logo span{color:#a855f7}
-.social{display:flex;gap:15px;font-size:20px}
 
-@media(max-width:1000px){
-.name-grid{grid-template-columns:repeat(2,1fr)}
+/* MOBILE */
+
+@media(max-width:600px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    nav ul{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:12px;
+    }
+
+    .hero{
+        padding-top:50px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-box button{
+        width:100%;
+    }
+
+    .name-grid{
+        grid-template-columns:1fr;
+    }
+
 }
-@media(max-width:700px){
-.navbar{padding:0 15px}
-.logo{font-size:22px}.menu{gap:12px}.menu a{font-size:12px}
-.hero h1{font-size:40px}.name-grid{grid-template-columns:1fr}
-.results{padding:15px}
-}
-@media(max-width:500px){
-.navbar{height:60px}.logo{font-size:19px}.menu{gap:8px}
-.menu a{font-size:11px}
-.hero{padding-top:40px}.hero h1{font-size:34px}
-.search{height:auto;flex-direction:column;border-radius:15px;padding:5px}
-.search input{height:55px}
-.search button{width:100%;height:48px;margin:0}
-.result-header{flex-direction:column;align-items:flex-start;gap:15px}
-.top-buttons{width:100%}.top-buttons button{flex:1}
-footer{flex-direction:column;gap:15px;text-align:center}
-}
-</style></head><body><header class="navbar">
-<div class="logo">👑 Name<span>Craft</span></div>
-<nav class="menu">
-<a href="#home" class="active">🏠 Home</a>
-<a href="#styles">✦ Styles</a>
-<a href="#favorites">♥ Favorites</a>
-<a href="#about">ⓘ About</a>
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        NameCraft
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#styles">Styles</a></li>
+        <li><a href="#favorites">Favorites</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
 </nav>
-</header><section class="hero" id="home">
-<div class="badge">✨ Stylish Name Generator</div><h1>Create Your<br><span>Stylish Name</span></h1><p>
-Turn your normal name into a cool, stylish and unique name
-with different fonts, symbols and styles. Stand out from the crowd!
-</p><div class="search">
-<input id="nameInput" type="text" placeholder="Enter your name (e.g. White444)">
-<button id="generateBtn">✨ Generate</button>
-</div>
-</section><section class="categories" id="styles">
-<div class="category active"><div class="icon">✨</div><p>All Styles</p></div>
-<div class="category"><div class="icon">🎮</div><p>Gaming</p></div>
-<div class="category"><div class="icon">🔥</div><p>Cool</p></div>
-<div class="category"><div class="icon">👑</div><p>Royal</p></div>
-<div class="category"><div class="icon">❤️</div><p>Love</p></div>
-<div class="category"><div class="icon">🌿</div><p>Aesthetic</p></div>
-<div class="category"><div class="icon">⚡</div><p>Neon</p></div>
-<div class="category"><div class="icon">A⁺</div><p>Unicode</p></div>
-<div class="category"><div class="icon">★</div><p>Symbols</p></div>
-</section><section class="results">
-<div class="result-header">
-<h2>✨ Your Stylish Names</h2>
-<div class="top-buttons">
-<button id="copyAllBtn">📋 Copy All</button>
-<button id="saveAllBtn">❤️ Save All</button>
-</div>
-</div><div id="nameGrid" class="name-grid"></div>
-</section><section class="favorites" id="favorites">
-<h2>❤️ Favorites</h2>
-<p>Your favorite stylish names will appear here.</p>
-</section><section class="about" id="about">
-<h2>About <span>NameCraft</span></h2>
-<p>
-NameCraft is a stylish name generator where you can create gaming names,
-cool names, royal names, aesthetic names and unique names using symbols
-and different styles.
-</p>
-</section><footer>
-<div class="footer-logo">👑 Name<span>Craft</span></div>
-<div>© 2026 NameCraft. All rights reserved.</div>
-<div class="social">▶️ 📷 ✈️</div>
-</footer><script>
-const defaultNames = [
-"WHITE444","RIOTFF","ANKUSHFF","PRINCE","SHADOWFF",
-"LEGEND7","DEVIL","TITAN","GAMER","X-RAJ","BOSS",
-"BADSHAH","SURAJ","KILLER","ALONE","VILLAIN",
-"CR7","DARK","SPEED","BLAZE","NOTHING","KING","NOOB","HUNTER"
-];
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <h1>Stylish Name Generator</h1>
+
+    <p>
+        Enter your name and generate 100 stylish names instantly.
+    </p>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter your name..."
+            autocomplete="off"
+        >
+
+        <button id="generateBtn">
+            Generate
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="categories" id="styles">
+
+    <h2>Choose Your Style</h2>
+
+    <div class="category-grid">
+
+        <div class="category" data-style="gaming">
+            🎮 Gaming
+        </div>
+
+        <div class="category" data-style="cool">
+            😎 Cool
+        </div>
+
+        <div class="category" data-style="royal">
+            👑 Royal
+        </div>
+
+        <div class="category" data-style="fire">
+            🔥 Fire
+        </div>
+
+        <div class="category" data-style="love">
+            ❤️ Love
+        </div>
+
+        <div class="category" data-style="danger">
+            ☠️ Danger
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RESULTS -->
+
+<section class="results">
+
+    <h2>100 Stylish Names</h2>
+
+    <div class="name-grid" id="nameGrid"></div>
+
+</section>
+
+
+<!-- FAVORITES -->
+
+<section class="favorites" id="favorites">
+
+    <h2>❤️ Favorites</h2>
+
+    <p id="favoriteText">
+        Your favorite names will appear here.
+    </p>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <h2>About NameCraft</h2>
+
+    <p>
+        NameCraft is a stylish name generator that helps you create
+        unique gaming, social media and profile names.
+        Enter your name and get 100 different stylish designs.
+    </p>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 NameCraft | Stylish Name Generator
+
+</footer>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let names = [];
+
+let favorites = [];
 
 const colors = [
-"purple","red","blue","gold","green","pink","orange","white"
+    "color1",
+    "color2",
+    "color3",
+    "color4",
+    "color5",
+    "color6",
+    "color7",
+    "color8",
+    "color9",
+    "color10"
 ];
 
-let names = [...defaultNames];
 
-function createStyles(name){
-return [
-"♛ " + name + " ♛",
-"🔥 " + name + " 🔥",
-"༺ " + name + " ༻",
-"『 " + name + " 』",
-"亗 " + name + " 亗",
-"乂 " + name + " 乂",
-"★彡 " + name + " 彡★",
-"꧁ " + name + " ꧂",
-"⚡ " + name + " ⚡",
-"☠ " + name + " ☠",
-"✦ " + name + " ✦",
-"♕ " + name + " ♕"
+/* =========================
+   100 STYLES
+========================= */
+
+const styles = [
+
+"꧁༺ NAME ༻꧂",
+"亗 NAME 亗",
+"乂 NAME 乂",
+"『 NAME 』",
+"★彡 NAME 彡★",
+"♛ NAME ♛",
+"☠ NAME ☠",
+"⚡ NAME ⚡",
+"🔥 NAME 🔥",
+"༺ NAME ༻",
+
+"꧁ NAME ꧂",
+"✦ NAME ✦",
+"♕ NAME ♕",
+"乂『 NAME 』乂",
+"★ NAME ★",
+"♚ NAME ♚",
+"ツ NAME ツ",
+"么 NAME 么",
+"彡 NAME 彡",
+"×͜× NAME",
+
+"『★』NAME『★』",
+"༒ NAME ༒",
+"☬ NAME ☬",
+"⚔ NAME ⚔",
+"♠ NAME ♠",
+"♥ NAME ♥",
+"♦ NAME ♦",
+"♣ NAME ♣",
+"☯ NAME ☯",
+"☮ NAME ☮",
+
+"☢ NAME ☢",
+"☣ NAME ☣",
+"⚡︎ NAME ⚡︎",
+"★彡[NAME]彡★",
+"꧁[NAME]꧂",
+"『NAME』",
+"【NAME】",
+"《NAME》",
+"〈NAME〉",
+"〔NAME〕",
+
+"〘NAME〙",
+"〚NAME〛",
+"⫷ NAME ⫸",
+"⟦ NAME ⟧",
+"⟨ NAME ⟩",
+"✧ NAME ✧",
+"✩ NAME ✩",
+"✪ NAME ✪",
+"✯ NAME ✯",
+"✰ NAME ✰",
+
+"✵ NAME ✵",
+"✺ NAME ✺",
+"❖ NAME ❖",
+"◇ NAME ◇",
+"◆ NAME ◆",
+"◈ NAME ◈",
+"⬢ NAME ⬢",
+"♤ NAME ♤",
+"♡ NAME ♡",
+"♧ NAME ♧",
+
+"♢ NAME ♢",
+"☾ NAME ☽",
+"☀ NAME ☀",
+"☁ NAME ☁",
+"☄ NAME ☄",
+"☘ NAME ☘",
+"⚜ NAME ⚜",
+"♜ NAME ♜",
+"♞ NAME ♞",
+"♟ NAME ♟",
+
+"♨ NAME ♨",
+"⚜️ NAME ⚜️",
+"👑 NAME 👑",
+"💀 NAME 💀",
+"🔥 NAME 🔥",
+"💎 NAME 💎",
+"⚡ NAME ⚡",
+"🚀 NAME 🚀",
+"🎯 NAME 🎯",
+"🎮 NAME 🎮",
+
+"🖤 NAME 🖤",
+"❤️ NAME ❤️",
+"💜 NAME 💜",
+"💙 NAME 💙",
+"💚 NAME 💚",
+"💛 NAME 💛",
+"🩷 NAME 🩷",
+"🌟 NAME 🌟",
+"🌙 NAME 🌙",
+"☠️ NAME ☠️",
+
+"😈 NAME 😈",
+"👿 NAME 👿",
+"🐉 NAME 🐉",
+"🦅 NAME 🦅",
+"🐺 NAME 🐺",
+"⚔️ NAME ⚔️",
+"🏆 NAME 🏆",
+"★『NAME』★",
+"亗『NAME』亗",
+"꧁༒NAME༒꧂"
+
 ];
-}
 
-function display(){
-const grid = document.getElementById("nameGrid");
-grid.innerHTML = "";
 
-names.forEach((name,index)=>{
-const styles = createStyles(name);
-const color = colors[index % colors.length];
-
-styles.forEach((style,styleIndex)=>{
-const card = document.createElement("div");
-card.className = "name-card";
-
-const nameSpan = document.createElement("span");
-nameSpan.className = "styled-name " + color;
-nameSpan.textContent = style;
-
-const buttons = document.createElement("div");
-buttons.className = "card-buttons";
-
-const copyBtn = document.createElement("button");
-copyBtn.textContent = "📋";
-copyBtn.addEventListener("click",()=>copyName(style));
-
-const favBtn = document.createElement("button");
-favBtn.textContent = "♡";
-favBtn.addEventListener("click",()=>favorite(favBtn,style));
-
-buttons.appendChild(copyBtn);
-buttons.appendChild(favBtn);
-
-card.appendChild(nameSpan);
-card.appendChild(buttons);
-
-grid.appendChild(card);
-});
-});
-}
+/* =========================
+   GENERATE
+========================= */
 
 function generate(){
-const input = document.getElementById("nameInput");
-const value = input.value.trim();
 
-if(!value){
-alert("Please enter your name!");
-input.focus();
-return;
+    const input = document.getElementById("nameInput");
+
+    const value = input.value.trim();
+
+    if(!value){
+
+        alert("Please enter your name!");
+
+        input.focus();
+
+        return;
+    }
+
+    const name = value.toUpperCase();
+
+    names = styles.map(function(style){
+
+        return style.replace(/NAME/g, name);
+
+    });
+
+    display();
+
+    input.value = "";
+
 }
 
-const newName = value.toUpperCase();
 
-names = [
-newName,
-...names.filter(name => name !== newName)
-];
+/* =========================
+   DISPLAY 100 NAMES
+========================= */
 
-display();
+function display(){
 
-input.value = "";
+    const grid = document.getElementById("nameGrid");
+
+    grid.innerHTML = "";
+
+    names.forEach(function(style,index){
+
+        const card = document.createElement("div");
+
+        card.className = "name-card";
+
+
+        const nameSpan = document.createElement("span");
+
+        nameSpan.className =
+            "styled-name " +
+            colors[index % colors.length];
+
+        nameSpan.textContent = style;
+
+
+        const buttons = document.createElement("div");
+
+        buttons.className = "card-buttons";
+
+
+        /* COPY BUTTON */
+
+        const copyBtn = document.createElement("button");
+
+        copyBtn.textContent = "📋";
+
+        copyBtn.title = "Copy";
+
+        copyBtn.addEventListener("click",function(){
+
+            copyName(style);
+
+        });
+
+
+        /* FAVORITE BUTTON */
+
+        const favBtn = document.createElement("button");
+
+        favBtn.textContent = "♡";
+
+        favBtn.title = "Favorite";
+
+        favBtn.addEventListener("click",function(){
+
+            favorite(favBtn,style);
+
+        });
+
+
+        buttons.appendChild(copyBtn);
+
+        buttons.appendChild(favBtn);
+
+
+        card.appendChild(nameSpan);
+
+        card.appendChild(buttons);
+
+        grid.appendChild(card);
+
+    });
+
 }
 
-async function copyName(text){
-try{
-await navigator.clipboard.writeText(text);
-alert("Copied: " + text);
-}catch(error){
-alert("Copy failed. Please copy the name manually.");
-}
-}
 
-async function copyAll(){
-const all = names
-.map(name => createStyles(name))
-.flat()
-.join("\n");
+/* =========================
+   COPY NAME
+========================= */
 
-try{
-await navigator.clipboard.writeText(all);
-alert("All stylish names copied!");
-}catch(error){
-alert("Copy failed.");
-}
+function copyName(text){
+
+    navigator.clipboard.writeText(text)
+    .then(function(){
+
+        alert("Name copied! ✅");
+
+    })
+    .catch(function(){
+
+        alert("Copy failed. Please copy manually.");
+
+    });
+
 }
 
-function favorite(button,name){
-let saved = JSON.parse(
-localStorage.getItem("favorites") || "[]"
-);
 
-if(saved.includes(name)){
-saved = saved.filter(item => item !== name);
-button.textContent = "♡";
-button.style.color = "white";
-}else{
-saved.push(name);
-button.textContent = "♥";
-button.style.color = "#ff3b81";
+/* =========================
+   FAVORITE
+========================= */
+
+function favorite(button,text){
+
+    if(!favorites.includes(text)){
+
+        favorites.push(text);
+
+        button.textContent = "❤️";
+
+        updateFavorites();
+
+    }
+    else{
+
+        favorites =
+            favorites.filter(function(item){
+
+                return item !== text;
+
+            });
+
+        button.textContent = "♡";
+
+        updateFavorites();
+
+    }
+
 }
 
-localStorage.setItem("favorites",JSON.stringify(saved));
+
+/* =========================
+   UPDATE FAVORITES
+========================= */
+
+function updateFavorites(){
+
+    const favoriteText =
+        document.getElementById("favoriteText");
+
+    if(favorites.length === 0){
+
+        favoriteText.textContent =
+            "Your favorite names will appear here.";
+
+        return;
+
+    }
+
+    favoriteText.innerHTML =
+        favorites.join("<br><br>");
+
 }
 
-function saveAll(){
-localStorage.setItem("NameCraftNames",JSON.stringify(names));
-alert("Names saved successfully!");
-}
 
-document.getElementById("generateBtn")
-.addEventListener("click",generate);
+/* =========================
+   ENTER KEY
+========================= */
 
-document.getElementById("nameInput")
+document
+.getElementById("nameInput")
 .addEventListener("keydown",function(event){
-if(event.key === "Enter"){
-generate();
-}
+
+    if(event.key === "Enter"){
+
+        generate();
+
+    }
+
 });
 
-document.getElementById("copyAllBtn")
-.addEventListener("click",copyAll);
 
-document.getElementById("saveAllBtn")
-.addEventListener("click",saveAll);
+/* =========================
+   GENERATE BUTTON
+========================= */
 
-document.querySelectorAll(".category").forEach(category=>{
-category.addEventListener("click",()=>{
-document.querySelectorAll(".category")
-.forEach(c=>c.classList.remove("active"));
+document
+.getElementById("generateBtn")
+.addEventListener("click",function(){
 
-category.classList.add("active");
-});
+    generate();
+
 });
 
-display();
-</script></body>
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+document
+.querySelectorAll(".category")
+.forEach(function(category){
+
+    category.addEventListener("click",function(){
+
+        const input =
+            document.getElementById("nameInput");
+
+        input.focus();
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
 </html>
