@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel - Stylish Name</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#080808;
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    background:linear-gradient(135deg,#6a00ff,#00c6ff);
+    padding:25px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+.container{
+    max-width:900px;
+    margin:30px auto;
+    padding:20px;
+}
+
+.card{
+    background:#151515;
+    border:1px solid #333;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 20px #000;
+}
+
+.card h2{
+    margin-bottom:15px;
+    color:#00c6ff;
+}
+
+input,textarea{
+    width:100%;
+    padding:13px;
+    margin:8px 0;
+    border:none;
+    outline:none;
+    border-radius:8px;
+    background:#252525;
+    color:white;
+}
+
+button{
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    background:linear-gradient(135deg,#6a00ff,#00c6ff);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:8px;
+}
+
+button:hover{
+    opacity:.85;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:#202020;
+    padding:20px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:28px;
+    color:#00c6ff;
+}
+
+.message{
+    margin-top:15px;
+    padding:12px;
+    background:#202020;
+    border-radius:8px;
+    display:none;
+}
+
+@media(max-width:600px){
+    .stats{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚙️ Stylish Name - Admin Panel</h1>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>📊 Dashboard</h2>
+
+        <div class="stats">
+            <div class="stat">
+                <h3 id="nameCount">0</h3>
+                <p>Names</p>
+            </div>
+
+            <div class="stat">
+                <h3 id="visitCount">0</h3>
+                <p>Visits</p>
+            </div>
+
+            <div class="stat">
+                <h3>Online</h3>
+                <p>Status</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>➕ Add Stylish Name</h2>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="Enter stylish name"
+        >
+
+        <textarea
+            id="styleInput"
+            placeholder="Enter styled version"
+            rows="4"
+        ></textarea>
+
+        <button onclick="addName()">Add Name</button>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <div class="card">
+        <h2>📋 Saved Names</h2>
+
+        <div id="nameList">
+            No names added yet.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🌐 Website</h2>
+
+        <button onclick="openWebsite()">
+            Open Stylish Name
+        </button>
+    </div>
+
+</div>
+
+<script>
+
+let names = JSON.parse(
+    localStorage.getItem("stylishNames") || "[]"
+);
+
+let visits = Number(
+    localStorage.getItem("siteVisits") || "0"
+);
+
+function updateDashboard(){
+
+    document.getElementById("nameCount").innerText =
+        names.length;
+
+    document.getElementById("visitCount").innerText =
+        visits;
+
+    let list = document.getElementById("nameList");
+
+    if(names.length === 0){
+
+        list.innerHTML = "No names added yet.";
+
+        return;
+    }
+
+    list.innerHTML = "";
+
+    names.forEach((item,index)=>{
+
+        let div = document.createElement("div");
+
+        div.style.padding = "12px";
+        div.style.marginBottom = "10px";
+        div.style.background = "#252525";
+        div.style.borderRadius = "8px";
+
+        div.innerHTML = `
+            <b>${item.name}</b>
+            <br>
+            <span>${item.style}</span>
+            <br>
+            <button onclick="deleteName(${index})">
+                Delete
+            </button>
+        `;
+
+        list.appendChild(div);
+
+    });
+}
+
+function addName(){
+
+    let name =
+        document.getElementById("nameInput").value.trim();
+
+    let style =
+        document.getElementById("styleInput").value.trim();
+
+    let message =
+        document.getElementById("message");
+
+    if(name === "" || style === ""){
+
+        message.style.display = "block";
+        message.innerText =
+            "Please fill both fields.";
+
+        return;
+    }
+
+    names.push({
+        name:name,
+        style:style
+    });
+
+    localStorage.setItem(
+        "stylishNames",
+        JSON.stringify(names)
+    );
+
+    document.getElementById("nameInput").value = "";
+    document.getElementById("styleInput").value = "";
+
+    message.style.display = "block";
+    message.innerText = "Name added successfully!";
+
+    updateDashboard();
+}
+
+function deleteName(index){
+
+    names.splice(index,1);
+
+    localStorage.setItem(
+        "stylishNames",
+        JSON.stringify(names)
+    );
+
+    updateDashboard();
+}
+
+function openWebsite(){
+
+    window.open(
+        "https://ksrsing.github.io/stylish-name/",
+        "_blank"
+    );
+}
+
+updateDashboard();
+
+</script>
+
+</body>
+</html>
