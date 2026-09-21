@@ -1,6 +1,8 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
+
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#070b20">
@@ -716,10 +718,40 @@ Create • Copy • Share • Enjoy
 </div>
 
 </footer>
-
-
 <script>
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
 
+const SUPABASE_KEY =
+"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+ async function loadNamesFromSupabase() {
+
+    const { data, error } = await supabaseClient
+        .from("names")
+        .select("id, name, category")
+        .order("id", { ascending: true })
+        .limit(5000);
+
+    if (error) {
+        console.error("Supabase Error:", error);
+        return;
+    }
+
+    console.log("Online Names:", data);
+
+    if (data && data.length > 0) {
+        allNames = data.map(row => row.name);
+        displayedNames = [...allNames];
+
+        page = 1;
+        render();
+    }
+ }
 /* =========================================
 UNICODE FONT MAPS
 ========================================= */
@@ -2172,7 +2204,7 @@ displayedNames =
 allNames.slice();
 
 render();
-
+loadNamesFromSupabase();
 </script>
 
 </body>
