@@ -316,35 +316,7 @@ const db = window.supabase.createClient(
 );
 
 
-    async function login(){
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const password =
-        document.getElementById("password").value;
-
-    const message =
-        document.getElementById("loginMessage");
-
-    if(email === "" || password === ""){
-        message.innerText = "Email aur password enter karo.";
-        return;
-    }
-
-    const { data, error } =
-        await db.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-
-    if(error){
-        message.innerText = "❌ " + error.message;
-        return;
-    }
-
-    document.getElementById("loginScreen").style.display = "none";
-    }
+    
 
 /* =====================================
    MESSAGE
@@ -704,6 +676,10 @@ async function login(){
     document.getElementById("loginScreen").style.display = "none";
 
     start();
+    document.getElementById("loginScreen").style.display = "none";
+document.getElementById("adminPanel").style.display = "block";
+
+start();
 }
 
 async function logout(){
