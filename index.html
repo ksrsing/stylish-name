@@ -1862,14 +1862,16 @@ function randomName(){
 /* =========================================
 CATEGORY
 ========================================= */
-
 function setCategory(category) {
 
     currentCategory = category;
 
     if (category === "All") {
+
         displayedNames = [...allNames];
+
     } else {
+
         displayedNames = onlineRecords
             .filter(row =>
                 row.category &&
@@ -1879,6 +1881,7 @@ function setCategory(category) {
     }
 
     page = 1;
+
     render();
 }
 
