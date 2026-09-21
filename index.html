@@ -112,6 +112,8 @@ nav{
 
 .menu{
     display:none;
+    cursor:pointer;
+    user-select:none;
 }
 
 /* HERO */
@@ -417,6 +419,21 @@ footer{
         color:white;
         font-size:24px;
     }
+    .nav-links.mobile-menu{
+    display:flex !important;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    right:10px;
+    width:210px;
+    padding:15px;
+    gap:15px;
+    background:#07112f;
+    border:1px solid #3159a8;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    z-index:9999;
+    }
 
     .hero{
         padding-top:25px;
@@ -672,25 +689,7 @@ footer{
     
 <script>
 
-    function toggleMenu(){
-
-    const nav = document.querySelector(".nav-links");
-
-    if(nav.style.display === "flex"){
-        nav.style.display = "none";
-    }else{
-        nav.style.display = "flex";
-        nav.style.flexDirection = "column";
-        nav.style.position = "absolute";
-        nav.style.top = "60px";
-        nav.style.right = "10px";
-        nav.style.padding = "15px";
-        nav.style.background = "#07112f";
-        nav.style.border = "1px solid #3159a8";
-        nav.style.borderRadius = "12px";
-        nav.style.zIndex = "999";
-    }
-    }
+    
 
 /* ===============================
 BASE NAMES
@@ -1229,6 +1228,16 @@ function escapeHTML(str){
 
 buildNames();
 displayNames(allNames);
+    function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.classList.contains("mobile-menu")){
+        nav.classList.remove("mobile-menu");
+    }else{
+        nav.classList.add("mobile-menu");
+    }
+    }
 
 </script>
 
