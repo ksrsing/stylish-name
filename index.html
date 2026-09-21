@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <meta name="theme-color" content="#6d20a8">
-<meta name="description" content="NameCraft - Stylish Name Generator">
 
-<title>NameCraft - Stylish Name Generator</title>
+<title>NameCraft - 1000+ Stylish Name Generator</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -27,20 +23,12 @@ body{
     font-family:Arial,sans-serif;
 }
 
-/* ================= HEADER ================= */
-
 .header{
     height:125px;
     display:flex;
     justify-content:center;
     align-items:center;
-    background:
-    linear-gradient(
-        100deg,
-        #25d8d0,
-        #4931bd,
-        #ef008f
-    );
+    background:linear-gradient(100deg,#25d8d0,#4931bd,#ef008f);
     border-bottom:4px solid #111;
 }
 
@@ -49,12 +37,8 @@ body{
     font-size:58px;
     font-family:cursive;
     font-weight:bold;
-    text-shadow:
-        0 3px 4px rgba(0,0,0,.35),
-        0 0 15px rgba(255,255,255,.5);
+    text-shadow:0 3px 4px rgba(0,0,0,.35);
 }
-
-/* ================= CONTAINER ================= */
 
 .container{
     width:100%;
@@ -62,8 +46,6 @@ body{
     margin:auto;
     padding:10px 8px 40px;
 }
-
-/* ================= INPUT ================= */
 
 .inputBox{
     position:relative;
@@ -73,22 +55,14 @@ body{
     width:100%;
     min-height:135px;
     resize:vertical;
-
     border:3px solid #111;
     border-radius:20px;
-
     background:#fff;
-
     padding:25px 55px;
-
     font-size:27px;
-
     color:#333;
-
     outline:none;
-
-    box-shadow:
-    0 5px 18px rgba(0,0,0,.08);
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
 }
 
 #nameInput::placeholder{
@@ -99,28 +73,19 @@ body{
     position:absolute;
     right:23px;
     top:20px;
-
     border:0;
     background:none;
-
     color:#c40000;
-
     font-size:30px;
-
     cursor:pointer;
 }
-
-/* ================= SHARE ================= */
 
 .share{
     display:flex;
     justify-content:center;
     align-items:center;
-
     gap:8px;
-
     margin:20px 0 25px;
-
     flex-wrap:wrap;
 }
 
@@ -132,58 +97,26 @@ body{
 .shareBtn{
     width:48px;
     height:48px;
-
     border:0;
     border-radius:50%;
-
     color:white;
-
     font-size:20px;
-
     cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
-.shareBtn:active{
-    transform:scale(.90);
-}
-
-.facebook{
-    background:#1264a3;
-}
-
-.twitter{
-    background:#7020a5;
-}
-
-.email{
-    background:#6a2098;
-}
-
-.whatsapp{
-    background:#7020a5;
-}
-
-.telegram{
-    background:#612095;
-}
-
-/* ================= PREVIEW ================= */
+.facebook{background:#1264a3}
+.twitter{background:#7020a5}
+.email{background:#6a2098}
+.whatsapp{background:#7020a5}
+.telegram{background:#612095}
 
 .preview{
     min-height:100px;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     padding:15px;
-
     overflow:hidden;
 }
 
@@ -192,8 +125,6 @@ body{
     word-break:break-word;
 }
 
-/* ================= CATEGORIES ================= */
-
 .categoriesWrap{
     overflow:hidden;
     margin-top:18px;
@@ -201,13 +132,9 @@ body{
 
 .categories{
     display:flex;
-
     gap:7px;
-
     overflow-x:auto;
-
     padding:5px 0 12px;
-
     scrollbar-width:none;
 }
 
@@ -217,19 +144,12 @@ body{
 
 .catBtn{
     flex:0 0 auto;
-
     padding:14px 23px;
-
     border:0;
-
     border-radius:17px;
-
     background:#c9d5e8;
-
     color:#62666c;
-
     font-size:19px;
-
     cursor:pointer;
 }
 
@@ -238,201 +158,54 @@ body{
     color:#fff;
 }
 
-/* ================= TITLE ================= */
-
 .sectionTitle{
     font-size:29px;
-
     font-weight:400;
-
     color:#777;
-
     margin:15px 10px;
 }
 
-/* ================= RESULTS ================= */
-
 .results{
     display:flex;
-
     flex-direction:column;
-
     gap:14px;
 }
 
-/* ================= NAME CARD ================= */
-
 .nameCard{
     min-height:85px;
-
     background:#fff;
-
     border-radius:18px;
-
     display:flex;
-
     overflow:hidden;
-
-    box-shadow:
-    0 3px 12px rgba(0,0,0,.08);
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 .nameContent{
     flex:1;
-
     min-width:0;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     text-align:center;
-
     padding:12px 8px;
-
     font-size:29px;
-
-    line-height:1.25;
-
+    line-height:1.3;
     word-break:break-word;
 }
 
-/* ================= DIFFERENT FONTS ================= */
-
-/* Font 1 */
-.font1{
-    font-family:Georgia,serif;
-}
-
-/* Font 2 */
-.font2{
-    font-family:"Times New Roman",serif;
-    font-weight:bold;
-}
-
-/* Font 3 */
-.font3{
-    font-family:Arial,sans-serif;
-    font-weight:bold;
-}
-
-/* Font 4 */
-.font4{
-    font-family:"Courier New",monospace;
-}
-
-/* Font 5 */
-.font5{
-    font-family:Impact,sans-serif;
-}
-
-/* Font 6 */
-.font6{
-    font-family:"Trebuchet MS",sans-serif;
-}
-
-/* Font 7 */
-.font7{
-    font-family:Verdana,sans-serif;
-}
-
-/* Font 8 */
-.font8{
-    font-family:"Comic Sans MS",cursive;
-}
-
-/* Font 9 */
-.font9{
-    font-family:serif;
-    font-style:italic;
-}
-
-/* Font 10 */
-.font10{
-    font-family:monospace;
-    font-weight:bold;
-}
-
-/* Font 11 */
-.font11{
-    font-family:cursive;
-}
-
-/* Font 12 */
-.font12{
-    font-family:fantasy;
-}
-
-/* Font 13 */
-.font13{
-    font-family:"Lucida Console",monospace;
-}
-
-/* Font 14 */
-.font14{
-    font-family:"Arial Black",Arial,sans-serif;
-}
-
-/* Font 15 */
-.font15{
-    font-family:"Palatino Linotype",serif;
-}
-
-/* Font 16 */
-.font16{
-    font-family:"Segoe UI",sans-serif;
-    font-style:italic;
-}
-
-/* Font 17 */
-.font17{
-    font-family:"Courier New",monospace;
-    font-style:italic;
-}
-
-/* Font 18 */
-.font18{
-    font-family:Georgia,serif;
-    font-style:italic;
-}
-
-/* Font 19 */
-.font19{
-    font-family:Impact,sans-serif;
-    letter-spacing:2px;
-}
-
-/* Font 20 */
-.font20{
-    font-family:Tahoma,sans-serif;
-    font-weight:bold;
-}
-
-/* ================= CARD BUTTONS ================= */
-
 .cardActions{
     width:105px;
-
     display:flex;
-
     flex-direction:column;
 }
 
 .actionBtn{
     flex:1;
-
     border:0;
-
     color:#fff;
-
     background:#7020a5;
-
     cursor:pointer;
-
     font-size:14px;
-
     font-weight:bold;
 }
 
@@ -441,80 +214,31 @@ body{
 }
 
 .copyBtn{
-    border-bottom:
-    1px solid rgba(255,255,255,.2);
+    border-bottom:1px solid rgba(255,255,255,.2);
 }
-
-/* ================= LOADING ================= */
 
 .loading{
     text-align:center;
-
     padding:35px 10px;
-
     color:#888;
-
     font-size:18px;
 }
 
-/* ================= RECENT ================= */
-
-.recent{
-    margin-top:35px;
-}
-
-.recentList{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-}
-
-.recentItem{
-    background:#fff;
-
-    border-radius:15px;
-
-    padding:17px;
-
-    text-align:center;
-
-    font-size:22px;
-
-    box-shadow:
-    0 2px 8px rgba(0,0,0,.06);
-
-    cursor:pointer;
-}
-
-/* ================= PAGINATION ================= */
-
 .pagination{
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     gap:15px;
-
     margin:25px 0;
 }
 
 .pageBtn{
     border:0;
-
     background:#7020a5;
-
     color:white;
-
     padding:11px 18px;
-
     border-radius:10px;
-
     cursor:pointer;
-
     font-size:15px;
 }
 
@@ -526,62 +250,79 @@ body{
     color:#777;
 }
 
-/* ================= TOAST ================= */
+.recent{
+    margin-top:35px;
+}
+
+.recentList{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.recentItem{
+    background:#fff;
+    border-radius:15px;
+    padding:17px;
+    text-align:center;
+    font-size:22px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    cursor:pointer;
+}
 
 .toast{
     position:fixed;
-
     left:50%;
     bottom:25px;
-
-    transform:
-    translateX(-50%)
-    translateY(80px);
-
+    transform:translateX(-50%) translateY(80px);
     background:#222;
-
-    color:white;
-
+    color:#fff;
     padding:13px 22px;
-
     border-radius:30px;
-
     opacity:0;
-
     transition:.3s;
-
     z-index:9999;
 }
 
 .toast.show{
     opacity:1;
-
-    transform:
-    translateX(-50%)
-    translateY(0);
+    transform:translateX(-50%) translateY(0);
 }
-
-/* ================= FOOTER ================= */
 
 footer{
     margin-top:50px;
-
     background:#29204a;
-
     color:#ddd;
-
     text-align:center;
-
     padding:30px 15px;
-
     line-height:1.8;
 }
 
 footer strong{
-    color:white;
+    color:#fff;
 }
 
-/* ================= MOBILE ================= */
+/* Different browser font families */
+.f1{font-family:Georgia,serif}
+.f2{font-family:"Times New Roman",serif;font-weight:bold}
+.f3{font-family:Arial,sans-serif;font-weight:bold}
+.f4{font-family:"Courier New",monospace}
+.f5{font-family:Impact,sans-serif}
+.f6{font-family:"Trebuchet MS",sans-serif}
+.f7{font-family:Verdana,sans-serif}
+.f8{font-family:"Comic Sans MS",cursive}
+.f9{font-family:serif;font-style:italic}
+.f10{font-family:monospace;font-weight:bold}
+.f11{font-family:cursive}
+.f12{font-family:fantasy}
+.f13{font-family:"Lucida Console",monospace}
+.f14{font-family:"Arial Black",Arial,sans-serif}
+.f15{font-family:"Palatino Linotype",serif}
+.f16{font-family:"Segoe UI",sans-serif;font-style:italic}
+.f17{font-family:"Courier New",monospace;font-style:italic}
+.f18{font-family:Georgia,serif;font-style:italic}
+.f19{font-family:Impact,sans-serif;letter-spacing:2px}
+.f20{font-family:Tahoma,sans-serif;font-weight:bold}
 
 @media(max-width:500px){
 
@@ -595,9 +336,7 @@ footer strong{
 
     #nameInput{
         min-height:135px;
-
         font-size:24px;
-
         padding-left:48px;
     }
 
@@ -607,7 +346,6 @@ footer strong{
 
     .catBtn{
         font-size:17px;
-
         padding:13px 20px;
     }
 
@@ -626,239 +364,134 @@ footer strong{
     .actionBtn{
         font-size:12px;
     }
-
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
 <header class="header">
-
-    <div class="logo">
-        NameCraft
-    </div>
-
+    <div class="logo">NameCraft</div>
 </header>
 
-
 <main class="container">
-
-
-<!-- ================= INPUT ================= -->
 
 <div class="inputBox">
 
 <textarea
 id="nameInput"
-placeholder="✏️ Type your text here :)"
-maxlength="80"
-></textarea>
+placeholder="✏️ Type your name here :)"
+maxlength="80"></textarea>
 
-<button
-class="clearBtn"
-onclick="clearInput()"
->
-X
-</button>
+<button class="clearBtn" onclick="clearInput()">X</button>
 
 </div>
-
-
-<!-- ================= SHARE ================= -->
 
 <div class="share">
 
-<span class="shareText">
-SHARE (☞ﾟヮﾟ)☞
-</span>
+<span class="shareText">SHARE (☞ﾟヮﾟ)☞</span>
 
-<button
-class="shareBtn facebook"
-onclick="shareFacebook()"
->
-f
-</button>
-
-<button
-class="shareBtn twitter"
-onclick="shareTwitter()"
->
-♥
-</button>
-
-<button
-class="shareBtn email"
-onclick="shareEmail()"
->
-✉
-</button>
-
-<button
-class="shareBtn whatsapp"
-onclick="shareWhatsApp()"
->
-◉
-</button>
-
-<button
-class="shareBtn telegram"
-onclick="shareTelegram()"
->
-➤
-</button>
+<button class="shareBtn facebook" onclick="shareFacebook()">f</button>
+<button class="shareBtn twitter" onclick="shareTwitter()">♥</button>
+<button class="shareBtn email" onclick="shareEmail()">✉</button>
+<button class="shareBtn whatsapp" onclick="shareWhatsApp()">◉</button>
+<button class="shareBtn telegram" onclick="shareTelegram()">➤</button>
 
 </div>
-
-
-<!-- ================= PREVIEW ================= -->
 
 <div class="preview">
-
-<div
-id="previewText"
-class="previewText font1"
->
-꧁༺ NameCraft ༻꧂
+    <div id="previewText" class="previewText">
+        ꧁༺ NameCraft ༻꧂
+    </div>
 </div>
-
-</div>
-
-
-<!-- ================= CATEGORIES ================= -->
 
 <div class="categoriesWrap">
 
 <div class="categories">
 
-<button
-class="catBtn active"
-onclick="selectStyle('Symbolic',this)"
->
+<button class="catBtn active"
+onclick="selectCategory('Symbolic',this)">
 Symbolic
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Small',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Small',this)">
 Small
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Lines',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Lines',this)">
 Lines
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Squiggle',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Squiggle',this)">
 Squiggle
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Unicode',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Unicode',this)">
 Unicode
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Gaming',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Gaming',this)">
 Gaming
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Royal',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Royal',this)">
 Royal
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Love',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Love',this)">
 Love
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Aesthetic',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Aesthetic',this)">
 Aesthetic
 </button>
 
-<button
-class="catBtn"
-onclick="selectStyle('Danger',this)"
->
+<button class="catBtn"
+onclick="selectCategory('Danger',this)">
 Danger
 </button>
 
 </div>
-
 </div>
-
-
-<!-- ================= RESULTS ================= -->
 
 <h2 class="sectionTitle">
 STYLISH NAMES
 </h2>
 
-<div
-id="results"
-class="results"
->
-<div class="loading">
-Enter your name above...
+<div id="results" class="results">
+    <div class="loading">
+        Enter your name above...
+    </div>
 </div>
-</div>
-
-
-<!-- ================= PAGINATION ================= -->
 
 <div class="pagination">
 
-<button
-id="prevBtn"
+<button id="prevBtn"
 class="pageBtn"
 onclick="previousPage()"
-disabled
->
+disabled>
 ← Prev
 </button>
 
-<span
-id="pageInfo"
-class="pageInfo"
->
+<span id="pageInfo" class="pageInfo">
 Page 1
 </span>
 
-<button
-id="nextBtn"
+<button id="nextBtn"
 class="pageBtn"
-onclick="nextPage()"
->
+onclick="nextPage()">
 Next →
 </button>
 
 </div>
-
-
-<!-- ================= RECENT ================= -->
 
 <section class="recent">
 
@@ -866,19 +499,11 @@ Next →
 RECENT
 </h2>
 
-<div
-id="recentList"
-class="recentList"
->
-</div>
+<div id="recentList" class="recentList"></div>
 
 </section>
 
-
 </main>
-
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -886,7 +511,7 @@ class="recentList"
 
 <br>
 
-Stylish Name Generator
+1000+ Stylish Name Generator
 
 <br>
 
@@ -898,21 +523,16 @@ Create beautiful names, symbols & fancy text.
 
 </footer>
 
-
-<div
-id="toast"
-class="toast"
->
+<div id="toast" class="toast">
 Copied!
 </div>
 
 
 <script>
 
-
-/* =========================================================
-   SUPABASE
-========================================================= */
+/* =====================================================
+SUPABASE
+===================================================== */
 
 const SUPABASE_URL =
 "https://ujpzkpeslemcuizylymi.supabase.co";
@@ -927,195 +547,225 @@ supabase.createClient(
 );
 
 
-/* =========================================================
-   SETTINGS
-========================================================= */
+/* =====================================================
+SETTINGS
+===================================================== */
 
 const PAGE_SIZE = 40;
 
 let currentPage = 1;
 
-let currentStyle = "Symbolic";
+let currentCategory = "Symbolic";
 
-let generatedNames = [];
+let generatedStyles = [];
 
 let dbNames = [];
 
 let totalPages = 1;
 
 
-/* =========================================================
-   REAL NAMES
-========================================================= */
+/* =====================================================
+UNICODE FONTS
+===================================================== */
 
-const realNames = [
+const boldLower =
+"𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
 
-"Rahul",
-"Sonu",
-"Monu",
-"Rohit",
-"Aman",
-"Ankit",
-"Arjun",
-"Vishal",
-"Vikas",
-"Sumit",
-"Ravi",
-"Raj",
-"Rohan",
-"Aditya",
-"Akash",
-"Abhishek",
-"Anurag",
-"Deepak",
-"Dev",
-"Karan",
-"Kunal",
-"Manish",
-"Mohit",
-"Nikhil",
-"Nitin",
-"Pankaj",
-"Prakash",
-"Sameer",
-"Sahil",
-"Shivam",
-"Shubham",
-"Sunny",
-"Varun",
-"Yash",
-"Ajay",
-"Vijay",
-"Rajat",
-"Harsh",
-"Harshit",
-"Mayank",
-"Manoj",
-"Tarun",
-"Umesh",
-"Rakesh",
-"Ramesh",
-"Rajesh",
-"Suresh",
-"Sonam",
-"Neha",
-"Priya",
-"Anjali",
-"Pooja",
-"Riya",
-"Simran",
-"Muskan",
-"Kajal",
-"Komal",
-"Payal",
-"Shreya",
-"Ananya",
-"Diya",
-"Isha",
-"Megha",
-"Swati",
-"Tanya",
-"Khushi",
-"Avni",
-"Palak",
-"Nisha",
-"Aarti",
-"Anushka",
-"Sanaya",
-"Navya",
-"Aarav",
-"Vivaan",
-"Reyansh",
-"Krishna",
-"Rudra",
-"Veer",
-"Devansh",
-"Dhruv",
-"Parth",
-"Yuvan"
+const boldUpper =
+"𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
 
-];
+const italicLower =
+"𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
+
+const italicUpper =
+"𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
+
+const monoLower =
+"𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
+
+const monoUpper =
+"𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
+
+const sansBoldLower =
+"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇";
+
+const sansBoldUpper =
+"𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
+
+const sansItalicLower =
+"𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
+
+const sansItalicUpper =
+"𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
+
+const scriptLower =
+"𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+
+const scriptUpper =
+"𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
+
+const doubleLower =
+"𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
+
+const doubleUpper =
+"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
+
+const frakturLower =
+"𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+
+const frakturUpper =
+"𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
 
 
-/* =========================================================
-   UNICODE MAP
-========================================================= */
+/* =====================================================
+UNICODE CONVERTER
+===================================================== */
 
-const boldMap={
+function unicodeFont(
+    text,
+    lower,
+    upper
+){
 
-a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",
-f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
-k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",
-p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
-u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳",
+    const normalLower =
+        "abcdefghijklmnopqrstuvwxyz";
 
-A:"𝐀",B:"𝐁",C:"𝐂",D:"𝐃",E:"𝐄",
-F:"𝐅",G:"𝐆",H:"𝐇",I:"𝐈",J:"𝐉",
-K:"𝐊",L:"𝐋",M:"𝐌",N:"𝐍",O:"𝐎",
-P:"𝐏",Q:"𝐐",R:"𝐑",S:"𝐒",T:"𝐓",
-U:"𝐔",V:"𝐕",W:"𝐖",X:"𝐗",Y:"𝐘",Z:"𝐙"
+    const normalUpper =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-};
+    return [...text].map(char=>{
 
+        let index;
 
-const italicMap={
+        index =
+            normalLower.indexOf(char);
 
-a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",
-f:"𝑓",g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",
-k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",o:"𝑜",
-p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",
-u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧",
+        if(index !== -1)
+            return lower[index];
 
-A:"𝐴",B:"𝐵",C:"𝐶",D:"𝐷",E:"𝐸",
-F:"𝐹",G:"𝐺",H:"𝐻",I:"𝐼",J:"𝐽",
-K:"𝐾",L:"𝐿",M:"𝑀",N:"𝑁",O:"𝑂",
-P:"𝑃",Q:"𝑄",R:"𝑅",S:"𝑆",T:"𝑇",
-U:"𝑈",V:"𝑉",W:"𝑊",X:"𝑋",Y:"𝑌",Z:"𝑍"
+        index =
+            normalUpper.indexOf(char);
 
-};
+        if(index !== -1)
+            return upper[index];
+
+        return char;
+
+    }).join("");
+
+}
 
 
-const smallMap={
+function bold(text){
 
+return unicodeFont(
+    text,
+    boldLower,
+    boldUpper
+);
+
+}
+
+
+function italic(text){
+
+return unicodeFont(
+    text,
+    italicLower,
+    italicUpper
+);
+
+}
+
+
+function mono(text){
+
+return unicodeFont(
+    text,
+    monoLower,
+    monoUpper
+);
+
+}
+
+
+function sansBold(text){
+
+return unicodeFont(
+    text,
+    sansBoldLower,
+    sansBoldUpper
+);
+
+}
+
+
+function sansItalic(text){
+
+return unicodeFont(
+    text,
+    sansItalicLower,
+    sansItalicUpper
+);
+
+}
+
+
+function script(text){
+
+return unicodeFont(
+    text,
+    scriptLower,
+    scriptUpper
+);
+
+}
+
+
+function doubleText(text){
+
+return unicodeFont(
+    text,
+    doubleLower,
+    doubleUpper
+);
+
+}
+
+
+function fraktur(text){
+
+return unicodeFont(
+    text,
+    frakturLower,
+    frakturUpper
+);
+
+}
+
+
+/* =====================================================
+OTHER TEXT STYLES
+===================================================== */
+
+function smallCaps(text){
+
+const map={
 a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",
 f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",
 k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",
 p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
 u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"
-
 };
 
-
-function convertText(text,map){
-
-return [...text]
+return [...text.toLowerCase()]
 .map(c=>map[c]||c)
 .join("");
 
 }
 
-function boldText(text){
 
-return convertText(text,boldMap);
-
-}
-
-function italicText(text){
-
-return convertText(text,italicMap);
-
-}
-
-function smallText(text){
-
-return convertText(
-text.toLowerCase(),
-smallMap
-);
-
-}
-
-function underlineText(text){
+function underline(text){
 
 return [...text]
 .map(c=>c+"\u0332")
@@ -1123,7 +773,8 @@ return [...text]
 
 }
 
-function strikeText(text){
+
+function strike(text){
 
 return [...text]
 .map(c=>c+"\u0336")
@@ -1131,142 +782,226 @@ return [...text]
 
 }
 
-function spacedText(text){
+
+function overline(text){
+
+return [...text]
+.map(c=>c+"\u0305")
+.join("");
+
+}
+
+
+function dotText(text){
+
+return [...text]
+.map(c=>c+"\u0307")
+.join("");
+
+}
+
+
+function spaced(text){
 
 return [...text].join(" ");
 
 }
 
 
-/* =========================================================
-   STYLE GENERATOR
-========================================================= */
+function fullWidth(text){
 
-function makeStyles(name,category){
+return [...text].map(c=>{
 
-const styles=[];
+const code=c.charCodeAt(0);
+
+if(code>=33 && code<=126){
+
+return String.fromCharCode(
+code+65248
+);
+
+}
+
+if(c===" ") return "　";
+
+return c;
+
+}).join("");
+
+}
+
+
+function bubble(text){
+
+const upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+const symbols=[
+"Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ","Ⓖ","Ⓗ","Ⓘ","Ⓙ",
+"Ⓚ","Ⓛ","Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ","Ⓢ","Ⓣ",
+"Ⓤ","Ⓥ","Ⓦ","Ⓧ","Ⓨ","Ⓩ"
+];
+
+return [...text.toUpperCase()]
+.map(c=>{
+
+const i=upper.indexOf(c);
+
+return i>=0 ? symbols[i] : c;
+
+})
+.join("");
+
+}
+
+
+/* =====================================================
+1000+ STYLE GENERATOR
+===================================================== */
+
+function generateStyles(name,category){
+
+const result=[];
+
+const used=new Set();
 
 
 function add(text){
 
 if(
 text &&
-!styles.some(x=>x.text===text)
+!used.has(text)
 ){
 
-styles.push({
-text:text,
-font:"font"+((styles.length%20)+1)
-});
+used.add(text);
+
+result.push(text);
 
 }
 
 }
 
 
-/* SYMBOLIC */
+/* Base Unicode fonts */
 
-if(category==="Symbolic"){
-
-add(`꧁༺ ${name} ༻꧂`);
-add(`꧁༒ ${name} ༒꧂`);
-add(`༺ ${name} ༻`);
-add(`༻ ${name} ༺`);
-add(`『 ${name} 』`);
-add(`「 ${name} 」`);
-add(`【 ${name} 】`);
-add(`〖 ${name} 〗`);
-add(`〘 ${name} 〙`);
-add(`《 ${name} 》`);
-add(`〈 ${name} 〉`);
-add(`〔 ${name} 〕`);
-add(`乂 ${name} 乂`);
-add(`メ ${name} メ`);
-add(`亗 ${name} 亗`);
-add(`ツ ${name} ツ`);
-add(`シ ${name} シ`);
-add(`々 ${name} 々`);
-add(`⚡ ${name} ⚡`);
-add(`☠ ${name} ☠`);
-add(`☯ ${name} ☯`);
-add(`♛ ${name} ♛`);
-add(`♕ ${name} ♕`);
-add(`★ ${name} ★`);
-add(`☆ ${name} ☆`);
-add(`✦ ${name} ✦`);
-add(`✧ ${name} ✧`);
-add(`✪ ${name} ✪`);
-add(`✯ ${name} ✯`);
-
-}
+const fonts=[
+name,
+bold(name),
+italic(name),
+mono(name),
+sansBold(name),
+sansItalic(name),
+script(name),
+doubleText(name),
+fraktur(name),
+smallCaps(name),
+fullWidth(name),
+bubble(name)
+];
 
 
-/* SMALL */
+/* Decorators */
 
-if(category==="Small"){
-
-add(smallText(name));
-add(spacedText(smallText(name)));
-add(`ˢᵐᵃˡˡ ${smallText(name)}`);
-add(`• ${smallText(name)} •`);
-add(`『${smallText(name)}』`);
-
-}
-
-
-/* LINES */
-
-if(category==="Lines"){
-
-add(underlineText(name));
-add(strikeText(name));
-add(`━ ${name} ━`);
-add(`═ ${name} ═`);
-add(`─ ${name} ─`);
-add(`━━━━ ${name} ━━━━`);
-add(`════ ${name} ════`);
-add(`•──── ${name} ────•`);
-add(`╰─ ${name} ─╯`);
-add(`╭─ ${name} ─╮`);
-
-}
-
-
-/* SQUIGGLE */
-
-if(category==="Squiggle"){
-
-add(`〰️ ${name} 〰️`);
-add(`~ ${name} ~`);
-add(`≈ ${name} ≈`);
-add(`≋ ${name} ≋`);
-add(`〰 ${name} 〰`);
-add(`⌁ ${name} ⌁`);
-add(`〜 ${name} 〜`);
-
-}
-
-
-/* UNICODE */
-
-if(category==="Unicode"){
-
-add(boldText(name));
-add(italicText(name));
-add(smallText(name));
-add(underlineText(name));
-add(strikeText(name));
-add(spacedText(name));
-
-add(`『${boldText(name)}』`);
-add(`【${italicText(name)}】`);
-add(`꧁${boldText(name)}꧂`);
-add(`亗${boldText(name)}亗`);
-
-}
+const left=[
+"",
+"꧁",
+"༺",
+"༻",
+"『",
+"「",
+"【",
+"〖",
+"〘",
+"《",
+"〈",
+"〔",
+"乂",
+"メ",
+"亗",
+"ツ",
+"シ",
+"々",
+"彡",
+"〆",
+"么",
+"♛",
+"♕",
+"★",
+"☆",
+"✦",
+"✧",
+"✪",
+"✯",
+"⚡",
+"☠",
+"☯",
+"♡",
+"♥",
+"❤",
+"⚔",
+"⚜",
+"☾",
+"☁",
+"✿",
+"❀",
+"☣",
+"⚠",
+"༒",
+"𓆩",
+"୨୧"
+];
 
 
-/* GAMING */
+const right=[
+"",
+"꧂",
+"༻",
+"༺",
+"』",
+"」",
+"】",
+"〗",
+"〙",
+"》",
+"〉",
+"〕",
+"乂",
+"メ",
+"亗",
+"ツ",
+"シ",
+"々",
+"彡",
+"〆",
+"么",
+"♛",
+"♕",
+"★",
+"☆",
+"✦",
+"✧",
+"✪",
+"✯",
+"⚡",
+"☠",
+"☯",
+"♡",
+"♥",
+"❤",
+"⚔",
+"⚜",
+"☽",
+"☁",
+"✿",
+"❀",
+"☣",
+"⚠",
+"༒",
+"𓆪",
+"୨୧"
+];
+
+
+/* Category-specific styles */
 
 if(category==="Gaming"){
 
@@ -1276,32 +1011,22 @@ add(`メ ${name} メ`);
 add(`么 ${name} 么`);
 add(`彡 ${name} 彡`);
 add(`〆 ${name} 〆`);
-add(`々 ${name} 々`);
 add(`⚔ ${name} ⚔`);
 add(`☠ ${name} ☠`);
-add(`『 ${name} 』`);
-add(`꧁ ${name} ꧂`);
 add(`꧁༒${name}༒꧂`);
 
 }
-
-
-/* ROYAL */
 
 if(category==="Royal"){
 
 add(`♛ ${name} ♛`);
 add(`♕ ${name} ♕`);
-add(`👑 ${name} 👑`);
 add(`♔ ${name} ♔`);
+add(`👑 ${name} 👑`);
 add(`⚜ ${name} ⚜`);
 add(`꧁༺♛ ${name} ♛༻꧂`);
-add(`👑༺ ${name} ༻👑`);
 
 }
-
-
-/* LOVE */
 
 if(category==="Love"){
 
@@ -1317,15 +1042,11 @@ add(`ᥫ᭡ ${name} ᥫ᭡`);
 
 }
 
-
-/* AESTHETIC */
-
 if(category==="Aesthetic"){
 
 add(`˚₊‧ ${name} ‧₊˚`);
 add(`⋆｡°✩ ${name} ✩°｡⋆`);
 add(`☾ ${name} ☽`);
-add(`✧･ﾟ: *✧ ${name} ✧*:･ﾟ✧`);
 add(`𓆩 ${name} 𓆪`);
 add(`୨୧ ${name} ୨୧`);
 add(`✿ ${name} ✿`);
@@ -1333,9 +1054,6 @@ add(`❀ ${name} ❀`);
 add(`☁ ${name} ☁`);
 
 }
-
-
-/* DANGER */
 
 if(category==="Danger"){
 
@@ -1346,93 +1064,158 @@ add(`💀 ${name} 💀`);
 add(`༒ ${name} ༒`);
 add(`⚔ ${name} ⚔`);
 add(`⛓ ${name} ⛓`);
-add(`『☠ ${name} ☠』`);
+
+}
+
+if(category==="Lines"){
+
+add(underline(name));
+add(strike(name));
+add(overline(name));
+add(`━ ${name} ━`);
+add(`═ ${name} ═`);
+add(`─ ${name} ─`);
+add(`━━━━ ${name} ━━━━`);
+add(`════ ${name} ════`);
+add(`╰─ ${name} ─╯`);
+add(`╭─ ${name} ─╮`);
+
+}
+
+if(category==="Squiggle"){
+
+add(`〰️ ${name} 〰️`);
+add(`~ ${name} ~`);
+add(`≈ ${name} ≈`);
+add(`≋ ${name} ≋`);
+add(`〰 ${name} 〰`);
+add(`⌁ ${name} ⌁`);
+add(`〜 ${name} 〜`);
 
 }
 
 
-/* MANY SYMBOL COMBINATIONS */
+/* 12 Unicode fonts × 50+ decorations */
 
-const left=[
-"꧁༺","꧁༒","亗","乂","メ",
-"彡","〆","『","【","《",
-"♛","♕","★","☆","✦",
-"✧","⚡","☠","♡","♥",
-"⚔","☯","✪","✯","𓆩"
-];
+for(
+let f=0;
+f<fonts.length;
+f++
+){
 
-const right=[
-"༻꧂","༒꧂","亗","乂","メ",
-"彡","〆","』","】","》",
-"♛","♕","★","☆","✦",
-"✧","⚡","☠","♡","♥",
-"⚔","☯","✪","✯","𓆪"
-];
+for(
+let l=0;
+l<left.length;
+l++
+){
 
-
-for(let i=0;i<left.length;i++){
-
-for(let j=0;j<right.length;j++){
+for(
+let r=0;
+r<right.length;
+r++
+){
 
 add(
-`${left[i]} ${name} ${right[j]}`
+`${left[l]} ${fonts[f]} ${right[r]}`
 );
 
-}
+if(result.length>=1600)
+break;
 
 }
 
+if(result.length>=1600)
+break;
 
-/* FONT STYLES */
+}
 
-add(boldText(name));
-add(italicText(name));
-add(smallText(name));
-add(underlineText(name));
-add(strikeText(name));
-add(spacedText(name));
-
-add(`『${boldText(name)}』`);
-add(`꧁${boldText(name)}꧂`);
-add(`亗${boldText(name)}亗`);
-add(`♛${boldText(name)}♛`);
-add(`♡${italicText(name)}♡`);
-add(`✦${italicText(name)}✦`);
-
-
-return styles;
+if(result.length>=1600)
+break;
 
 }
 
 
-/* =========================================================
-   GENERATE
-========================================================= */
+/* More text transformations */
+
+const transforms=[
+
+x=>x,
+x=>bold(x),
+x=>italic(x),
+x=>mono(x),
+x=>sansBold(x),
+x=>sansItalic(x),
+x=>script(x),
+x=>doubleText(x),
+x=>fraktur(x),
+x=>smallCaps(x),
+x=>fullWidth(x),
+x=>bubble(x),
+x=>underline(x),
+x=>strike(x),
+x=>overline(x),
+x=>dotText(x),
+x=>spaced(x)
+
+];
+
+
+for(
+let i=0;
+i<transforms.length;
+i++
+){
+
+const t=
+transforms[i](name);
+
+add(t);
+
+add(`『${t}』`);
+add(`【${t}】`);
+add(`꧁${t}꧂`);
+add(`亗${t}亗`);
+add(`乂${t}乂`);
+add(`♛${t}♛`);
+add(`♡${t}♡`);
+add(`★${t}★`);
+add(`✦${t}✦`);
+add(`⚡${t}⚡`);
+
+}
+
+
+return result.slice(0,1600);
+
+}
+
+
+/* =====================================================
+GENERATE FROM INPUT
+===================================================== */
 
 function generate(){
 
-const input=
+const name=
 document
 .getElementById("nameInput")
 .value
 .trim();
 
-
-if(!input){
+if(!name){
 
 showToast(
-"Please enter your name"
+"Enter your name first"
 );
 
 return;
 
 }
 
-
-generatedNames=
-makeStyles(
-input,
-currentStyle
+generatedStyles=
+generateStyles(
+name,
+currentCategory
 );
 
 currentPage=1;
@@ -1441,27 +1224,19 @@ totalPages=
 Math.max(
 1,
 Math.ceil(
-generatedNames.length/
+generatedStyles.length/
 PAGE_SIZE
 )
 );
 
-
 renderGenerated();
-
-
-document
-.getElementById("previewText")
-.textContent=
-generatedNames[0]?.text ||
-input;
 
 }
 
 
-/* =========================================================
-   RENDER GENERATED
-========================================================= */
+/* =====================================================
+RENDER GENERATED
+===================================================== */
 
 function renderGenerated(){
 
@@ -1470,80 +1245,72 @@ document.getElementById("results");
 
 results.innerHTML="";
 
-
 const start=
-(currentPage-1)*
-PAGE_SIZE;
+(currentPage-1)*PAGE_SIZE;
 
-const end=
-start+PAGE_SIZE;
-
-
-const pageItems=
-generatedNames
-.slice(start,end);
+const page=
+generatedStyles.slice(
+start,
+start+PAGE_SIZE
+);
 
 
-if(!pageItems.length){
-
-results.innerHTML=
-`<div class="loading">
-No styles found.
-</div>`;
-
-return;
-
-}
-
-
-pageItems.forEach((item,index)=>{
+page.forEach(
+(text,index)=>{
 
 createCard(
-item.text,
-item.font,
+text,
+index,
 results
 );
 
 });
 
 
+if(!page.length){
+
+results.innerHTML=
+`<div class="loading">
+No styles found.
+</div>`;
+
+}
+
 updatePagination();
 
 }
 
 
-/* =========================================================
-   CREATE CARD
-========================================================= */
+/* =====================================================
+CARD
+===================================================== */
 
 function createCard(
-name,
-fontClass,
+text,
+index,
 parent
 ){
 
 const card=
 document.createElement("div");
 
-card.className=
-"nameCard";
+card.className="nameCard";
 
 
 const content=
 document.createElement("div");
 
 content.className=
-`nameContent ${fontClass}`;
+"nameContent f"+
+((index%20)+1);
 
-content.textContent=
-name;
+content.textContent=text;
 
 
 const actions=
 document.createElement("div");
 
-actions.className=
-"cardActions";
+actions.className="cardActions";
 
 
 const copy=
@@ -1552,12 +1319,10 @@ document.createElement("button");
 copy.className=
 "actionBtn copyBtn";
 
-copy.textContent=
-"COPY";
+copy.textContent="COPY";
 
-copy.onclick=
-()=>{
-copyName(name);
+copy.onclick=()=>{
+copyName(text);
 };
 
 
@@ -1567,25 +1332,24 @@ document.createElement("button");
 deco.className=
 "actionBtn";
 
-deco.textContent=
-"✨ DECO";
+deco.textContent="✨ DECO";
 
-deco.onclick=
-()=>{
+deco.onclick=()=>{
 
-document
-.getElementById("previewText")
-.textContent=
-name;
+const preview=
+document.getElementById(
+"previewText"
+);
 
-document
-.getElementById("previewText")
-.className=
-`previewText ${fontClass}`;
+preview.textContent=text;
+
+preview.className=
+"previewText f"+
+((index%20)+1);
 
 saveRecent(
-name,
-fontClass
+text,
+"f"+((index%20)+1)
 );
 
 };
@@ -1602,28 +1366,24 @@ parent.appendChild(card);
 }
 
 
-/* =========================================================
-   COPY
-========================================================= */
+/* =====================================================
+COPY
+===================================================== */
 
-async function copyName(name){
+async function copyName(text){
 
 try{
 
-await navigator
-.clipboard
-.writeText(name);
+await navigator.clipboard.writeText(text);
 
-showToast(
-"Name copied!"
-);
+showToast("Name copied!");
 
-}catch(error){
+}catch(e){
 
 const temp=
 document.createElement("textarea");
 
-temp.value=name;
+temp.value=text;
 
 document.body.appendChild(temp);
 
@@ -1633,62 +1393,56 @@ document.execCommand("copy");
 
 temp.remove();
 
-showToast(
-"Name copied!"
-);
+showToast("Name copied!");
 
 }
 
 }
 
 
-/* =========================================================
-   CATEGORY
-========================================================= */
+/* =====================================================
+CATEGORY
+===================================================== */
 
-function selectStyle(
-style,
+function selectCategory(
+category,
 button
 ){
 
-currentStyle=style;
+currentCategory=category;
 
 document
 .querySelectorAll(".catBtn")
-.forEach(btn=>{
-btn.classList.remove("active");
-});
+.forEach(
+btn=>btn.classList.remove("active")
+);
 
 button.classList.add("active");
 
-
-const input=
+const name=
 document
 .getElementById("nameInput")
 .value
 .trim();
 
-
-if(input){
+if(name){
 
 generate();
 
 }else{
 
-loadDatabaseNames(style);
+loadDatabaseNames(category);
 
 }
 
 }
 
 
-/* =========================================================
-   SUPABASE
-========================================================= */
+/* =====================================================
+SUPABASE LOAD
+===================================================== */
 
-async function loadDatabaseNames(
-category
-){
+async function loadDatabaseNames(category){
 
 const results=
 document.getElementById("results");
@@ -1698,9 +1452,7 @@ results.innerHTML=
 Loading names...
 </div>`;
 
-
 currentPage=1;
-
 
 let query=
 supabaseClient
@@ -1714,7 +1466,6 @@ supabaseClient
 {ascending:false}
 );
 
-
 if(category!=="All"){
 
 query=
@@ -1725,7 +1476,6 @@ category
 
 }
 
-
 const {
 data,
 error,
@@ -1735,7 +1485,6 @@ await query.range(
 0,
 PAGE_SIZE-1
 );
-
 
 if(error){
 
@@ -1750,10 +1499,7 @@ return;
 
 }
 
-
-dbNames=
-data||[];
-
+dbNames=data||[];
 
 totalPages=
 Math.max(
@@ -1764,15 +1510,14 @@ PAGE_SIZE
 )
 );
 
-
 renderDatabase();
 
 }
 
 
-/* =========================================================
-   DATABASE RENDER
-========================================================= */
+/* =====================================================
+DATABASE RENDER
+===================================================== */
 
 function renderDatabase(){
 
@@ -1781,43 +1526,34 @@ document.getElementById("results");
 
 results.innerHTML="";
 
-
-if(!dbNames.length){
-
-results.innerHTML=
-`<div class="loading">
-No names found.
-</div>`;
-
-return;
-
-}
-
-
 dbNames.forEach(
 (item,index)=>{
 
-const fontClass=
-"font"+
-((index%20)+1);
-
 createCard(
 item.name,
-fontClass,
+index,
 results
 );
 
 });
 
+if(!dbNames.length){
+
+results.innerHTML=
+`<div class="loading">
+No names found in this category.
+</div>`;
+
+}
 
 updatePagination();
 
 }
 
 
-/* =========================================================
-   DATABASE PAGE
-========================================================= */
+/* =====================================================
+DATABASE PAGE
+===================================================== */
 
 async function loadDatabasePage(){
 
@@ -1828,7 +1564,6 @@ results.innerHTML=
 `<div class="loading">
 Loading...
 </div>`;
-
 
 let query=
 supabaseClient
@@ -1842,25 +1577,21 @@ supabaseClient
 {ascending:false}
 );
 
-
-if(currentStyle!=="All"){
+if(currentCategory!=="All"){
 
 query=
 query.eq(
 "category",
-currentStyle
+currentCategory
 );
 
 }
 
-
 const from=
-(currentPage-1)*
-PAGE_SIZE;
+(currentPage-1)*PAGE_SIZE;
 
 const to=
 from+PAGE_SIZE-1;
-
 
 const {
 data,
@@ -1871,7 +1602,6 @@ await query.range(
 from,
 to
 );
-
 
 if(error){
 
@@ -1886,29 +1616,24 @@ return;
 
 }
 
-
-dbNames=
-data||[];
-
+dbNames=data||[];
 
 totalPages=
 Math.max(
 1,
 Math.ceil(
-(count||0)/
-PAGE_SIZE
+(count||0)/PAGE_SIZE
 )
 );
-
 
 renderDatabase();
 
 }
 
 
-/* =========================================================
-   PAGINATION
-========================================================= */
+/* =====================================================
+PAGINATION
+===================================================== */
 
 function updatePagination(){
 
@@ -1917,12 +1642,10 @@ document
 .textContent=
 `Page ${currentPage} / ${totalPages}`;
 
-
 document
 .getElementById("prevBtn")
 .disabled=
 currentPage<=1;
-
 
 document
 .getElementById("nextBtn")
@@ -1937,18 +1660,15 @@ function nextPage(){
 if(currentPage>=totalPages)
 return;
 
-
 currentPage++;
 
-
-const input=
+const name=
 document
 .getElementById("nameInput")
 .value
 .trim();
 
-
-if(input){
+if(name){
 
 renderGenerated();
 
@@ -1966,18 +1686,15 @@ function previousPage(){
 if(currentPage<=1)
 return;
 
-
 currentPage--;
 
-
-const input=
+const name=
 document
 .getElementById("nameInput")
 .value
 .trim();
 
-
-if(input){
+if(name){
 
 renderGenerated();
 
@@ -1990,9 +1707,9 @@ loadDatabasePage();
 }
 
 
-/* =========================================================
-   CLEAR
-========================================================= */
+/* =====================================================
+CLEAR
+===================================================== */
 
 function clearInput(){
 
@@ -2000,33 +1717,33 @@ document
 .getElementById("nameInput")
 .value="";
 
-generatedNames=[];
-
+generatedStyles=[];
 
 const preview=
-document.getElementById("previewText");
+document.getElementById(
+"previewText"
+);
 
 preview.textContent=
 "꧁༺ NameCraft ༻꧂";
 
 preview.className=
-"previewText font1";
-
+"previewText";
 
 loadDatabaseNames(
-currentStyle
+currentCategory
 );
 
 }
 
 
-/* =========================================================
-   RECENT
-========================================================= */
+/* =====================================================
+RECENT
+===================================================== */
 
 function saveRecent(
-name,
-fontClass
+text,
+font
 ){
 
 let recent=
@@ -2036,28 +1753,23 @@ localStorage.getItem(
 )||"[]"
 );
 
-
 recent=
 recent.filter(
-item=>item.text!==name
+item=>item.text!==text
 );
 
-
 recent.unshift({
-text:name,
-font:fontClass
+text:text,
+font:font
 });
-
 
 recent=
 recent.slice(0,10);
-
 
 localStorage.setItem(
 "namecraft_recent",
 JSON.stringify(recent)
 );
-
 
 renderRecent();
 
@@ -2073,14 +1785,12 @@ document.getElementById(
 
 list.innerHTML="";
 
-
 const recent=
 JSON.parse(
 localStorage.getItem(
 "namecraft_recent"
 )||"[]"
 );
-
 
 if(!recent.length){
 
@@ -2093,7 +1803,6 @@ return;
 
 }
 
-
 recent.forEach(item=>{
 
 const div=
@@ -2105,8 +1814,7 @@ div.className=
 div.textContent=
 item.text;
 
-div.onclick=
-()=>{
+div.onclick=()=>{
 copyName(item.text);
 };
 
@@ -2117,19 +1825,19 @@ list.appendChild(div);
 }
 
 
-/* =========================================================
-   SHARE
-========================================================= */
+/* =====================================================
+SHARE
+===================================================== */
 
 function getShareText(){
 
-const name=
+const text=
 document
 .getElementById("previewText")
 .textContent;
 
 return encodeURIComponent(
-"Check my stylish name: "+name
+"Check my stylish name: "+text
 );
 
 }
@@ -2193,9 +1901,9 @@ window.open(
 }
 
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* =====================================================
+TOAST
+===================================================== */
 
 let toastTimer;
 
@@ -2204,14 +1912,11 @@ function showToast(message){
 const toast=
 document.getElementById("toast");
 
-toast.textContent=
-message;
+toast.textContent=message;
 
 toast.classList.add("show");
 
-clearTimeout(
-toastTimer
-);
+clearTimeout(toastTimer);
 
 toastTimer=
 setTimeout(
@@ -2224,9 +1929,9 @@ toast.classList.remove("show");
 }
 
 
-/* =========================================================
-   LIVE INPUT
-========================================================= */
+/* =====================================================
+LIVE INPUT
+===================================================== */
 
 document
 .getElementById("nameInput")
@@ -2237,13 +1942,12 @@ function(){
 const value=
 this.value.trim();
 
-
 if(value){
 
-generatedNames=
-makeStyles(
+generatedStyles=
+generateStyles(
 value,
-currentStyle
+currentCategory
 );
 
 currentPage=1;
@@ -2252,15 +1956,14 @@ totalPages=
 Math.max(
 1,
 Math.ceil(
-generatedNames.length/
+generatedStyles.length/
 PAGE_SIZE
 )
 );
 
 renderGenerated();
 
-
-if(generatedNames[0]){
+if(generatedStyles.length){
 
 const preview=
 document.getElementById(
@@ -2268,19 +1971,19 @@ document.getElementById(
 );
 
 preview.textContent=
-generatedNames[0].text;
+generatedStyles[0];
 
 preview.className=
-`previewText ${generatedNames[0].font}`;
+"previewText f1";
 
 }
 
 }else{
 
-generatedNames=[];
+generatedStyles=[];
 
 loadDatabaseNames(
-currentStyle
+currentCategory
 );
 
 const preview=
@@ -2292,7 +1995,7 @@ preview.textContent=
 "꧁༺ NameCraft ༻꧂";
 
 preview.className=
-"previewText font1";
+"previewText";
 
 }
 
@@ -2300,9 +2003,9 @@ preview.className=
 );
 
 
-/* =========================================================
-   ENTER KEY
-========================================================= */
+/* =====================================================
+ENTER KEY
+===================================================== */
 
 document
 .getElementById("nameInput")
@@ -2325,9 +2028,9 @@ generate();
 );
 
 
-/* =========================================================
-   START
-========================================================= */
+/* =====================================================
+START
+===================================================== */
 
 renderRecent();
 
