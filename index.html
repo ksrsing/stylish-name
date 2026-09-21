@@ -1,1304 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#6d20a8">
+<meta name="description" content="NameCraft - Create beautiful stylish names, symbols and fancy text.">
 
-<meta name="theme-color"
-content="#070b20">
-
-<title>
-NameCraft - 9000+ Stylish Names
-</title>
+<title>NameCraft - Stylish Name Generator</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
+    background:#f4f5f8;
+    color:#444;
     min-height:100vh;
-    color:#fff;
-
-    background:
-    radial-gradient(
-        circle at 15% 10%,
-        rgba(130,0,255,.22),
-        transparent 30%
-    ),
-
-    radial-gradient(
-        circle at 85% 15%,
-        rgba(0,180,255,.18),
-        transparent 30%
-    ),
-
-    linear-gradient(
-        135deg,
-        #050817,
-        #090d25,
-        #050817
-    );
 }
 
+/* HEADER */
 
-/* NAVBAR */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    background:rgba(4,7,25,.94);
-
-    backdrop-filter:blur(15px);
-
-    border-bottom:
-    1px solid rgba(95,120,255,.25);
-}
-
-.nav{
-    max-width:1400px;
-    margin:auto;
-
-    padding:14px 25px;
-
+.header{
+    background:linear-gradient(100deg,#27d8d0,#4034b8,#ef008f);
+    height:128px;
     display:flex;
+    justify-content:center;
     align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
+    border-bottom:4px solid #111;
+    overflow:hidden;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:900;
-
-    background:
-    linear-gradient(
-        90deg,
-        #ff35ef,
-        #9c45ff,
-        #00c8ff
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    color:white;
+    font-size:52px;
+    font-family:cursive;
+    font-weight:bold;
+    text-shadow:
+        0 3px 3px rgba(0,0,0,.3),
+        0 0 10px rgba(255,255,255,.5);
 }
-
-.navLinks{
-    display:flex;
-    gap:24px;
-}
-
-.navLinks a{
-    color:#dbe2ff;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.navLinks a:hover{
-    color:#c84cff;
-}
-
 
 /* MAIN */
 
 .container{
-    width:94%;
-    max-width:1400px;
-    margin:auto;
-}
-
-
-/* HERO */
-
-.hero{
-    text-align:center;
-    padding:55px 10px 30px;
-}
-
-.badge{
-    display:inline-block;
-
-    padding:9px 20px;
-
-    border-radius:30px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #941cff,
-        #007dff
-    );
-
-    box-shadow:
-    0 0 20px
-    rgba(140,40,255,.4);
-
-    font-weight:bold;
-
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:54px;
-    line-height:1.05;
-
-    font-weight:900;
-
-    margin-bottom:15px;
-}
-
-.hero h1 span{
-    background:
-    linear-gradient(
-        90deg,
-        #ff27ef,
-        #b72cff,
-        #00c8ff
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.hero p{
-    max-width:780px;
-
-    margin:0 auto 28px;
-
-    color:#bfc8ee;
-
-    line-height:1.6;
-}
-
-
-/* SEARCH */
-
-.searchBox{
+    width:100%;
     max-width:850px;
     margin:auto;
-
-    display:flex;
-    gap:8px;
-
-    padding:6px;
-
-    border-radius:35px;
-
-    background:
-    rgba(20,35,85,.9);
-
-    border:
-    1px solid #2266cc;
-
-    box-shadow:
-    0 0 20px
-    rgba(0,110,255,.22);
+    padding:10px 8px 40px;
 }
 
-.searchBox input{
-    flex:1;
-    min-width:0;
+/* INPUT */
 
-    padding:16px 20px;
+.inputBox{
+    position:relative;
+    margin-top:0;
+}
 
-    border:none;
+#nameInput{
+    width:100%;
+    height:138px;
+    resize:vertical;
+    border:3px solid #111;
+    border-radius:20px;
+    background:#fff;
+    padding:24px 55px 20px 55px;
+    font-size:29px;
+    color:#333;
     outline:none;
-
-    background:transparent;
-
-    color:white;
-
-    font-size:16px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.searchBox input::placeholder{
-    color:#8794c7;
+#nameInput::placeholder{
+    color:#cbd0d8;
 }
 
-.generateBtn,
-.randomBtn{
-
-    border:none;
-
-    padding:14px 22px;
-
-    border-radius:28px;
-
-    color:white;
-
-    font-weight:bold;
-
+.clearBtn{
+    position:absolute;
+    right:25px;
+    top:25px;
+    border:0;
+    background:none;
+    color:#c40000;
+    font-size:32px;
     cursor:pointer;
-
-    white-space:nowrap;
 }
 
-.generateBtn{
-    background:
-    linear-gradient(
-        90deg,
-        #c322ff,
-        #007cff
-    );
-}
+/* SHARE */
 
-.randomBtn{
-    background:
-    linear-gradient(
-        90deg,
-        #00a8cf,
-        #0074ff
-    );
-}
-
-.generateBtn:hover,
-.randomBtn:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.15);
-}
-
-
-/* CATEGORIES */
-
-.categories{
-    display:grid;
-
-    grid-template-columns:
-    repeat(11,1fr);
-
-    gap:9px;
-
-    margin:24px 0;
-}
-
-.category{
-
-    min-height:80px;
-
-    border-radius:15px;
-
-    border:
-    1px solid
-    rgba(72,111,210,.35);
-
-    background:
-    linear-gradient(
-        145deg,
-        rgba(15,27,65,.95),
-        rgba(10,18,48,.95)
-    );
-
-    color:#e7ebff;
-
-    cursor:pointer;
-
-    font-weight:bold;
-
-    font-size:12px;
-
-    transition:.25s;
-}
-
-.category:hover{
-    transform:translateY(-3px);
-
-    border-color:#874cff;
-}
-
-.category.active{
-
-    border-color:#d237ff;
-
-    background:
-    linear-gradient(
-        145deg,
-        #6b16b7,
-        #073fae
-    );
-
-    box-shadow:
-    0 0 25px
-    rgba(151,45,255,.45);
-}
-
-.catIcon{
-    display:block;
-    font-size:24px;
-    margin-bottom:5px;
-}
-
-
-/* PANEL */
-
-.namesPanel{
-
-    border:
-    1px solid
-    rgba(65,115,230,.4);
-
-    border-radius:25px;
-
-    padding:18px;
-
-    background:
-    linear-gradient(
-        145deg,
-        rgba(8,17,45,.9),
-        rgba(7,13,34,.95)
-    );
-
-    box-shadow:
-    0 0 30px
-    rgba(0,60,180,.15);
-}
-
-.toolbar{
-
+.share{
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
-
-    gap:12px;
-
-    margin:0 5px 17px;
-}
-
-.toolbarLeft{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-}
-
-.sparkle{
-    font-size:27px;
-}
-
-.toolbar h2{
-    font-size:24px;
-}
-
-.count{
-    color:#aeb9df;
-    font-size:13px;
-}
-
-.toolbarButtons{
-    display:flex;
+    justify-content:center;
     gap:8px;
+    margin:20px 0 25px;
+    flex-wrap:wrap;
 }
 
-.actionBtn{
-
-    border:
-    1px solid
-    rgba(75,110,210,.5);
-
-    background:#101d45;
-
-    color:white;
-
-    border-radius:13px;
-
-    padding:11px 17px;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-.status{
-
-    margin:0 5px 15px;
-
-    padding:10px 14px;
-
-    border-radius:10px;
-
-    background:
-    rgba(15,25,60,.8);
-
-    color:#9facd8;
-
-    font-size:13px;
-}
-
-
-/* GRID */
-
-.grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:10px;
-}
-
-.card{
-
-    min-width:0;
-
-    background:
-    linear-gradient(
-        145deg,
-        rgba(18,34,78,.96),
-        rgba(10,20,48,.98)
-    );
-
-    border:
-    1px solid
-    rgba(55,102,210,.45);
-
-    border-radius:14px;
-
-    padding:10px;
-
-    min-height:105px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    transition:.25s;
-}
-
-.card:hover{
-
-    transform:translateY(-2px);
-
-    border-color:#a43cff;
-
-    box-shadow:
-    0 0 20px
-    rgba(128,40,255,.25);
-}
-
-.name{
-
+.shareText{
     font-size:18px;
+    color:#888;
+    margin-right:4px;
+}
 
-    font-weight:bold;
-
-    word-break:break-word;
-
-    text-align:center;
-
-    padding:9px 4px;
-
-    min-height:55px;
-
+.shareBtn{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:0;
+    color:white;
+    font-size:21px;
+    cursor:pointer;
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
-.cardButtons{
+.facebook{background:#1264a3;}
+.twitter{background:#6d20a8;}
+.email{background:#682099;}
+.whatsapp{background:#6d20a8;}
+.telegram{background:#63209a;}
 
-    display:flex;
-
-    gap:6px;
+.shareBtn:active{
+    transform:scale(.92);
 }
 
-.copyBtn{
+/* PREVIEW */
 
-    flex:1;
+.preview{
+    min-height:105px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:15px;
+    font-size:28px;
+    color:#888;
+    overflow:hidden;
+}
 
-    border:
-    1px solid
-    rgba(70,100,190,.35);
+.previewText{
+    word-break:break-word;
+}
 
-    background:#182856;
+/* CATEGORY */
 
-    color:white;
+.categoriesWrap{
+    margin-top:20px;
+    overflow:hidden;
+}
 
-    border-radius:9px;
+.categories{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding:4px 0 12px;
+    scrollbar-width:none;
+}
 
-    padding:8px;
+.categories::-webkit-scrollbar{
+    display:none;
+}
 
+.catBtn{
+    flex:0 0 auto;
+    padding:15px 25px;
+    border:0;
+    border-radius:17px;
+    background:#c9d5e8;
+    color:#62666c;
+    font-size:20px;
     cursor:pointer;
+    white-space:nowrap;
+}
 
+.catBtn.active{
+    background:#6d20a8;
+    color:white;
+}
+
+/* SECTION TITLE */
+
+.sectionTitle{
+    font-size:30px;
+    margin:15px 10px;
+    color:#777;
+    font-weight:400;
+}
+
+/* RESULTS */
+
+.results{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.nameCard{
+    min-height:82px;
+    background:white;
+    border-radius:18px;
+    display:flex;
+    align-items:stretch;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.nameContent{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:12px 8px;
+    font-size:27px;
+    color:#151515;
+    word-break:break-word;
+    line-height:1.25;
+}
+
+.cardActions{
+    width:105px;
+    display:flex;
+    flex-direction:column;
+}
+
+.actionBtn{
+    flex:1;
+    border:0;
+    color:white;
+    background:#7020a5;
+    cursor:pointer;
+    font-size:16px;
     font-weight:bold;
 }
 
-.favBtn{
+.actionBtn:hover{
+    background:#58127f;
+}
 
-    width:42px;
+.copyBtn{
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
 
-    border:
-    1px solid
-    rgba(70,100,190,.35);
+/* LOADING */
 
-    background:#182856;
-
-    color:white;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
+.loading{
+    text-align:center;
+    padding:35px 10px;
+    color:#888;
     font-size:18px;
 }
 
-.favBtn.saved{
+/* RECENT */
 
-    background:#e52c72;
-
-    border-color:#ff5790;
+.recent{
+    margin-top:35px;
 }
 
+.recentList{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.recentItem{
+    background:#fff;
+    border-radius:15px;
+    padding:16px;
+    text-align:center;
+    font-size:21px;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+    cursor:pointer;
+}
 
 /* PAGINATION */
 
 .pagination{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    gap:7px;
-
-    margin:25px 0 5px;
-
-    flex-wrap:wrap;
+    gap:15px;
+    margin:25px 0;
 }
 
 .pageBtn{
-
-    border:
-    1px solid
-    rgba(65,100,190,.4);
-
-    background:#111d43;
-
+    border:0;
+    background:#7020a5;
     color:white;
-
-    border-radius:9px;
-
-    padding:9px 13px;
-
+    padding:11px 18px;
+    border-radius:10px;
     cursor:pointer;
-}
-
-.pageBtn.active{
-
-    background:
-    linear-gradient(
-        90deg,
-        #8d28ff,
-        #416dff
-    );
+    font-size:16px;
 }
 
 .pageBtn:disabled{
     opacity:.4;
 }
 
-
-/* MESSAGE */
-
-.message{
-
-    grid-column:1/-1;
-
-    text-align:center;
-
-    padding:45px 20px;
-
-    color:#9da8d0;
+.pageInfo{
+    color:#777;
 }
 
+/* TOAST */
 
-/* FAVORITES */
-
-.favoritesSection{
-
-    margin-top:45px;
-
-    margin-bottom:50px;
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(80px);
+    background:#222;
+    color:white;
+    padding:13px 22px;
+    border-radius:30px;
+    opacity:0;
+    transition:.3s;
+    z-index:9999;
 }
 
-
-/* ABOUT */
-
-.about{
-
-    text-align:center;
-
-    padding:30px 10px 55px;
+.toast.show{
+    transform:translateX(-50%) translateY(0);
+    opacity:1;
 }
-
-.about p{
-
-    color:#9da8d0;
-
-    margin-top:10px;
-
-    line-height:1.7;
-}
-
 
 /* FOOTER */
 
 footer{
-
-    border-top:
-    1px solid
-    rgba(80,100,190,.25);
-
-    padding:28px 15px;
-
-    color:#8994bd;
-
+    margin-top:50px;
+    background:#29204a;
+    color:#ddd;
     text-align:center;
-
-    background:
-    rgba(3,6,20,.7);
+    padding:30px 15px;
+    line-height:1.8;
 }
 
-
-/* RESPONSIVE */
-
-@media(max-width:1200px){
-
-    .categories{
-        grid-template-columns:
-        repeat(6,1fr);
-    }
-
-    .grid{
-        grid-template-columns:
-        repeat(3,1fr);
-    }
+footer strong{
+    color:white;
 }
 
-@media(max-width:800px){
+/* DESKTOP */
 
-    .nav{
-        padding:13px 15px;
+@media(min-width:700px){
+
+    .header{
+        height:150px;
     }
 
     .logo{
-        font-size:23px;
+        font-size:68px;
     }
 
-    .navLinks{
-        gap:12px;
+    .container{
+        padding-left:20px;
+        padding-right:20px;
     }
 
-    .navLinks a{
-        font-size:12px;
+    #nameInput{
+        height:150px;
     }
 
-    .hero h1{
-        font-size:42px;
+    .nameCard{
+        min-height:90px;
     }
 
-    .categories{
-        grid-template-columns:
-        repeat(4,1fr);
-    }
-
-    .grid{
-        grid-template-columns:
-        repeat(2,1fr);
+    .nameContent{
+        font-size:30px;
     }
 }
 
-@media(max-width:600px){
+/* MOBILE */
 
-    .hero{
-        padding-top:35px;
+@media(max-width:500px){
+
+    .header{
+        height:105px;
     }
 
-    .hero h1{
-        font-size:34px;
+    .logo{
+        font-size:43px;
     }
 
-    .hero p{
-        font-size:14px;
+    #nameInput{
+        height:135px;
+        font-size:24px;
+        padding-left:48px;
     }
 
-    .searchBox{
-
-        flex-direction:column;
-
-        border-radius:17px;
-
-        padding:8px;
+    .preview{
+        font-size:24px;
+        min-height:90px;
     }
 
-    .generateBtn,
-    .randomBtn{
-
-        width:100%;
-
-        border-radius:12px;
+    .catBtn{
+        font-size:18px;
+        padding:13px 22px;
     }
 
-    .categories{
-
-        grid-template-columns:
-        repeat(3,1fr);
-
-        gap:7px;
+    .sectionTitle{
+        font-size:27px;
     }
 
-    .category{
-
-        min-height:70px;
-
-        font-size:11px;
+    .nameContent{
+        font-size:24px;
     }
 
-    .namesPanel{
-
-        padding:10px;
-
-        border-radius:17px;
-    }
-
-    .toolbar{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-    }
-
-    .toolbarButtons{
-
-        width:100%;
+    .cardActions{
+        width:88px;
     }
 
     .actionBtn{
-
-        flex:1;
-    }
-
-    .grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:8px;
-    }
-
-    .name{
-        font-size:16px;
+        font-size:13px;
     }
 }
-
-@media(max-width:420px){
-
-    .nav{
-
-        flex-direction:column;
-
-        gap:9px;
-    }
-
-    .navLinks{
-
-        width:100%;
-
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:30px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-}
-
 </style>
-
 </head>
-
 
 <body>
 
+<!-- HEADER -->
 
-<header>
-
-<div class="nav">
-
-<div class="logo">
-♛ Name<span style="color:#00bfff;">Craft</span>
-</div>
-
-<div class="navLinks">
-
-<a href="#">
-Home
-</a>
-
-<a href="#names">
-✨ Names
-</a>
-
-<a href="#favorites">
-❤️ Favorites
-</a>
-
-<a href="#about">
-ⓘ About
-</a>
-
-</div>
-
-</div>
-
+<header class="header">
+    <div class="logo">Namestyle.art</div>
 </header>
-
 
 <main class="container">
 
+    <!-- INPUT -->
 
-<section class="hero">
+    <div class="inputBox">
 
-<div class="badge">
-✨ 9000+ Stylish Names
-</div>
+        <textarea
+            id="nameInput"
+            placeholder="✏️ Type your text here :)"
+            maxlength="80"
+        ></textarea>
 
-<h1>
+        <button class="clearBtn" onclick="clearInput()">X</button>
 
-Create Your
-<br>
+    </div>
 
-<span>
-Stylish Name
-</span>
+    <!-- SHARE -->
 
-</h1>
+    <div class="share">
 
-<p>
+        <span class="shareText">
+            SHARE (☞ﾟヮﾟ)☞
+        </span>
 
-Create stylish gaming names,
-Instagram names, social media names
-and unique profile names.
+        <button class="shareBtn facebook" onclick="shareFacebook()">f</button>
 
-</p>
+        <button class="shareBtn twitter" onclick="shareTwitter()">♥</button>
 
+        <button class="shareBtn email" onclick="shareEmail()">✉</button>
 
-<div class="searchBox">
+        <button class="shareBtn whatsapp" onclick="shareWhatsApp()">◉</button>
 
-<input
-id="nameInput"
-type="text"
-placeholder="Enter your name e.g. Rahul"
-autocomplete="off"
->
+        <button class="shareBtn telegram" onclick="shareTelegram()">➤</button>
 
-<button
-class="generateBtn"
-onclick="generateNames()"
->
+    </div>
 
-✨ Generate
+    <!-- PREVIEW -->
 
-</button>
+    <div class="preview">
+        <div id="previewText" class="previewText">
+            ꧁༺ Name Art ༻꧂
+        </div>
+    </div>
 
+    <!-- CATEGORIES -->
 
-<button
-class="randomBtn"
-onclick="randomName()"
->
+    <div class="categoriesWrap">
 
-🎲 Random
+        <div class="categories">
 
-</button>
+            <button class="catBtn active" onclick="selectStyle('Symbolic',this)">
+                Symbolic
+            </button>
 
-</div>
+            <button class="catBtn" onclick="selectStyle('Small',this)">
+                Small
+            </button>
 
-</section>
+            <button class="catBtn" onclick="selectStyle('Lines',this)">
+                Lines
+            </button>
 
+            <button class="catBtn" onclick="selectStyle('Squiggle',this)">
+                Squiggle
+            </button>
 
+            <button class="catBtn" onclick="selectStyle('Unicode',this)">
+                Unicode
+            </button>
 
-<!-- CATEGORIES -->
+            <button class="catBtn" onclick="selectStyle('Gaming',this)">
+                Gaming
+            </button>
 
-<div class="categories">
+            <button class="catBtn" onclick="selectStyle('Royal',this)">
+                Royal
+            </button>
 
+            <button class="catBtn" onclick="selectStyle('Love',this)">
+                Love
+            </button>
 
-<button
-class="category active"
-onclick="setCategory('All',this)"
->
+            <button class="catBtn" onclick="selectStyle('Aesthetic',this)">
+                Aesthetic
+            </button>
 
-<span class="catIcon">
-✨
-</span>
+            <button class="catBtn" onclick="selectStyle('Danger',this)">
+                Danger
+            </button>
 
-All
+        </div>
 
-</button>
+    </div>
 
+    <!-- RESULTS -->
 
-<button
-class="category"
-onclick="setCategory('Gaming',this)"
->
+    <h2 class="sectionTitle">STYLISH NAMES</h2>
 
-<span class="catIcon">
-🎮
-</span>
+    <div id="results" class="results">
+        <div class="loading">Enter your name above...</div>
+    </div>
 
-Gaming
+    <div class="pagination">
 
-</button>
+        <button
+            id="prevBtn"
+            class="pageBtn"
+            onclick="previousPage()"
+            disabled
+        >
+            ← Prev
+        </button>
 
+        <span id="pageInfo" class="pageInfo">
+            Page 1
+        </span>
 
-<button
-class="category"
-onclick="setCategory('Cool',this)"
->
+        <button
+            id="nextBtn"
+            class="pageBtn"
+            onclick="nextPage()"
+        >
+            Next →
+        </button>
 
-<span class="catIcon">
-🔥
-</span>
+    </div>
 
-Cool
+    <!-- RECENT -->
 
-</button>
+    <section class="recent">
 
+        <h2 class="sectionTitle">RECENT</h2>
 
-<button
-class="category"
-onclick="setCategory('Royal',this)"
->
+        <div id="recentList" class="recentList">
+        </div>
 
-<span class="catIcon">
-👑
-</span>
-
-Royal
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Love',this)"
->
-
-<span class="catIcon">
-💗
-</span>
-
-Love
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Aesthetic',this)"
->
-
-<span class="catIcon">
-🌿
-</span>
-
-Aesthetic
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Neon',this)"
->
-
-<span class="catIcon">
-⚡
-</span>
-
-Neon
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Unicode',this)"
->
-
-<span class="catIcon">
-𝔸
-</span>
-
-Unicode
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Symbols',this)"
->
-
-<span class="catIcon">
-★
-</span>
-
-Symbols
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Danger',this)"
->
-
-<span class="catIcon">
-☠
-</span>
-
-Danger
-
-</button>
-
-
-<button
-class="category"
-onclick="setCategory('Minimal',this)"
->
-
-<span class="catIcon">
-◉
-</span>
-
-Minimal
-
-</button>
-
-
-</div>
-
-
-
-<!-- NAMES -->
-
-<div id="names">
-
-<div class="namesPanel">
-
-
-<div class="toolbar">
-
-<div class="toolbarLeft">
-
-<span class="sparkle">
-✨
-</span>
-
-<div>
-
-<h2 id="resultTitle">
-Stylish Names
-</h2>
-
-<div
-class="count"
-id="nameCount"
->
-Loading...
-</div>
-
-</div>
-
-</div>
-
-
-<div class="toolbarButtons">
-
-<button
-class="actionBtn"
-onclick="saveAll()"
->
-
-❤️ Save All
-
-</button>
-
-
-<button
-class="actionBtn"
-onclick="copyAll()"
->
-
-📋 Copy All
-
-</button>
-
-</div>
-
-</div>
-
-
-<div
-class="status"
-id="status"
->
-
-☁️ Loading online names...
-
-</div>
-
-
-<div
-class="grid"
-id="nameGrid"
->
-
-<div class="message">
-Loading names...
-</div>
-
-</div>
-
-
-<div
-class="pagination"
-id="pagination"
-></div>
-
-
-</div>
-
-</div>
-
-
-
-<!-- FAVORITES -->
-
-<section
-id="favorites"
-class="favoritesSection"
->
-
-<div class="namesPanel">
-
-
-<div class="toolbar">
-
-<div class="toolbarLeft">
-
-<span class="sparkle">
-❤️
-</span>
-
-<div>
-
-<h2>
-Favorites
-</h2>
-
-<div
-class="count"
-id="favoriteCount"
->
-0 saved
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div
-class="grid"
-id="favoriteGrid"
->
-
-<div class="message">
-
-Your favorite names
-will appear here.
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- ABOUT -->
-
-<section
-id="about"
-class="about"
->
-
-<h2>
-✨ About NameCraft
-</h2>
-
-<p>
-
-Create stylish names for gaming,
-Instagram, social media and profiles.
-
-</p>
-
-</section>
-
+    </section>
 
 </main>
 
+<!-- FOOTER -->
 
 <footer>
 
-© 2026 NameCraft |
-Stylish Name Generator
+    <strong>NameCraft</strong>
+
+    <br>
+
+    Stylish Name Generator
+
+    <br>
+
+    Create beautiful names, symbols & fancy text.
+
+    <br><br>
+
+    © 2026 NameCraft. All rights reserved.
 
 </footer>
 
+<div id="toast" class="toast">
+    Copied!
+</div>
 
 
 <script>
 
-
-/* ==========================================
-SUPABASE
-========================================== */
+/* =========================================================
+   SUPABASE
+========================================================= */
 
 const SUPABASE_URL =
 "https://ujpzkpeslemcuizylymi.supabase.co";
@@ -1313,30 +614,26 @@ supabase.createClient(
 );
 
 
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-/* ==========================================
-VARIABLES
-========================================== */
+const PAGE_SIZE = 40;
 
-let onlineRecords = [];
+let currentPage = 1;
 
-let allNames = [];
+let currentStyle = "Symbolic";
 
-let displayedNames = [];
+let generatedNames = [];
 
-let favorites = [];
+let dbNames = [];
 
-let currentCategory = "All";
-
-let page = 1;
-
-const perPage = 100;
+let totalPages = 1;
 
 
-
-/* ==========================================
-ACTUAL NAME LIST
-========================================== */
+/* =========================================================
+   REAL NAMES
+========================================================= */
 
 const realNames = [
 
@@ -1346,129 +643,50 @@ const realNames = [
 "Rohit",
 "Aman",
 "Ankit",
-"Rohan",
-"Aryan",
-"Raj",
-"Ravi",
-"Karan",
 "Arjun",
-"Shiv",
-"Dev",
-"Vicky",
-"Prince",
-"Rocky",
-"Suraj",
+"Vishal",
+"Vikas",
+"Sumit",
+"Ravi",
+"Raj",
+"Rohan",
 "Aditya",
-"Vijay",
 "Akash",
 "Abhishek",
+"Anurag",
+"Deepak",
+"Dev",
+"Karan",
+"Kunal",
+"Manish",
 "Mohit",
 "Nikhil",
-"Sumit",
-"Sahil",
-"Manish",
-"Deepak",
-"Harsh",
-"Yash",
-"Varun",
-"Kunal",
-"Ajay",
-"Vivek",
+"Nitin",
 "Pankaj",
-"Sanjay",
-"Amit",
-"Neeraj",
-"Rakesh",
-"Sachin",
-"Anurag",
-"Anuj",
-"Rajat",
-"Rishabh",
-"Ritesh",
-"Rishi",
-"Shubham",
-"Shivam",
-"Shub",
 "Prakash",
-"Pradeep",
-"Manoj",
-"Rajesh",
-"Ramesh",
-"Dinesh",
-"Mahesh",
-"Naresh",
-"Lokesh",
-"Yogesh",
-"Jatin",
-"Jitesh",
-"Tarun",
-"Varun",
-"Arnav",
-"Dhruv",
-"Dev",
-"Veer",
-"Vihaan",
-"Reyansh",
-"Aarav",
-"Vivaan",
-"Advik",
-"Krishna",
-"Rudra",
-"Raghav",
-"Raghav",
-"Om",
-"Yuvaan",
-"Darsh",
-"Parth",
-"Meet",
-"Jay",
-"Prem",
-"Akshay",
-"Abhay",
-"Abhinav",
-"Abhimanyu",
-"Vansh",
-"Ansh",
-"Anshul",
-"Mayank",
-"Manav",
-"Navneet",
-"Naveen",
-"Ravi",
-"Rohan",
-"Rahul",
-"Rohit",
 "Sameer",
-"Samir",
-"Faizan",
-"Armaan",
-"Rehan",
-"Ayaan",
-"Zaid",
-"Arif",
-"Imran",
-"Salman",
-"Adil",
-"Faisal",
-"Kabir",
-"Devansh",
-"Yuvraj",
-"Rajveer",
-"Ranveer",
-"Shaurya",
-"Pranav",
-"Pratham",
-"Laksh",
-"Lakshay",
-"Rudransh",
-"Harshit",
+"Sahil",
+"Shivam",
+"Shubham",
+"Sunny",
+"Varun",
+"Yash",
+"Ajay",
+"Vijay",
+"Rajat",
 "Harsh",
-"Anmol",
-"Ansh",
-"Divyansh",
-"Divya",
-"Priya",
+"Harshit",
+"Mayank",
+"Manoj",
+"Tarun",
+"Umesh",
+"Rakesh",
+"Ramesh",
+"Rajesh",
+"Suresh",
+"Sonam",
 "Neha",
+"Priya",
 "Anjali",
 "Pooja",
 "Riya",
@@ -1476,1891 +694,1306 @@ const realNames = [
 "Muskan",
 "Kajal",
 "Komal",
-"Shreya",
-"Shivani",
-"Sonali",
 "Payal",
-"Nisha",
-"Ritika",
+"Shreya",
 "Ananya",
-"Avni",
-"Aditi",
-"Khushi",
-"Mehak",
-"Palak",
-"Sakshi",
-"Swati",
-"Tanvi",
-"Navya",
-"Isha",
-"Jiya",
-"Myra",
-"Kiara",
-"Aarohi",
-"Anaya",
 "Diya",
-"Radhika",
-"Prachi",
-"Preeti",
-"Neetu",
-"Jyoti",
-"Rani",
-"Riya",
-"Simran",
-"Muskan",
-"Monika",
-"Pinky",
-"Sonam",
-"Komal",
-"Bhavna",
-"Payal",
-"Shivani",
-"Akanksha",
-"Shweta",
-"Shruti",
-"Meena",
-"Rekha",
-"Sneha",
-"Deepika",
-"Kavya",
-"Kirti",
-"Anushka",
-"Rashmi",
-"Manisha",
-"Pallavi",
+"Isha",
+"Megha",
+"Swati",
 "Tanya",
-"Vanshika",
-"Sanvi",
-"Pari",
-"Aaradhya",
-"Mahima",
-"Divyanshi",
-"Anushree",
-"Vaishnavi",
-"Bhumi",
 "Khushi",
-"Roshni",
-"Muskan",
-"Alisha",
-"Alina",
-"Sana",
-"Hina",
-"Zoya",
-"Alisha",
-"Ayesha",
-"Mahi",
-"Meera",
-"Tara",
-"Trisha",
-"Anvi",
-"Riya",
-"Rhea",
-"Roshni",
-"Ruhi",
-"Navya",
-"Siya",
-"Avika",
-"Anika",
-"Anvi",
-"Ahana",
-"Vanya",
-"Ishita",
-"Shreya",
-"Shanaya",
-"Samaira",
-"Suhani",
+"Avni",
+"Palak",
+"Nisha",
+"Aarti",
 "Anushka",
-"Ritika",
-"Rupal",
-"Sonali",
-"Preeti",
-"Neha",
-"Poonam",
-"Payal",
-"Jyoti",
-"Kiran",
-"Geeta",
-"Seema",
-"Sunita",
-"Meena",
-"Anita",
-"Suman",
-"Reena",
-"Renu",
-"Radha",
-"Sita",
-"Gauri",
-"Lakshmi",
-"Saraswati"
+"Muskan",
+"Sanaya",
+"Navya",
+"Aarav",
+"Vivaan",
+"Reyansh",
+"Krishna",
+"Rudra",
+"Veer",
+"Devansh",
+"Dhruv",
+"Parth",
+"Yuvan"
 
 ];
 
 
+/* =========================================================
+   UNICODE MAPS
+========================================================= */
 
-/* ==========================================
-FAVORITES
-========================================== */
+const boldMap = {
 
-try{
+a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",
+f:"𝐟",g:"𝐠",h:"𝐡",i:"𝐢",j:"𝐣",
+k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",o:"𝐨",
+p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",
+u:"𝐮",v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳",
 
-    favorites =
-    JSON.parse(
-        localStorage.getItem(
-            "namecraftFavorites"
-        )
-    ) || [];
+A:"𝐀",B:"𝐁",C:"𝐂",D:"𝐃",E:"𝐄",
+F:"𝐅",G:"𝐆",H:"𝐇",I:"𝐈",J:"𝐉",
+K:"𝐊",L:"𝐋",M:"𝐌",N:"𝐍",O:"𝐎",
+P:"𝐏",Q:"𝐐",R:"𝐑",S:"𝐒",T:"𝐓",
+U:"𝐔",V:"𝐕",W:"𝐖",X:"𝐗",Y:"𝐘",Z:"𝐙"
 
-}catch(e){
-
-    favorites=[];
-
-}
+};
 
 
+const italicMap = {
 
-/* ==========================================
-STYLE FUNCTIONS
-========================================== */
+a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",
+f:"𝑓",g:"𝑔",h:"ℎ",i:"𝑖",j:"𝑗",
+k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",o:"𝑜",
+p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",
+u:"𝑢",v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧",
 
-function basicStyles(name){
+A:"𝐴",B:"𝐵",C:"𝐶",D:"𝐷",E:"𝐸",
+F:"𝐹",G:"𝐺",H:"𝐻",I:"𝐼",J:"𝐽",
+K:"𝐾",L:"𝐿",M:"𝑀",N:"𝑁",O:"𝑂",
+P:"𝑃",Q:"𝑄",R:"𝑅",S:"𝑆",T:"𝑇",
+U:"𝑈",V:"𝑉",W:"𝑊",X:"𝑋",Y:"𝑌",Z:"𝑍"
 
-    return [
+};
 
-        `꧁༺ ${name} ༻꧂`,
-        `꧁ঔৣ ${name} ঔৣ꧂`,
-        `꧁𓊈 ${name} 𓊉꧂`,
 
-        `亗 ${name} 亗`,
-        `乂 ${name} 乂`,
-        `么 ${name} 么`,
-        `メ ${name} メ`,
-        `ツ ${name} ツ`,
-        `シ ${name} シ`,
-        `〆 ${name} 〆`,
-        `々 ${name} 々`,
+const smallMap = {
 
-        `★彡 ${name} 彡★`,
-        `༺ ${name} ༻`,
-        `༒ ${name} ༒`,
+a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",
+f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",
+k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",
+p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
+u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"
 
-        `『 ${name} 』`,
-        `【 ${name} 】`,
-        `〖 ${name} 〗`,
-        `〘 ${name} 〙`,
-        `〚 ${name} 〛`,
+};
 
-        `♛ ${name} ♛`,
-        `♕ ${name} ♕`,
-        `♔ ${name} ♔`,
-        `👑 ${name} 👑`,
 
-        `⚡ ${name} ⚡`,
-        `🔥 ${name} 🔥`,
-        `💀 ${name} 💀`,
-        `☠︎ ${name} ☠︎`,
-        `⚔️ ${name} ⚔️`,
+/* =========================================================
+   UNICODE FUNCTIONS
+========================================================= */
 
-        `♡ ${name} ♡`,
-        `♥ ${name} ♥`,
-        `ღ ${name} ღ`,
-        `💗 ${name} 💗`,
-        `💖 ${name} 💖`,
+function convertText(text,map){
 
-        `★ ${name} ★`,
-        `☆ ${name} ☆`,
-        `✦ ${name} ✦`,
-        `✧ ${name} ✧`,
-        `✪ ${name} ✪`,
-        `✯ ${name} ✯`,
-        `✰ ${name} ✰`,
-        `❖ ${name} ❖`,
-
-        `➤ ${name}`,
-        `➥ ${name}`,
-        `➳ ${name}`,
-        `➵ ${name}`,
-        `➸ ${name}`,
-
-        `╭─ ${name} ─╮`,
-        `╰─ ${name} ─╯`,
-        `┏━━ ${name} ━━┓`,
-        `┗━━ ${name} ━━┛`,
-        `═══ ${name} ═══`,
-        `━━━ ${name} ━━━`,
-        `╰┈➤ ${name}`,
-
-        `𓆩 ${name} 𓆪`,
-        `𒆜 ${name} 𒆜`,
-        `𖤍 ${name} 𖤍`,
-        `𖣘 ${name} 𖣘`,
-
-        `• ${name} •`,
-        `· ${name} ·`,
-        `| ${name} |`,
-        `/ ${name} /`,
-        `_ ${name} _`,
-
-        `×͜× ${name}`,
-        `亗『${name}』亗`,
-        `【★${name}★】`,
-        `『★${name}★』`,
-        `《★${name}★》`,
-        `〖★${name}★〗`
-
-    ];
+    return [...text]
+        .map(char => map[char] || char)
+        .join("");
 
 }
 
 
+function boldText(text){
 
-/* ==========================================
-UNICODE
-========================================== */
-
-function boldText(s){
-
-    const normal =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-    const bold =
-    "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
-
-    return [...s].map(c=>{
-
-        const i=normal.indexOf(c);
-
-        return i>=0
-        ? [...bold][i]
-        : c;
-
-    }).join("");
+    return convertText(text,boldMap);
 
 }
 
 
-function italicText(s){
+function italicText(text){
 
-    const normal =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-    const italic =
-    "𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
-
-    return [...s].map(c=>{
-
-        const i=normal.indexOf(c);
-
-        return i>=0
-        ? [...italic][i]
-        : c;
-
-    }).join("");
+    return convertText(text,italicMap);
 
 }
 
 
-function scriptText(s){
+function smallText(text){
 
-    return `𝒮𝒸𝓇𝒾𝓅𝓉 ${s}`;
-
-}
-
-
-function frakturText(s){
-
-    return `𝔉𝔯𝔞𝔨𝔱𝔲𝔯 ${s}`;
-
-}
-
-
-function monoText(s){
-
-    return `𝙼𝚘𝚗𝚘 ${s}`;
-
-}
-
-
-function smallCaps(s){
-
-    const map={
-
-        a:"ᴀ",
-        b:"ʙ",
-        c:"ᴄ",
-        d:"ᴅ",
-        e:"ᴇ",
-        f:"ꜰ",
-        g:"ɢ",
-        h:"ʜ",
-        i:"ɪ",
-        j:"ᴊ",
-        k:"ᴋ",
-        l:"ʟ",
-        m:"ᴍ",
-        n:"ɴ",
-        o:"ᴏ",
-        p:"ᴘ",
-        q:"ǫ",
-        r:"ʀ",
-        s:"s",
-        t:"ᴛ",
-        u:"ᴜ",
-        v:"ᴠ",
-        w:"ᴡ",
-        x:"x",
-        y:"ʏ",
-        z:"ᴢ"
-
-    };
-
-    return [...s]
-    .map(c=>
-        map[c.toLowerCase()]||c
-    )
-    .join("");
-
-}
-
-
-function strikeText(s){
-
-    return [...s]
-    .map(c=>c+"\u0336")
-    .join("");
-
-}
-
-
-function underlineText(s){
-
-    return [...s]
-    .map(c=>c+"\u0332")
-    .join("");
-
-}
-
-
-function spacedText(s){
-
-    return [...s].join(" ");
-
-}
-
-
-
-/* ==========================================
-700 STYLES
-========================================== */
-
-function generateStyles(name){
-
-    let result=[];
-
-    result.push(
-        ...basicStyles(name)
+    return convertText(
+        text.toLowerCase(),
+        smallMap
     );
 
-    result.push(
-        boldText(name)
-    );
-
-    result.push(
-        italicText(name)
-    );
-
-    result.push(
-        scriptText(name)
-    );
-
-    result.push(
-        frakturText(name)
-    );
-
-    result.push(
-        monoText(name)
-    );
-
-    result.push(
-        smallCaps(name)
-    );
-
-    result.push(
-        strikeText(name)
-    );
-
-    result.push(
-        underlineText(name)
-    );
-
-    result.push(
-        spacedText(name)
-    );
+}
 
 
-    const symbols=[
+function underlineText(text){
+
+    return [...text]
+        .map(c => c + "\u0332")
+        .join("");
+
+}
+
+
+function strikeText(text){
+
+    return [...text]
+        .map(c => c + "\u0336")
+        .join("");
+
+}
+
+
+function spacedText(text){
+
+    return [...text].join(" ");
+
+}
+
+
+/* =========================================================
+   STYLE GENERATOR
+========================================================= */
+
+function makeStyles(name,category){
+
+    const styles = [];
+
+    function add(value){
+
+        if(
+            value &&
+            !styles.includes(value)
+        ){
+
+            styles.push(value);
+
+        }
+
+    }
+
+
+    /* SYMBOLIC */
+
+    if(category === "Symbolic"){
+
+        add(`꧁༺ ${name} ༻꧂`);
+        add(`꧁༒ ${name} ༒꧂`);
+        add(`༺ ${name} ༻`);
+        add(`༻ ${name} ༺`);
+        add(`『 ${name} 』`);
+        add(`「 ${name} 」`);
+        add(`【 ${name} 】`);
+        add(`〖 ${name} 〗`);
+        add(`〘 ${name} 〙`);
+        add(`《 ${name} 》`);
+        add(`〈 ${name} 〉`);
+        add(`〔 ${name} 〕`);
+        add(`乂 ${name} 乂`);
+        add(`メ ${name} メ`);
+        add(`亗 ${name} 亗`);
+        add(`ツ ${name} ツ`);
+        add(`シ ${name} シ`);
+        add(`々 ${name} 々`);
+        add(`⚡ ${name} ⚡`);
+        add(`☠ ${name} ☠`);
+        add(`☯ ${name} ☯`);
+        add(`♛ ${name} ♛`);
+        add(`♕ ${name} ♕`);
+        add(`★ ${name} ★`);
+        add(`☆ ${name} ☆`);
+        add(`✦ ${name} ✦`);
+        add(`✧ ${name} ✧`);
+        add(`✪ ${name} ✪`);
+        add(`✯ ${name} ✯`);
+        add(`✰ ${name} ✰`);
+
+    }
+
+
+    /* SMALL */
+
+    if(category === "Small"){
+
+        add(smallText(name));
+        add(smallText(name).split("").join(" "));
+        add(`ˢᵐᵃˡˡ ${smallText(name)}`);
+        add(`ᵀᴹ ${smallText(name)}`);
+        add(`• ${smallText(name)} •`);
+
+    }
+
+
+    /* LINES */
+
+    if(category === "Lines"){
+
+        add(underlineText(name));
+        add(strikeText(name));
+        add(`━ ${name} ━`);
+        add(`═ ${name} ═`);
+        add(`─ ${name} ─`);
+        add(`━━━━ ${name} ━━━━`);
+        add(`════ ${name} ════`);
+        add(`•──── ${name} ────•`);
+        add(`╰─ ${name} ─╯`);
+        add(`╭─ ${name} ─╮`);
+
+    }
+
+
+    /* SQUIGGLE */
+
+    if(category === "Squiggle"){
+
+        add(`〰️ ${name} 〰️`);
+        add(`~ ${name} ~`);
+        add(`≈ ${name} ≈`);
+        add(`≋ ${name} ≋`);
+        add(`〰 ${name} 〰`);
+        add(`⌁ ${name} ⌁`);
+        add(`〜 ${name} 〜`);
+
+    }
+
+
+    /* UNICODE */
+
+    if(category === "Unicode"){
+
+        add(boldText(name));
+        add(italicText(name));
+        add(smallText(name));
+        add(underlineText(name));
+        add(strikeText(name));
+        add(spacedText(name));
+
+        add(`𝑺𝒕𝒚𝒍𝒆 ${name}`);
+        add(`『${boldText(name)}』`);
+        add(`【${italicText(name)}】`);
+
+    }
+
+
+    /* GAMING */
+
+    if(category === "Gaming"){
+
+        add(`亗 ${name} 亗`);
+        add(`乂 ${name} 乂`);
+        add(`メ ${name} メ`);
+        add(`么 ${name} 么`);
+        add(`彡 ${name} 彡`);
+        add(`〆 ${name} 〆`);
+        add(`々 ${name} 々`);
+        add(`⚔ ${name} ⚔`);
+        add(`☠ ${name} ☠`);
+        add(`『 ${name} 』`);
+        add(`꧁ ${name} ꧂`);
+        add(`꧁༒${name}༒꧂`);
+
+    }
+
+
+    /* ROYAL */
+
+    if(category === "Royal"){
+
+        add(`♛ ${name} ♛`);
+        add(`♕ ${name} ♕`);
+        add(`👑 ${name} 👑`);
+        add(`꧁༺♛ ${name} ♛༻꧂`);
+        add(`♔ ${name} ♔`);
+        add(`⚜ ${name} ⚜`);
+        add(`👑༺ ${name} ༻👑`);
+
+    }
+
+
+    /* LOVE */
+
+    if(category === "Love"){
+
+        add(`♡ ${name} ♡`);
+        add(`♥ ${name} ♥`);
+        add(`❤ ${name} ❤`);
+        add(`💖 ${name} 💖`);
+        add(`💗 ${name} 💗`);
+        add(`💕 ${name} 💕`);
+        add(`❣ ${name} ❣`);
+        add(`ღ ${name} ღ`);
+        add(`ᥫ᭡ ${name} ᥫ᭡`);
+
+    }
+
+
+    /* AESTHETIC */
+
+    if(category === "Aesthetic"){
+
+        add(`˚₊‧ ${name} ‧₊˚`);
+        add(`⋆｡°✩ ${name} ✩°｡⋆`);
+        add(`☾ ${name} ☽`);
+        add(`✧･ﾟ: *✧ ${name} ✧*:･ﾟ✧`);
+        add(`𓆩 ${name} 𓆪`);
+        add(`୨୧ ${name} ୨୧`);
+        add(`✿ ${name} ✿`);
+        add(`❀ ${name} ❀`);
+        add(`☁ ${name} ☁`);
+
+    }
+
+
+    /* DANGER */
+
+    if(category === "Danger"){
+
+        add(`☠ ${name} ☠`);
+        add(`⚠ ${name} ⚠`);
+        add(`☣ ${name} ☣`);
+        add(`💀 ${name} 💀`);
+        add(`༒ ${name} ༒`);
+        add(`⚔ ${name} ⚔`);
+        add(`⛓ ${name} ⛓`);
+        add(`『☠ ${name} ☠』`);
+
+    }
+
+
+    /* GENERATE MORE COMBINATIONS */
+
+    const left = [
+        "꧁༺",
+        "꧁༒",
+        "亗",
+        "乂",
+        "メ",
+        "彡",
+        "〆",
+        "『",
+        "【",
+        "《",
+        "♛",
+        "♕",
         "★",
         "☆",
         "✦",
         "✧",
-        "✪",
-        "✯",
-        "✰",
-        "❖",
-        "♛",
-        "♕",
-        "♔",
         "⚡",
-        "🔥",
-        "💀",
         "☠",
         "♡",
         "♥",
-        "ღ",
+        "⚔",
+        "☯",
+        "✪",
+        "✯",
+        "𓆩"
+    ];
+
+    const right = [
+        "༻꧂",
+        "༒꧂",
         "亗",
         "乂",
-        "么",
         "メ",
-        "ツ",
-        "シ",
-        "༒",
-        "⚜"
+        "彡",
+        "〆",
+        "』",
+        "】",
+        "》",
+        "♛",
+        "♕",
+        "★",
+        "☆",
+        "✦",
+        "✧",
+        "⚡",
+        "☠",
+        "♡",
+        "♥",
+        "⚔",
+        "☯",
+        "✪",
+        "✯",
+        "𓆪"
     ];
 
 
-    symbols.forEach(x=>{
-        result.push(
-            `${x} ${name} ${x}`
-        );
-    });
+    for(let i=0;i<left.length;i++){
 
+        for(let j=0;j<right.length;j++){
 
-    symbols.forEach(x=>{
-        result.push(
-            `${x}${name}`
-        );
-
-        result.push(
-            `${name}${x}`
-        );
-    });
-
-
-    symbols.forEach(a=>{
-
-        symbols.forEach(b=>{
-
-            if(result.length<700){
-
-                result.push(
-                    `${a} ${name} ${b}`
-                );
-
-            }
-
-        });
-
-    });
-
-
-    /*
-       Different names with numbering
-       are NOT used here.
-       Styles stay based on actual name.
-    */
-
-    return [
-        ...new Set(result)
-    ].slice(0,700);
-
-}
-
-
-
-/* ==========================================
-CATEGORY STYLES
-========================================== */
-
-function categoryStyles(name,category){
-
-    let result=[];
-
-
-    if(category==="Gaming"){
-
-        result=[
-
-            `亗 ${name} 亗`,
-            `乂 ${name} 乂`,
-            `么 ${name} 么`,
-            `メ ${name} メ`,
-            `ツ ${name} ツ`,
-            `シ ${name} シ`,
-            `〆 ${name} 〆`,
-            `々 ${name} 々`,
-            `『${name}』`,
-            `【${name}】`,
-            `★彡${name}彡★`,
-            `×͜× ${name}`,
-            `☠︎ ${name} ☠︎`,
-            `⚔️ ${name} ⚔️`,
-            `༒ ${name} ༒`
-
-        ];
-
-    }
-
-
-    else if(category==="Royal"){
-
-        result=[
-
-            `♛ ${name} ♛`,
-            `♕ ${name} ♕`,
-            `♔ ${name} ♔`,
-            `👑 ${name} 👑`,
-            `⚜ ${name} ⚜`,
-            `꧁༺ ${name} ༻꧂`,
-            `༺ ${name} ༻`,
-            `『♛${name}♛』`,
-            `꧁👑 ${name} 👑꧂`
-
-        ];
-
-    }
-
-
-    else if(category==="Love"){
-
-        result=[
-
-            `♡ ${name} ♡`,
-            `♥ ${name} ♥`,
-            `ღ ${name} ღ`,
-            `💗 ${name} 💗`,
-            `💖 ${name} 💖`,
-            `💕 ${name} 💕`,
-            `💞 ${name} 💞`,
-            `ꨄ ${name} ꨄ`,
-            `♡༺ ${name} ༻♡`
-
-        ];
-
-    }
-
-
-    else if(category==="Neon"){
-
-        result=[
-
-            `⚡ ${name} ⚡`,
-            `✦ ${name} ✦`,
-            `✧ ${name} ✧`,
-            `💫 ${name} 💫`,
-            `☄ ${name} ☄`,
-            `⚡『${name}』⚡`,
-            `✦彡${name}彡✦`,
-            `⚡亗 ${name} 亗⚡`
-
-        ];
-
-    }
-
-
-    else if(category==="Unicode"){
-
-        result=[
-
-            boldText(name),
-            italicText(name),
-            scriptText(name),
-            frakturText(name),
-            monoText(name),
-            smallCaps(name),
-            strikeText(name),
-            underlineText(name),
-            spacedText(name),
-
-            `『${boldText(name)}』`,
-            `亗${boldText(name)}亗`,
-            `★ ${italicText(name)} ★`,
-            `♛ ${scriptText(name)} ♛`
-
-        ];
-
-    }
-
-
-    else if(category==="Symbols"){
-
-        result=[
-
-            `★ ${name} ★`,
-            `☆ ${name} ☆`,
-            `✦ ${name} ✦`,
-            `✧ ${name} ✧`,
-            `✪ ${name} ✪`,
-            `✯ ${name} ✯`,
-            `✰ ${name} ✰`,
-            `❖ ${name} ❖`,
-            `➤ ${name}`,
-            `➳ ${name}`,
-            `❂ ${name} ❂`,
-            `✿ ${name} ✿`,
-            `☯ ${name} ☯`
-
-        ];
-
-    }
-
-
-    else if(category==="Danger"){
-
-        result=[
-
-            `☠︎ ${name} ☠︎`,
-            `☠ ${name} ☠`,
-            `💀 ${name} 💀`,
-            `⚔ ${name} ⚔`,
-            `⚡ ${name} ⚡`,
-            `🔥 ${name} 🔥`,
-            `𓆩☠︎ ${name} ☠︎𓆪`,
-            `༒☠ ${name} ☠༒`
-
-        ];
-
-    }
-
-
-    else if(category==="Aesthetic"){
-
-        result=[
-
-            `𓆩 ${name} 𓆪`,
-            `♡ ${name} ♡`,
-            `✧ ${name} ✧`,
-            `୨୧ ${name} ୨୧`,
-            `☾ ${name} ☽`,
-            `✿ ${name} ✿`,
-            `ꕤ ${name} ꕤ`,
-            `𓂃 ${name} 𓂃`,
-            `⋆｡°✩ ${name} ✩°｡⋆`
-
-        ];
-
-    }
-
-
-    else if(category==="Minimal"){
-
-        result=[
-
-            `• ${name} •`,
-            `· ${name} ·`,
-            `| ${name} |`,
-            `/ ${name} /`,
-            `_ ${name} _`,
-            `— ${name} —`,
-            `·${name}·`,
-            `「${name}」`,
-            `[ ${name} ]`,
-            `( ${name} )`
-
-        ];
-
-    }
-
-
-    else if(category==="Cool"){
-
-        result=[
-
-            `★彡 ${name} 彡★`,
-            `亗 ${name} 亗`,
-            `乂 ${name} 乂`,
-            `メ ${name} メ`,
-            `⚡ ${name} ⚡`,
-            `🔥 ${name} 🔥`,
-            `༒ ${name} ༒`,
-            `꧁༺ ${name} ༻꧂`,
-            `『 ${name} 』`
-
-        ];
-
-    }
-
-
-    else{
-
-        result=
-        generateStyles(name);
-
-    }
-
-
-    return [
-        ...new Set(result)
-    ];
-
-}
-
-
-
-/* ==========================================
-GENERATE
-========================================== */
-
-function generateNames(){
-
-    const input=
-    document.getElementById(
-        "nameInput"
-    );
-
-    const name=
-    input.value.trim();
-
-
-    if(!name){
-
-        alert(
-            "Pehle apna name enter karo."
-        );
-
-        input.focus();
-
-        return;
-    }
-
-
-    if(currentCategory==="All"){
-
-        displayedNames=
-        generateStyles(name);
-
-    }else{
-
-        displayedNames=
-        categoryStyles(
-            name,
-            currentCategory
-        );
-
-    }
-
-
-    page=1;
-
-
-    document.getElementById(
-        "resultTitle"
-    ).innerText=
-    name+" Stylish Names";
-
-
-    document.getElementById(
-        "status"
-    ).innerText=
-    "✨ "+
-    displayedNames.length+
-    " styles generated for "+
-    name;
-
-
-    render();
-
-
-    document.getElementById(
-        "names"
-    ).scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-
-/* ==========================================
-RANDOM
-========================================== */
-
-function randomName(){
-
-    const index=
-    Math.floor(
-        Math.random()*
-        realNames.length
-    );
-
-    const name=
-    realNames[index];
-
-
-    document.getElementById(
-        "nameInput"
-    ).value=name;
-
-
-    /*
-       IMPORTANT:
-       No copy function here.
-    */
-
-    generateNames();
-
-}
-
-
-
-/* ==========================================
-LOAD ALL SUPABASE DATA
-========================================== */
-
-async function loadNamesFromSupabase(){
-
-    const status=
-    document.getElementById(
-        "status"
-    );
-
-
-    status.innerText=
-    "☁️ Loading online names...";
-
-
-    try{
-
-        let from=0;
-
-        const batchSize=1000;
-
-        let allData=[];
-
-
-        while(true){
-
-            const {
-                data,
-                error
-            }=
-            await supabaseClient
-            .from("names")
-            .select(
-                "id,name,category"
-            )
-            .order(
-                "id",
-                {ascending:false}
-            )
-            .range(
-                from,
-                from+batchSize-1
+            add(
+                `${left[i]} ${name} ${right[j]}`
             );
-
-
-            if(error)
-                throw error;
-
-
-            if(
-                !data ||
-                data.length===0
-            ){
-
-                break;
-
-            }
-
-
-            allData.push(
-                ...data
-            );
-
-
-            status.innerText=
-            "☁️ Loading online names... "+
-            allData.length;
-
-
-            if(
-                data.length<batchSize
-            ){
-
-                break;
-
-            }
-
-
-            from+=batchSize;
 
         }
 
-
-        onlineRecords=
-        allData;
-
-
-        allNames=
-        onlineRecords
-        .map(
-            row=>row.name
-        );
-
-
-        /*
-           Remove duplicate names
-        */
-
-        allNames=[
-            ...new Set(allNames)
-        ];
-
-
-        /*
-           Only use database names
-           for All category when available.
-        */
-
-        displayedNames=
-        [...allNames];
-
-
-        status.innerText=
-        "🟢 Database connected • "+
-        allNames.length+
-        " unique names loaded";
-
-
-        page=1;
-
-        render();
-
-
-    }catch(error){
-
-        console.error(error);
-
-
-        status.innerText=
-        "🟡 Online database unavailable • Local names active";
-
-
-        /*
-           Fallback names
-        */
-
-        displayedNames=
-        realNames;
-
-
-        render();
-
     }
+
+
+    /* FONT COMBINATIONS */
+
+    add(boldText(name));
+    add(italicText(name));
+    add(smallText(name));
+    add(underlineText(name));
+    add(strikeText(name));
+    add(spacedText(name));
+
+    add(`『${boldText(name)}』`);
+    add(`꧁${boldText(name)}꧂`);
+    add(`亗${boldText(name)}亗`);
+    add(`♛${boldText(name)}♛`);
+    add(`♡${italicText(name)}♡`);
+    add(`✦${italicText(name)}✦`);
+
+
+    return styles;
 
 }
 
 
+/* =========================================================
+   GENERATE
+========================================================= */
 
-/* ==========================================
-CATEGORY
-========================================== */
+function generate(){
 
-function setCategory(
-    category,
-    button
-){
+    const input =
+        document
+        .getElementById("nameInput")
+        .value
+        .trim();
 
-    currentCategory=
-    category;
+    if(!input){
 
+        showToast("Please enter your name");
+
+        return;
+
+    }
+
+    generatedNames =
+        makeStyles(
+            input,
+            currentStyle
+        );
+
+    currentPage = 1;
+
+    totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                generatedNames.length /
+                PAGE_SIZE
+            )
+        );
+
+    renderGenerated();
 
     document
-    .querySelectorAll(
-        ".category"
-    )
-    .forEach(btn=>{
+        .getElementById("previewText")
+        .textContent =
+        generatedNames[0] || input;
 
-        btn.classList.remove(
-            "active"
-        );
-
-    });
+}
 
 
-    button.classList.add(
-        "active"
-    );
+/* =========================================================
+   RENDER GENERATED
+========================================================= */
+
+function renderGenerated(){
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML = "";
+
+    const start =
+        (currentPage - 1) *
+        PAGE_SIZE;
+
+    const end =
+        start + PAGE_SIZE;
+
+    const pageItems =
+        generatedNames.slice(start,end);
 
 
-    const input=
-    document.getElementById(
-        "nameInput"
-    );
+    if(pageItems.length === 0){
 
-
-    const entered=
-    input.value.trim();
-
-
-    /*
-       If user has entered a name,
-       generate category styles.
-    */
-
-    if(entered){
-
-        if(category==="All"){
-
-            displayedNames=
-            generateStyles(
-                entered
-            );
-
-        }else{
-
-            displayedNames=
-            categoryStyles(
-                entered,
-                category
-            );
-
-        }
-
-
-        page=1;
-
-
-        document.getElementById(
-            "status"
-        ).innerText=
-        "✨ "+
-        displayedNames.length+
-        " "+
-        category+
-        " styles";
-
-
-        render();
+        results.innerHTML =
+            `<div class="loading">
+                No styles found.
+             </div>`;
 
         return;
 
     }
 
 
+    pageItems.forEach((name,index)=>{
 
-    /*
-       If no name entered,
-       use database names.
-    */
-
-    if(category==="All"){
-
-        displayedNames=
-        [...allNames];
-
-    }else{
-
-        displayedNames=
-        onlineRecords
-
-        .filter(row=>
-
-            String(
-                row.category || ""
-            )
-            .toLowerCase()
-            ===
-            category.toLowerCase()
-
-        )
-
-        .map(
-            row=>row.name
-        );
-
-    }
-
-
-
-    /*
-       If database category has
-       no data, use different
-       actual names instead of
-       "NameCraft".
-    */
-
-    if(
-        displayedNames.length===0
-    ){
-
-        const names=[];
-
-
-        realNames
-        .slice(0,50)
-        .forEach(name=>{
-
-            categoryStyles(
-                name,
-                category
-            )
-            .forEach(style=>{
-
-                if(names.length<100){
-
-                    names.push(style);
-
-                }
-
-            });
-
-        });
-
-
-        displayedNames=
-        names;
-
-
-        document.getElementById(
-            "status"
-        ).innerText=
-        "✨ "+
-        category+
-        " styles generated";
-
-    }else{
-
-        displayedNames=
-        [...new Set(
-            displayedNames
-        )];
-
-
-        document.getElementById(
-            "status"
-        ).innerText=
-        "🟢 "+
-        displayedNames.length+
-        " "+
-        category+
-        " names";
-
-    }
-
-
-    page=1;
-
-    render();
-
-}
-
-
-
-/* ==========================================
-RENDER
-========================================== */
-
-function render(){
-
-    const grid=
-    document.getElementById(
-        "nameGrid"
-    );
-
-
-    const count=
-    document.getElementById(
-        "nameCount"
-    );
-
-
-    const pagination=
-    document.getElementById(
-        "pagination"
-    );
-
-
-    grid.innerHTML="";
-
-
-    if(
-        !displayedNames.length
-    ){
-
-        grid.innerHTML=
-        `
-        <div class="message">
-            No names found.
-        </div>
-        `;
-
-        count.innerText=
-        "0 names";
-
-        pagination.innerHTML="";
-
-        return;
-
-    }
-
-
-    count.innerText=
-    displayedNames.length+
-    " names";
-
-
-    const totalPages=
-    Math.ceil(
-        displayedNames.length/
-        perPage
-    );
-
-
-    if(page>totalPages)
-        page=totalPages;
-
-
-    const start=
-    (page-1)*
-    perPage;
-
-
-    const current=
-    displayedNames.slice(
-        start,
-        start+perPage
-    );
-
-
-    current.forEach(name=>{
-
-        grid.appendChild(
-            createCard(name)
-        );
-
-    });
-
-
-    renderPagination(
-        totalPages
-    );
-
-}
-
-
-
-/* ==========================================
-CARD
-========================================== */
-
-function createCard(name){
-
-    const card=
-    document.createElement(
-        "div"
-    );
-
-    card.className="card";
-
-
-    const nameDiv=
-    document.createElement(
-        "div"
-    );
-
-    nameDiv.className="name";
-
-    nameDiv.innerText=name;
-
-
-    const buttons=
-    document.createElement(
-        "div"
-    );
-
-    buttons.className=
-    "cardButtons";
-
-
-    const copy=
-    document.createElement(
-        "button"
-    );
-
-    copy.className=
-    "copyBtn";
-
-    copy.innerText=
-    "📋 Copy";
-
-
-    copy.onclick=()=>{
-
-        copyName(name);
-
-    };
-
-
-    const fav=
-    document.createElement(
-        "button"
-    );
-
-    fav.className=
-    "favBtn";
-
-
-    if(
-        favorites.includes(name)
-    ){
-
-        fav.innerText="❤️";
-
-        fav.classList.add(
-            "saved"
-        );
-
-    }else{
-
-        fav.innerText="♡";
-
-    }
-
-
-    fav.onclick=()=>{
-
-        toggleFavorite(
+        createCard(
             name,
-            fav
-        );
-
-    };
-
-
-    buttons.appendChild(copy);
-
-    buttons.appendChild(fav);
-
-
-    card.appendChild(nameDiv);
-
-    card.appendChild(buttons);
-
-
-    return card;
-
-}
-
-
-
-/* ==========================================
-COPY
-========================================== */
-
-function copyName(name){
-
-    if(
-        navigator.clipboard
-    ){
-
-        navigator.clipboard
-        .writeText(name)
-        .then(()=>{
-
-            alert(
-                "Copied:\n\n"+
-                name
-            );
-
-        })
-        .catch(()=>{
-
-            fallbackCopy(name);
-
-        });
-
-    }else{
-
-        fallbackCopy(name);
-
-    }
-
-}
-
-
-function fallbackCopy(text){
-
-    const area=
-    document.createElement(
-        "textarea"
-    );
-
-    area.value=text;
-
-    document.body.appendChild(
-        area
-    );
-
-    area.select();
-
-
-    try{
-
-        document.execCommand(
-            "copy"
-        );
-
-        alert(
-            "Copied:\n\n"+
-            text
-        );
-
-    }catch(e){
-
-        alert(
-            "Copy failed."
-        );
-
-    }
-
-
-    area.remove();
-
-}
-
-
-
-/* ==========================================
-COPY ALL
-========================================== */
-
-function copyAll(){
-
-    const start=
-    (page-1)*
-    perPage;
-
-
-    const names=
-    displayedNames.slice(
-        start,
-        start+perPage
-    );
-
-
-    if(!names.length){
-
-        alert(
-            "No names available."
-        );
-
-        return;
-
-    }
-
-
-    const text=
-    names.join("\n");
-
-
-    if(
-        navigator.clipboard
-    ){
-
-        navigator.clipboard
-        .writeText(text)
-        .then(()=>{
-
-            alert(
-                names.length+
-                " names copied!"
-            );
-
-        });
-
-    }else{
-
-        fallbackCopy(text);
-
-    }
-
-}
-
-
-
-/* ==========================================
-SAVE ALL
-========================================== */
-
-function saveAll(){
-
-    const start=
-    (page-1)*
-    perPage;
-
-
-    const names=
-    displayedNames.slice(
-        start,
-        start+perPage
-    );
-
-
-    if(!names.length){
-
-        alert(
-            "No names available."
-        );
-
-        return;
-
-    }
-
-
-    names.forEach(name=>{
-
-        if(
-            !favorites.includes(name)
-        ){
-
-            favorites.push(name);
-
-        }
-
-    });
-
-
-    localStorage.setItem(
-        "namecraftFavorites",
-        JSON.stringify(
-            favorites
-        )
-    );
-
-
-    renderFavorites();
-
-    render();
-
-
-    alert(
-        names.length+
-        " names saved ❤️"
-    );
-
-}
-
-
-
-/* ==========================================
-FAVORITE
-========================================== */
-
-function toggleFavorite(
-    name,
-    button
-){
-
-    const index=
-    favorites.indexOf(name);
-
-
-    if(index===-1){
-
-        favorites.push(name);
-
-        button.innerText="❤️";
-
-        button.classList.add(
-            "saved"
-        );
-
-    }else{
-
-        favorites.splice(
-            index,
-            1
-        );
-
-        button.innerText="♡";
-
-        button.classList.remove(
-            "saved"
-        );
-
-    }
-
-
-    localStorage.setItem(
-        "namecraftFavorites",
-        JSON.stringify(
-            favorites
-        )
-    );
-
-
-    renderFavorites();
-
-}
-
-
-
-/* ==========================================
-FAVORITES RENDER
-========================================== */
-
-function renderFavorites(){
-
-    const grid=
-    document.getElementById(
-        "favoriteGrid"
-    );
-
-
-    const count=
-    document.getElementById(
-        "favoriteCount"
-    );
-
-
-    count.innerText=
-    favorites.length+
-    " saved";
-
-
-    grid.innerHTML="";
-
-
-    if(
-        !favorites.length
-    ){
-
-        grid.innerHTML=
-        `
-        <div class="message">
-            Your favorite names
-            will appear here.
-        </div>
-        `;
-
-        return;
-
-    }
-
-
-    favorites.forEach(name=>{
-
-        grid.appendChild(
-            createCard(name)
+            results,
+            start + index
         );
 
     });
 
+
+    updatePagination();
+
 }
 
 
+/* =========================================================
+   CREATE CARD
+========================================================= */
 
-/* ==========================================
-PAGINATION
-========================================== */
+function createCard(name,parent,index){
 
-function renderPagination(
-    totalPages
-){
+    const card =
+        document.createElement("div");
 
-    const pagination=
-    document.getElementById(
-        "pagination"
-    );
+    card.className =
+        "nameCard";
 
 
-    pagination.innerHTML="";
+    const content =
+        document.createElement("div");
+
+    content.className =
+        "nameContent";
+
+    content.textContent =
+        name;
 
 
-    if(totalPages<=1)
-        return;
+    const actions =
+        document.createElement("div");
+
+    actions.className =
+        "cardActions";
 
 
-    const previous=
-    document.createElement(
-        "button"
-    );
+    const copy =
+        document.createElement("button");
+
+    copy.className =
+        "actionBtn copyBtn";
+
+    copy.textContent =
+        "COPY";
+
+    copy.onclick =
+        () => copyName(name);
 
 
-    previous.className=
-    "pageBtn";
+    const deco =
+        document.createElement("button");
 
+    deco.className =
+        "actionBtn";
 
-    previous.innerText=
-    "← Previous";
+    deco.textContent =
+        "✨ DECO";
 
+    deco.onclick =
+        () => {
 
-    previous.disabled=
-    page===1;
+            document
+                .getElementById("previewText")
+                .textContent =
+                name;
 
-
-    previous.onclick=()=>{
-
-        if(page>1){
-
-            page--;
-
-            render();
-
-            window.scrollTo({
-                top:400,
-                behavior:"smooth"
-            });
-
-        }
-
-    };
-
-
-    pagination.appendChild(
-        previous
-    );
-
-
-    let start=
-    Math.max(
-        1,
-        page-2
-    );
-
-
-    let end=
-    Math.min(
-        totalPages,
-        page+2
-    );
-
-
-    for(
-        let i=start;
-        i<=end;
-        i++
-    ){
-
-        const btn=
-        document.createElement(
-            "button"
-        );
-
-
-        btn.className=
-        "pageBtn";
-
-
-        btn.innerText=i;
-
-
-        if(i===page){
-
-            btn.classList.add(
-                "active"
-            );
-
-        }
-
-
-        btn.onclick=()=>{
-
-            page=i;
-
-            render();
-
-            window.scrollTo({
-                top:400,
-                behavior:"smooth"
-            });
+            saveRecent(name);
 
         };
 
 
-        pagination.appendChild(
-            btn
+    actions.appendChild(copy);
+    actions.appendChild(deco);
+
+    card.appendChild(content);
+    card.appendChild(actions);
+
+    parent.appendChild(card);
+
+}
+
+
+/* =========================================================
+   COPY
+========================================================= */
+
+async function copyName(name){
+
+    try{
+
+        await navigator.clipboard.writeText(name);
+
+        showToast("Name copied!");
+
+    }catch(error){
+
+        const temp =
+            document.createElement("textarea");
+
+        temp.value = name;
+
+        document.body.appendChild(temp);
+
+        temp.select();
+
+        document.execCommand("copy");
+
+        temp.remove();
+
+        showToast("Name copied!");
+
+    }
+
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+function selectStyle(style,button){
+
+    currentStyle = style;
+
+    document
+        .querySelectorAll(".catBtn")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    const input =
+        document
+        .getElementById("nameInput")
+        .value
+        .trim();
+
+    if(input){
+
+        generate();
+
+    }else{
+
+        loadDatabaseNames(style);
+
+    }
+
+}
+
+
+/* =========================================================
+   SUPABASE DATABASE
+========================================================= */
+
+async function loadDatabaseNames(category){
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML =
+        `<div class="loading">
+            Loading names...
+         </div>`;
+
+    currentPage = 1;
+
+
+    let query =
+        supabaseClient
+        .from("names")
+        .select(
+            "id,name,category",
+            {count:"exact"}
+        )
+        .order(
+            "id",
+            {ascending:false}
         );
+
+
+    if(category !== "All"){
+
+        query =
+            query.eq(
+                "category",
+                category
+            );
 
     }
 
 
-    const next=
-    document.createElement(
-        "button"
+    const from = 0;
+
+    const to =
+        PAGE_SIZE - 1;
+
+
+    const {
+        data,
+        error,
+        count
+    } =
+        await query.range(
+            from,
+            to
+        );
+
+
+    if(error){
+
+        console.error(error);
+
+        results.innerHTML =
+            `<div class="loading">
+                Database connection error.
+             </div>`;
+
+        return;
+
+    }
+
+
+    dbNames = data || [];
+
+    totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                (count || dbNames.length) /
+                PAGE_SIZE
+            )
+        );
+
+
+    renderDatabase();
+
+}
+
+
+/* =========================================================
+   DATABASE RENDER
+========================================================= */
+
+function renderDatabase(){
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML = "";
+
+
+    if(!dbNames.length){
+
+        results.innerHTML =
+            `<div class="loading">
+                No names found in this category.
+             </div>`;
+
+        return;
+
+    }
+
+
+    dbNames.forEach((item,index)=>{
+
+        createCard(
+            item.name,
+            results,
+            index
+        );
+
+    });
+
+
+    updatePagination();
+
+}
+
+
+/* =========================================================
+   DATABASE PAGE
+========================================================= */
+
+async function loadDatabasePage(){
+
+    const results =
+        document.getElementById("results");
+
+    results.innerHTML =
+        `<div class="loading">
+            Loading...
+         </div>`;
+
+
+    let query =
+        supabaseClient
+        .from("names")
+        .select(
+            "id,name,category",
+            {count:"exact"}
+        )
+        .order(
+            "id",
+            {ascending:false}
+        );
+
+
+    if(currentStyle !== "All"){
+
+        query =
+            query.eq(
+                "category",
+                currentStyle
+            );
+
+    }
+
+
+    const from =
+        (currentPage - 1) *
+        PAGE_SIZE;
+
+    const to =
+        from + PAGE_SIZE - 1;
+
+
+    const {
+        data,
+        error,
+        count
+    } =
+        await query.range(
+            from,
+            to
+        );
+
+
+    if(error){
+
+        console.error(error);
+
+        results.innerHTML =
+            `<div class="loading">
+                Unable to load names.
+             </div>`;
+
+        return;
+
+    }
+
+
+    dbNames = data || [];
+
+
+    totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                (count || 0) /
+                PAGE_SIZE
+            )
+        );
+
+
+    renderDatabase();
+
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+function updatePagination(){
+
+    document
+        .getElementById("pageInfo")
+        .textContent =
+        `Page ${currentPage} / ${totalPages}`;
+
+
+    document
+        .getElementById("prevBtn")
+        .disabled =
+        currentPage <= 1;
+
+
+    document
+        .getElementById("nextBtn")
+        .disabled =
+        currentPage >= totalPages;
+
+}
+
+
+function nextPage(){
+
+    if(currentPage >= totalPages)
+        return;
+
+
+    currentPage++;
+
+
+    if(
+        generatedNames.length &&
+        document
+        .getElementById("nameInput")
+        .value
+        .trim()
+    ){
+
+        renderGenerated();
+
+    }else{
+
+        loadDatabasePage();
+
+    }
+
+}
+
+
+function previousPage(){
+
+    if(currentPage <= 1)
+        return;
+
+
+    currentPage--;
+
+
+    if(
+        generatedNames.length &&
+        document
+        .getElementById("nameInput")
+        .value
+        .trim()
+    ){
+
+        renderGenerated();
+
+    }else{
+
+        loadDatabasePage();
+
+    }
+
+}
+
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+function clearInput(){
+
+    document
+        .getElementById("nameInput")
+        .value = "";
+
+    generatedNames = [];
+
+    document
+        .getElementById("previewText")
+        .textContent =
+        "꧁༺ Name Art ༻꧂";
+
+    loadDatabaseNames(currentStyle);
+
+}
+
+
+/* =========================================================
+   RECENT
+========================================================= */
+
+function saveRecent(name){
+
+    let recent =
+        JSON.parse(
+            localStorage.getItem("namecraft_recent")
+            || "[]"
+        );
+
+
+    recent =
+        recent.filter(
+            item => item !== name
+        );
+
+
+    recent.unshift(name);
+
+
+    recent =
+        recent.slice(0,10);
+
+
+    localStorage.setItem(
+        "namecraft_recent",
+        JSON.stringify(recent)
     );
 
 
-    next.className=
-    "pageBtn";
+    renderRecent();
+
+}
 
 
-    next.innerText=
-    "Next →";
+function renderRecent(){
+
+    const list =
+        document.getElementById("recentList");
+
+    list.innerHTML = "";
 
 
-    next.disabled=
-    page===totalPages;
+    const recent =
+        JSON.parse(
+            localStorage.getItem("namecraft_recent")
+            || "[]"
+        );
 
 
-    next.onclick=()=>{
+    if(!recent.length){
 
-        if(
-            page<totalPages
-        ){
+        list.innerHTML =
+            `<div class="loading">
+                Your recent styles will appear here.
+             </div>`;
 
-            page++;
+        return;
 
-            render();
+    }
 
-            window.scrollTo({
-                top:400,
-                behavior:"smooth"
-            });
+
+    recent.forEach(name=>{
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "recentItem";
+
+        item.textContent =
+            name;
+
+        item.onclick =
+            () => copyName(name);
+
+        list.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================================
+   SHARE
+========================================================= */
+
+function getShareText(){
+
+    const name =
+        document
+        .getElementById("previewText")
+        .textContent;
+
+    return encodeURIComponent(
+        "Check my stylish name: " + name
+    );
+
+}
+
+
+function shareFacebook(){
+
+    const url =
+        encodeURIComponent(
+            location.href
+        );
+
+    window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+        "_blank"
+    );
+
+}
+
+
+function shareTwitter(){
+
+    const text =
+        getShareText();
+
+    window.open(
+        `https://twitter.com/intent/tweet?text=${text}`,
+        "_blank"
+    );
+
+}
+
+
+function shareEmail(){
+
+    const text =
+        getShareText();
+
+    location.href =
+        `mailto:?subject=My Stylish Name&body=${text}`;
+
+}
+
+
+function shareWhatsApp(){
+
+    const text =
+        getShareText();
+
+    window.open(
+        `https://wa.me/?text=${text}`,
+        "_blank"
+    );
+
+}
+
+
+function shareTelegram(){
+
+    const text =
+        getShareText();
+
+    const url =
+        encodeURIComponent(
+            location.href
+        );
+
+    window.open(
+        `https://t.me/share/url?url=${url}&text=${text}`,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(()=>{
+            toast.classList.remove("show");
+        },1800);
+
+}
+
+
+/* =========================================================
+   INPUT EVENTS
+========================================================= */
+
+document
+.getElementById("nameInput")
+.addEventListener(
+    "input",
+    function(){
+
+        const value =
+            this.value.trim();
+
+
+        if(value){
+
+            generatedNames =
+                makeStyles(
+                    value,
+                    currentStyle
+                );
+
+            currentPage = 1;
+
+            totalPages =
+                Math.max(
+                    1,
+                    Math.ceil(
+                        generatedNames.length /
+                        PAGE_SIZE
+                    )
+                );
+
+            renderGenerated();
+
+            document
+                .getElementById("previewText")
+                .textContent =
+                generatedNames[0] || value;
+
+        }else{
+
+            generatedNames = [];
+
+            loadDatabaseNames(
+                currentStyle
+            );
+
+            document
+                .getElementById("previewText")
+                .textContent =
+                "꧁༺ Name Art ༻꧂";
 
         }
 
-    };
+    }
+);
 
 
-    pagination.appendChild(
-        next
-    );
+/* =========================================================
+   ENTER = FIRST STYLE
+========================================================= */
 
-}
+document
+.getElementById("nameInput")
+.addEventListener(
+    "keydown",
+    function(event){
 
+        if(
+            event.key === "Enter" &&
+            !event.shiftKey
+        ){
 
+            event.preventDefault();
 
-/* ==========================================
-START
-========================================== */
+            generate();
 
-function startNameCraft(){
+        }
 
-    /*
-       Initial local names.
-       Actual different names.
-    */
-
-    displayedNames=
-    realNames;
-
-
-    render();
-
-    renderFavorites();
+    }
+);
 
 
-    /*
-       Then load ALL database names.
-    */
+/* =========================================================
+   START
+========================================================= */
 
-    loadNamesFromSupabase();
+renderRecent();
 
-}
-
-
-startNameCraft();
-
+loadDatabaseNames("Symbolic");
 
 </script>
 
