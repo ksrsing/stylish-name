@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -29,19 +29,6 @@ body{
 body.light{
     color:#111827;
     background:#f3f6ff;
-}
-
-body.light nav,
-body.light .names-box,
-body.light .card,
-body.light .cat{
-    background:rgba(255,255,255,.9);
-    color:#111827;
-}
-
-body.light .hero p,
-body.light .counter{
-    color:#526078;
 }
 
 .bg{
@@ -275,6 +262,10 @@ body.light .tool-btn{
     background:rgba(4,12,35,.72);
 }
 
+body.light .names-box{
+    background:rgba(255,255,255,.85);
+}
+
 .name-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -292,6 +283,10 @@ body.light .tool-btn{
     border-radius:10px;
     background:linear-gradient(110deg,#071938,#070d25);
     transition:.18s;
+}
+
+body.light .card{
+    background:#fff;
 }
 
 .card:hover{
@@ -468,10 +463,12 @@ footer{
 
     .tools{
         width:100%;
+        flex-wrap:wrap;
     }
 
     .tool-btn{
         flex:1;
+        min-width:110px;
     }
 
     .name-grid{
@@ -523,8 +520,8 @@ Create Your<br>
 </h1>
 
 <p>
-Enter your name and generate thousands of unique
-gaming, royal, aesthetic, love, neon and Unicode styles.
+Choose from different Indian and gaming names
+with thousands of stylish fonts and designs.
 </p>
 
 <div class="search">
@@ -821,7 +818,7 @@ v:"𝔳",w:"𝔴",x:"𝔵",y:"𝔶",z:"𝔷"
 
 
 /* =========================================
-TRANSFORM FUNCTIONS
+TRANSFORMS
 ========================================= */
 
 function mapText(text,map){
@@ -845,7 +842,6 @@ text => mapText(text,unicodeMaps.monospace),
 text => mapText(text,unicodeMaps.double),
 text => mapText(text,unicodeMaps.fraktur),
 
-text => "ⓘ " + text,
 text => "✦ " + text,
 text => "★ " + text,
 text => "⚡ " + text,
@@ -1001,32 +997,225 @@ const decorations = [
 
 
 /* =========================================
+DIFFERENT NAMES
+========================================= */
+
+const differentNames = [
+
+"Rahul",
+"Sonu",
+"Monu",
+"Rohan",
+"Aman",
+"Ankit",
+"Aryan",
+"Raj",
+"Rocky",
+"Yash",
+"Karan",
+"Arjun",
+"Vikas",
+"Vivek",
+"Ravi",
+"Aakash",
+"Akash",
+"Aditya",
+"Ajay",
+"Amit",
+"Abhishek",
+"Ashish",
+"Ayush",
+"Deepak",
+"Dev",
+"Dhruv",
+"Gaurav",
+"Harsh",
+"Himanshu",
+"Kunal",
+"Manish",
+"Mohit",
+"Nikhil",
+"Nitin",
+"Pankaj",
+"Prakash",
+"Rajat",
+"Rakesh",
+"Rohit",
+"Sachin",
+"Sahil",
+"Sameer",
+"Sandeep",
+"Shivam",
+"Shubham",
+"Sumit",
+"Suraj",
+"Tarun",
+"Varun",
+"Vijay",
+"Vishal",
+"Anuj",
+"Anurag",
+"Chirag",
+"Danish",
+"Faizan",
+"Ishan",
+"Jatin",
+"Kabir",
+"Lakshya",
+"Manu",
+"Mayank",
+"Neeraj",
+"Naveen",
+"Om",
+"Parth",
+"Pranav",
+"Rahul Singh",
+"Rajveer",
+"Rishabh",
+"Rituraj",
+"Samir",
+"Samar",
+"Shaurya",
+"Siddharth",
+"Tushar",
+"Ujjwal",
+"Utkarsh",
+"Virat",
+"Yuvraj",
+"Abhay",
+"Devraj",
+"Kartik",
+"Krishna",
+"Mohan",
+"Nandan",
+"Naman",
+"Rudra",
+"Shiv",
+"Veer",
+"Vansh",
+"Rohan Singh",
+"Aryan Singh",
+"Raj Singh",
+"Rocky Singh",
+"King",
+"Prince",
+"Warrior",
+"Ninja",
+"Shadow",
+"Ghost",
+"Legend",
+"Boss",
+"Devil",
+"Hero",
+"Master",
+"Sniper",
+"Hunter",
+"Dragon",
+"Tiger",
+"Phoenix",
+"Blaze",
+"Storm",
+"Thunder",
+"Fire",
+"Dark",
+"Night",
+"Star",
+"Moon",
+"Nova",
+"Cyber",
+"Rebel",
+"Alpha",
+"Omega",
+"King Rahul",
+"Royal Raj",
+"Dark Rohan",
+"Pro Aman",
+"Gaming Aryan",
+"Boss Karan",
+"Legend Yash",
+"Fire Raj",
+"Shadow Rahul",
+"Devil Sonu"
+
+];
+
+
+/* =========================================
 STATE
 ========================================= */
 
 let allNames = [];
+
 let displayedNames = [];
+
 let favorites =
 JSON.parse(
 localStorage.getItem("namecraftFavorites") || "[]"
 );
 
 let page = 1;
+
 const perPage = 100;
 
 
 /* =========================================
-GENERATE 2000+
+CREATE DIFFERENT NAMES
 ========================================= */
 
-function createNames(base){
+function createDifferentNames(){
 
     const result = [];
     const used = new Set();
 
-    /*
-    Transform × decoration
-    */
+    differentNames.forEach(
+        (base,nameIndex)=>{
+
+            transforms.forEach(
+                (transform,transformIndex)=>{
+
+                    const styled =
+                    transform(base);
+
+                    const decoration =
+                    decorations[
+                        (nameIndex * 7 +
+                        transformIndex) %
+                        decorations.length
+                    ];
+
+                    const finalName =
+                    decoration.replace(
+                        "{NAME}",
+                        styled
+                    );
+
+                    if(!used.has(finalName)){
+
+                        used.add(finalName);
+
+                        result.push(
+                            finalName
+                        );
+                    }
+
+                }
+            );
+
+        }
+    );
+
+    return result;
+}
+
+
+/* =========================================
+CREATE USER GENERATED NAMES
+========================================= */
+
+function createUserNames(base){
+
+    const result = [];
+    const used = new Set();
 
     for(
         let t=0;
@@ -1043,26 +1232,27 @@ function createNames(base){
             d++
         ){
 
-            const name =
+            const finalName =
             decorations[d]
             .replace(
                 "{NAME}",
                 styled
             );
 
-            if(!used.has(name)){
+            if(!used.has(finalName)){
 
-                used.add(name);
-                result.push(name);
+                used.add(finalName);
+
+                result.push(
+                    finalName
+                );
             }
+
         }
+
     }
 
-    /*
-    Extra numbered combinations
-    */
-
-    let n=1;
+    let number=1;
 
     while(result.length < 2200){
 
@@ -1075,7 +1265,7 @@ function createNames(base){
 
             const styled =
             transforms[t](
-                base+n
+                base + number
             );
 
             for(
@@ -1085,22 +1275,29 @@ function createNames(base){
                 d++
             ){
 
-                const name =
+                const finalName =
                 decorations[d]
                 .replace(
                     "{NAME}",
                     styled
                 );
 
-                if(!used.has(name)){
+                if(!used.has(finalName)){
 
-                    used.add(name);
-                    result.push(name);
+                    used.add(finalName);
+
+                    result.push(
+                        finalName
+                    );
+
                 }
+
             }
+
         }
 
-        n++;
+        number++;
+
     }
 
     return result;
@@ -1108,7 +1305,7 @@ function createNames(base){
 
 
 /* =========================================
-DISPLAY PAGE
+DISPLAY
 ========================================= */
 
 function render(){
@@ -1142,7 +1339,9 @@ function render(){
             start+index;
 
             const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
             card.className="card";
 
@@ -1176,13 +1375,19 @@ function render(){
                 </button>
 
             </div>
+
             `;
 
-            fragment.appendChild(card);
+            fragment.appendChild(
+                card
+            );
+
         }
     );
 
-    grid.appendChild(fragment);
+    grid.appendChild(
+        fragment
+    );
 
     const totalPages =
     Math.max(
@@ -1192,6 +1397,10 @@ function render(){
             perPage
         )
     );
+
+    if(page > totalPages){
+        page = totalPages;
+    }
 
     document.getElementById(
         "pageInfo"
@@ -1206,7 +1415,7 @@ function render(){
 
 
 /* =========================================
-GENERATE BUTTON
+GENERATE
 ========================================= */
 
 function generateNames(){
@@ -1218,15 +1427,40 @@ function generateNames(){
 
     if(!input){
 
-        alert(
-            "Pehle apna name enter karo!"
-        );
+        /*
+        Input empty hone par
+        different names dikhao
+        */
+
+        allNames =
+        createDifferentNames();
+
+        displayedNames =
+        allNames.slice();
+
+        page=1;
+
+        render();
+
+        document
+        .getElementById(
+            "namesSection"
+        )
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
         return;
     }
 
+    /*
+    User ka apna name
+    enter karne par uske
+    2000+ styles
+    */
+
     allNames =
-    createNames(input);
+    createUserNames(input);
 
     displayedNames =
     allNames.slice();
@@ -1236,7 +1470,9 @@ function generateNames(){
     render();
 
     document
-    .getElementById("namesSection")
+    .getElementById(
+        "namesSection"
+    )
     .scrollIntoView({
         behavior:"smooth"
     });
@@ -1262,6 +1498,13 @@ function copyName(index,button){
             button.textContent="▣";
         },1000);
 
+    })
+    .catch(()=>{
+
+        alert(
+            "Copy nahi ho paya."
+        );
+
     });
 }
 
@@ -1270,7 +1513,10 @@ function copyAll(){
 
     if(!displayedNames.length){
 
-        alert("Pehle names generate karo!");
+        alert(
+            "Pehle names generate karo!"
+        );
+
         return;
     }
 
@@ -1286,6 +1532,59 @@ function copyAll(){
         );
 
     });
+
+}
+
+
+/* =========================================
+SHARE
+========================================= */
+
+function shareName(index){
+
+    const name =
+    displayedNames[index];
+
+    if(
+        window.AndroidShare &&
+        window.AndroidShare.shareText
+    ){
+
+        window.AndroidShare.shareText(
+            name
+        );
+
+        return;
+    }
+
+    if(
+        navigator.share
+    ){
+
+        navigator.share({
+
+            title:"Stylish Name",
+
+            text:name,
+
+            url:location.href
+
+        }).catch(()=>{});
+
+    }else{
+
+        navigator.clipboard
+        .writeText(name)
+        .then(()=>{
+
+            alert(
+                "Name copied. Ab share kar sakte ho."
+            );
+
+        });
+
+    }
+
 }
 
 
@@ -1314,7 +1613,9 @@ function toggleFavorite(index){
     }
 
     saveFavorites();
+
     render();
+
 }
 
 
@@ -1322,8 +1623,11 @@ function saveFavorites(){
 
     localStorage.setItem(
         "namecraftFavorites",
-        JSON.stringify(favorites)
+        JSON.stringify(
+            favorites
+        )
     );
+
 }
 
 
@@ -1335,7 +1639,11 @@ function saveAll(){
             if(
                 !favorites.includes(name)
             ){
-                favorites.push(name);
+
+                favorites.push(
+                    name
+                );
+
             }
 
         }
@@ -1349,11 +1657,12 @@ function saveAll(){
         displayedNames.length +
         " names saved!"
     );
+
 }
 
 
 /* =========================================
-FAVORITE SECTION
+FAVORITES SECTION
 ========================================= */
 
 function showFavorites(){
@@ -1368,13 +1677,14 @@ function showFavorites(){
         "favoriteGrid"
     );
 
-    section.style.display="block";
+    section.style.display =
+    "block";
 
     grid.innerHTML="";
 
     if(!favorites.length){
 
-        grid.innerHTML=
+        grid.innerHTML =
         `<div class="empty">
         No favorites yet ❤️
         </div>`;
@@ -1389,9 +1699,10 @@ function showFavorites(){
                     "div"
                 );
 
-                card.className="card";
+                card.className =
+                "card";
 
-                card.innerHTML=`
+                card.innerHTML = `
 
                 <div class="name">
                     ${escapeHTML(name)}
@@ -1412,16 +1723,22 @@ function showFavorites(){
                     </button>
 
                 </div>
+
                 `;
 
-                grid.appendChild(card);
+                grid.appendChild(
+                    card
+                );
+
             }
         );
+
     }
 
     section.scrollIntoView({
         behavior:"smooth"
     });
+
 }
 
 
@@ -1436,10 +1753,13 @@ function copyFavorite(index,button){
         button.textContent="✓";
 
         setTimeout(()=>{
+
             button.textContent="▣";
+
         },1000);
 
     });
+
 }
 
 
@@ -1453,6 +1773,7 @@ function removeFavorite(index){
     saveFavorites();
 
     showFavorites();
+
 }
 
 
@@ -1479,14 +1800,23 @@ function randomName(){
         )
     ];
 
-    navigator.clipboard
-    .writeText(random)
-    .then(()=>{
-        alert(
-            "Random name copied:\n\n"+
-            random
-        );
-    });
+    if(
+        navigator.clipboard
+    ){
+
+        navigator.clipboard
+        .writeText(random)
+        .then(()=>{
+
+            alert(
+                "Random name copied:\n\n"+
+                random
+            );
+
+        });
+
+    }
+
 }
 
 
@@ -1494,15 +1824,23 @@ function randomName(){
 CATEGORY
 ========================================= */
 
-function setCategory(category,button){
+function setCategory(
+    category,
+    button
+){
 
     document
     .querySelectorAll(".cat")
     .forEach(
-        x=>x.classList.remove("active")
+        x=>
+        x.classList.remove(
+            "active"
+        )
     );
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
 
     if(category==="All"){
 
@@ -1510,55 +1848,104 @@ function setCategory(category,button){
         allNames.slice();
 
         page=1;
+
         render();
+
         return;
     }
 
-    const symbols={
+    const symbols = {
 
         Gaming:[
-            "🎮","亗","乂","☠","⚔",
-            "Hunter","Gamer","Pro",
-            "Warrior","Ninja"
+            "亗",
+            "乂",
+            "☠",
+            "⚔",
+            "Hunter",
+            "Gamer",
+            "Pro",
+            "Warrior",
+            "Ninja",
+            "Dragon"
         ],
 
         Cool:[
-            "★","✦","✧","彡","ツ",
-            "Shadow","Ghost","Dark"
+            "★",
+            "✦",
+            "✧",
+            "彡",
+            "ツ",
+            "Shadow",
+            "Ghost",
+            "Dark"
         ],
 
         Royal:[
-            "♛","♕","♚","♔","⚜",
-            "King","Royal","Prince"
+            "♛",
+            "♕",
+            "♚",
+            "♔",
+            "⚜",
+            "King",
+            "Royal",
+            "Prince"
         ],
 
         Love:[
-            "♡","♥","ღ","❥","Love"
+            "♡",
+            "♥",
+            "ღ",
+            "❥",
+            "Love"
         ],
 
         Aesthetic:[
-            "✧","✦","☾","☽","ღ",
-            "Moon","Star"
+            "✧",
+            "✦",
+            "☾",
+            "☽",
+            "ღ",
+            "Moon",
+            "Star"
         ],
 
         Neon:[
-            "⚡","✦","Cyber","Fire",
-            "Nova","Blaze"
+            "⚡",
+            "✦",
+            "Cyber",
+            "Fire",
+            "Nova",
+            "Blaze"
         ],
 
         Unicode:[
-            "꧁","༺","亗","乂","〆",
-            "彡","ツ"
+            "꧁",
+            "༺",
+            "亗",
+            "乂",
+            "〆",
+            "彡",
+            "ツ"
         ],
 
         Danger:[
-            "☠","⚔","Skull","Killer",
-            "Demon","Devil"
+            "☠",
+            "⚔",
+            "Skull",
+            "Killer",
+            "Demon",
+            "Devil"
         ],
 
         Minimal:[
-            "•","●","○","◉","◇",
-            "Pro","King","Coder"
+            "•",
+            "●",
+            "○",
+            "◉",
+            "◇",
+            "Pro",
+            "King",
+            "Coder"
         ]
 
     };
@@ -1587,6 +1974,7 @@ function setCategory(category,button){
     page=1;
 
     render();
+
 }
 
 
@@ -1595,47 +1983,23 @@ SEARCH
 ========================================= */
 
 document
-.getElementById("nameInput")
+.getElementById(
+    "nameInput"
+)
 .addEventListener(
-"input",
-function(){
+    "input",
+    function(){
 
-    const value =
-    this.value.trim().toLowerCase();
+        /*
+        Input type karte waqt
+        automatic filtering nahi karenge.
+        Isse user ka entered name
+        accidentally list ko hide
+        nahi karega.
+        */
 
-    if(!value){
-
-        displayedNames =
-        allNames.slice();
-
-        page=1;
-        render();
-
-        return;
     }
-
-    /*
-    Input typing ke time existing
-    names search honge.
-    Generate button se custom
-    2000+ names banenge.
-    */
-
-    const result =
-    allNames.filter(
-        name =>
-        name
-        .toLowerCase()
-        .includes(value)
-    );
-
-    displayedNames =
-    result;
-
-    page=1;
-
-    render();
-});
+);
 
 
 /* =========================================
@@ -1657,14 +2021,20 @@ function nextPage(){
         render();
 
         window.scrollTo({
+
             top:
             document
             .getElementById(
                 "namesSection"
-            ).offsetTop-20,
+            )
+            .offsetTop-20,
+
             behavior:"smooth"
+
         });
+
     }
+
 }
 
 
@@ -1677,14 +2047,19 @@ function previousPage(){
         render();
 
         window.scrollTo({
+
             top:
             document
             .getElementById(
                 "namesSection"
             ).offsetTop-20,
+
             behavior:"smooth"
+
         });
+
     }
+
 }
 
 
@@ -1695,15 +2070,23 @@ THEME
 function toggleTheme(){
 
     document.body
-    .classList.toggle("light");
+    .classList.toggle(
+        "light"
+    );
 
     localStorage.setItem(
+
         "namecraftTheme",
+
         document.body
-        .classList.contains("light")
+        .classList.contains(
+            "light"
+        )
         ? "light"
         : "dark"
+
     );
+
 }
 
 
@@ -1714,47 +2097,76 @@ MOBILE MENU
 function toggleMenu(){
 
     document
-    .getElementById("navLinks")
-    .classList.toggle("mobile");
+    .getElementById(
+        "navLinks"
+    )
+    .classList.toggle(
+        "mobile"
+    );
+
 }
 
 
 /* =========================================
-ESCAPE
+ESCAPE HTML
 ========================================= */
 
 function escapeHTML(value){
 
     return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
 }
 
 
 /* =========================================
-THEME LOAD
+LOAD THEME
 ========================================= */
 
 if(
     localStorage.getItem(
         "namecraftTheme"
-    )==="light"
+    ) === "light"
 ){
 
     document.body
-    .classList.add("light");
+    .classList.add(
+        "light"
+    );
+
 }
 
 
 /* =========================================
-INITIAL NAMES
+INITIAL DIFFERENT NAMES
 ========================================= */
 
 allNames =
-createNames("NameCraft");
+createDifferentNames();
 
 displayedNames =
 allNames.slice();
