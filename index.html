@@ -496,7 +496,7 @@ footer{
         <a href="#about">ⓘ About</a>
     </div>
 
-    <div class="menu">☰</div>
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
 </nav>
 
@@ -669,6 +669,25 @@ footer{
     </div>
 
 </footer>
+    function toggleMenu(){
+
+    const nav = document.querySelector(".nav-links");
+
+    if(nav.style.display === "flex"){
+        nav.style.display = "none";
+    }else{
+        nav.style.display = "flex";
+        nav.style.flexDirection = "column";
+        nav.style.position = "absolute";
+        nav.style.top = "60px";
+        nav.style.right = "10px";
+        nav.style.padding = "15px";
+        nav.style.background = "#07112f";
+        nav.style.border = "1px solid #3159a8";
+        nav.style.borderRadius = "12px";
+        nav.style.zIndex = "999";
+    }
+}
 
 <script>
 
