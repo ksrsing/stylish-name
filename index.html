@@ -730,7 +730,7 @@ const supabaseClient = supabase.createClient(
     SUPABASE_KEY
 );
  let onlineRecords = [];
- async function loadNamesFromSupabase() {
+async function loadNamesFromSupabase() {
 
     let allOnline = [];
     let from = 0;
@@ -781,24 +781,8 @@ const supabaseClient = supabase.createClient(
             onlineRecords.length
         );
     }
- }
+} 
 
-    console.log("Online Names:", data);
-
-    if (data && data.length > 0) {
-
-    onlineRecords = data;
-
-    allNames = data.map(row => row.name);
-
-    displayedNames = [...allNames];
-
-    page = 1;
-
-    render();
-    }
-    
- }
 /* =========================================
 UNICODE FONT MAPS
 ========================================= */
