@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#05091c">
 
-<title>NameCraft - Stylish Name Generator</title>
+<title>NameCraft - 1500+ Stylish Names</title>
 
 <style>
 *{
@@ -21,8 +21,6 @@ body{
     background:#030719;
     overflow-x:hidden;
 }
-
-/* BACKGROUND */
 
 .bg{
     position:fixed;
@@ -96,13 +94,13 @@ nav{
 
 .nav-links{
     display:flex;
-    gap:25px;
+    gap:20px;
 }
 
 .nav-links a{
     color:#dce5ff;
     text-decoration:none;
-    font-size:15px;
+    font-size:14px;
     font-weight:bold;
 }
 
@@ -114,6 +112,7 @@ nav{
     display:none;
     cursor:pointer;
     user-select:none;
+    font-size:25px;
 }
 
 /* HERO */
@@ -122,7 +121,7 @@ nav{
     max-width:1100px;
     margin:auto;
     text-align:center;
-    padding:20px 15px 25px;
+    padding:25px 15px 30px;
     position:relative;
 }
 
@@ -130,7 +129,7 @@ nav{
     display:inline-block;
     padding:9px 20px;
     border-radius:30px;
-    margin-bottom:7px;
+    margin-bottom:10px;
     border:1px solid #9d38ff;
     background:linear-gradient(90deg,#401080,#005ca8);
     box-shadow:0 0 25px rgba(150,0,255,.35);
@@ -151,12 +150,12 @@ nav{
 
 .hero p{
     color:#c4cbe5;
-    max-width:700px;
+    max-width:720px;
     margin:12px auto 20px;
     line-height:1.5;
 }
 
-/* SIDE TEXT */
+/* SIDE */
 
 .side{
     position:absolute;
@@ -209,14 +208,27 @@ nav{
 }
 
 .generate{
-    padding:0 30px;
+    padding:0 25px;
     border:0;
     border-radius:25px;
     color:white;
-    font-size:16px;
+    font-size:15px;
     font-weight:bold;
     background:linear-gradient(90deg,#bd19ff,#007cff);
     cursor:pointer;
+}
+
+/* COUNTER */
+
+.counter{
+    margin-top:14px;
+    color:#aebbd8;
+    font-size:14px;
+}
+
+.counter span{
+    color:#00d9ff;
+    font-weight:bold;
 }
 
 /* CATEGORIES */
@@ -235,14 +247,18 @@ nav{
     border-radius:15px;
     color:white;
     border:1px solid rgba(40,110,220,.4);
-    background:linear-gradient(145deg,rgba(8,26,64,.95),rgba(5,14,40,.9));
+    background:linear-gradient(
+        145deg,
+        rgba(8,26,64,.95),
+        rgba(5,14,40,.9)
+    );
     cursor:pointer;
     transition:.25s;
 }
 
 .cat .icon{
     display:block;
-    font-size:28px;
+    font-size:27px;
     margin-bottom:7px;
 }
 
@@ -299,7 +315,7 @@ nav{
 }
 
 .card{
-    min-height:48px;
+    min-height:53px;
     padding:8px 10px;
     display:flex;
     align-items:center;
@@ -307,7 +323,12 @@ nav{
     gap:8px;
     border-radius:10px;
     border:1px solid rgba(0,126,255,.45);
-    background:linear-gradient(100deg,rgba(6,22,54,.95),rgba(7,13,35,.95));
+    background:
+    linear-gradient(
+        100deg,
+        rgba(6,22,54,.95),
+        rgba(7,13,35,.95)
+    );
     transition:.2s;
 }
 
@@ -318,9 +339,10 @@ nav{
 }
 
 .name{
-    font-size:18px;
+    font-size:16px;
     font-weight:bold;
     word-break:break-word;
+    line-height:1.3;
 }
 
 .card-actions{
@@ -330,8 +352,8 @@ nav{
 }
 
 .small-btn{
-    width:34px;
-    height:34px;
+    width:33px;
+    height:33px;
     border-radius:8px;
     background:#0c2755;
     border:1px solid #22599b;
@@ -339,13 +361,20 @@ nav{
     cursor:pointer;
 }
 
+.small-btn:hover{
+    background:#17447d;
+}
+
 .favorite{
     color:#ff62c7;
 }
 
+/* ACTIONS */
+
 .actions{
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     gap:10px;
     margin:20px;
 }
@@ -363,6 +392,12 @@ nav{
 
 #favorites{
     display:none;
+}
+
+.empty{
+    padding:30px;
+    text-align:center;
+    color:#aeb9d5;
 }
 
 /* FOOTER */
@@ -416,23 +451,22 @@ footer{
 
     .menu{
         display:block;
-        color:white;
-        font-size:24px;
     }
+
     .nav-links.mobile-menu{
-    display:flex !important;
-    flex-direction:column;
-    position:absolute;
-    top:60px;
-    right:10px;
-    width:210px;
-    padding:15px;
-    gap:15px;
-    background:#07112f;
-    border:1px solid #3159a8;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,.5);
-    z-index:9999;
+        display:flex !important;
+        flex-direction:column;
+        position:absolute;
+        top:60px;
+        right:10px;
+        width:220px;
+        padding:15px;
+        gap:15px;
+        background:#07112f;
+        border:1px solid #3159a8;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,.5);
+        z-index:9999;
     }
 
     .hero{
@@ -457,7 +491,8 @@ footer{
     }
 
     .generate{
-        padding:0 16px;
+        padding:0 13px;
+        font-size:13px;
     }
 
     .categories{
@@ -488,9 +523,18 @@ footer{
         align-items:flex-start;
     }
 
+    .head-buttons{
+        width:100%;
+    }
+
+    .head-btn{
+        flex:1;
+    }
+
     footer{
         flex-direction:column;
         gap:10px;
+        text-align:center;
     }
 }
 </style>
@@ -500,24 +544,53 @@ footer{
 
 <div class="bg"></div>
 
+<!-- NAVBAR -->
+
 <nav>
 
-    <div class="logo">♛ NameCraft</div>
-
-    <div class="nav-links">
-        <a href="#top">✨ Stylish Names</a>
-        <a href="javascript:void(0)" onclick="goCoolFonts()">Aa Cool Fonts</a>
-        <a href="#namesSection">✦ Unique Vibes</a>
-
-<a href="#top">⌂ Home</a>
-
-<a href="#favorites" onclick="showFavorites()">♥ Favorites</a>
-        <a href="#about">ⓘ About</a>
+    <div class="logo">
+        ♛ NameCraft
     </div>
 
-    <div class="menu" onclick="toggleMenu()">☰</div>
+    <div class="nav-links">
+
+        <a href="#top">
+            ✨ Stylish Names
+        </a>
+
+        <a href="javascript:void(0)"
+           onclick="goCoolFonts()">
+            Aa Cool Fonts
+        </a>
+
+        <a href="#namesSection">
+            ✦ Unique Vibes
+        </a>
+
+        <a href="#top">
+            ⌂ Home
+        </a>
+
+        <a href="#favorites"
+           onclick="showFavorites()">
+            ♥ Favorites
+        </a>
+
+        <a href="#about">
+            ⓘ About
+        </a>
+
+    </div>
+
+    <div class="menu"
+         onclick="toggleMenu()">
+        ☰
+    </div>
 
 </nav>
+
+
+<!-- HERO -->
 
 <section class="hero" id="top">
 
@@ -535,7 +608,7 @@ footer{
     </div>
 
     <div class="badge">
-        ✨ Stylish Name Generator
+        ✨ 1500+ Stylish Name Generator
     </div>
 
     <h1>
@@ -544,8 +617,9 @@ footer{
     </h1>
 
     <p>
-        Turn your normal name into a cool, stylish and unique name
-        with different fonts, symbols, and styles.
+        Turn your normal name into 1500+ cool,
+        stylish and unique names with different
+        fonts, symbols and designs.
     </p>
 
     <div class="search">
@@ -557,85 +631,110 @@ footer{
             autocomplete="off"
         >
 
-        <button class="generate" onclick="generateNames()">
+        <button
+            class="generate"
+            onclick="generateNames()">
             ✨ Generate
         </button>
 
     </div>
 
+    <div class="counter">
+        Generate <span>1500+</span> stylish combinations
+    </div>
+
 </section>
+
 
 <!-- CATEGORIES -->
 
 <div class="categories">
 
-    <button class="cat active" onclick="setCategory('All',this)">
+    <button class="cat active"
+            onclick="setCategory('All',this)">
         <span class="icon">✨</span>
         All Styles
     </button>
 
-    <button class="cat" onclick="setCategory('Gaming',this)">
+    <button class="cat"
+            onclick="setCategory('Gaming',this)">
         <span class="icon">🎮</span>
         Gaming
     </button>
 
-    <button class="cat" onclick="setCategory('Cool',this)">
+    <button class="cat"
+            onclick="setCategory('Cool',this)">
         <span class="icon">🔥</span>
         Cool
     </button>
 
-    <button class="cat" onclick="setCategory('Royal',this)">
+    <button class="cat"
+            onclick="setCategory('Royal',this)">
         <span class="icon">♛</span>
         Royal
     </button>
 
-    <button class="cat" onclick="setCategory('Love',this)">
+    <button class="cat"
+            onclick="setCategory('Love',this)">
         <span class="icon">♡</span>
         Love
     </button>
 
-    <button class="cat" onclick="setCategory('Aesthetic',this)">
+    <button class="cat"
+            onclick="setCategory('Aesthetic',this)">
         <span class="icon">🌿</span>
         Aesthetic
     </button>
 
-    <button class="cat" onclick="setCategory('Neon',this)">
+    <button class="cat"
+            onclick="setCategory('Neon',this)">
         <span class="icon">⚡</span>
         Neon
     </button>
 
-    <button class="cat" onclick="setCategory('Unicode',this)">
+    <button class="cat"
+            onclick="setCategory('Unicode',this)">
         <span class="icon">A</span>
         Unicode
     </button>
 
-    <button class="cat" onclick="setCategory('Symbols',this)">
+    <button class="cat"
+            onclick="setCategory('Symbols',this)">
         <span class="icon">★</span>
         Symbols
     </button>
 
-    <button class="cat" onclick="setCategory('Minimal',this)">
+    <button class="cat"
+            onclick="setCategory('Minimal',this)">
         <span class="icon">◉</span>
         Minimal
     </button>
 
 </div>
 
+
 <!-- NAMES -->
 
-<section class="names-box" id="namesSection">
+<section class="names-box"
+         id="namesSection">
 
     <div class="names-head">
 
-        <h2>✨ Your Stylish Names</h2>
+        <h2>
+            ✨ Your Stylish Names
+        </h2>
 
         <div class="head-buttons">
 
-            <button class="head-btn" onclick="saveAll()">
+            <button
+                class="head-btn"
+                onclick="saveAll()">
                 ♥ Save All
             </button>
 
-            <button class="head-btn" onclick="copyAll()">
+            <button
+                class="head-btn"
+                onclick="copyAll()">
                 ▣ Copy All
             </button>
 
@@ -643,35 +742,57 @@ footer{
 
     </div>
 
-    <div class="name-grid" id="nameGrid"></div>
+    <div class="name-grid"
+         id="nameGrid">
+    </div>
 
 </section>
 
+
+<!-- ACTIONS -->
+
 <div class="actions">
 
-    <button class="main-btn" onclick="randomName()">
+    <button
+        class="main-btn"
+        onclick="randomName()">
         🎲 Random
     </button>
 
-    <button class="main-btn" onclick="generateNames()">
+    <button
+        class="main-btn"
+        onclick="generateNames()">
         🔄 Generate Again
     </button>
 
-    <button class="main-btn" onclick="showFavorites()">
+    <button
+        class="main-btn"
+        onclick="showFavorites()">
         ♥ Favorites
     </button>
 
 </div>
 
-<section class="names-box" id="favorites">
 
-    <h2>♥ Your Favorites</h2>
+<!-- FAVORITES -->
+
+<section class="names-box"
+         id="favorites">
+
+    <h2>
+        ♥ Your Favorites
+    </h2>
 
     <br>
 
-    <div class="name-grid" id="favoriteGrid"></div>
+    <div class="name-grid"
+         id="favoriteGrid">
+    </div>
 
 </section>
+
+
+<!-- FOOTER -->
 
 <footer id="about">
 
@@ -688,493 +809,994 @@ footer{
     </div>
 
 </footer>
-    
+
+
 <script>
 
-    
+/* =====================================
+STYLE PATTERNS
+===================================== */
 
-/* ===============================
-BASE NAMES
-=============================== */
+const styles = [
 
-const baseNames=[
-"Rahul","Sonu","Monu","Rohan","Rohit","Aman","Ankit",
-"Vikas","Vivek","Arjun","Karan","Akash","Ravi","Raj",
-"Aryan","Aditya","Yash","Dev","Suraj","Sameer","Sumit",
-"Sahil","Nikhil","Nitin","Varun","Abhishek","Ashish",
-"Mohit","Manish","Deepak","Shubham","Shivam","Harsh",
-"Ayush","Rajat","Rishabh","Kunal","Prince","King",
-"Boss","Legend","Hunter","Sniper","Warrior","Ninja",
-"Shadow","Ghost","Dragon","Tiger","Wolf","Lion","Falcon",
-"Rocky","Lucky","Danger","Killer","Beast","Devil","Angel",
-"Fire","Storm","Thunder","Venom","Blaze","Fury","Rider",
-"Gamer","Pro","Master","Champion","Hero","Alpha","Omega",
-"Titan","Phoenix","Demon","God","Royal","Star","Moon",
-"Night","Dark","Black","White","Cyber","Pixel","Hacker",
-"Coder","Matrix","Tech","Bot","Byte","Nova","Galaxy",
-"Cosmic","Infinity","Eagle","Cobra","Panther","Leopard",
-"Bear","Fox","Hawk"
-];
-
-/* ===============================
-STYLES
-=============================== */
-
-const styles=[
 "꧁༺ {NAME} ༻꧂",
-"亗 {NAME} 亗",
-"『{NAME}』",
+"꧁༒ {NAME} ༒꧂",
+"꧁★ {NAME} ★꧂",
+"꧁✦ {NAME} ✦꧂",
+"꧁⚡ {NAME} ⚡꧂",
+"꧁♛ {NAME} ♛꧂",
+"꧁☠ {NAME} ☠꧂",
+"꧁亗 {NAME} 亗꧂",
+"꧁乂 {NAME} 乂꧂",
+"꧁メ {NAME} メ꧂",
+
+"『 {NAME} 』",
+"『★ {NAME} ★』",
+"『亗 {NAME} 亗』",
+"『乂 {NAME} 乂』",
+"『⚡ {NAME} ⚡』",
+"『♛ {NAME} ♛』",
+"『☠ {NAME} ☠』",
+"『✦ {NAME} ✦』",
+"『♡ {NAME} ♡』",
+"『ツ {NAME} ツ』",
+
+"【 {NAME} 】",
+"【★ {NAME} ★】",
+"【亗 {NAME} 亗】",
+"【乂 {NAME} 乂】",
+"【⚡ {NAME} ⚡】",
+"【♛ {NAME} ♛】",
+"【☠ {NAME} ☠】",
+"【✦ {NAME} ✦】",
+"【♡ {NAME} ♡】",
+"【ツ {NAME} ツ】",
+
+"〖 {NAME} 〗",
+"〘 {NAME} 〙",
+"〚 {NAME} 〛",
+"《 {NAME} 》",
+"〈 {NAME} 〉",
+"〔 {NAME} 〕",
+"⟦ {NAME} ⟧",
+"⟨ {NAME} ⟩",
+"⟪ {NAME} ⟫",
+"⫷ {NAME} ⫸",
+
 "乂 {NAME} 乂",
 "メ {NAME} メ",
 "ツ {NAME} ツ",
 "彡 {NAME} 彡",
+"亗 {NAME} 亗",
+"〆 {NAME} 〆",
+"〄 {NAME} 〄",
+"乄 {NAME} 乄",
+"々 {NAME} 々",
+"シ {NAME} シ",
+
+"★彡 {NAME} 彡★",
+"☆彡 {NAME} 彡☆",
+"✦彡 {NAME} 彡✦",
+"✧彡 {NAME} 彡✧",
+"⚡彡 {NAME} 彡⚡",
+"亗彡 {NAME} 彡亗",
+"乂彡 {NAME} 彡乂",
+"♛彡 {NAME} 彡♛",
+"☠彡 {NAME} 彡☠",
+"ツ彡 {NAME} 彡ツ",
+
 "★ {NAME} ★",
+"☆ {NAME} ☆",
 "✦ {NAME} ✦",
 "✧ {NAME} ✧",
-"⚡ {NAME} ⚡",
-"☠ {NAME} ☠",
-"♛ {NAME} ♛",
-"♕ {NAME} ♕",
-"༒ {NAME} ༒",
-"༺ {NAME} ༻",
-"×͜× {NAME} ×͜×",
-"★彡 {NAME} 彡★",
-"꧁༒{NAME}༒꧂",
-"♠ {NAME} ♠",
-"♥ {NAME} ♥",
-"♦ {NAME} ♦",
-"☬ {NAME} ☬",
-"⚔ {NAME} ⚔",
-"⚜ {NAME} ⚜",
-"☾ {NAME} ☽",
-"❖ {NAME} ❖",
 "✪ {NAME} ✪",
 "✯ {NAME} ✯",
+"❖ {NAME} ❖",
 "❥ {NAME} ❥",
 "ღ {NAME} ღ",
 "♡ {NAME} ♡",
-"∞ {NAME} ∞",
-"⫷ {NAME} ⫸",
-"【 {NAME} 】"
+
+"♥ {NAME} ♥",
+"⚡ {NAME} ⚡",
+"☠ {NAME} ☠",
+"☬ {NAME} ☬",
+"⚔ {NAME} ⚔",
+"♛ {NAME} ♛",
+"♕ {NAME} ♕",
+"♚ {NAME} ♚",
+"♔ {NAME} ♔",
+"⚜ {NAME} ⚜",
+
+"♠ {NAME} ♠",
+"♦ {NAME} ♦",
+"♣ {NAME} ♣",
+"♥ {NAME} ♥",
+"☾ {NAME} ☽",
+"☽ {NAME} ☾",
+"☯ {NAME} ☯",
+"☮ {NAME} ☮",
+"☘ {NAME} ☘",
+"☀ {NAME} ☀",
+
+"༺ {NAME} ༻",
+"༒ {NAME} ༒",
+"༆ {NAME} ༆",
+"༺༒ {NAME} ༒༻",
+"༺★ {NAME} ★༻",
+"༺亗 {NAME} 亗༻",
+"༺⚡ {NAME} ⚡༻",
+"༺♛ {NAME} ♛༻",
+"༺☠ {NAME} ☠༻",
+"༺♡ {NAME} ♡༻"
+
 ];
 
-const fonts=[
-name=>name.toUpperCase(),
-name=>name.toLowerCase(),
-name=>name.split("").join(" "),
-name=>name.split("").join("•"),
-name=>name.split("").join("✦"),
-name=>"𝙎𝙩𝙮𝙡𝙚 "+name,
-name=>"亗 "+name,
-name=>"乂 "+name,
-name=>"〆"+name
+
+/* =====================================
+FONT / TEXT FORMATS
+===================================== */
+
+const fonts = [
+
+name => name,
+
+name => name.toUpperCase(),
+
+name => name.toLowerCase(),
+
+name => name[0]?.toUpperCase()+name.slice(1),
+
+name => name.split("").join(" "),
+
+name => name.split("").join("•"),
+
+name => name.split("").join("・"),
+
+name => name.split("").join("✦"),
+
+name => name.split("").join("★"),
+
+name => name.split("").join("♡"),
+
+name => "𝙎𝙩𝙮𝙡𝙚 " + name,
+
+name => "𝑺𝒕𝒚𝒍𝒆 " + name,
+
+name => "𝐒𝐭𝐲𝐥𝐞 " + name,
+
+name => "𝗦𝘁𝘆𝗹𝗲 " + name,
+
+name => "𝘚𝘵𝘺𝘭𝘦 " + name
+
 ];
 
-/* ===============================
-GENERATE
-=============================== */
 
-let allNames=[];
-let favorites=JSON.parse(
-localStorage.getItem("namecraftFavorites")||"[]"
+/*
+100+ styles × 15 formats
+= 1500+ combinations
+*/
+
+
+/* =====================================
+VARIABLES
+===================================== */
+
+let allNames = [];
+
+let currentGenerated = [];
+
+let favorites =
+JSON.parse(
+    localStorage.getItem(
+        "namecraftFavorites"
+    ) || "[]"
 );
+
+
+/* =====================================
+GENERATE DEFAULT NAMES
+===================================== */
 
 function buildNames(){
 
-    allNames=[];
+    allNames = [];
 
-    let i=0;
+    let index = 0;
 
-    while(allNames.length<1800){
+    while(allNames.length < 2000){
 
-        let base=baseNames[i%baseNames.length];
-        let style=styles[i%styles.length];
-        let font=fonts[i%fonts.length];
+        const baseNames = [
+            "Rahul","Sonu","Monu","Rohan",
+            "Rohit","Aman","Ankit","Vikas",
+            "Vivek","Arjun","Karan","Akash",
+            "Ravi","Raj","Aryan","Aditya",
+            "Yash","Dev","Suraj","Sameer",
+            "Sumit","Sahil","Nikhil","Nitin",
+            "Varun","Abhishek","Ashish","Mohit",
+            "Manish","Deepak","Shubham",
+            "Shivam","Harsh","Ayush","Rajat",
+            "Rishabh","Kunal","Prince","King",
+            "Boss","Legend","Hunter","Sniper",
+            "Warrior","Ninja","Shadow","Ghost",
+            "Dragon","Tiger","Wolf","Lion",
+            "Falcon","Rocky","Lucky","Danger",
+            "Killer","Beast","Devil","Angel",
+            "Fire","Storm","Thunder","Venom",
+            "Blaze","Fury","Rider","Gamer",
+            "Pro","Master","Champion","Hero",
+            "Alpha","Omega","Titan","Phoenix",
+            "Demon","Royal","Star","Moon",
+            "Night","Dark","Black","White",
+            "Cyber","Pixel","Hacker","Coder",
+            "Matrix","Tech","Bot","Byte",
+            "Nova","Galaxy","Cosmic","Infinity",
+            "Eagle","Cobra","Panther","Leopard",
+            "Bear","Fox","Hawk"
+        ];
 
-        let number=i%4===0?
-        Math.floor(i/4)+1:"";
+        const base =
+            baseNames[
+                index % baseNames.length
+            ];
 
-        let name=font(base+number);
+        const style =
+            styles[
+                index % styles.length
+            ];
 
-        name=style.replace("{NAME}",name);
+        const font =
+            fonts[
+                index % fonts.length
+            ];
 
-        if(!allNames.includes(name))
-            allNames.push(name);
+        const number =
+            index % 5 === 0
+            ? Math.floor(index / 5) + 1
+            : "";
 
-        i++;
+        const styled =
+            font(base + number);
+
+        const finalName =
+            style.replace(
+                "{NAME}",
+                styled
+            );
+
+        if(!allNames.includes(finalName)){
+            allNames.push(finalName);
+        }
+
+        index++;
     }
+
 }
 
-/* ===============================
+
+/* =====================================
 DISPLAY
-=============================== */
+===================================== */
 
-function displayNames(list=allNames){
+function displayNames(list){
 
-    const grid=document.getElementById("nameGrid");
+    const grid =
+        document.getElementById(
+            "nameGrid"
+        );
 
-    grid.innerHTML="";
+    grid.innerHTML = "";
 
-    window.currentDisplayedNames=
-        list.slice(0,150);
+    currentGenerated =
+        list.slice(0,1500);
 
-    window.currentDisplayedNames.forEach(
+    window.currentDisplayedNames =
+        currentGenerated;
+
+    currentGenerated.forEach(
         (name,index)=>{
 
-        const card=document.createElement("div");
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-        card.className="card";
+            card.className = "card";
 
-        const fav=favorites.includes(name);
+            const fav =
+                favorites.includes(name);
 
-        card.innerHTML=`
+            card.innerHTML = `
 
-            <div class="name">
-                ${escapeHTML(name)}
-            </div>
+                <div class="name">
+                    ${escapeHTML(name)}
+                </div>
 
-            <div class="card-actions">
+                <div class="card-actions">
 
-                <button class="small-btn"
-                onclick="copyName(${index},this)">
-                ▣
-                </button>
+                    <button
+                        class="small-btn"
+                        onclick="copyName(${index},this)">
+                        ▣
+                    </button>
 
-                <button class="small-btn favorite"
-                onclick="toggleFavorite(${index})">
-                ${fav?"♥":"♡"}
-                </button>
+                    <button
+                        class="small-btn favorite"
+                        onclick="toggleFavorite(${index})">
+                        ${fav ? "♥" : "♡"}
+                    </button>
 
-                <button class="small-btn"
-                onclick="shareName(${index})">
-                ↗
-                </button>
+                    <button
+                        class="small-btn"
+                        onclick="shareName(${index})">
+                        ↗
+                    </button>
 
-            </div>
-        `;
+                </div>
+            `;
 
-        grid.appendChild(card);
-    });
+            grid.appendChild(card);
+        }
+    );
+
+    updateCounter(
+        currentGenerated.length
+    );
 }
 
-/* ===============================
-GENERATE CUSTOM
-=============================== */
+
+/* =====================================
+CUSTOM NAME GENERATOR
+===================================== */
 
 function generateNames(){
 
-    const input=document
-    .getElementById("nameInput")
-    .value.trim();
+    const input =
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .value
+        .trim();
 
     if(!input){
 
-        displayNames(allNames);
+        alert(
+            "Pehle apna name enter karo!"
+        );
+
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .focus();
 
         return;
     }
 
-    let generated=[];
+    let generated = [];
 
-    styles.forEach(style=>{
+    let used =
+        new Set();
 
-        fonts.forEach(font=>{
+    /*
+    Main combinations
+    */
 
-            if(generated.length>=150)return;
+    for(
+        let s = 0;
+        s < styles.length;
+        s++
+    ){
 
-            let name=font(input);
+        for(
+            let f = 0;
+            f < fonts.length;
+            f++
+        ){
 
-            generated.push(
-                style.replace("{NAME}",name)
-            );
+            const styled =
+                fonts[f](input);
 
-        });
-    });
+            const finalName =
+                styles[s]
+                .replace(
+                    "{NAME}",
+                    styled
+                );
 
-    displayNames(generated);
+            if(!used.has(finalName)){
+
+                used.add(finalName);
+
+                generated.push(
+                    finalName
+                );
+            }
+        }
+    }
+
+
+    /*
+    Agar 1500 se kam hua,
+    to number variations add karo.
+    */
+
+    let number = 1;
+
+    while(
+        generated.length < 1500
+    ){
+
+        for(
+            let s = 0;
+            s < styles.length &&
+            generated.length < 1500;
+            s++
+        ){
+
+            for(
+                let f = 0;
+                f < fonts.length &&
+                generated.length < 1500;
+                f++
+            ){
+
+                const styled =
+                    fonts[f](
+                        input + number
+                    );
+
+                const finalName =
+                    styles[s]
+                    .replace(
+                        "{NAME}",
+                        styled
+                    );
+
+                if(!used.has(finalName)){
+
+                    used.add(finalName);
+
+                    generated.push(
+                        finalName
+                    );
+                }
+            }
+        }
+
+        number++;
+    }
+
+
+    currentGenerated =
+        generated.slice(0,1500);
+
+    displayNames(
+        currentGenerated
+    );
+
 
     document
-    .getElementById("namesSection")
-    .scrollIntoView({behavior:"smooth"});
+    .getElementById(
+        "namesSection"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
 }
 
-/* ===============================
-COPY
-=============================== */
+
+/* =====================================
+COUNTER
+===================================== */
+
+function updateCounter(count){
+
+    const counter =
+        document.querySelector(
+            ".counter span"
+        );
+
+    if(counter){
+
+        counter.textContent =
+            count + "+";
+    }
+}
+
+
+/* =====================================
+COPY ONE
+===================================== */
 
 function copyName(index,button){
 
-    const name=
-    window.currentDisplayedNames[index];
+    const name =
+        currentGenerated[index];
 
-    navigator.clipboard.writeText(name);
+    if(!name)return;
 
-    button.textContent="✓";
+    navigator.clipboard
+    .writeText(name)
+    .then(()=>{
 
-    setTimeout(()=>{
-        button.textContent="▣";
-    },1000);
+        button.textContent =
+            "✓";
+
+        setTimeout(()=>{
+
+            button.textContent =
+                "▣";
+
+        },1000);
+
+    });
 }
+
+
+/* =====================================
+COPY ALL
+===================================== */
 
 function copyAll(){
 
-    const names=
-    window.currentDisplayedNames||[];
+    const names =
+        currentGenerated || [];
 
-    navigator.clipboard.writeText(
+    if(!names.length){
+
+        alert(
+            "Pehle names generate karo!"
+        );
+
+        return;
+    }
+
+    navigator.clipboard
+    .writeText(
         names.join("\n")
-    );
+    )
+    .then(()=>{
 
-    alert("All names copied!");
+        alert(
+            names.length +
+            " names copied!"
+        );
+
+    });
 }
 
-/* ===============================
+
+/* =====================================
 FAVORITE
-=============================== */
+===================================== */
 
 function toggleFavorite(index){
 
-    const name=
-    window.currentDisplayedNames[index];
+    const name =
+        currentGenerated[index];
 
-    if(favorites.includes(name)){
+    if(!name)return;
 
-        favorites=
-        favorites.filter(x=>x!==name);
+    if(
+        favorites.includes(name)
+    ){
+
+        favorites =
+            favorites.filter(
+                x => x !== name
+            );
 
     }else{
 
         favorites.push(name);
+
     }
 
     localStorage.setItem(
         "namecraftFavorites",
-        JSON.stringify(favorites)
+        JSON.stringify(
+            favorites
+        )
     );
 
     displayNames(
-        window.currentDisplayedNames
+        currentGenerated
     );
 }
 
+
+/* =====================================
+SAVE ALL
+===================================== */
+
 function saveAll(){
 
-    const names=
-    window.currentDisplayedNames||[];
+    const names =
+        currentGenerated || [];
 
     names.forEach(name=>{
 
-        if(!favorites.includes(name))
-            favorites.push(name);
+        if(
+            !favorites.includes(name)
+        ){
 
+            favorites.push(name);
+        }
     });
 
     localStorage.setItem(
         "namecraftFavorites",
-        JSON.stringify(favorites)
+        JSON.stringify(
+            favorites
+        )
     );
 
     displayNames(names);
 
-    alert("Names saved!");
+    alert(
+        names.length +
+        " names saved!"
+    );
 }
 
-/* ===============================
-FAVORITES
-=============================== */
+
+/* =====================================
+SHOW FAVORITES
+===================================== */
 
 function showFavorites(){
 
-    const section=
-    document.getElementById("favorites");
+    const section =
+        document.getElementById(
+            "favorites"
+        );
 
-    const grid=
-    document.getElementById("favoriteGrid");
+    const grid =
+        document.getElementById(
+            "favoriteGrid"
+        );
 
-    section.style.display="block";
+    section.style.display =
+        "block";
 
-    grid.innerHTML="";
+    grid.innerHTML = "";
 
     if(!favorites.length){
 
-        grid.innerHTML=
-        "<div class='empty'>No favorites yet ❤️</div>";
+        grid.innerHTML =
+            "<div class='empty'>" +
+            "No favorites yet ❤️" +
+            "</div>";
+
+        section.scrollIntoView({
+            behavior:"smooth"
+        });
 
         return;
     }
 
-    favorites.forEach((name,index)=>{
+    favorites.forEach(
+        (name,index)=>{
 
-        const card=
-        document.createElement("div");
+            const card =
+                document.createElement(
+                    "div"
+                );
 
-        card.className="card";
+            card.className =
+                "card";
 
-        card.innerHTML=`
+            card.innerHTML = `
 
-            <div class="name">
-                ${escapeHTML(name)}
-            </div>
+                <div class="name">
+                    ${escapeHTML(name)}
+                </div>
 
-            <div class="card-actions">
+                <div class="card-actions">
 
-                <button class="small-btn"
-                onclick="navigator.clipboard.writeText(${JSON.stringify(name)})">
-                ▣
-                </button>
+                    <button
+                        class="small-btn"
+                        onclick="copyFavorite(${index},this)">
+                        ▣
+                    </button>
 
-                <button class="small-btn"
-                onclick="removeFavorite(${index})">
-                🗑
-                </button>
+                    <button
+                        class="small-btn"
+                        onclick="removeFavorite(${index})">
+                        🗑
+                    </button>
 
-            </div>
-        `;
+                </div>
+            `;
 
-        grid.appendChild(card);
-    });
+            grid.appendChild(card);
+        }
+    );
 
     section.scrollIntoView({
         behavior:"smooth"
     });
 }
 
+
+/* =====================================
+COPY FAVORITE
+===================================== */
+
+function copyFavorite(index,button){
+
+    const name =
+        favorites[index];
+
+    navigator.clipboard
+    .writeText(name)
+    .then(()=>{
+
+        button.textContent =
+            "✓";
+
+        setTimeout(()=>{
+
+            button.textContent =
+                "▣";
+
+        },1000);
+
+    });
+}
+
+
+/* =====================================
+REMOVE FAVORITE
+===================================== */
+
 function removeFavorite(index){
 
-    favorites.splice(index,1);
+    favorites.splice(
+        index,
+        1
+    );
 
     localStorage.setItem(
         "namecraftFavorites",
-        JSON.stringify(favorites)
+        JSON.stringify(
+            favorites
+        )
     );
 
     showFavorites();
 }
 
-/* ===============================
+
+/* =====================================
 RANDOM
-=============================== */
+===================================== */
 
 function randomName(){
 
-    const name=
-    allNames[
-        Math.floor(
-            Math.random()*allNames.length
-        )
-    ];
+    if(!currentGenerated.length){
 
-    document.getElementById(
+        alert(
+            "Pehle names generate karo!"
+        );
+
+        return;
+    }
+
+    const name =
+        currentGenerated[
+            Math.floor(
+                Math.random() *
+                currentGenerated.length
+            )
+        ];
+
+    document
+    .getElementById(
         "nameInput"
-    ).value=name;
+    )
+    .value = name;
 
-    displayNames([name]);
+    displayNames([
+        name
+    ]);
 
-    document.getElementById(
+    document
+    .getElementById(
         "namesSection"
-    ).scrollIntoView({
+    )
+    .scrollIntoView({
         behavior:"smooth"
     });
 }
 
-/* ===============================
-CATEGORY
-=============================== */
 
-function setCategory(category,button){
+/* =====================================
+CATEGORY
+===================================== */
+
+function setCategory(
+    category,
+    button
+){
 
     document
     .querySelectorAll(".cat")
-    .forEach(x=>x.classList.remove("active"));
-
-    button.classList.add("active");
-
-    if(category==="All"){
-
-        displayNames(allNames);
-        return;
-    }
-
-    const words={
-
-        Gaming:[
-            "gamer","pro","warrior","hunter",
-            "sniper","ninja","killer"
-        ],
-
-        Cool:[
-            "shadow","ghost","dark","star"
-        ],
-
-        Royal:[
-            "king","royal","prince","boss"
-        ],
-
-        Love:[
-            "angel","love","heart"
-        ],
-
-        Aesthetic:[
-            "star","moon","angel"
-        ],
-
-        Neon:[
-            "cyber","fire","blaze","nova"
-        ],
-
-        Unicode:[
-            "亗","꧁","乂","ツ"
-        ],
-
-        Symbols:[
-            "★","♡","⚡","☠","♛"
-        ],
-
-        Minimal:[
-            "pro","king","coder","tech"
-        ]
-    };
-
-    const list=
-    allNames.filter(name=>
-        (words[category]||[])
-        .some(word=>
-            name.toLowerCase()
-            .includes(word.toLowerCase())
+    .forEach(
+        x =>
+        x.classList.remove(
+            "active"
         )
     );
 
-    displayNames(
-        list.length?list:allNames
+    button.classList.add(
+        "active"
     );
-}
 
-/* ===============================
-SHARE
-=============================== */
+    if(category === "All"){
 
-async function shareName(index){
-
-    const name=
-    window.currentDisplayedNames[index];
-
-    if(!name)return;
-
-    if(window.AndroidShare){
-
-        window.AndroidShare.shareText(name);
+        displayNames(
+            currentGenerated.length
+            ? currentGenerated
+            : allNames
+        );
 
         return;
     }
+
+
+    const words = {
+
+        Gaming:[
+            "gamer",
+            "pro",
+            "warrior",
+            "hunter",
+            "sniper",
+            "ninja",
+            "killer",
+            "beast",
+            "dragon"
+        ],
+
+        Cool:[
+            "shadow",
+            "ghost",
+            "dark",
+            "star",
+            "night",
+            "wolf"
+        ],
+
+        Royal:[
+            "king",
+            "royal",
+            "prince",
+            "boss",
+            "queen",
+            "♛",
+            "♕"
+        ],
+
+        Love:[
+            "angel",
+            "love",
+            "heart",
+            "♡",
+            "♥"
+        ],
+
+        Aesthetic:[
+            "star",
+            "moon",
+            "angel",
+            "✦",
+            "✧"
+        ],
+
+        Neon:[
+            "cyber",
+            "fire",
+            "blaze",
+            "nova",
+            "pixel",
+            "⚡"
+        ],
+
+        Unicode:[
+            "亗",
+            "꧁",
+            "乂",
+            "ツ",
+            "〆"
+        ],
+
+        Symbols:[
+            "★",
+            "♡",
+            "⚡",
+            "☠",
+            "♛",
+            "✦"
+        ],
+
+        Minimal:[
+            "pro",
+            "king",
+            "coder",
+            "tech",
+            "boss"
+        ]
+    };
+
+
+    const source =
+        currentGenerated.length
+        ? currentGenerated
+        : allNames;
+
+
+    const list =
+        source.filter(
+            name =>
+            (words[category] || [])
+            .some(
+                word =>
+                name
+                .toLowerCase()
+                .includes(
+                    word.toLowerCase()
+                )
+            )
+        );
+
+
+    displayNames(
+        list.length
+        ? list
+        : source
+    );
+}
+
+
+/* =====================================
+SHARE
+===================================== */
+
+async function shareName(index){
+
+    const name =
+        currentGenerated[index];
+
+    if(!name)return;
+
+
+    if(window.AndroidShare){
+
+        window.AndroidShare.shareText(
+            name
+        );
+
+        return;
+    }
+
 
     if(navigator.share){
 
         try{
 
             await navigator.share({
-                title:"NameCraft Stylish Name",
+
+                title:
+                    "NameCraft Stylish Name",
+
                 text:name,
-                url:location.href
+
+                url:
+                    location.href
+
             });
 
         }catch(e){}
@@ -1182,121 +1804,221 @@ async function shareName(index){
         return;
     }
 
-    navigator.clipboard.writeText(name);
 
-    alert("Name copied!");
+    navigator.clipboard
+    .writeText(name)
+    .then(()=>{
+
+        alert(
+            "Name copied!"
+        );
+
+    });
 }
 
-/* ===============================
+
+/* =====================================
 SEARCH
-=============================== */
+===================================== */
 
 document
-.getElementById("nameInput")
-.addEventListener("input",function(){
+.getElementById(
+    "nameInput"
+)
+.addEventListener(
+    "input",
+    function(){
 
-    const q=this.value.toLowerCase().trim();
+        const q =
+            this.value
+            .toLowerCase()
+            .trim();
 
-    if(!q){
+        if(!q){
 
-        displayNames(allNames);
+            displayNames(
+                currentGenerated.length
+                ? currentGenerated
+                : allNames
+            );
 
-        return;
+            return;
+        }
+
+        /*
+        User ke entered name ke
+        liye direct 1500 generate
+        karne ke bajay search.
+        */
+
+        const result =
+            allNames.filter(
+                name =>
+                name
+                .toLowerCase()
+                .includes(q)
+            );
+
+        displayNames(
+            result
+        );
     }
+);
 
-    const result=
-    allNames.filter(name=>
-        name.toLowerCase().includes(q)
-    );
 
-    displayNames(result);
-});
-
-/* ===============================
-SECURITY
-=============================== */
+/* =====================================
+ESCAPE HTML
+===================================== */
 
 function escapeHTML(str){
 
-    return str
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+    return String(str)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 }
 
-/* START */
 
-buildNames();
-displayNames(allNames);
-    function toggleMenu(){
+/* =====================================
+MOBILE MENU
+===================================== */
 
-    const nav = document.querySelector(".nav-links");
+function toggleMenu(){
 
-    if(nav.classList.contains("mobile-menu")){
-        nav.classList.remove("mobile-menu");
-    }else{
-        nav.classList.add("mobile-menu");
-    }
-    }
-    
-    function goHome(){
+    const nav =
+        document.querySelector(
+            ".nav-links"
+        );
 
-    document.getElementById("top").scrollIntoView({
-        behavior:"smooth"
-    });
-
+    nav.classList.toggle(
+        "mobile-menu"
+    );
 }
 
-function goUnique(){
 
-    document.getElementById("namesSection").scrollIntoView({
-        behavior:"smooth"
-    });
+/* =====================================
+COOL FONTS
+===================================== */
 
-}
+function goCoolFonts(){
 
-function goFavorites(){
-
-    showFavorites();
-
-}
-    function goCoolFonts(){
-
-    document.getElementById("favorites").style.display = "none";
-
-    const input = document.getElementById("nameInput").value.trim();
+    const input =
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .value
+        .trim();
 
     if(!input){
-        alert("Pehle apna name enter karo!");
-        document.getElementById("nameInput").focus();
+
+        alert(
+            "Pehle apna name enter karo!"
+        );
+
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .focus();
+
         return;
     }
 
-    const coolFonts = [
-        name => name.toUpperCase(),
-        name => name.toLowerCase(),
-        name => name.split("").join(" "),
-        name => name.split("").join("•"),
-        name => name.split("").join("✦"),
-        name => "𝙎𝙩𝙮𝙡𝙚 " + name,
-        name => "亗 " + name,
-        name => "乂 " + name,
-        name => "〆" + name,
-        name => "『" + name + "』",
-        name => "★ " + name + " ★",
-        name => "✦ " + name + " ✦"
-    ];
 
-    const result = coolFonts.map(font => font(input));
+    let result = [];
 
-    displayNames(result);
+    let used =
+        new Set();
 
-    document.getElementById("namesSection").scrollIntoView({
+
+    for(
+        let f = 0;
+        f < fonts.length;
+        f++
+    ){
+
+        for(
+            let s = 0;
+            s < styles.length;
+            s++
+        ){
+
+            if(result.length >= 1500){
+                break;
+            }
+
+            const styled =
+                fonts[f](input);
+
+            const finalName =
+                styles[s]
+                .replace(
+                    "{NAME}",
+                    styled
+                );
+
+            if(!used.has(finalName)){
+
+                used.add(finalName);
+
+                result.push(
+                    finalName
+                );
+            }
+        }
+    }
+
+
+    currentGenerated =
+        result.slice(0,1500);
+
+    displayNames(
+        currentGenerated
+    );
+
+    document
+    .getElementById(
+        "namesSection"
+    )
+    .scrollIntoView({
         behavior:"smooth"
     });
-    }
+}
+
+
+/* =====================================
+START
+===================================== */
+
+buildNames();
+
+currentGenerated =
+    allNames.slice(
+        0,
+        1500
+    );
+
+displayNames(
+    currentGenerated
+);
 
 </script>
 
