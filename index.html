@@ -3,10 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#070b20">
 
 <title>NameCraft - Stylish Name Generator</title>
@@ -15,6 +12,10 @@ content="width=device-width, initial-scale=1.0">
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -22,279 +23,672 @@ content="width=device-width, initial-scale=1.0">
     font-family:Arial,sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:
-    linear-gradient(135deg,#070b20,#11194a,#080b25);
+    radial-gradient(circle at 20% 10%,rgba(120,0,255,.22),transparent 30%),
+    radial-gradient(circle at 80% 20%,rgba(0,170,255,.18),transparent 30%),
+    linear-gradient(135deg,#050817,#090d25,#050817);
     color:white;
     min-height:100vh;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
     position:sticky;
     top:0;
     z-index:1000;
-    background:rgba(5,8,25,.95);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.1);
+    background:rgba(4,7,25,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(95,120,255,.25);
+    box-shadow:0 5px 30px rgba(0,0,0,.35);
 }
 
 .nav{
-    max-width:1200px;
+    max-width:1400px;
     margin:auto;
-    padding:16px 20px;
+    padding:14px 28px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
 .logo{
-    font-size:25px;
-    font-weight:bold;
-    color:#7c7cff;
+    font-size:29px;
+    font-weight:900;
+    letter-spacing:-1px;
+    background:linear-gradient(
+        90deg,
+        #ff35ef,
+        #9c45ff,
+        #00c8ff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    white-space:nowrap;
+}
+
+.logoIcon{
+    display:inline-block;
+    margin-right:7px;
+    font-size:28px;
+}
+
+.navLinks{
+    display:flex;
+    gap:25px;
+    align-items:center;
 }
 
 .nav a{
-    color:white;
+    color:#dbe2ff;
     text-decoration:none;
-    margin-left:18px;
-    font-size:14px;
+    font-size:15px;
+    transition:.25s;
 }
 
+.nav a:hover{
+    color:#b45cff;
+    text-shadow:0 0 12px #a944ff;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
-    width:95%;
-    max-width:1200px;
+    width:94%;
+    max-width:1400px;
     margin:auto;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     text-align:center;
-    padding:55px 15px 35px;
+    padding:50px 15px 28px;
+    position:relative;
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 20px;
+    border-radius:30px;
+    background:
+    linear-gradient(
+        90deg,
+        #941cff,
+        #007dff
+    );
+    box-shadow:
+    0 0 20px rgba(140,40,255,.4);
+    font-weight:bold;
+    margin-bottom:14px;
 }
 
 .hero h1{
-    font-size:42px;
-    margin-bottom:12px;
+    font-size:55px;
+    line-height:1.05;
+    font-weight:900;
+    margin-bottom:15px;
 }
 
 .hero h1 span{
-    color:#7c7cff;
+    background:
+    linear-gradient(
+        90deg,
+        #ff27ef,
+        #b72cff,
+        #00c8ff
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    color:#bfc4e8;
-    margin-bottom:25px;
+    max-width:780px;
+    margin:auto;
+    color:#bfc8ee;
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:27px;
 }
 
+/* =========================
+   SEARCH
+========================= */
+
 .searchBox{
-    max-width:700px;
+    max-width:800px;
     margin:auto;
     display:flex;
     gap:10px;
+    padding:6px;
+    border-radius:35px;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(20,40,100,.9),
+        rgba(20,30,80,.9)
+    );
+    border:1px solid #2266cc;
+    box-shadow:
+    0 0 20px rgba(0,110,255,.22);
 }
 
 .searchBox input{
     flex:1;
-    padding:16px;
+    min-width:0;
+    padding:16px 20px;
     border:none;
-    border-radius:12px;
     outline:none;
-    background:#171d45;
+    background:transparent;
     color:white;
     font-size:16px;
 }
 
-button{
+.searchBox input::placeholder{
+    color:#8794c7;
+}
+
+.generateBtn,
+.randomBtn{
     border:none;
-    cursor:pointer;
-    border-radius:10px;
-    padding:13px 18px;
+    padding:14px 23px;
+    border-radius:28px;
+    color:white;
     font-weight:bold;
+    cursor:pointer;
+    transition:.25s;
 }
 
 .generateBtn{
-    background:#6c63ff;
-    color:white;
+    background:
+    linear-gradient(
+        90deg,
+        #c322ff,
+        #007cff
+    );
+    box-shadow:0 0 18px rgba(150,40,255,.4);
 }
 
 .randomBtn{
-    background:#00bcd4;
-    color:white;
+    background:
+    linear-gradient(
+        90deg,
+        #00a8cf,
+        #0074ff
+    );
 }
+
+.generateBtn:hover,
+.randomBtn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.15);
+}
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-    margin:20px 0;
+    grid-template-columns:repeat(10,1fr);
+    gap:12px;
+    margin:24px 0;
 }
 
 .category{
-    background:#141a3d;
-    color:white;
-    border:1px solid rgba(255,255,255,.08);
+    min-height:82px;
+    border-radius:15px;
+    border:1px solid rgba(72,111,210,.35);
+    background:
+    linear-gradient(
+        145deg,
+        rgba(15,27,65,.95),
+        rgba(10,18,48,.95)
+    );
+    color:#e7ebff;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+    box-shadow:
+    inset 0 0 15px rgba(40,90,200,.06);
+}
+
+.category:hover{
+    transform:translateY(-3px);
+    border-color:#874cff;
+    box-shadow:
+    0 0 20px rgba(125,45,255,.28);
 }
 
 .category.active{
-    background:#6c63ff;
+    border-color:#d237ff;
+    background:
+    linear-gradient(
+        145deg,
+        #6b16b7,
+        #073fae
+    );
+    box-shadow:
+    0 0 25px rgba(151,45,255,.45),
+    inset 0 0 20px rgba(255,255,255,.08);
+}
+
+.catIcon{
+    display:block;
+    font-size:27px;
+    margin-bottom:6px;
+}
+
+/* =========================
+   NAMES AREA
+========================= */
+
+.namesPanel{
+    border:1px solid rgba(65,115,230,.4);
+    border-radius:25px;
+    padding:18px;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(8,17,45,.9),
+        rgba(7,13,34,.95)
+    );
+    box-shadow:
+    0 0 30px rgba(0,60,180,.15);
 }
 
 .toolbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin:25px 0 15px;
+    gap:12px;
+    margin:0 5px 17px;
+}
+
+.toolbarLeft{
+    display:flex;
+    align-items:center;
     gap:10px;
 }
 
+.sparkle{
+    font-size:28px;
+}
+
 .toolbar h2{
-    font-size:22px;
+    font-size:25px;
 }
 
 .count{
-    color:#aeb5df;
+    color:#aeb9df;
     font-size:14px;
 }
 
-.status{
-    background:#111735;
-    border:1px solid rgba(255,255,255,.1);
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:15px;
-    color:#bfc4e8;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-}
-
-.card{
-    background:
-    linear-gradient(145deg,#151c45,#101533);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;
-    padding:18px;
-    min-height:130px;
+.toolbarButtons{
     display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    gap:10px;
 }
 
-.name{
-    font-size:20px;
+.actionBtn{
+    border:1px solid rgba(75,110,210,.5);
+    background:#101d45;
+    color:white;
+    border-radius:13px;
+    padding:11px 17px;
+    cursor:pointer;
     font-weight:bold;
-    word-break:break-word;
-    text-align:center;
-    padding:10px 5px;
 }
 
-.cardButtons{
-    display:flex;
-    gap:8px;
+.actionBtn:hover{
+    background:#1c2c62;
 }
 
-.copyBtn{
-    flex:1;
-    background:#252d62;
-    color:white;
-}
+/* =========================
+   STATUS
+========================= */
 
-.favBtn{
-    width:48px;
-    background:#252d62;
-    color:white;
-    font-size:18px;
-}
-
-.favBtn.saved{
-    background:#ff3d71;
-}
-
-.pagination{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    margin:30px 0 50px;
-    flex-wrap:wrap;
-}
-
-.pageBtn{
-    background:#171e48;
-    color:white;
-}
-
-.pageBtn.active{
-    background:#6c63ff;
-}
-
-footer{
-    text-align:center;
-    padding:30px 15px;
-    color:#8991bd;
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-.message{
-    text-align:center;
-    padding:50px 20px;
-    color:#aeb5df;
+.status{
+    margin:0 5px 15px;
+    padding:10px 14px;
+    border-radius:10px;
+    background:rgba(15,25,60,.8);
+    color:#9facd8;
+    font-size:13px;
+    border:1px solid rgba(100,120,220,.15);
 }
 
 .error{
     color:#ff6b7d;
 }
 
-@media(max-width:900px){
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.card{
+    min-width:0;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(18,34,78,.96),
+        rgba(10,20,48,.98)
+    );
+    border:1px solid rgba(55,102,210,.45);
+    border-radius:14px;
+    padding:10px;
+    min-height:94px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.25s;
+    box-shadow:
+    0 7px 20px rgba(0,0,0,.18);
+}
+
+.card:hover{
+    transform:translateY(-2px);
+    border-color:#a43cff;
+    box-shadow:
+    0 0 20px rgba(128,40,255,.25);
+}
+
+.name{
+    font-size:19px;
+    font-weight:bold;
+    word-break:break-word;
+    text-align:center;
+    padding:9px 4px;
+    min-height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.cardButtons{
+    display:flex;
+    gap:6px;
+}
+
+.copyBtn{
+    flex:1;
+    border:1px solid rgba(70,100,190,.35);
+    background:#182856;
+    color:white;
+    border-radius:9px;
+    padding:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.copyBtn:hover{
+    background:#263d7c;
+}
+
+.favBtn{
+    width:42px;
+    border:1px solid rgba(70,100,190,.35);
+    background:#182856;
+    color:white;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.favBtn.saved{
+    background:#e52c72;
+    border-color:#ff5790;
+    box-shadow:0 0 12px rgba(255,40,110,.3);
+}
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:7px;
+    margin:25px 0 5px;
+    flex-wrap:wrap;
+}
+
+.pageBtn{
+    border:1px solid rgba(65,100,190,.4);
+    background:#111d43;
+    color:white;
+    border-radius:9px;
+    padding:9px 13px;
+    cursor:pointer;
+}
+
+.pageBtn:hover{
+    background:#26366d;
+}
+
+.pageBtn.active{
+    background:
+    linear-gradient(
+        90deg,
+        #8d28ff,
+        #416dff
+    );
+    border-color:#a74bff;
+}
+
+.pageBtn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+/* =========================
+   FAVORITES
+========================= */
+
+.favoritesSection{
+    margin-top:45px;
+    margin-bottom:50px;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+    grid-column:1/-1;
+    text-align:center;
+    padding:45px 20px;
+    color:#9da8d0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid rgba(80,100,190,.25);
+    padding:28px 15px;
+    color:#8994bd;
+    text-align:center;
+    background:rgba(3,6,20,.7);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1150px){
+
+    .categories{
+        grid-template-columns:repeat(5,1fr);
+    }
 
     .grid{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .categories{
-        grid-template-columns:repeat(4,1fr);
-    }
-
 }
 
-@media(max-width:650px){
+@media(max-width:800px){
 
-    .hero h1{
-        font-size:31px;
+    .nav{
+        padding:13px 15px;
     }
 
-    .searchBox{
-        flex-direction:column;
+    .logo{
+        font-size:23px;
+    }
+
+    .navLinks{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:42px;
     }
 
     .categories{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
     .grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .nav{
-        padding:13px;
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding-top:35px;
     }
 
-    .nav a{
-        margin-left:8px;
-        font-size:12px;
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .searchBox{
+        flex-direction:column;
+        border-radius:17px;
+        padding:8px;
+    }
+
+    .searchBox input{
+        width:100%;
+    }
+
+    .generateBtn,
+    .randomBtn{
+        width:100%;
+        border-radius:12px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .category{
+        min-height:70px;
+    }
+
+    .namesPanel{
+        padding:10px;
+        border-radius:17px;
+    }
+
+    .toolbar{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .toolbarButtons{
+        width:100%;
+    }
+
+    .actionBtn{
+        flex:1;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:8px;
+    }
+
+    .card{
+        padding:8px;
+    }
+
+    .name{
+        font-size:16px;
     }
 
 }
 
 @media(max-width:420px){
 
+    .nav{
+        flex-direction:column;
+        gap:9px;
+    }
+
+    .navLinks{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
     .grid{
         grid-template-columns:1fr;
     }
 
+    .categories{
+        gap:7px;
+    }
+
+    .category{
+        font-size:12px;
+    }
+
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    text-align:center;
+    padding:35px;
+    color:#aab6e0;
 }
 
 </style>
@@ -303,18 +697,28 @@ footer{
 
 <body>
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
 <div class="nav">
 
 <div class="logo">
-NameCraft
+<span class="logoIcon">♛</span>Name<span style="color:#00bfff;">Craft</span>
 </div>
 
-<div>
+<div class="navLinks">
+
 <a href="#">Home</a>
-<a href="#names">Names</a>
-<a href="#favorites">Favorites</a>
+
+<a href="#names">✨ Names</a>
+
+<a href="#favorites">❤️ Favorites</a>
+
+<a href="#about">ⓘ About</a>
+
 </div>
 
 </div>
@@ -324,34 +728,51 @@ NameCraft
 
 <main class="container">
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
+<div class="badge">
+✨ Stylish Name Generator
+</div>
+
 <h1>
-Create <span>Stylish Names</span>
+Create Your
+<br>
+<span>Stylish Name</span>
 </h1>
 
 <p>
-Generate stylish gaming, cool, royal, love and aesthetic names.
+Turn your normal name into a cool, stylish and unique name
+with different fonts, symbols, and styles.
 </p>
+
 
 <div class="searchBox">
 
 <input
 type="text"
 id="nameInput"
-placeholder="Enter your name e.g. Rahul"
-autocomplete="off">
+placeholder="Enter your name e.g. Rohan"
+autocomplete="off"
+>
 
 <button
 class="generateBtn"
 onclick="generateNames()">
-Generate
+
+✨ Generate
+
 </button>
 
 <button
 class="randomBtn"
 onclick="randomName()">
-Random
+
+🎲 Random
+
 </button>
 
 </div>
@@ -359,81 +780,165 @@ Random
 </section>
 
 
+<!-- =========================
+     CATEGORIES
+========================= -->
+
 <div class="categories">
 
 <button
 class="category active"
 onclick="setCategory('All',this)">
-All
+
+<span class="catIcon">✨</span>
+All Styles
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Gaming',this)">
+
+<span class="catIcon">🎮</span>
 Gaming
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Cool',this)">
+
+<span class="catIcon">🔥</span>
 Cool
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Royal',this)">
+
+<span class="catIcon">👑</span>
 Royal
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Love',this)">
+
+<span class="catIcon">💗</span>
 Love
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Aesthetic',this)">
+
+<span class="catIcon">🌿</span>
 Aesthetic
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Neon',this)">
+
+<span class="catIcon">⚡</span>
 Neon
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Unicode',this)">
+
+<span class="catIcon">Aᵀ</span>
 Unicode
+
 </button>
+
 
 <button
 class="category"
-onclick="setCategory('Danger',this)">
-Danger
+onclick="setCategory('Symbols',this)">
+
+<span class="catIcon">★</span>
+Symbols
+
 </button>
+
 
 <button
 class="category"
 onclick="setCategory('Minimal',this)">
+
+<span class="catIcon">◉</span>
 Minimal
+
 </button>
 
 </div>
 
 
+<!-- =========================
+     NAMES
+========================= -->
+
 <div id="names">
+
+<div class="namesPanel">
 
 <div class="toolbar">
 
+<div class="toolbarLeft">
+
+<span class="sparkle">✨</span>
+
+<div>
+
 <h2>
-Stylish Names
+Your Stylish Names
 </h2>
 
-<div class="count" id="nameCount">
+<div
+class="count"
+id="nameCount">
+
 Loading...
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="toolbarButtons">
+
+<button
+class="actionBtn"
+onclick="saveAll()">
+
+❤️ Save All
+
+</button>
+
+<button
+class="actionBtn"
+onclick="copyAll()">
+
+📋 Copy All
+
+</button>
+
 </div>
 
 </div>
@@ -442,13 +947,20 @@ Loading...
 <div
 class="status"
 id="status">
+
 Connecting to online names...
+
 </div>
 
 
 <div
 class="grid"
 id="nameGrid">
+
+<div class="loading">
+Loading names...
+</div>
+
 </div>
 
 
@@ -459,22 +971,45 @@ id="pagination">
 
 </div>
 
+</div>
 
-<section id="favorites">
+
+<!-- =========================
+     FAVORITES
+========================= -->
+
+<section
+id="favorites"
+class="favoritesSection">
+
+<div class="namesPanel">
 
 <div class="toolbar">
 
+<div class="toolbarLeft">
+
+<span class="sparkle">❤️</span>
+
+<div>
+
 <h2>
-❤️ Favorites
+Favorites
 </h2>
 
 <div
 class="count"
 id="favoriteCount">
+
 0 saved
+
 </div>
 
 </div>
+
+</div>
+
+</div>
+
 
 <div
 class="grid"
@@ -485,6 +1020,39 @@ Your favorite names will appear here.
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+id="about"
+style="
+text-align:center;
+padding:30px 10px 55px;
+">
+
+<h2>
+✨ About NameCraft
+</h2>
+
+<p
+style="
+color:#9da8d0;
+margin-top:10px;
+line-height:1.7;
+">
+
+NameCraft helps you create stylish,
+cool and unique names for gaming,
+social media and profiles.
+
+</p>
 
 </section>
 
@@ -535,14 +1103,16 @@ const perPage = 100;
 
 
 /* =========================================
-   LOAD FAVORITES
+   FAVORITES LOAD
 ========================================= */
 
 try{
 
     favorites =
     JSON.parse(
-        localStorage.getItem("namecraftFavorites")
+        localStorage.getItem(
+            "namecraftFavorites"
+        )
     ) || [];
 
 }catch(e){
@@ -553,137 +1123,7 @@ try{
 
 
 /* =========================================
-   LOAD NAMES FROM SUPABASE
-========================================= */
-
-async function loadNamesFromSupabase(){
-
-    const status =
-    document.getElementById("status");
-
-    status.innerText =
-    "Loading names from Supabase...";
-
-
-    let allOnline = [];
-
-    let from = 0;
-
-    const batchSize = 1000;
-
-
-    while(true){
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-        .from("names")
-        .select("id,name,category")
-        .order("id",{ascending:true})
-        .range(
-            from,
-            from + batchSize - 1
-        );
-
-
-        if(error){
-
-            console.error(
-                "SUPABASE ERROR:",
-                error
-            );
-
-            status.innerHTML =
-            '<span class="error">' +
-            "Supabase Error: " +
-            error.message +
-            "</span>";
-
-            return;
-        }
-
-
-        if(
-            !data ||
-            data.length === 0
-        ){
-
-            break;
-        }
-
-
-        allOnline =
-        allOnline.concat(data);
-
-
-        console.log(
-            "Loaded:",
-            allOnline.length
-        );
-
-
-        if(
-            data.length < batchSize
-        ){
-
-            break;
-        }
-
-
-        from += batchSize;
-
-    }
-
-
-    onlineRecords =
-    allOnline;
-
-
-    if(
-        onlineRecords.length > 0
-    ){
-
-        allNames =
-        onlineRecords.map(
-            row => row.name
-        );
-
-
-        displayedNames =
-        [...allNames];
-
-
-        page = 1;
-
-
-        status.innerText =
-        "✅ Online names connected successfully.";
-
-
-        render();
-
-
-        console.log(
-            "TOTAL ONLINE NAMES:",
-            onlineRecords.length
-        );
-
-    }else{
-
-        status.innerHTML =
-        '<span class="error">' +
-        "Supabase connected, but no names found." +
-        "</span>";
-
-    }
-
-}
-
-
-/* =========================================
-   LOCAL FALLBACK NAMES
+   LOCAL FALLBACK
 ========================================= */
 
 function createDifferentNames(){
@@ -717,44 +1157,25 @@ function createDifferentNames(){
     const styles = [
 
         "꧁༺ NAME ༻꧂",
-
         "亗 NAME 亗",
-
         "『 NAME 』",
-
         "乂 NAME 乂",
-
         "★ NAME ★",
-
         "么 NAME 么",
-
         "彡 NAME 彡",
-
         "ツ NAME ツ",
-
         "⚡ NAME ⚡",
-
         "♛ NAME ♛",
-
         "☠ NAME ☠",
-
-        "『★』NAME『★』",
-
         "꧁ NAME ꧂",
-
         "༺ NAME ༻",
-
         "★彡 NAME 彡★",
-
-        "×͜× NAME",
-
         "々 NAME 々",
-
         "メ NAME メ",
-
         "〆 NAME 〆",
-
-        "ᎠᎬᏙᏆᏞ NAME"
+        "×͜× NAME",
+        "『★』NAME『★』",
+        "亗『NAME』亗"
 
     ];
 
@@ -784,7 +1205,7 @@ function createDifferentNames(){
 
 
 /* =========================================
-   GENERATE USER NAMES
+   USER NAME GENERATOR
 ========================================= */
 
 function createUserNames(base){
@@ -797,71 +1218,38 @@ function createUserNames(base){
     const styles = [
 
         "꧁༺ NAME ༻꧂",
-
         "亗 NAME 亗",
-
         "『 NAME 』",
-
         "乂 NAME 乂",
-
         "★ NAME ★",
-
         "么 NAME 么",
-
         "彡 NAME 彡",
-
         "ツ NAME ツ",
-
         "⚡ NAME ⚡",
-
         "♛ NAME ♛",
-
         "☠ NAME ☠",
-
         "꧁ NAME ꧂",
-
         "༺ NAME ༻",
-
         "★彡 NAME 彡★",
-
         "々 NAME 々",
-
         "メ NAME メ",
-
         "〆 NAME 〆",
-
         "×͜× NAME",
-
         "『★』NAME『★』",
-
         "亗『NAME』亗",
-
         "☬ NAME ☬",
-
         "♚ NAME ♚",
-
         "♕ NAME ♕",
-
         "⚔ NAME ⚔",
-
         "🔥 NAME 🔥",
-
         "💀 NAME 💀",
-
         "❤️ NAME ❤️",
-
         "💎 NAME 💎",
-
         "👑 NAME 👑",
-
         "★ NAME ★",
-
         "『ツ』NAME",
-
         "亗 NAME ツ",
-
         "꧁ NAME 亗",
-
         "亗 NAME ꧂"
 
     ];
@@ -870,7 +1258,11 @@ function createUserNames(base){
     let result = [];
 
 
-    for(let i = 0; i < 20; i++){
+    for(
+        let i = 0;
+        i < 20;
+        i++
+    ){
 
         styles.forEach(style => {
 
@@ -879,6 +1271,7 @@ function createUserNames(base){
                 "NAME",
                 base
             );
+
 
             if(i > 0){
 
@@ -889,6 +1282,7 @@ function createUserNames(base){
                 );
 
             }
+
 
             result.push(n);
 
@@ -903,7 +1297,152 @@ function createUserNames(base){
 
 
 /* =========================================
-   GENERATE BUTTON
+   LOAD SUPABASE NAMES
+========================================= */
+
+async function loadNamesFromSupabase(){
+
+    const status =
+    document.getElementById(
+        "status"
+    );
+
+
+    status.innerText =
+    "☁️ Loading names from Supabase...";
+
+
+    let allOnline = [];
+
+    let from = 0;
+
+    const batchSize = 1000;
+
+
+    while(true){
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+        .from("names")
+        .select(
+            "id,name,category"
+        )
+        .order(
+            "id",
+            {
+                ascending:true
+            }
+        )
+        .range(
+            from,
+            from + batchSize - 1
+        );
+
+
+        if(error){
+
+            console.error(
+                "SUPABASE ERROR:",
+                error
+            );
+
+
+            status.innerHTML =
+            '<span class="error">' +
+            "Supabase Error: " +
+            error.message +
+            "</span>";
+
+
+            return;
+
+        }
+
+
+        if(
+            !data ||
+            data.length === 0
+        ){
+
+            break;
+
+        }
+
+
+        allOnline =
+        allOnline.concat(data);
+
+
+        console.log(
+            "Loaded:",
+            allOnline.length
+        );
+
+
+        if(
+            data.length < batchSize
+        ){
+
+            break;
+
+        }
+
+
+        from += batchSize;
+
+    }
+
+
+    onlineRecords =
+    allOnline;
+
+
+    if(
+        onlineRecords.length > 0
+    ){
+
+        allNames =
+        onlineRecords.map(
+            row => row.name
+        );
+
+
+        displayedNames =
+        [...allNames];
+
+
+        page = 1;
+
+
+        status.innerText =
+        "🟢 Online names connected successfully.";
+
+
+        render();
+
+
+        console.log(
+            "TOTAL ONLINE NAMES:",
+            onlineRecords.length
+        );
+
+    }else{
+
+        status.innerHTML =
+        '<span class="error">' +
+        "Supabase connected, but no names found." +
+        "</span>";
+
+    }
+
+}
+
+
+/* =========================================
+   GENERATE
 ========================================= */
 
 function generateNames(){
@@ -927,6 +1466,7 @@ function generateNames(){
         input.focus();
 
         return;
+
     }
 
 
@@ -940,7 +1480,7 @@ function generateNames(){
     document.getElementById(
         "status"
     ).innerText =
-    "Showing stylish names for: " +
+    "✨ Showing stylish names for: " +
     base;
 
 
@@ -957,13 +1497,23 @@ function generateNames(){
 
 
 /* =========================================
-   RANDOM NAME
+   RANDOM
+   IMPORTANT:
+   ONLY PUTS NAME IN INPUT
+   DOES NOT COPY
 ========================================= */
 
 function randomName(){
 
+    let source =
+    onlineRecords.length
+    ? onlineRecords
+    : displayedNames;
+
+
     if(
-        !displayedNames.length
+        !source ||
+        source.length === 0
     ){
 
         alert(
@@ -971,16 +1521,23 @@ function randomName(){
         );
 
         return;
+
     }
 
 
-    const random =
-    displayedNames[
+    const randomRecord =
+    source[
         Math.floor(
             Math.random() *
-            displayedNames.length
+            source.length
         )
     ];
+
+
+    const random =
+    typeof randomRecord === "string"
+    ? randomRecord
+    : randomRecord.name;
 
 
     document.getElementById(
@@ -988,10 +1545,13 @@ function randomName(){
     ).value = random;
 
 
-    alert(
-        "Random Name:\n\n" +
-        random
-    );
+    document.getElementById(
+        "status"
+    ).innerText =
+    "🎲 Random name selected.";
+
+
+    /* NO COPY HERE */
 
 }
 
@@ -1057,11 +1617,12 @@ function setCategory(
     document.getElementById(
         "status"
     ).innerText =
+
     category === "All"
     ?
-    "Showing all online names."
+    "✨ Showing all online names."
     :
-    "Showing " +
+    "✨ Showing " +
     category +
     " names.";
 
@@ -1106,16 +1667,21 @@ function render(){
         grid.innerHTML =
         `
         <div class="message">
-        No names found.
+        No names found in this category.
         </div>
         `;
+
 
         count.innerText =
         "0 names";
 
-        pagination.innerHTML = "";
+
+        pagination.innerHTML =
+        "";
+
 
         return;
+
     }
 
 
@@ -1131,7 +1697,9 @@ function render(){
     );
 
 
-    if(page > totalPages){
+    if(
+        page > totalPages
+    ){
 
         page = totalPages;
 
@@ -1226,7 +1794,8 @@ function createCard(name){
     "📋 Copy";
 
 
-    copy.onclick = function(){
+    copy.onclick =
+    function(){
 
         copyName(name);
 
@@ -1260,7 +1829,8 @@ function createCard(name){
     }
 
 
-    fav.onclick = function(){
+    fav.onclick =
+    function(){
 
         toggleFavorite(
             name,
@@ -1328,7 +1898,8 @@ function fallbackCopy(text){
     );
 
 
-    textarea.value = text;
+    textarea.value =
+    text;
 
 
     document.body.appendChild(
@@ -1344,6 +1915,7 @@ function fallbackCopy(text){
         document.execCommand(
             "copy"
         );
+
 
         alert(
             "Copied:\n\n" +
@@ -1365,6 +1937,135 @@ function fallbackCopy(text){
 
 
 /* =========================================
+   COPY ALL
+========================================= */
+
+function copyAll(){
+
+    if(
+        !displayedNames.length
+    ){
+
+        alert(
+            "No names available."
+        );
+
+        return;
+
+    }
+
+
+    const start =
+    (page - 1) *
+    perPage;
+
+
+    const currentNames =
+    displayedNames.slice(
+        start,
+        start + perPage
+    );
+
+
+    const text =
+    currentNames.join("\n");
+
+
+    if(
+        navigator.clipboard
+    ){
+
+        navigator.clipboard
+        .writeText(text)
+        .then(() => {
+
+            alert(
+                currentNames.length +
+                " names copied!"
+            );
+
+        })
+        .catch(() => {
+
+            fallbackCopy(text);
+
+        });
+
+    }else{
+
+        fallbackCopy(text);
+
+    }
+
+}
+
+
+/* =========================================
+   SAVE ALL
+========================================= */
+
+function saveAll(){
+
+    if(
+        !displayedNames.length
+    ){
+
+        alert(
+            "No names available."
+        );
+
+        return;
+
+    }
+
+
+    const start =
+    (page - 1) *
+    perPage;
+
+
+    const currentNames =
+    displayedNames.slice(
+        start,
+        start + perPage
+    );
+
+
+    currentNames.forEach(name => {
+
+        if(
+            !favorites.includes(name)
+        ){
+
+            favorites.push(name);
+
+        }
+
+    });
+
+
+    localStorage.setItem(
+        "namecraftFavorites",
+        JSON.stringify(
+            favorites
+        )
+    );
+
+
+    renderFavorites();
+
+    render();
+
+
+    alert(
+        currentNames.length +
+        " names saved to Favorites ❤️"
+    );
+
+}
+
+
+/* =========================================
    FAVORITE
 ========================================= */
 
@@ -1381,8 +2082,10 @@ function toggleFavorite(
 
         favorites.push(name);
 
+
         button.innerText =
         "❤️";
+
 
         button.classList.add(
             "saved"
@@ -1395,8 +2098,10 @@ function toggleFavorite(
             1
         );
 
+
         button.innerText =
         "♡";
+
 
         button.classList.remove(
             "saved"
@@ -1455,6 +2160,7 @@ function renderFavorites(){
         </div>
         `;
 
+
         return;
 
     }
@@ -1487,7 +2193,8 @@ function renderPagination(
     );
 
 
-    pagination.innerHTML = "";
+    pagination.innerHTML =
+    "";
 
 
     if(totalPages <= 1){
@@ -1589,6 +2296,7 @@ function renderPagination(
 
             render();
 
+
             window.scrollTo({
                 top:400,
                 behavior:"smooth"
@@ -1633,6 +2341,7 @@ function renderPagination(
 
             render();
 
+
             window.scrollTo({
                 top:400,
                 behavior:"smooth"
@@ -1661,7 +2370,8 @@ async function startNameCraft(){
     );
 
 
-    // Pehle local names dikhao
+    /* Local fallback */
+
     allNames =
     createDifferentNames();
 
@@ -1679,7 +2389,8 @@ async function startNameCraft(){
     renderFavorites();
 
 
-    // Ab Supabase se 9000 online names
+    /* Online 9000 names */
+
     await loadNamesFromSupabase();
 
 }
