@@ -732,16 +732,56 @@ const supabaseClient = supabase.createClient(
  let onlineRecords = [];
  async function loadNamesFromSupabase() {
 
-    const { data, error } = await supabaseClient
-        .from("names")
-        .select("id, name, category")
-        .order("id", { ascending: true })
-        .limit(10000);
+    let allOnline = [];
+    let from = 0;
+    const batchSize = 1000;
 
-    if (error) {
-        console.error("Supabase Error:", error);
-        return;
+    while (true) {
+
+        const { data, error } = await supabaseClient
+            .from("names")
+            .select("id, name, category")
+            .order("id", { ascending: true })
+            .range(from, from + batchSize - 1);
+
+        if (error) {
+            console.error("Supabase Error:", error);
+            break;
+        }
+
+        if (!data || data.length === 0) {
+            break;
+        }
+
+        allOnline = allOnline.concat(data);
+
+        console.log("Loaded:", allOnline.length);
+
+        if (data.length < batchSize) {
+            break;
+        }
+
+        from += batchSize;
     }
+
+    onlineRecords = allOnline;
+
+    if (onlineRecords.length > 0) {
+
+        allNames = onlineRecords.map(row => row.name);
+
+        displayedNames = [...allNames];
+
+        page = 1;
+
+        render();
+
+        console.log(
+            "Total Online Names:",
+            onlineRecords.length
+        );
+    }
+ }
 
     console.log("Online Names:", data);
 
