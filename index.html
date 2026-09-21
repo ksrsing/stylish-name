@@ -1262,16 +1262,42 @@ function goFavorites(){
     showFavorites();
 
 }
-    
-function goCoolFonts(){
+    function goCoolFonts(){
 
     document.getElementById("favorites").style.display = "none";
 
-    document.getElementById("namesSection").scrollIntoView({
-        behavior: "smooth"
-    });
+    const input = document.getElementById("nameInput").value.trim();
 
-}
+    if(!input){
+        alert("Pehle apna name enter karo!");
+        document.getElementById("nameInput").focus();
+        return;
+    }
+
+    const coolFonts = [
+        name => name.toUpperCase(),
+        name => name.toLowerCase(),
+        name => name.split("").join(" "),
+        name => name.split("").join("•"),
+        name => name.split("").join("✦"),
+        name => "𝙎𝙩𝙮𝙡𝙚 " + name,
+        name => "亗 " + name,
+        name => "乂 " + name,
+        name => "〆" + name,
+        name => "『" + name + "』",
+        name => "★ " + name + " ★",
+        name => "✦ " + name + " ✦"
+    ];
+
+    const result = coolFonts.map(font => font(input));
+
+    displayNames(result);
+
+    document.getElementById("namesSection").scrollIntoView({
+        behavior:"smooth"
+    });
+    }
+
 </script>
 
 </body>
