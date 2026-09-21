@@ -506,7 +506,7 @@ footer{
 
     <div class="nav-links">
         <a href="#top">✨ Stylish Names</a>
-        <a href="#namesSection">Aa Cool Fonts</a>
+        <a href="javascript:void(0)" onclick="goCoolFonts()">Aa Cool Fonts</a>
         <a href="#namesSection">✦ Unique Vibes</a>
 
 <a href="#top">⌂ Home</a>
@@ -1262,7 +1262,16 @@ function goFavorites(){
     showFavorites();
 
 }
+    
+function goCoolFonts(){
 
+    document.getElementById("favorites").style.display = "none";
+
+    document.getElementById("namesSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
 </script>
 
 </body>
