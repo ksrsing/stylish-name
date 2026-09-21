@@ -736,7 +736,7 @@ const supabaseClient = supabase.createClient(
         .from("names")
         .select("id, name, category")
         .order("id", { ascending: true })
-        .limit(5000);
+        .limit(10000);
 
     if (error) {
         console.error("Supabase Error:", error);
