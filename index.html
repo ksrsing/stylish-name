@@ -1981,32 +1981,7 @@ function setCategory(category) {
 
     };
 
-    const terms =
-    symbols[category] || [];
-
-    const filtered =
-    allNames.filter(
-        name =>
-        terms.some(
-            term =>
-            name
-            .toLowerCase()
-            .includes(
-                term.toLowerCase()
-            )
-        )
-    );
-
-    displayedNames =
-    filtered.length
-    ? filtered
-    : allNames.slice();
-
-    page=1;
-
-    render();
-
-}
+    
 
 
 /* =========================================
