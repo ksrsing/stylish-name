@@ -729,6 +729,7 @@ const supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
 );
+ let onlineRecords = [];
  async function loadNamesFromSupabase() {
 
     const { data, error } = await supabaseClient
@@ -745,12 +746,18 @@ const supabaseClient = supabase.createClient(
     console.log("Online Names:", data);
 
     if (data && data.length > 0) {
-        allNames = data.map(row => row.name);
-        displayedNames = [...allNames];
 
-        page = 1;
-        render();
+    onlineRecords = data;
+
+    allNames = data.map(row => row.name);
+
+    displayedNames = [...allNames];
+
+    page = 1;
+
+    render();
     }
+    
  }
 /* =========================================
 UNICODE FONT MAPS
@@ -1856,35 +1863,24 @@ function randomName(){
 CATEGORY
 ========================================= */
 
-function setCategory(
-    category,
-    button
-){
+function setCategory(category) {
 
-    document
-    .querySelectorAll(".cat")
-    .forEach(
-        x=>
-        x.classList.remove(
-            "active"
-        )
-    );
+    currentCategory = category;
 
-    button.classList.add(
-        "active"
-    );
-
-    if(category==="All"){
-
-        displayedNames =
-        allNames.slice();
-
-        page=1;
-
-        render();
-
-        return;
+    if (category === "All") {
+        displayedNames = [...allNames];
+    } else {
+        displayedNames = onlineRecords
+            .filter(row =>
+                row.category &&
+                row.category.toLowerCase() === category.toLowerCase()
+            )
+            .map(row => row.name);
     }
+
+    page = 1;
+    render();
+}
 
     const symbols = {
 
