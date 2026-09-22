@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="description" content="NameCraft is a stylish name generator with 1000+ unique gaming, cool, royal, fire, love and attitude names. Generate and copy stylish names easily.">
 
-<meta name="keywords" content="stylish name generator, stylish names, gaming names, free fire names, cool names, royal names, name generator">
-
-<meta name="author" content="NameCraft">
-
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="NameCraft - Stylish Name Generator">
-<meta property="og:description" content="Generate 1000+ unique stylish names for gaming and social media.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ksrsing.github.io/stylish-name/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080b22">
 
 <title>NameCraft - 1000+ Stylish Name Generator</title>
 
+<meta name="description"
+content="NameCraft is a stylish name generator with 1000+ unique gaming, cool, royal, love, aesthetic and neon names. Generate, copy and save stylish names for gaming and social media.">
+
+<meta name="keywords"
+content="stylish name generator, stylish names, gaming names, free fire names, cool names, royal names, aesthetic names, neon names, username generator">
+
+<meta name="author" content="NameCraft">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://ksrsing.github.io/stylish-name/">
+
+<meta property="og:title"
+content="NameCraft - Stylish Name Generator">
+
+<meta property="og:description"
+content="Generate 1000+ unique stylish names for gaming, social media and usernames.">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url"
+content="https://ksrsing.github.io/stylish-name/">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -50,7 +63,12 @@ body:before{
     inset:0;
     pointer-events:none;
     background:
-        linear-gradient(120deg,transparent 48%,rgba(80,100,255,.04) 50%,transparent 52%);
+        linear-gradient(
+            120deg,
+            transparent 48%,
+            rgba(80,100,255,.04) 50%,
+            transparent 52%
+        );
     background-size:80px 80px;
 }
 
@@ -202,6 +220,7 @@ body:before{
     margin-top:18px;
     color:#9bb9ed;
     font-size:19px;
+    line-height:1.6;
 }
 
 /* ================= SEARCH ================= */
@@ -316,6 +335,26 @@ body:before{
 .category span{
     font-size:15px;
     font-weight:600;
+}
+
+/* ================= SEO TEXT ================= */
+
+.seoIntro{
+    max-width:950px;
+    margin:0 auto 35px;
+    padding:0 20px;
+    text-align:center;
+}
+
+.seoIntro h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.seoIntro p{
+    color:#8d9bc5;
+    line-height:1.8;
+    font-size:15px;
 }
 
 /* ================= RESULTS HEADER ================= */
@@ -710,6 +749,7 @@ body:before{
     }
 
 }
+
 </style>
 </head>
 
@@ -733,19 +773,14 @@ NameCraft
 
 </div>
 
-
 <div class="navLinks">
 
 <a href="#home" class="active">Home</a>
-
 <a href="#styles">Styles</a>
-
 <a href="#favorites">♡ Favorites</a>
-
 <a href="#about">About</a>
 
 </div>
-
 
 <div class="navActions">
 
@@ -753,7 +788,8 @@ NameCraft
 Log In
 </button>
 
-<button class="generateTop"
+<button
+class="generateTop"
 onclick="focusInput()">
 ✨ Generate
 </button>
@@ -779,9 +815,9 @@ Name
 
 <p>
 Generate unique, eye-catching nicknames for gaming,
-social media, and more — inspired by style, powered by creativity.
+social media, profiles and usernames using stylish
+Unicode symbols and fonts.
 </p>
-
 
 <div class="searchBox">
 
@@ -817,49 +853,77 @@ onclick="generateNames()">
 <div class="category active"
 data-category="Gaming"
 onclick="selectCategory(this)">
+
 <div class="icon">🎮</div>
 <span>Gaming</span>
+
 </div>
 
 <div class="category"
 data-category="Cool"
 onclick="selectCategory(this)">
+
 <div class="icon">😎</div>
 <span>Cool</span>
+
 </div>
 
 <div class="category"
 data-category="Royal"
 onclick="selectCategory(this)">
+
 <div class="icon">♛</div>
 <span>Royal</span>
+
 </div>
 
 <div class="category"
 data-category="Love"
 onclick="selectCategory(this)">
+
 <div class="icon">♡</div>
 <span>Love</span>
+
 </div>
 
 <div class="category"
 data-category="Aesthetic"
 onclick="selectCategory(this)">
+
 <div class="icon">✧</div>
 <span>Aesthetic</span>
+
 </div>
 
 <div class="category"
 data-category="Neon"
 onclick="selectCategory(this)">
+
 <div class="icon">ϟ</div>
 <span>Neon</span>
-</div>
 
 </div>
 
+</div>
 
-<!-- ================= RESULT HEADER ================= -->
+
+<!-- ================= SEO CONTENT ================= -->
+
+<section class="seoIntro">
+
+<h2>Free Stylish Name Generator</h2>
+
+<p>
+Create stylish gaming names, cool usernames, royal names,
+love names, aesthetic usernames and neon names with NameCraft.
+Enter your name, choose a category and generate hundreds of
+unique designs that you can copy and use on games and social media.
+</p>
+
+</section>
+
+
+<!-- ================= RESULTS HEADER ================= -->
 
 <div class="resultsHeader">
 
@@ -883,8 +947,173 @@ id="resultCount">
 id="resultsGrid"
 class="resultsGrid">
 
-<div class="loading">
-Enter a name above to generate stylish names...
+<!-- STATIC CONTENT FOR SEARCH ENGINES -->
+
+<div class="nameCard">
+
+<div class="cardBadge">
+🔥
+</div>
+
+<div class="styledName f18">
+꧁༒Shadow༒꧂
+</div>
+
+<div class="tags">
+<span class="tag">Gaming</span>
+<span class="tag">Stylish</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('꧁༒Shadow༒꧂')">
+▣ Copy
+</button>
+
+</div>
+
+</div>
+
+
+<div class="nameCard">
+
+<div class="cardBadge">
+👑
+</div>
+
+<div class="styledName f13">
+亗 DarkLord 亗
+</div>
+
+<div class="tags">
+<span class="tag">Gaming</span>
+<span class="tag">Cool</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('亗 DarkLord 亗')">
+▣ Copy
+</button>
+
+</div>
+
+</div>
+
+
+<div class="nameCard">
+
+<div class="cardBadge">
+🔥
+</div>
+
+<div class="styledName f4">
+乂 Dragon 乂
+</div>
+
+<div class="tags">
+<span class="tag">Gaming</span>
+<span class="tag">Stylish</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('乂 Dragon 乂')">
+▣ Copy
+</button>
+
+</div>
+
+</div>
+
+
+<div class="nameCard">
+
+<div class="cardBadge">
+👑
+</div>
+
+<div class="styledName f17">
+♛ King ♛
+</div>
+
+<div class="tags">
+<span class="tag">Royal</span>
+<span class="tag">Stylish</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('♛ King ♛')">
+▣ Copy
+</button>
+
+</div>
+
+</div>
+
+
+<div class="nameCard">
+
+<div class="cardBadge">
+🔥
+</div>
+
+<div class="styledName f8">
+♡ LoveBoy ♡
+</div>
+
+<div class="tags">
+<span class="tag">Love</span>
+<span class="tag">Stylish</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('♡ LoveBoy ♡')">
+▣ Copy
+</button>
+
+</div>
+
+</div>
+
+
+<div class="nameCard">
+
+<div class="cardBadge">
+👑
+</div>
+
+<div class="styledName f6">
+✦ Phantom ✦
+</div>
+
+<div class="tags">
+<span class="tag">Cool</span>
+<span class="tag">Stylish</span>
+</div>
+
+<div class="cardBottom">
+
+<button
+class="cardBtn"
+onclick="copyText('✦ Phantom ✦')">
+▣ Copy
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -905,7 +1134,7 @@ disabled>
 <span
 id="pageInfo"
 class="pageInfo">
-Page 1
+Page 1 / 1
 </span>
 
 <button
@@ -921,10 +1150,16 @@ Next →
 <!-- ================= TIP ================= -->
 
 <div class="tip">
-✨ Tip: Click Copy to copy and use anywhere
+
+✨ Tip: Click Copy to copy a stylish name and use it anywhere
 &nbsp; • &nbsp;
-<span id="todayCount">1,200+</span>
+
+<span id="todayCount">
+1,200+
+</span>
+
 names generated today
+
 </div>
 
 
@@ -939,12 +1174,18 @@ padding:0 20px;
 ">
 
 <div class="resultsHeader" style="padding-left:0">
-<h2>♡ Favorites</h2>
+
+<h2>
+♡ Favorites
+</h2>
+
 </div>
 
-<div id="favoriteList"
+<div
+id="favoriteList"
 class="resultsGrid"
 style="padding:0">
+
 </div>
 
 </section>
@@ -970,10 +1211,17 @@ color:#8d9bc5;
 line-height:1.8;
 font-size:16px;
 ">
-NameCraft is a stylish name generator for gaming,
+
+NameCraft is a free stylish name generator for gaming,
 social media, profiles and usernames.
-Create unique names using hundreds of Unicode,
-symbols, decorations and font combinations.
+
+Create unique names using Unicode symbols,
+decorations, stylish fonts and hundreds of
+different combinations.
+
+You can generate names, copy them with one tap
+and save your favorite designs in your browser.
+
 </p>
 
 </section>
@@ -1022,11 +1270,38 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
-const supabaseClient =
-supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+let supabaseClient = null;
+
+/*
+  Supabase is optional.
+  If the library or database fails,
+  the website will continue working.
+*/
+
+try{
+
+    if(
+        typeof supabase !== "undefined" &&
+        SUPABASE_URL &&
+        SUPABASE_KEY
+    ){
+
+        supabaseClient =
+            supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+    }
+
+}catch(error){
+
+    console.warn(
+        "Supabase unavailable:",
+        error
+    );
+
+}
 
 
 /* =====================================================
@@ -1043,9 +1318,13 @@ let currentCategory = "Gaming";
 
 let generatedStyles = [];
 
+let usingDatabase = false;
+
 let favorites =
 JSON.parse(
-localStorage.getItem("namecraft_favorites") || "[]"
+localStorage.getItem(
+    "namecraft_favorites"
+) || "[]"
 );
 
 
@@ -1096,7 +1375,7 @@ const sansItalicUpper =
 
 
 const scriptLower =
-"𝒶𝒷𝒸𝒹𝑒𝒻𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+"𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
 
 const scriptUpper =
 "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
@@ -1116,9 +1395,14 @@ const frakturUpper =
 "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
 
 
-function convertFont(text,lower,upper){
+function convertFont(
+    text,
+    lower,
+    upper
+){
 
-    return [...text].map(char=>{
+    return [...text]
+    .map(char=>{
 
         let i =
             normalLower.indexOf(char);
@@ -1134,7 +1418,8 @@ function convertFont(text,lower,upper){
 
         return char;
 
-    }).join("");
+    })
+    .join("");
 
 }
 
@@ -1228,16 +1513,17 @@ function smallCaps(text){
     };
 
     return [...text.toLowerCase()]
-        .map(c=>map[c]||c)
-        .join("");
+    .map(c=>map[c]||c)
+    .join("");
+
 }
 
 
 function underline(text){
 
     return [...text]
-        .map(c=>c+"\u0332")
-        .join("");
+    .map(c=>c+"\u0332")
+    .join("");
 
 }
 
@@ -1245,8 +1531,8 @@ function underline(text){
 function strike(text){
 
     return [...text]
-        .map(c=>c+"\u0336")
-        .join("");
+    .map(c=>c+"\u0336")
+    .join("");
 
 }
 
@@ -1254,8 +1540,8 @@ function strike(text){
 function dots(text){
 
     return [...text]
-        .map(c=>c+"\u0307")
-        .join("");
+    .map(c=>c+"\u0307")
+    .join("");
 
 }
 
@@ -1269,7 +1555,8 @@ function spaced(text){
 
 function fullWidth(text){
 
-    return [...text].map(c=>{
+    return [...text]
+    .map(c=>{
 
         const code =
             c.charCodeAt(0);
@@ -1278,9 +1565,11 @@ function fullWidth(text){
             code>=33 &&
             code<=126
         ){
+
             return String.fromCharCode(
                 code+65248
             );
+
         }
 
         if(c===" ")
@@ -1288,7 +1577,8 @@ function fullWidth(text){
 
         return c;
 
-    }).join("");
+    })
+    .join("");
 
 }
 
@@ -1307,25 +1597,29 @@ function bubble(text){
     ];
 
     return [...text.toUpperCase()]
-        .map(c=>{
+    .map(c=>{
 
-            const i =
-                letters.indexOf(c);
+        const i =
+            letters.indexOf(c);
 
-            return i>=0
-                ? bubbles[i]
-                : c;
+        return i>=0
+            ? bubbles[i]
+            : c;
 
-        }).join("");
+    })
+    .join("");
 
 }
 
 
 /* =====================================================
-1000+ STYLE GENERATOR
+1200 STYLE GENERATOR
 ===================================================== */
 
-function makeStyles(name,category){
+function makeStyles(
+    name,
+    category
+){
 
     const set =
         new Set();
@@ -1372,7 +1666,6 @@ function makeStyles(name,category){
     const decorations=[
 
         ["",""],
-
         ["꧁","꧂"],
         ["༺","༻"],
         ["『","』"],
@@ -1418,8 +1711,6 @@ function makeStyles(name,category){
 
     ];
 
-
-    /* category styles */
 
     if(category==="Gaming"){
 
@@ -1501,8 +1792,6 @@ function makeStyles(name,category){
     }
 
 
-    /* Main combinations */
-
     for(
         let f=0;
         f<fonts.length;
@@ -1539,8 +1828,6 @@ function makeStyles(name,category){
 
     }
 
-
-    /* Additional combinations */
 
     const extra=[
 
@@ -1588,6 +1875,102 @@ function makeStyles(name,category){
 
 
 /* =====================================================
+LOCAL FALLBACK NAMES
+===================================================== */
+
+const fallbackNames={
+
+Gaming:[
+    "꧁༒Shadow༒꧂",
+    "亗 DarkLord 亗",
+    "乂 Dragon 乂",
+    "メ Ghost メ",
+    "〆 Killer 〆",
+    "⚔ Warrior ⚔",
+    "☠ Venom ☠",
+    "彡 Hunter 彡",
+    "『亗Sniper亗』",
+    "꧁༺Rider༻꧂",
+    "乂 Phantom 乂",
+    "亗 Demon 亗"
+],
+
+Cool:[
+    "ツ Shadow ツ",
+    "シ Phantom シ",
+    "々 Legend 々",
+    "彡 Silent 彡",
+    "〆 Storm 〆",
+    "メ Rebel メ",
+    "★ CoolBoy ★",
+    "✦ DarkSoul ✦",
+    "『Ace』",
+    "亗 Zero 亗"
+],
+
+Royal:[
+    "♛ King ♛",
+    "♕ Queen ♕",
+    "♔ Royal ♔",
+    "👑 Emperor 👑",
+    "⚜ Prince ⚜",
+    "꧁༺♛King♛༻꧂",
+    "♛ Maharaja ♛",
+    "♕ RoyalSoul ♕"
+],
+
+Love:[
+    "♡ LoveBoy ♡",
+    "♥ LoveGirl ♥",
+    "❤ MyLove ❤",
+    "💖 SweetHeart 💖",
+    "💗 Forever 💗",
+    "💕 CuteSoul 💕",
+    "ღ Love ღ",
+    "ᥫ᭡ Angel ᥫ᭡"
+],
+
+Aesthetic:[
+    "˚₊‧ Moon ‧₊˚",
+    "⋆｡°✩ Dreamer ✩°｡⋆",
+    "☾ Starlight ☽",
+    "𓆩 Angel 𓆪",
+    "୨୧ Blossom ୨୧",
+    "✿ Rose ✿",
+    "❀ Daisy ❀",
+    "☁ Cloudy ☁"
+],
+
+Neon:[
+    "⚡ NeonBoy ⚡",
+    "✦ Cyber ✦",
+    "✧ Voltage ✧",
+    "★ NightGlow ★",
+    "✯ Laser ✯",
+    "☄ Cosmic ☄",
+    "⚡ Flash ⚡",
+    "✦ Electric ✦"
+]
+
+};
+
+
+/* =====================================================
+GET LOCAL NAMES
+===================================================== */
+
+function getFallbackNames(){
+
+    const list =
+        fallbackNames[currentCategory] ||
+        fallbackNames.Gaming;
+
+    return list;
+
+}
+
+
+/* =====================================================
 GENERATE
 ===================================================== */
 
@@ -1622,15 +2005,18 @@ function generateNames(){
     currentPage=1;
 
     totalPages=
-        Math.ceil(
-            generatedStyles.length /
-            PAGE_SIZE
+        Math.max(
+            1,
+            Math.ceil(
+                generatedStyles.length /
+                PAGE_SIZE
+            )
         );
 
 
     document
-        .getElementById("resultCount")
-        .textContent =
+    .getElementById("resultCount")
+    .textContent =
         generatedStyles.length+
         " styles";
 
@@ -1641,7 +2027,7 @@ function generateNames(){
 
 
 /* =====================================================
-RENDER
+RENDER GENERATED
 ===================================================== */
 
 function renderGenerated(){
@@ -1657,6 +2043,7 @@ function renderGenerated(){
         (currentPage-1) *
         PAGE_SIZE;
 
+
     const items =
         generatedStyles.slice(
             start,
@@ -1670,7 +2057,8 @@ function renderGenerated(){
             createCard(
                 text,
                 index,
-                grid
+                grid,
+                currentCategory
             );
 
         }
@@ -1689,7 +2077,8 @@ CARD
 function createCard(
     text,
     index,
-    parent
+    parent,
+    category=currentCategory
 ){
 
     const card =
@@ -1735,7 +2124,7 @@ function createCard(
     tag1.className="tag";
 
     tag1.textContent =
-        currentCategory;
+        category;
 
 
     const tag2 =
@@ -1766,11 +2155,14 @@ function createCard(
     fav.className =
         "cardBtn favoriteBtn";
 
+
     const isSaved =
         favorites.includes(text);
 
+
     if(isSaved)
         fav.classList.add("saved");
+
 
     fav.textContent =
         isSaved
@@ -1779,10 +2171,13 @@ function createCard(
 
 
     fav.onclick=()=>{
+
         toggleFavorite(
             text,
-            fav
+            fav,
+            category
         );
+
     };
 
 
@@ -1795,8 +2190,11 @@ function createCard(
     copy.textContent =
         "▣ Copy";
 
+
     copy.onclick=()=>{
+
         copyText(text);
+
     };
 
 
@@ -1821,7 +2219,8 @@ FAVORITES
 
 function toggleFavorite(
     text,
-    button
+    button,
+    category=currentCategory
 ){
 
     const index =
@@ -1908,7 +2307,8 @@ function renderFavorites(){
             createCard(
                 text,
                 index,
-                list
+                list,
+                "Favorite"
             );
 
         }
@@ -1925,9 +2325,38 @@ async function copyText(text){
 
     try{
 
-        await navigator
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ){
+
+            await navigator
             .clipboard
             .writeText(text);
+
+        }else{
+
+            const area =
+                document.createElement(
+                    "textarea"
+                );
+
+            area.value=text;
+
+            area.style.position="fixed";
+            area.style.opacity="0";
+
+            document.body.appendChild(area);
+
+            area.focus();
+            area.select();
+
+            document.execCommand("copy");
+
+            area.remove();
+
+        }
+
 
         showToast(
             "Copied successfully!"
@@ -1935,27 +2364,8 @@ async function copyText(text){
 
     }catch(error){
 
-        const area =
-            document.createElement(
-                "textarea"
-            );
-
-        area.value=text;
-
-        document.body.appendChild(
-            area
-        );
-
-        area.select();
-
-        document.execCommand(
-            "copy"
-        );
-
-        area.remove();
-
         showToast(
-            "Copied successfully!"
+            "Copy failed"
         );
 
     }
@@ -1970,11 +2380,11 @@ CATEGORY
 function selectCategory(element){
 
     document
-        .querySelectorAll(".category")
-        .forEach(
-            item=>
-            item.classList.remove("active")
-        );
+    .querySelectorAll(".category")
+    .forEach(
+        item=>
+        item.classList.remove("active")
+    );
 
 
     element.classList.add("active");
@@ -1982,6 +2392,9 @@ function selectCategory(element){
 
     currentCategory =
         element.dataset.category;
+
+
+    currentPage=1;
 
 
     const input =
@@ -2005,113 +2418,199 @@ function selectCategory(element){
 
 
 /* =====================================================
-SUPABASE
+SUPABASE POPULAR NAMES
 ===================================================== */
 
 async function loadPopularNames(){
 
-    const grid =
-        document
-        .getElementById("resultsGrid");
+    /*
+      First show local names immediately.
+      This prevents an empty/soft-error-looking page.
+    */
 
-    grid.innerHTML=
-        `<div class="loading">
-        Loading stylish names...
-        </div>`;
+    renderFallbackNames();
 
 
-    let query =
-        supabaseClient
-        .from("names")
-        .select(
-            "id,name,category",
-            {count:"exact"}
-        )
-        .order(
-            "id",
-            {ascending:false}
-        );
-
-
-    if(currentCategory){
-
-        query =
-            query.eq(
-                "category",
-                currentCategory
-            );
-
-    }
-
-
-    const from =
-        (currentPage-1) *
-        PAGE_SIZE;
-
-    const to =
-        from+PAGE_SIZE-1;
-
-
-    const {
-        data,
-        error,
-        count
-    } =
-        await query.range(
-            from,
-            to
-        );
-
-
-    if(error){
-
-        console.error(error);
-
-        grid.innerHTML=
-            `<div class="loading">
-            Unable to load names.
-            </div>`;
+    if(!supabaseClient){
 
         return;
 
     }
 
 
-    const names =
-        data || [];
+    try{
 
-
-    totalPages =
-        Math.max(
-            1,
-            Math.ceil(
-                (count || names.length) /
-                PAGE_SIZE
+        let query =
+            supabaseClient
+            .from("names")
+            .select(
+                "id,name,category",
+                {count:"exact"}
             )
+            .eq(
+                "category",
+                currentCategory
+            )
+            .order(
+                "id",
+                {ascending:false}
+            );
+
+
+        const from =
+            (currentPage-1) *
+            PAGE_SIZE;
+
+
+        const to =
+            from+PAGE_SIZE-1;
+
+
+        const result =
+            await query.range(
+                from,
+                to
+            );
+
+
+        const data =
+            result.data;
+
+        const error =
+            result.error;
+
+        const count =
+            result.count;
+
+
+        /*
+          If database returns valid names,
+          use database content.
+        */
+
+        if(
+            !error &&
+            Array.isArray(data) &&
+            data.length>0
+        ){
+
+            usingDatabase=true;
+
+
+            const grid =
+                document
+                .getElementById(
+                    "resultsGrid"
+                );
+
+
+            grid.innerHTML="";
+
+
+            data.forEach(
+                (item,index)=>{
+
+                    createCard(
+                        item.name,
+                        index,
+                        grid,
+                        item.category ||
+                        currentCategory
+                    );
+
+                }
+            );
+
+
+            totalPages =
+                Math.max(
+                    1,
+                    Math.ceil(
+                        (count || data.length) /
+                        PAGE_SIZE
+                    )
+                );
+
+
+            document
+            .getElementById(
+                "resultCount"
+            )
+            .textContent =
+                (count || data.length)+
+                " results";
+
+
+            updatePagination();
+
+            return;
+
+        }
+
+
+    }catch(error){
+
+        console.warn(
+            "Supabase request failed. Using local names.",
+            error
         );
+
+    }
+
+
+    /*
+      Database failed or returned no data.
+      Local content stays visible.
+    */
+
+    usingDatabase=false;
+
+}
+
+
+/* =====================================================
+LOCAL FALLBACK RENDER
+===================================================== */
+
+function renderFallbackNames(){
+
+    const grid =
+        document
+        .getElementById(
+            "resultsGrid"
+        );
+
+
+    const names =
+        getFallbackNames();
 
 
     grid.innerHTML="";
 
 
     names.forEach(
-        (item,index)=>{
+        (text,index)=>{
 
             createCard(
-                item.name,
+                text,
                 index,
-                grid
+                grid,
+                currentCategory
             );
 
         }
     );
 
 
+    totalPages=1;
+
+
     document
-        .getElementById("resultCount")
-        .textContent =
-        (count || names.length)+
-        " results";
+    .getElementById(
+        "resultCount"
+    )
+    .textContent =
+        "1000+ styles";
 
 
     updatePagination();
@@ -2126,20 +2625,26 @@ PAGINATION
 function updatePagination(){
 
     document
-        .getElementById("pageInfo")
-        .textContent =
+    .getElementById(
+        "pageInfo"
+    )
+    .textContent =
         `Page ${currentPage} / ${totalPages}`;
 
 
     document
-        .getElementById("prevBtn")
-        .disabled =
+    .getElementById(
+        "prevBtn"
+    )
+    .disabled =
         currentPage<=1;
 
 
     document
-        .getElementById("nextBtn")
-        .disabled =
+    .getElementById(
+        "nextBtn"
+    )
+    .disabled =
         currentPage>=totalPages;
 
 }
@@ -2149,8 +2654,11 @@ function nextPage(){
 
     if(
         currentPage>=totalPages
-    )
+    ){
+
         return;
+
+    }
 
 
     currentPage++;
@@ -2158,7 +2666,9 @@ function nextPage(){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
 
@@ -2184,8 +2694,11 @@ function nextPage(){
 
 function previousPage(){
 
-    if(currentPage<=1)
+    if(currentPage<=1){
+
         return;
+
+    }
 
 
     currentPage--;
@@ -2193,7 +2706,9 @@ function previousPage(){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
 
@@ -2222,23 +2737,23 @@ INPUT
 ===================================================== */
 
 document
-    .getElementById("nameInput")
-    .addEventListener(
-        "keydown",
-        function(event){
+.getElementById("nameInput")
+.addEventListener(
+    "keydown",
+    function(event){
 
-            if(
-                event.key==="Enter"
-            ){
+        if(
+            event.key==="Enter"
+        ){
 
-                event.preventDefault();
+            event.preventDefault();
 
-                generateNames();
-
-            }
+            generateNames();
 
         }
-    );
+
+    }
+);
 
 
 /* =====================================================
@@ -2247,9 +2762,14 @@ FOCUS
 
 function focusInput(){
 
-    document
-        .getElementById("nameInput")
-        .focus();
+    const input =
+        document.getElementById(
+            "nameInput"
+        );
+
+
+    input.focus();
+
 
     window.scrollTo({
         top:0,
@@ -2265,11 +2785,13 @@ TOAST
 
 let toastTimer;
 
+
 function showToast(message){
 
     const toast =
-        document
-        .getElementById("toast");
+        document.getElementById(
+            "toast"
+        );
 
 
     toast.textContent =
@@ -2289,9 +2811,11 @@ function showToast(message){
     toastTimer =
         setTimeout(
             ()=>{
+
                 toast.classList.remove(
                     "show"
                 );
+
             },
             1800
         );
@@ -2304,6 +2828,11 @@ START
 ===================================================== */
 
 renderFavorites();
+
+/*
+  Local content is rendered immediately.
+  Supabase is then checked in the background.
+*/
 
 loadPopularNames();
 
