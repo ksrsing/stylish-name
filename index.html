@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-<meta charset="UTF-8">
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#080b22">
-
-<title>NameCraft - 1000+ Stylish Name Generator</title>
-
-<meta name="description"
-content="NameCraft is a stylish name generator with 1000+ unique gaming, cool, royal, love, aesthetic and neon names. Generate, copy and save stylish names for gaming and social media.">
+<meta name="theme-color" content="#080b22"><title>NameCraft - 1000+ Stylish Name Generator</title><meta name="description"
+content="NameCraft is a stylish name generator with 1000+ unique gaming, cool, royal, love, aesthetic and neon names. Generate, copy and save stylish names easily.">
 
 <meta name="keywords"
 content="stylish name generator, stylish names, gaming names, free fire names, cool names, royal names, aesthetic names, neon names, username generator">
 
 <meta name="author" content="NameCraft">
-<meta name="robots" content="index, follow">
-
-<link rel="canonical"
-href="https://ksrsing.github.io/stylish-name/">
-
-<meta property="og:title"
+<meta name="robots" content="index, follow"><link rel="canonical"
+href="https://ksrsing.github.io/stylish-name/"><meta property="og:title"
 content="NameCraft - Stylish Name Generator">
 
 <meta property="og:description"
 content="Generate 1000+ unique stylish names for gaming, social media and usernames.">
 
-<meta property="og:type" content="website">
-
-<meta property="og:url"
+<meta property="og:type" content="website"><meta property="og:url"
 content="https://ksrsing.github.io/stylish-name/">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
 
 *{
     margin:0;
@@ -337,7 +323,7 @@ body:before{
     font-weight:600;
 }
 
-/* ================= SEO TEXT ================= */
+/* ================= SEO ================= */
 
 .seoIntro{
     max-width:950px;
@@ -357,7 +343,7 @@ body:before{
     font-size:15px;
 }
 
-/* ================= RESULTS HEADER ================= */
+/* ================= RESULTS ================= */
 
 .resultsHeader{
     max-width:1260px;
@@ -380,8 +366,6 @@ body:before{
     color:#7285b4;
     font-size:15px;
 }
-
-/* ================= CARDS ================= */
 
 .resultsGrid{
     max-width:1260px;
@@ -419,8 +403,7 @@ body:before{
 
 .nameCard:hover{
     transform:translateY(-4px);
-    box-shadow:
-        0 0 25px rgba(94,117,255,.28);
+    box-shadow:0 0 25px rgba(94,117,255,.28);
 }
 
 .cardBadge{
@@ -750,84 +733,36 @@ body:before{
 
 }
 
-</style>
-</head>
-
-<body>
-
-<!-- ================= NAVBAR ================= -->
-
-<nav class="navbar">
-
-<div class="navInner">
-
-<div class="logoArea">
-
-<div class="logoIcon">
+</style></head><body><nav class="navbar"><div class="navInner"><div class="logoArea"><div class="logoIcon">
 <span>◇</span>
-</div>
-
-<div class="logo">
+</div><div class="logo">
 NameCraft
-</div>
-
-</div>
-
-<div class="navLinks">
-
-<a href="#home" class="active">Home</a>
+</div></div><div class="navLinks"><a href="#home" class="active">Home</a>
 <a href="#styles">Styles</a>
 <a href="#favorites">♡ Favorites</a>
 <a href="#about">About</a>
 
-</div>
-
-<div class="navActions">
-
-<button class="loginBtn">
+</div><div class="navActions"><button class="loginBtn">
 Log In
-</button>
-
-<button
+</button><button
 class="generateTop"
 onclick="focusInput()">
 ✨ Generate
 </button>
 
-</div>
-
-</div>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-<h1>
+</div></div></nav><section class="hero" id="home"><h1>
 Create Your
 <span class="gradientText">
 Stylish
 </span>
 Name
-</h1>
-
-<p>
+</h1><p>
 Generate unique, eye-catching nicknames for gaming,
 social media, profiles and usernames using stylish
 Unicode symbols and fonts.
-</p>
-
-<div class="searchBox">
-
-<div class="searchInner">
-
-<span class="searchIcon">
+</p><div class="searchBox"><div class="searchInner"><span class="searchIcon">
 ⌕
-</span>
-
-<input
+</span><input
 id="nameInput"
 type="text"
 placeholder="Type a name or keyword... e.g. shadow, dragon, phantom"
@@ -839,291 +774,41 @@ onclick="generateNames()">
 ✨ Generate
 </button>
 
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= CATEGORIES ================= -->
-
-<div class="categories" id="styles">
-
-<div class="category active"
+</div></div></section><div class="categories" id="styles"><div class="category active"
 data-category="Gaming"
-onclick="selectCategory(this)">
-
-<div class="icon">🎮</div>
-<span>Gaming</span>
-
-</div>
-
-<div class="category"
+onclick="selectCategory(this)"><div class="icon">🎮</div>
+<span>Gaming</span></div><div class="category"
 data-category="Cool"
-onclick="selectCategory(this)">
-
-<div class="icon">😎</div>
-<span>Cool</span>
-
-</div>
-
-<div class="category"
+onclick="selectCategory(this)"><div class="icon">😎</div>
+<span>Cool</span></div><div class="category"
 data-category="Royal"
-onclick="selectCategory(this)">
-
-<div class="icon">♛</div>
-<span>Royal</span>
-
-</div>
-
-<div class="category"
+onclick="selectCategory(this)"><div class="icon">♛</div>
+<span>Royal</span></div><div class="category"
 data-category="Love"
-onclick="selectCategory(this)">
-
-<div class="icon">♡</div>
-<span>Love</span>
-
-</div>
-
-<div class="category"
+onclick="selectCategory(this)"><div class="icon">♡</div>
+<span>Love</span></div><div class="category"
 data-category="Aesthetic"
-onclick="selectCategory(this)">
-
-<div class="icon">✧</div>
-<span>Aesthetic</span>
-
-</div>
-
-<div class="category"
+onclick="selectCategory(this)"><div class="icon">✧</div>
+<span>Aesthetic</span></div><div class="category"
 data-category="Neon"
-onclick="selectCategory(this)">
-
-<div class="icon">ϟ</div>
-<span>Neon</span>
-
-</div>
-
-</div>
-
-
-<!-- ================= SEO CONTENT ================= -->
-
-<section class="seoIntro">
-
-<h2>Free Stylish Name Generator</h2>
-
-<p>
+onclick="selectCategory(this)"><div class="icon">ϟ</div>
+<span>Neon</span></div></div><section class="seoIntro"><h2>Free Stylish Name Generator</h2><p>
 Create stylish gaming names, cool usernames, royal names,
 love names, aesthetic usernames and neon names with NameCraft.
 Enter your name, choose a category and generate hundreds of
 unique designs that you can copy and use on games and social media.
-</p>
-
-</section>
-
-
-<!-- ================= RESULTS HEADER ================= -->
-
-<div class="resultsHeader">
-
-<h2>
+</p></section><div class="resultsHeader"><h2>
 Popular Stylish Names
 <span>🔥</span>
-</h2>
-
-<div
+</h2><div
 class="resultCount"
 id="resultCount">
 1000+ styles
-</div>
-
-</div>
-
-
-<!-- ================= RESULTS ================= -->
-
-<div
+</div></div><div
 id="resultsGrid"
-class="resultsGrid">
-
-<!-- STATIC CONTENT FOR SEARCH ENGINES -->
-
-<div class="nameCard">
-
-<div class="cardBadge">
-🔥
-</div>
-
-<div class="styledName f18">
-꧁༒Shadow༒꧂
-</div>
-
-<div class="tags">
-<span class="tag">Gaming</span>
-<span class="tag">Stylish</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('꧁༒Shadow༒꧂')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-
-<div class="nameCard">
-
-<div class="cardBadge">
-👑
-</div>
-
-<div class="styledName f13">
-亗 DarkLord 亗
-</div>
-
-<div class="tags">
-<span class="tag">Gaming</span>
-<span class="tag">Cool</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('亗 DarkLord 亗')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-
-<div class="nameCard">
-
-<div class="cardBadge">
-🔥
-</div>
-
-<div class="styledName f4">
-乂 Dragon 乂
-</div>
-
-<div class="tags">
-<span class="tag">Gaming</span>
-<span class="tag">Stylish</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('乂 Dragon 乂')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-
-<div class="nameCard">
-
-<div class="cardBadge">
-👑
-</div>
-
-<div class="styledName f17">
-♛ King ♛
-</div>
-
-<div class="tags">
-<span class="tag">Royal</span>
-<span class="tag">Stylish</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('♛ King ♛')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-
-<div class="nameCard">
-
-<div class="cardBadge">
-🔥
-</div>
-
-<div class="styledName f8">
-♡ LoveBoy ♡
-</div>
-
-<div class="tags">
-<span class="tag">Love</span>
-<span class="tag">Stylish</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('♡ LoveBoy ♡')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-
-<div class="nameCard">
-
-<div class="cardBadge">
-👑
-</div>
-
-<div class="styledName f6">
-✦ Phantom ✦
-</div>
-
-<div class="tags">
-<span class="tag">Cool</span>
-<span class="tag">Stylish</span>
-</div>
-
-<div class="cardBottom">
-
-<button
-class="cardBtn"
-onclick="copyText('✦ Phantom ✦')">
-▣ Copy
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ================= PAGINATION ================= -->
-
-<div class="pagination">
-
-<button
+class="resultsGrid"><div class="loading">
+Loading stylish names...
+</div></div><div class="pagination"><button
 id="prevBtn"
 class="pageBtn"
 onclick="previousPage()"
@@ -1144,75 +829,38 @@ onclick="nextPage()">
 Next →
 </button>
 
-</div>
-
-
-<!-- ================= TIP ================= -->
-
-<div class="tip">
-
-✨ Tip: Click Copy to copy a stylish name and use it anywhere
-&nbsp; • &nbsp;
+</div><div class="tip">✨ Tip: Click Copy to copy a stylish name and use it anywhere
+  •  
 
 <span id="todayCount">
 1,200+
-</span>
+</span>names generated today
 
-names generated today
-
-</div>
-
-
-<!-- ================= FAVORITES ================= -->
-
-<section
+</div><section
 id="favorites"
 style="
 max-width:1260px;
 margin:45px auto;
 padding:0 20px;
-">
-
-<div class="resultsHeader" style="padding-left:0">
-
-<h2>
+"><div class="resultsHeader" style="padding-left:0"><h2>
 ♡ Favorites
-</h2>
-
-</div>
-
-<div
+</h2></div><div
 id="favoriteList"
 class="resultsGrid"
-style="padding:0">
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section
+style="padding:0"></div></section><section
 id="about"
 style="
 max-width:900px;
 margin:60px auto;
 padding:30px 20px;
 text-align:center;
-">
-
-<h2 style="font-size:30px;margin-bottom:15px">
+"><h2 style="font-size:30px;margin-bottom:15px">
 About NameCraft
-</h2>
-
-<p style="
+</h2><p style="
 color:#8d9bc5;
 line-height:1.8;
 font-size:16px;
-">
-
-NameCraft is a free stylish name generator for gaming,
+">NameCraft is a free stylish name generator for gaming,
 social media, profiles and usernames.
 
 Create unique names using Unicode symbols,
@@ -1222,43 +870,22 @@ different combinations.
 You can generate names, copy them with one tap
 and save your favorite designs in your browser.
 
-</p>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer
+</p></section><footer
 style="
 border-top:1px solid rgba(100,110,170,.25);
 background:rgba(4,7,20,.8);
 text-align:center;
 padding:30px 15px;
 color:#7180aa;
-">
-
-<strong style="color:#9f8cff">
+"><strong style="color:#9f8cff">
 NameCraft
-</strong>
+</strong><br>Stylish Name Generator
 
-<br>
+<br>© 2026 NameCraft. All rights reserved.
 
-Stylish Name Generator
-
-<br>
-
-© 2026 NameCraft. All rights reserved.
-
-</footer>
-
-
-<div id="toast" class="toast">
+</footer><div id="toast" class="toast">
 Copied!
-</div>
-
-
-<script>
+</div><script>
 
 /* =====================================================
 SUPABASE
@@ -1271,12 +898,6 @@ const SUPABASE_KEY =
 "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
 let supabaseClient = null;
-
-/*
-  Supabase is optional.
-  If the library or database fails,
-  the website will continue working.
-*/
 
 try{
 
@@ -1318,6 +939,8 @@ let currentCategory = "Gaming";
 
 let generatedStyles = [];
 
+let popularNames = [];
+
 let usingDatabase = false;
 
 let favorites =
@@ -1338,13 +961,11 @@ const normalLower =
 const normalUpper =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
 const boldLower =
 "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
 
 const boldUpper =
 "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
-
 
 const italicLower =
 "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
@@ -1352,20 +973,17 @@ const italicLower =
 const italicUpper =
 "𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
 
-
 const monoLower =
 "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
 
 const monoUpper =
 "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
 
-
 const sansBoldLower =
-"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇";
+"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘷𝘄𝘅𝘆𝘇";
 
 const sansBoldUpper =
 "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
-
 
 const sansItalicLower =
 "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
@@ -1373,20 +991,17 @@ const sansItalicLower =
 const sansItalicUpper =
 "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
 
-
 const scriptLower =
 "𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
 
 const scriptUpper =
 "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
 
-
 const doubleLower =
 "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
 
 const doubleUpper =
 "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
-
 
 const frakturLower =
 "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
@@ -1395,11 +1010,7 @@ const frakturUpper =
 "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
 
 
-function convertFont(
-    text,
-    lower,
-    upper
-){
+function convertFont(text,lower,upper){
 
     return [...text]
     .map(char=>{
@@ -1432,7 +1043,6 @@ function bold(text){
     );
 }
 
-
 function italic(text){
     return convertFont(
         text,
@@ -1440,7 +1050,6 @@ function italic(text){
         italicUpper
     );
 }
-
 
 function mono(text){
     return convertFont(
@@ -1450,7 +1059,6 @@ function mono(text){
     );
 }
 
-
 function sansBold(text){
     return convertFont(
         text,
@@ -1458,7 +1066,6 @@ function sansBold(text){
         sansBoldUpper
     );
 }
-
 
 function sansItalic(text){
     return convertFont(
@@ -1468,7 +1075,6 @@ function sansItalic(text){
     );
 }
 
-
 function script(text){
     return convertFont(
         text,
@@ -1477,7 +1083,6 @@ function script(text){
     );
 }
 
-
 function doubleText(text){
     return convertFont(
         text,
@@ -1485,7 +1090,6 @@ function doubleText(text){
         doubleUpper
     );
 }
-
 
 function fraktur(text){
     return convertFont(
@@ -1613,18 +1217,14 @@ function bubble(text){
 
 
 /* =====================================================
-1200 STYLE GENERATOR
+STYLE GENERATOR
 ===================================================== */
 
-function makeStyles(
-    name,
-    category
-){
+function makeStyles(name,category){
 
-    const set =
-        new Set();
+    const set = new Set();
 
-    const output=[];
+    const output = [];
 
     function add(value){
 
@@ -1634,6 +1234,7 @@ function makeStyles(
         ){
 
             set.add(value);
+
             output.push(value);
 
         }
@@ -1792,17 +1393,9 @@ function makeStyles(
     }
 
 
-    for(
-        let f=0;
-        f<fonts.length;
-        f++
-    ){
+    for(let f=0;f<fonts.length;f++){
 
-        for(
-            let d=0;
-            d<decorations.length;
-            d++
-        ){
+        for(let d=0;d<decorations.length;d++){
 
             const left =
                 decorations[d][0];
@@ -1875,7 +1468,7 @@ function makeStyles(
 
 
 /* =====================================================
-LOCAL FALLBACK NAMES
+FALLBACK NAMES
 ===================================================== */
 
 const fallbackNames={
@@ -1956,22 +1549,19 @@ Neon:[
 
 
 /* =====================================================
-GET LOCAL NAMES
+FALLBACK
 ===================================================== */
 
 function getFallbackNames(){
 
-    const list =
-        fallbackNames[currentCategory] ||
-        fallbackNames.Gaming;
-
-    return list;
+    return fallbackNames[currentCategory] ||
+           fallbackNames.Gaming;
 
 }
 
 
 /* =====================================================
-GENERATE
+GENERATE USER NAME
 ===================================================== */
 
 function generateNames(){
@@ -2004,7 +1594,8 @@ function generateNames(){
 
     currentPage=1;
 
-    totalPages=
+
+    totalPages =
         Math.max(
             1,
             Math.ceil(
@@ -2017,8 +1608,8 @@ function generateNames(){
     document
     .getElementById("resultCount")
     .textContent =
-        generatedStyles.length+
-        " styles";
+        generatedStyles.length +
+        " unique styles";
 
 
     renderGenerated();
@@ -2051,18 +1642,32 @@ function renderGenerated(){
         );
 
 
-    items.forEach(
-        (text,index)=>{
+    const shown =
+        new Set();
 
-            createCard(
-                text,
-                index,
-                grid,
-                currentCategory
-            );
 
+    items.forEach((text,index)=>{
+
+        const key =
+            text.trim().toLowerCase();
+
+
+        if(shown.has(key)){
+            return;
         }
-    );
+
+
+        shown.add(key);
+
+
+        createCard(
+            text,
+            index,
+            grid,
+            currentCategory
+        );
+
+    });
 
 
     updatePagination();
@@ -2084,15 +1689,13 @@ function createCard(
     const card =
         document.createElement("div");
 
-    card.className =
-        "nameCard";
+    card.className="nameCard";
 
 
     const badge =
         document.createElement("div");
 
-    badge.className =
-        "cardBadge";
+    badge.className="cardBadge";
 
     badge.textContent =
         index%2===0
@@ -2107,15 +1710,13 @@ function createCard(
         "styledName f"+
         ((index%20)+1);
 
-    name.textContent =
-        text;
+    name.textContent=text;
 
 
     const tags =
         document.createElement("div");
 
-    tags.className =
-        "tags";
+    tags.className="tags";
 
 
     const tag1 =
@@ -2123,8 +1724,7 @@ function createCard(
 
     tag1.className="tag";
 
-    tag1.textContent =
-        category;
+    tag1.textContent=category;
 
 
     const tag2 =
@@ -2145,15 +1745,13 @@ function createCard(
     const bottom =
         document.createElement("div");
 
-    bottom.className =
-        "cardBottom";
+    bottom.className="cardBottom";
 
 
     const fav =
         document.createElement("button");
 
-    fav.className =
-        "cardBtn favoriteBtn";
+    fav.className="cardBtn favoriteBtn";
 
 
     const isSaved =
@@ -2184,11 +1782,9 @@ function createCard(
     const copy =
         document.createElement("button");
 
-    copy.className =
-        "cardBtn";
+    copy.className="cardBtn";
 
-    copy.textContent =
-        "▣ Copy";
+    copy.textContent="▣ Copy";
 
 
     copy.onclick=()=>{
@@ -2301,18 +1897,16 @@ function renderFavorites(){
 
     favorites
     .slice(0,12)
-    .forEach(
-        (text,index)=>{
+    .forEach((text,index)=>{
 
-            createCard(
-                text,
-                index,
-                list,
-                "Favorite"
-            );
+        createCard(
+            text,
+            index,
+            list,
+            "Favorite"
+        );
 
-        }
-    );
+    });
 
 }
 
@@ -2337,9 +1931,7 @@ async function copyText(text){
         }else{
 
             const area =
-                document.createElement(
-                    "textarea"
-                );
+                document.createElement("textarea");
 
             area.value=text;
 
@@ -2382,7 +1974,7 @@ function selectCategory(element){
     document
     .querySelectorAll(".category")
     .forEach(
-        item=>
+        item =>
         item.classList.remove("active")
     );
 
@@ -2418,202 +2010,373 @@ function selectCategory(element){
 
 
 /* =====================================================
-SUPABASE POPULAR NAMES
+LOAD SUPABASE NAMES
 ===================================================== */
 
 async function loadPopularNames(){
 
+    const grid =
+        document
+        .getElementById("resultsGrid");
+
+
+    grid.innerHTML = `
+        <div class="loading">
+            Loading stylish names...
+        </div>
+    `;
+
+
+    popularNames=[];
+
+
     /*
-      First show local names immediately.
-      This prevents an empty/soft-error-looking page.
+      We fetch the database in chunks.
+
+      This is important because Supabase can limit
+      the number of rows returned in one request.
     */
 
-    renderFallbackNames();
+    if(supabaseClient){
+
+        try{
+
+            const allRows=[];
+
+            const CHUNK_SIZE=500;
+
+            const MAX_ROWS=5000;
 
 
-    if(!supabaseClient){
+            for(
+                let from=0;
+                from<MAX_ROWS;
+                from+=CHUNK_SIZE
+            ){
 
-        return;
+                const to =
+                    from +
+                    CHUNK_SIZE -
+                    1;
+
+
+                const result =
+                    await supabaseClient
+                    .from("names")
+                    .select(
+                        "id,name,category"
+                    )
+                    .eq(
+                        "category",
+                        currentCategory
+                    )
+                    .order(
+                        "id",
+                        {ascending:false}
+                    )
+                    .range(
+                        from,
+                        to
+                    );
+
+
+                if(result.error){
+
+                    throw result.error;
+
+                }
+
+
+                const data =
+                    result.data || [];
+
+
+                if(!data.length){
+
+                    break;
+
+                }
+
+
+                allRows.push(
+                    ...data
+                );
+
+
+                /*
+                  If fewer rows came back than
+                  requested, there are no more rows.
+                */
+
+                if(
+                    data.length <
+                    CHUNK_SIZE
+                ){
+
+                    break;
+
+                }
+
+            }
+
+
+            /*
+              ==============================
+              REMOVE DUPLICATE NAMES
+              ==============================
+            */
+
+            const unique =
+                new Map();
+
+
+            allRows.forEach(item=>{
+
+                if(
+                    !item ||
+                    !item.name
+                ){
+
+                    return;
+
+                }
+
+
+                const cleanName =
+                    String(item.name)
+                    .trim();
+
+
+                if(!cleanName){
+
+                    return;
+
+                }
+
+
+                /*
+                  Case-insensitive duplicate check.
+
+                  Example:
+
+                  Shadow
+                  shadow
+                  SHADOW
+
+                  will become ONE result.
+                */
+
+                const key =
+                    cleanName.toLowerCase();
+
+
+                if(!unique.has(key)){
+
+                    unique.set(
+                        key,
+                        {
+                            name:cleanName,
+                            category:
+                                item.category ||
+                                currentCategory
+                        }
+                    );
+
+                }
+
+            });
+
+
+            popularNames =
+                Array.from(
+                    unique.values()
+                );
+
+
+            /*
+              If database has unique names,
+              use them.
+            */
+
+            if(popularNames.length>0){
+
+                usingDatabase=true;
+
+
+                currentPage=1;
+
+
+                totalPages =
+                    Math.max(
+                        1,
+                        Math.ceil(
+                            popularNames.length /
+                            PAGE_SIZE
+                        )
+                    );
+
+
+                document
+                .getElementById(
+                    "resultCount"
+                )
+                .textContent =
+                    popularNames.length +
+                    " unique styles";
+
+
+                renderPopularPage();
+
+
+                return;
+
+            }
+
+
+        }catch(error){
+
+            console.warn(
+                "Supabase request failed:",
+                error
+            );
+
+        }
 
     }
 
 
-    try{
+    /*
+      ==============================
+      DATABASE FAILED / EMPTY
+      ==============================
+    */
 
-        let query =
-            supabaseClient
-            .from("names")
-            .select(
-                "id,name,category",
-                {count:"exact"}
-            )
-            .eq(
-                "category",
-                currentCategory
-            )
-            .order(
-                "id",
-                {ascending:false}
-            );
+    usingDatabase=false;
+
+    renderFallbackNames();
+
+}
 
 
-        const from =
-            (currentPage-1) *
-            PAGE_SIZE;
+/* =====================================================
+RENDER POPULAR PAGE
+===================================================== */
+
+function renderPopularPage(){
+
+    const grid =
+        document
+        .getElementById("resultsGrid");
+
+    grid.innerHTML="";
 
 
-        const to =
-            from+PAGE_SIZE-1;
+    const start =
+        (currentPage-1) *
+        PAGE_SIZE;
 
 
-        const result =
-            await query.range(
-                from,
-                to
-            );
+    const items =
+        popularNames.slice(
+            start,
+            start+PAGE_SIZE
+        );
 
 
-        const data =
-            result.data;
+    /*
+      Extra duplicate protection.
+    */
 
-        const error =
-            result.error;
-
-        const count =
-            result.count;
+    const shown =
+        new Set();
 
 
-        /*
-          If database returns valid names,
-          use database content.
-        */
+    items.forEach((item,index)=>{
 
-        if(
-            !error &&
-            Array.isArray(data) &&
-            data.length>0
-        ){
-
-            usingDatabase=true;
+        const text =
+            item.name.trim();
 
 
-            const grid =
-                document
-                .getElementById(
-                    "resultsGrid"
-                );
+        const key =
+            text.toLowerCase();
 
 
-            grid.innerHTML="";
-
-
-            data.forEach(
-                (item,index)=>{
-
-                    createCard(
-                        item.name,
-                        index,
-                        grid,
-                        item.category ||
-                        currentCategory
-                    );
-
-                }
-            );
-
-
-            totalPages =
-                Math.max(
-                    1,
-                    Math.ceil(
-                        (count || data.length) /
-                        PAGE_SIZE
-                    )
-                );
-
-
-            document
-            .getElementById(
-                "resultCount"
-            )
-            .textContent =
-                (count || data.length)+
-                " results";
-
-
-            updatePagination();
+        if(shown.has(key)){
 
             return;
 
         }
 
 
-    }catch(error){
+        shown.add(key);
 
-        console.warn(
-            "Supabase request failed. Using local names.",
-            error
+
+        createCard(
+            text,
+            index,
+            grid,
+            item.category ||
+            currentCategory
         );
 
-    }
+    });
 
 
-    /*
-      Database failed or returned no data.
-      Local content stays visible.
-    */
-
-    usingDatabase=false;
+    updatePagination();
 
 }
 
 
 /* =====================================================
-LOCAL FALLBACK RENDER
+FALLBACK
 ===================================================== */
 
 function renderFallbackNames(){
-
-    const grid =
-        document
-        .getElementById(
-            "resultsGrid"
-        );
-
 
     const names =
         getFallbackNames();
 
 
-    grid.innerHTML="";
+    /*
+      Remove duplicates from local list too.
+    */
+
+    const unique =
+        [...new Map(
+            names.map(name=>[
+                name.trim().toLowerCase(),
+                {
+                    name:name,
+                    category:currentCategory
+                }
+            ])
+        ).values()];
 
 
-    names.forEach(
-        (text,index)=>{
-
-            createCard(
-                text,
-                index,
-                grid,
-                currentCategory
-            );
-
-        }
-    );
+    popularNames=unique;
 
 
-    totalPages=1;
+    currentPage=1;
+
+
+    totalPages =
+        Math.max(
+            1,
+            Math.ceil(
+                popularNames.length /
+                PAGE_SIZE
+            )
+        );
 
 
     document
-    .getElementById(
-        "resultCount"
-    )
+    .getElementById("resultCount")
     .textContent =
-        "1000+ styles";
+        popularNames.length +
+        " unique styles";
 
 
-    updatePagination();
+    renderPopularPage();
 
 }
 
@@ -2625,30 +2388,28 @@ PAGINATION
 function updatePagination(){
 
     document
-    .getElementById(
-        "pageInfo"
-    )
+    .getElementById("pageInfo")
     .textContent =
         `Page ${currentPage} / ${totalPages}`;
 
 
     document
-    .getElementById(
-        "prevBtn"
-    )
+    .getElementById("prevBtn")
     .disabled =
         currentPage<=1;
 
 
     document
-    .getElementById(
-        "nextBtn"
-    )
+    .getElementById("nextBtn")
     .disabled =
         currentPage>=totalPages;
 
 }
 
+
+/* =====================================================
+NEXT PAGE
+===================================================== */
 
 function nextPage(){
 
@@ -2666,9 +2427,7 @@ function nextPage(){
 
     const input =
         document
-        .getElementById(
-            "nameInput"
-        )
+        .getElementById("nameInput")
         .value
         .trim();
 
@@ -2679,7 +2438,7 @@ function nextPage(){
 
     }else{
 
-        loadPopularNames();
+        renderPopularPage();
 
     }
 
@@ -2692,9 +2451,15 @@ function nextPage(){
 }
 
 
+/* =====================================================
+PREVIOUS PAGE
+===================================================== */
+
 function previousPage(){
 
-    if(currentPage<=1){
+    if(
+        currentPage<=1
+    ){
 
         return;
 
@@ -2706,9 +2471,7 @@ function previousPage(){
 
     const input =
         document
-        .getElementById(
-            "nameInput"
-        )
+        .getElementById("nameInput")
         .value
         .trim();
 
@@ -2719,7 +2482,7 @@ function previousPage(){
 
     }else{
 
-        loadPopularNames();
+        renderPopularPage();
 
     }
 
@@ -2811,11 +2574,9 @@ function showToast(message){
     toastTimer =
         setTimeout(
             ()=>{
-
                 toast.classList.remove(
                     "show"
                 );
-
             },
             1800
         );
@@ -2829,14 +2590,7 @@ START
 
 renderFavorites();
 
-/*
-  Local content is rendered immediately.
-  Supabase is then checked in the background.
-*/
-
 loadPopularNames();
 
-</script>
-
-</body>
+</script></body>
 </html>
