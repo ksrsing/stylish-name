@@ -1,25 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#080b22"><title>NameCraft - 1000+ Stylish Name Generator</title><meta name="description"
-content="NameCraft is a stylish name generator with 1000+ unique gaming, cool, royal, love, aesthetic and neon names. Generate, copy and save stylish names easily.">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+content="#080b22">
+
+<title>
+NameCraft - 3000+ Stylish Name Generator
+</title>
+
+<meta name="description"
+content="NameCraft is a stylish name generator with 3000+ unique gaming, cool, royal, love, aesthetic and neon names. Generate, copy and save stylish names easily.">
 
 <meta name="keywords"
 content="stylish name generator, stylish names, gaming names, free fire names, cool names, royal names, aesthetic names, neon names, username generator">
 
-<meta name="author" content="NameCraft">
-<meta name="robots" content="index, follow"><link rel="canonical"
-href="https://ksrsing.github.io/stylish-name/"><meta property="og:title"
-content="NameCraft - Stylish Name Generator">
+<meta name="author"
+content="NameCraft">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://ksrsing.github.io/stylish-name/">
+
+<meta property="og:title"
+content="NameCraft - 3000+ Stylish Name Generator">
 
 <meta property="og:description"
-content="Generate 1000+ unique stylish names for gaming, social media and usernames.">
+content="Generate 3000+ stylish names for gaming, social media and usernames.">
 
-<meta property="og:type" content="website"><meta property="og:url"
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
 content="https://ksrsing.github.io/stylish-name/">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -34,9 +61,21 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(circle at 15% 25%,rgba(62,94,255,.22),transparent 25%),
-        radial-gradient(circle at 85% 65%,rgba(218,38,255,.20),transparent 25%),
-        radial-gradient(circle at 50% 100%,rgba(0,205,255,.14),transparent 30%),
+        radial-gradient(
+            circle at 15% 25%,
+            rgba(62,94,255,.22),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 65%,
+            rgba(218,38,255,.20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0,205,255,.14),
+            transparent 30%
+        ),
         #050817;
     color:#fff;
     min-height:100vh;
@@ -111,12 +150,13 @@ body:before{
     font-size:38px;
     font-weight:800;
     letter-spacing:-1px;
-    background:linear-gradient(
-        90deg,
-        #7ab6ff,
-        #8c5cff,
-        #e87cff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #7ab6ff,
+            #8c5cff,
+            #e87cff
+        );
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -167,11 +207,12 @@ body:before{
     color:#fff;
     font-weight:bold;
     font-size:16px;
-    background:linear-gradient(
-        90deg,
-        #587dff,
-        #9b43e9
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #587dff,
+            #9b43e9
+        );
     box-shadow:0 0 20px rgba(124,82,255,.35);
     cursor:pointer;
 }
@@ -192,12 +233,13 @@ body:before{
 }
 
 .gradientText{
-    background:linear-gradient(
-        90deg,
-        #6ea6ff,
-        #9860ff,
-        #db75ff
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #6ea6ff,
+            #9860ff,
+            #db75ff
+        );
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -217,12 +259,13 @@ body:before{
     height:62px;
     border-radius:35px;
     padding:2px;
-    background:linear-gradient(
-        90deg,
-        #4d88ff,
-        #a54cff,
-        #ff54da
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #4d88ff,
+            #a54cff,
+            #ff54da
+        );
     box-shadow:
         0 0 20px rgba(77,136,255,.18),
         0 0 30px rgba(205,70,255,.12);
@@ -267,12 +310,14 @@ body:before{
     font-weight:bold;
     font-size:16px;
     cursor:pointer;
-    background:linear-gradient(
-        90deg,
-        #5d83ff,
-        #9347e9
-    );
-    box-shadow:0 0 18px rgba(117,80,255,.4);
+    background:
+        linear-gradient(
+            90deg,
+            #5d83ff,
+            #9347e9
+        );
+    box-shadow:
+        0 0 18px rgba(117,80,255,.4);
 }
 
 /* ================= CATEGORIES ================= */
@@ -396,14 +441,12 @@ body:before{
 
 .nameCard:nth-child(3n+2){
     border-color:#a858d1;
-    box-shadow:
-        0 0 17px rgba(204,69,255,.14),
-        inset 0 0 25px rgba(210,72,255,.05);
 }
 
 .nameCard:hover{
     transform:translateY(-4px);
-    box-shadow:0 0 25px rgba(94,117,255,.28);
+    box-shadow:
+        0 0 25px rgba(94,117,255,.28);
 }
 
 .cardBadge{
@@ -469,7 +512,6 @@ body:before{
 .cardBtn:hover{
     color:#fff;
     border-color:#9971ff;
-    box-shadow:0 0 10px rgba(135,87,255,.25);
 }
 
 .favoriteBtn{
@@ -553,7 +595,7 @@ body:before{
     transform:translate(-50%,0);
 }
 
-/* ================= FONTS ================= */
+/* ================= 20 FONT CLASSES ================= */
 
 .f1{font-family:Georgia,serif}
 .f2{font-family:"Times New Roman",serif;font-weight:bold}
@@ -595,6 +637,7 @@ body:before{
     .resultsGrid{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 @media(max-width:600px){
@@ -639,7 +682,6 @@ body:before{
 
     .hero p{
         font-size:15px;
-        line-height:1.5;
     }
 
     .searchBox{
@@ -668,7 +710,6 @@ body:before{
         grid-template-columns:repeat(3,1fr);
         gap:8px;
         padding:0 10px;
-        margin-bottom:30px;
     }
 
     .category{
@@ -715,6 +756,7 @@ body:before{
         height:38px;
         font-size:20px;
     }
+
 }
 
 @media(max-width:380px){
@@ -733,159 +775,459 @@ body:before{
 
 }
 
-</style></head><body><nav class="navbar"><div class="navInner"><div class="logoArea"><div class="logoIcon">
-<span>◇</span>
-</div><div class="logo">
-NameCraft
-</div></div><div class="navLinks"><a href="#home" class="active">Home</a>
-<a href="#styles">Styles</a>
-<a href="#favorites">♡ Favorites</a>
-<a href="#about">About</a>
+</style>
 
-</div><div class="navActions"><button class="loginBtn">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+<div class="navInner">
+
+<div class="logoArea">
+
+<div class="logoIcon">
+<span>◇</span>
+</div>
+
+<div class="logo">
+NameCraft
+</div>
+
+</div>
+
+<div class="navLinks">
+
+<a href="#home" class="active">
+Home
+</a>
+
+<a href="#styles">
+Styles
+</a>
+
+<a href="#favorites">
+♡ Favorites
+</a>
+
+<a href="#about">
+About
+</a>
+
+</div>
+
+<div class="navActions">
+
+<button class="loginBtn">
 Log In
-</button><button
-class="generateTop"
-onclick="focusInput()">
-✨ Generate
 </button>
 
-</div></div></nav><section class="hero" id="home"><h1>
+<button
+class="generateTop"
+onclick="focusInput()">
+
+✨ Generate
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section
+class="hero"
+id="home">
+
+<h1>
+
 Create Your
+
 <span class="gradientText">
 Stylish
 </span>
+
 Name
-</h1><p>
-Generate unique, eye-catching nicknames for gaming,
-social media, profiles and usernames using stylish
-Unicode symbols and fonts.
-</p><div class="searchBox"><div class="searchInner"><span class="searchIcon">
+
+</h1>
+
+<p>
+
+Generate up to
+<b>3000 unique stylish designs</b>
+for gaming, social media,
+profiles and usernames.
+
+</p>
+
+<div class="searchBox">
+
+<div class="searchInner">
+
+<span class="searchIcon">
 ⌕
-</span><input
+</span>
+
+<input
 id="nameInput"
 type="text"
-placeholder="Type a name or keyword... e.g. shadow, dragon, phantom"
+placeholder="Type a name... e.g. Shadow, Dragon, Phantom"
 maxlength="60">
 
 <button
 class="generateBtn"
 onclick="generateNames()">
+
 ✨ Generate
+
 </button>
 
-</div></div></section><div class="categories" id="styles"><div class="category active"
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<div
+class="categories"
+id="styles">
+
+<div
+class="category active"
 data-category="Gaming"
-onclick="selectCategory(this)"><div class="icon">🎮</div>
-<span>Gaming</span></div><div class="category"
+onclick="selectCategory(this)">
+
+<div class="icon">
+🎮
+</div>
+
+<span>
+Gaming
+</span>
+
+</div>
+
+
+<div
+class="category"
 data-category="Cool"
-onclick="selectCategory(this)"><div class="icon">😎</div>
-<span>Cool</span></div><div class="category"
+onclick="selectCategory(this)">
+
+<div class="icon">
+😎
+</div>
+
+<span>
+Cool
+</span>
+
+</div>
+
+
+<div
+class="category"
 data-category="Royal"
-onclick="selectCategory(this)"><div class="icon">♛</div>
-<span>Royal</span></div><div class="category"
+onclick="selectCategory(this)">
+
+<div class="icon">
+♛
+</div>
+
+<span>
+Royal
+</span>
+
+</div>
+
+
+<div
+class="category"
 data-category="Love"
-onclick="selectCategory(this)"><div class="icon">♡</div>
-<span>Love</span></div><div class="category"
+onclick="selectCategory(this)">
+
+<div class="icon">
+♡
+</div>
+
+<span>
+Love
+</span>
+
+</div>
+
+
+<div
+class="category"
 data-category="Aesthetic"
-onclick="selectCategory(this)"><div class="icon">✧</div>
-<span>Aesthetic</span></div><div class="category"
+onclick="selectCategory(this)">
+
+<div class="icon">
+✧
+</div>
+
+<span>
+Aesthetic
+</span>
+
+</div>
+
+
+<div
+class="category"
 data-category="Neon"
-onclick="selectCategory(this)"><div class="icon">ϟ</div>
-<span>Neon</span></div></div><section class="seoIntro"><h2>Free Stylish Name Generator</h2><p>
-Create stylish gaming names, cool usernames, royal names,
-love names, aesthetic usernames and neon names with NameCraft.
-Enter your name, choose a category and generate hundreds of
-unique designs that you can copy and use on games and social media.
-</p></section><div class="resultsHeader"><h2>
-Popular Stylish Names
+onclick="selectCategory(this)">
+
+<div class="icon">
+ϟ
+</div>
+
+<span>
+Neon
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ================= SEO ================= -->
+
+<section class="seoIntro">
+
+<h2>
+Free 3000+ Stylish Name Generator
+</h2>
+
+<p>
+
+Create stylish gaming names,
+cool usernames, royal names,
+love names, aesthetic usernames
+and neon names with NameCraft.
+
+Enter your name, choose a category
+and generate thousands of different
+stylish designs that you can copy
+and use on games and social media.
+
+</p>
+
+</section>
+
+
+<!-- ================= RESULTS HEADER ================= -->
+
+<div class="resultsHeader">
+
+<h2>
+
+3000 Stylish Names
 <span>🔥</span>
-</h2><div
+
+</h2>
+
+<div
 class="resultCount"
 id="resultCount">
-1000+ styles
-</div></div><div
+
+3000 styles
+
+</div>
+
+</div>
+
+
+<!-- ================= RESULTS ================= -->
+
+<div
 id="resultsGrid"
-class="resultsGrid"><div class="loading">
+class="resultsGrid">
+
+<div class="loading">
+
 Loading stylish names...
-</div></div><div class="pagination"><button
+
+</div>
+
+</div>
+
+
+<!-- ================= PAGINATION ================= -->
+
+<div class="pagination">
+
+<button
 id="prevBtn"
 class="pageBtn"
 onclick="previousPage()"
 disabled>
+
 ← Prev
+
 </button>
 
 <span
 id="pageInfo"
 class="pageInfo">
-Page 1 / 1
+
+Page 1 / 125
+
 </span>
 
 <button
 id="nextBtn"
 class="pageBtn"
 onclick="nextPage()">
+
 Next →
+
 </button>
 
-</div><div class="tip">✨ Tip: Click Copy to copy a stylish name and use it anywhere
-  •  
+</div>
+
+
+<!-- ================= TIP ================= -->
+
+<div class="tip">
+
+✨ Tip: Click Copy to copy a stylish name
+and use it anywhere
+&nbsp; • &nbsp;
 
 <span id="todayCount">
-1,200+
-</span>names generated today
+3,000+
+</span>
 
-</div><section
+styles available
+
+</div>
+
+
+<!-- ================= FAVORITES ================= -->
+
+<section
 id="favorites"
 style="
 max-width:1260px;
 margin:45px auto;
 padding:0 20px;
-"><div class="resultsHeader" style="padding-left:0"><h2>
+">
+
+<div
+class="resultsHeader"
+style="padding-left:0">
+
+<h2>
 ♡ Favorites
-</h2></div><div
+</h2>
+
+</div>
+
+<div
 id="favoriteList"
 class="resultsGrid"
-style="padding:0"></div></section><section
+style="padding:0">
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
 id="about"
 style="
 max-width:900px;
 margin:60px auto;
 padding:30px 20px;
 text-align:center;
-"><h2 style="font-size:30px;margin-bottom:15px">
+">
+
+<h2
+style="
+font-size:30px;
+margin-bottom:15px;
+">
+
 About NameCraft
-</h2><p style="
+
+</h2>
+
+<p
+style="
 color:#8d9bc5;
 line-height:1.8;
 font-size:16px;
-">NameCraft is a free stylish name generator for gaming,
-social media, profiles and usernames.
+">
+
+NameCraft is a free stylish name generator
+for gaming, social media, profiles and usernames.
 
 Create unique names using Unicode symbols,
-decorations, stylish fonts and hundreds of
-different combinations.
+decorations, stylish fonts and thousands
+of different combinations.
 
 You can generate names, copy them with one tap
 and save your favorite designs in your browser.
 
-</p></section><footer
+</p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer
 style="
 border-top:1px solid rgba(100,110,170,.25);
 background:rgba(4,7,20,.8);
 text-align:center;
 padding:30px 15px;
 color:#7180aa;
-"><strong style="color:#9f8cff">
+">
+
+<strong
+style="color:#9f8cff">
+
 NameCraft
-</strong><br>Stylish Name Generator
 
-<br>© 2026 NameCraft. All rights reserved.
+</strong>
 
-</footer><div id="toast" class="toast">
+<br>
+
+Stylish Name Generator
+
+<br>
+
+© 2026 NameCraft.
+All rights reserved.
+
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div
+id="toast"
+class="toast">
+
 Copied!
-</div><script>
+
+</div>
+
+
+<script>
 
 /* =====================================================
 SUPABASE
@@ -902,9 +1244,7 @@ let supabaseClient = null;
 try{
 
     if(
-        typeof supabase !== "undefined" &&
-        SUPABASE_URL &&
-        SUPABASE_KEY
+        typeof supabase !== "undefined"
     ){
 
         supabaseClient =
@@ -931,6 +1271,13 @@ SETTINGS
 
 const PAGE_SIZE = 24;
 
+/*
+   IMPORTANT:
+   Generator now creates maximum 3000 styles.
+*/
+
+const MAX_STYLES = 3000;
+
 let currentPage = 1;
 
 let totalPages = 1;
@@ -945,9 +1292,9 @@ let usingDatabase = false;
 
 let favorites =
 JSON.parse(
-localStorage.getItem(
-    "namecraft_favorites"
-) || "[]"
+    localStorage.getItem(
+        "namecraft_favorites"
+    ) || "[]"
 );
 
 
@@ -961,11 +1308,13 @@ const normalLower =
 const normalUpper =
 "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+
 const boldLower =
 "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
 
 const boldUpper =
 "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
+
 
 const italicLower =
 "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
@@ -973,17 +1322,20 @@ const italicLower =
 const italicUpper =
 "𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
 
+
 const monoLower =
 "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
 
 const monoUpper =
 "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
 
+
 const sansBoldLower =
-"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘷𝘄𝘅𝘆𝘇";
+"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘷𝘄𝘅𝘺𝘇";
 
 const sansBoldUpper =
 "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
+
 
 const sansItalicLower =
 "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
@@ -991,17 +1343,20 @@ const sansItalicLower =
 const sansItalicUpper =
 "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
 
+
 const scriptLower =
 "𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
 
 const scriptUpper =
 "𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
 
+
 const doubleLower =
 "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
 
 const doubleUpper =
 "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
+
 
 const frakturLower =
 "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
@@ -1010,7 +1365,15 @@ const frakturUpper =
 "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
 
 
-function convertFont(text,lower,upper){
+/* =====================================================
+FONT CONVERTER
+===================================================== */
+
+function convertFont(
+    text,
+    lower,
+    upper
+){
 
     return [...text]
     .map(char=>{
@@ -1036,84 +1399,128 @@ function convertFont(text,lower,upper){
 
 
 function bold(text){
+
     return convertFont(
         text,
         boldLower,
         boldUpper
     );
+
 }
 
+
 function italic(text){
+
     return convertFont(
         text,
         italicLower,
         italicUpper
     );
+
 }
 
+
 function mono(text){
+
     return convertFont(
         text,
         monoLower,
         monoUpper
     );
+
 }
 
+
 function sansBold(text){
+
     return convertFont(
         text,
         sansBoldLower,
         sansBoldUpper
     );
+
 }
 
+
 function sansItalic(text){
+
     return convertFont(
         text,
         sansItalicLower,
         sansItalicUpper
     );
+
 }
 
+
 function script(text){
+
     return convertFont(
         text,
         scriptLower,
         scriptUpper
     );
+
 }
 
+
 function doubleText(text){
+
     return convertFont(
         text,
         doubleLower,
         doubleUpper
     );
+
 }
 
+
 function fraktur(text){
+
     return convertFont(
         text,
         frakturLower,
         frakturUpper
     );
+
 }
 
 
 /* =====================================================
-EXTRA STYLES
+EXTRA FONT EFFECTS
 ===================================================== */
 
 function smallCaps(text){
 
     const map={
-        a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",
-        e:"ᴇ",f:"ғ",g:"ɢ",h:"ʜ",
-        i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",
-        m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",
-        q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
-        u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",
-        y:"ʏ",z:"ᴢ"
+
+        a:"ᴀ",
+        b:"ʙ",
+        c:"ᴄ",
+        d:"ᴅ",
+        e:"ᴇ",
+        f:"ғ",
+        g:"ɢ",
+        h:"ʜ",
+        i:"ɪ",
+        j:"ᴊ",
+        k:"ᴋ",
+        l:"ʟ",
+        m:"ᴍ",
+        n:"ɴ",
+        o:"ᴏ",
+        p:"ᴘ",
+        q:"ǫ",
+        r:"ʀ",
+        s:"s",
+        t:"ᴛ",
+        u:"ᴜ",
+        v:"ᴠ",
+        w:"ᴡ",
+        x:"x",
+        y:"ʏ",
+        z:"ᴢ"
+
     };
 
     return [...text.toLowerCase()]
@@ -1126,7 +1533,9 @@ function smallCaps(text){
 function underline(text){
 
     return [...text]
-    .map(c=>c+"\u0332")
+    .map(
+        c=>c+"\u0332"
+    )
     .join("");
 
 }
@@ -1135,7 +1544,9 @@ function underline(text){
 function strike(text){
 
     return [...text]
-    .map(c=>c+"\u0336")
+    .map(
+        c=>c+"\u0336"
+    )
     .join("");
 
 }
@@ -1144,7 +1555,9 @@ function strike(text){
 function dots(text){
 
     return [...text]
-    .map(c=>c+"\u0307")
+    .map(
+        c=>c+"\u0307"
+    )
     .join("");
 
 }
@@ -1152,7 +1565,8 @@ function dots(text){
 
 function spaced(text){
 
-    return [...text].join(" ");
+    return [...text]
+    .join(" ");
 
 }
 
@@ -1193,11 +1607,13 @@ function bubble(text){
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const bubbles=[
+
         "Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ",
         "Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ",
         "Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ",
         "Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ",
         "Ⓨ","Ⓩ"
+
     ];
 
     return [...text.toUpperCase()]
@@ -1217,56 +1633,102 @@ function bubble(text){
 
 
 /* =====================================================
-STYLE GENERATOR
+STYLE GENERATOR - 3000
 ===================================================== */
 
-function makeStyles(name,category){
+function makeStyles(
+    name,
+    category
+){
 
     const set = new Set();
 
     const output = [];
 
+
     function add(value){
 
         if(
-            value &&
-            !set.has(value)
+            !value ||
+            set.has(value)
         ){
 
-            set.add(value);
-
-            output.push(value);
+            return false;
 
         }
+
+        set.add(value);
+        output.push(value);
+
+        return true;
 
     }
 
 
+    /* ================= FONT LIST ================= */
+
     const fonts=[
 
         name,
+
         bold(name),
+
         italic(name),
+
         mono(name),
+
         sansBold(name),
+
         sansItalic(name),
+
         script(name),
+
         doubleText(name),
+
         fraktur(name),
+
         smallCaps(name),
+
         fullWidth(name),
+
         bubble(name),
+
         underline(name),
+
         strike(name),
+
         dots(name),
-        spaced(name)
+
+        spaced(name),
+
+        name.toUpperCase(),
+
+        name.toLowerCase(),
+
+        name.split("")
+            .join("・"),
+
+        name.split("")
+            .join("⋆"),
+
+        name.split("")
+            .join("•"),
+
+        name.split("")
+            .join("✦"),
+
+        name.split("")
+            .join("♡")
 
     ];
 
 
+    /* ================= DECORATIONS ================= */
+
     const decorations=[
 
         ["",""],
+
         ["꧁","꧂"],
         ["༺","༻"],
         ["『","』"],
@@ -1276,6 +1738,7 @@ function makeStyles(name,category){
         ["《","》"],
         ["〈","〉"],
         ["〔","〕"],
+
         ["乂","乂"],
         ["メ","メ"],
         ["亗","亗"],
@@ -1285,6 +1748,7 @@ function makeStyles(name,category){
         ["彡","彡"],
         ["〆","〆"],
         ["么","么"],
+
         ["♛","♛"],
         ["♕","♕"],
         ["♔","♔"],
@@ -1308,10 +1772,48 @@ function makeStyles(name,category){
         ["❀","❀"],
         ["༒","༒"],
         ["𓆩","𓆪"],
-        ["୨୧","୨୧"]
+        ["୨୧","୨୧"],
+        ["⌁","⌁"],
+        ["乄","乄"],
+        ["シ","シ"],
+        ["๛","๛"],
+        ["么","么"],
+        ["☬","☬"],
+        ["⚚","⚚"],
+        ["♤","♤"],
+        ["♧","♧"],
+        ["♢","♢"],
+        ["⚡","⚡"],
+        ["☄","☄"],
+        ["☀","☀"],
+        ["☽","☾"],
+        ["❖","❖"],
+        ["◈","◈"],
+        ["◆","◆"],
+        ["◇","◇"],
+        ["✰","✰"],
+        ["✮","✮"],
+        ["✭","✭"],
+        ["✵","✵"],
+        ["✶","✶"],
+        ["✷","✷"],
+        ["✸","✸"],
+        ["✹","✹"],
+        ["✺","✺"],
+        ["✻","✻"],
+        ["✼","✼"],
+        ["✽","✽"],
+        ["✾","✾"],
+        ["❂","❂"],
+        ["❁","❁"],
+        ["❃","❃"],
+        ["❅","❅"],
+        ["❆","❆"]
 
     ];
 
+
+    /* ================= CATEGORY SPECIAL ================= */
 
     if(category==="Gaming"){
 
@@ -1325,6 +1827,9 @@ function makeStyles(name,category){
         add(`☠ ${name} ☠`);
         add(`꧁༒${name}༒꧂`);
         add(`『亗${name}亗』`);
+        add(`乂⚡${name}⚡乂`);
+        add(`꧁☠${name}☠꧂`);
+        add(`亗⚔${name}⚔亗`);
 
     }
 
@@ -1337,6 +1842,10 @@ function makeStyles(name,category){
         add(`彡 ${name} 彡`);
         add(`〆 ${name} 〆`);
         add(`メ ${name} メ`);
+        add(`★ ${name} ★`);
+        add(`✦ ${name} ✦`);
+        add(`亗 ${name} 亗`);
+        add(`『${name}』`);
 
     }
 
@@ -1349,6 +1858,8 @@ function makeStyles(name,category){
         add(`👑 ${name} 👑`);
         add(`⚜ ${name} ⚜`);
         add(`꧁༺♛ ${name} ♛༻꧂`);
+        add(`♛👑 ${name} 👑♛`);
+        add(`꧁♕${name}♕꧂`);
 
     }
 
@@ -1363,6 +1874,8 @@ function makeStyles(name,category){
         add(`💕 ${name} 💕`);
         add(`ღ ${name} ღ`);
         add(`ᥫ᭡ ${name} ᥫ᭡`);
+        add(`꧁♡${name}♡꧂`);
+        add(`『♥${name}♥』`);
 
     }
 
@@ -1377,6 +1890,8 @@ function makeStyles(name,category){
         add(`✿ ${name} ✿`);
         add(`❀ ${name} ❀`);
         add(`☁ ${name} ☁`);
+        add(`☾⋆ ${name} ⋆☽`);
+        add(`✧･ﾟ ${name} ﾟ･✧`);
 
     }
 
@@ -1389,13 +1904,32 @@ function makeStyles(name,category){
         add(`★ ${name} ★`);
         add(`✯ ${name} ✯`);
         add(`☄ ${name} ☄`);
+        add(`⚡✦ ${name} ✦⚡`);
+        add(`『⚡${name}⚡』`);
+        add(`꧁⚡${name}⚡꧂`);
 
     }
 
 
-    for(let f=0;f<fonts.length;f++){
+    /* =================================================
+       FONT × DECORATION
+       23 fonts × 80+ decorations
+       = 1800+ combinations
+    ================================================= */
 
-        for(let d=0;d<decorations.length;d++){
+    for(
+        let f=0;
+        f<fonts.length &&
+        output.length<MAX_STYLES;
+        f++
+    ){
+
+        for(
+            let d=0;
+            d<decorations.length &&
+            output.length<MAX_STYLES;
+            d++
+        ){
 
             const left =
                 decorations[d][0];
@@ -1403,43 +1937,100 @@ function makeStyles(name,category){
             const right =
                 decorations[d][1];
 
+
             add(
                 `${left}${fonts[f]}${right}`
             );
+
+
+            if(output.length>=MAX_STYLES)
+                break;
+
 
             add(
                 `${left} ${fonts[f]} ${right}`
             );
 
-            if(output.length>=1200)
+
+            if(output.length>=MAX_STYLES)
                 break;
+
+
+            add(
+                `${left}•${fonts[f]}•${right}`
+            );
+
+
+            if(output.length>=MAX_STYLES)
+                break;
+
+
+            add(
+                `${left}・${fonts[f]}・${right}`
+            );
+
+
+            if(output.length>=MAX_STYLES)
+                break;
+
+
+            add(
+                `${left}✦${fonts[f]}✦${right}`
+            );
+
+
+            if(output.length>=MAX_STYLES)
+                break;
+
+
+            add(
+                `${left}♡${fonts[f]}♡${right}`
+            );
 
         }
 
-        if(output.length>=1200)
-            break;
-
     }
 
+
+    /* =================================================
+       EXTRA PATTERNS
+    ================================================= */
 
     const extra=[
 
         x=>`꧁༺${x}༻꧂`,
         x=>`꧁༒${x}༒꧂`,
+        x=>`꧁★${x}★꧂`,
+        x=>`꧁亗${x}亗꧂`,
+        x=>`꧁⚡${x}⚡꧂`,
+        x=>`꧁♛${x}♛꧂`,
+        x=>`꧁♡${x}♡꧂`,
         x=>`『★${x}★』`,
         x=>`『亗${x}亗』`,
+        x=>`『⚡${x}⚡』`,
         x=>`【⚡${x}⚡】`,
         x=>`【♛${x}♛】`,
+        x=>`【★${x}★】`,
         x=>`《♡${x}♡》`,
         x=>`《✦${x}✦》`,
+        x=>`《⚡${x}⚡》`,
         x=>`༺${x}༻`,
+        x=>`༺★${x}★༻`,
+        x=>`༺⚡${x}⚡༻`,
         x=>`乂${x}乂`,
+        x=>`乂⚡${x}⚡乂`,
+        x=>`乂★${x}★乂`,
         x=>`メ${x}メ`,
+        x=>`メ★${x}★メ`,
         x=>`亗${x}亗`,
+        x=>`亗⚡${x}⚡亗`,
         x=>`彡${x}彡`,
+        x=>`彡★${x}★彡`,
         x=>`〆${x}〆`,
+        x=>`〆⚡${x}⚡〆`,
         x=>`♛${x}♛`,
         x=>`♕${x}♕`,
+        x=>`♔${x}♔`,
         x=>`⚔${x}⚔`,
         x=>`☠${x}☠`,
         x=>`♡${x}♡`,
@@ -1448,21 +2039,113 @@ function makeStyles(name,category){
         x=>`✧${x}✧`,
         x=>`★${x}★`,
         x=>`☆${x}☆`,
-        x=>`⚡${x}⚡`
+        x=>`⚡${x}⚡`,
+        x=>`☄${x}☄`,
+        x=>`☯${x}☯`,
+        x=>`⚜${x}⚜`,
+        x=>`❖${x}❖`,
+        x=>`◆${x}◆`,
+        x=>`◇${x}◇`
 
     ];
 
 
     fonts.forEach(font=>{
 
+        if(output.length>=MAX_STYLES)
+            return;
+
         extra.forEach(fn=>{
-            add(fn(font));
+
+            if(output.length<MAX_STYLES){
+
+                add(fn(font));
+
+            }
+
         });
 
     });
 
 
-    return output.slice(0,1200);
+    /* =================================================
+       EXTRA SPACED PATTERNS
+    ================================================= */
+
+    const symbols=[
+
+        "★",
+        "☆",
+        "✦",
+        "✧",
+        "✪",
+        "✯",
+        "⚡",
+        "☠",
+        "♛",
+        "♕",
+        "♔",
+        "♡",
+        "♥",
+        "❤",
+        "⚔",
+        "☯",
+        "⚜",
+        "☄",
+        "❖",
+        "◆",
+        "◇",
+        "✿",
+        "❀",
+        "☁",
+        "☾",
+        "亗",
+        "乂",
+        "メ",
+        "彡",
+        "〆"
+
+    ];
+
+
+    for(
+        let i=0;
+        i<fonts.length &&
+        output.length<MAX_STYLES;
+        i++
+    ){
+
+        for(
+            let s=0;
+            s<symbols.length &&
+            output.length<MAX_STYLES;
+            s++
+        ){
+
+            const symbol =
+                symbols[s];
+
+            add(
+                `${symbol} ${fonts[i]}`
+            );
+
+            add(
+                `${fonts[i]} ${symbol}`
+            );
+
+            add(
+                `${symbol} ${fonts[i]} ${symbol}`
+            );
+
+        }
+
+    }
+
+
+    return output.slice(
+        0,
+        MAX_STYLES
+    );
 
 }
 
@@ -1474,103 +2157,106 @@ FALLBACK NAMES
 const fallbackNames={
 
 Gaming:[
-    "꧁༒Shadow༒꧂",
-    "亗 DarkLord 亗",
-    "乂 Dragon 乂",
-    "メ Ghost メ",
-    "〆 Killer 〆",
-    "⚔ Warrior ⚔",
-    "☠ Venom ☠",
-    "彡 Hunter 彡",
-    "『亗Sniper亗』",
-    "꧁༺Rider༻꧂",
-    "乂 Phantom 乂",
-    "亗 Demon 亗"
+
+"꧁༒Shadow༒꧂",
+"亗 DarkLord 亗",
+"乂 Dragon 乂",
+"メ Ghost メ",
+"〆 Killer 〆",
+"⚔ Warrior ⚔",
+"☠ Venom ☠",
+"彡 Hunter 彡",
+"『亗Sniper亗』",
+"꧁༺Rider༻꧂",
+"乂 Phantom 乂",
+"亗 Demon 亗"
+
 ],
 
 Cool:[
-    "ツ Shadow ツ",
-    "シ Phantom シ",
-    "々 Legend 々",
-    "彡 Silent 彡",
-    "〆 Storm 〆",
-    "メ Rebel メ",
-    "★ CoolBoy ★",
-    "✦ DarkSoul ✦",
-    "『Ace』",
-    "亗 Zero 亗"
+
+"ツ Shadow ツ",
+"シ Phantom シ",
+"々 Legend 々",
+"彡 Silent 彡",
+"〆 Storm 〆",
+"メ Rebel メ",
+"★ CoolBoy ★",
+"✦ DarkSoul ✦",
+"『Ace』",
+"亗 Zero 亗"
+
 ],
 
 Royal:[
-    "♛ King ♛",
-    "♕ Queen ♕",
-    "♔ Royal ♔",
-    "👑 Emperor 👑",
-    "⚜ Prince ⚜",
-    "꧁༺♛King♛༻꧂",
-    "♛ Maharaja ♛",
-    "♕ RoyalSoul ♕"
+
+"♛ King ♛",
+"♕ Queen ♕",
+"♔ Royal ♔",
+"👑 Emperor 👑",
+"⚜ Prince ⚜",
+"꧁༺♛King♛༻꧂",
+"♛ Maharaja ♛",
+"♕ RoyalSoul ♕"
+
 ],
 
 Love:[
-    "♡ LoveBoy ♡",
-    "♥ LoveGirl ♥",
-    "❤ MyLove ❤",
-    "💖 SweetHeart 💖",
-    "💗 Forever 💗",
-    "💕 CuteSoul 💕",
-    "ღ Love ღ",
-    "ᥫ᭡ Angel ᥫ᭡"
+
+"♡ LoveBoy ♡",
+"♥ LoveGirl ♥",
+"❤ MyLove ❤",
+"💖 SweetHeart 💖",
+"💗 Forever 💗",
+"💕 CuteSoul 💕",
+"ღ Love ღ",
+"ᥫ᭡ Angel ᥫ᭡"
+
 ],
 
 Aesthetic:[
-    "˚₊‧ Moon ‧₊˚",
-    "⋆｡°✩ Dreamer ✩°｡⋆",
-    "☾ Starlight ☽",
-    "𓆩 Angel 𓆪",
-    "୨୧ Blossom ୨୧",
-    "✿ Rose ✿",
-    "❀ Daisy ❀",
-    "☁ Cloudy ☁"
+
+"˚₊‧ Moon ‧₊˚",
+"⋆｡°✩ Dreamer ✩°｡⋆",
+"☾ Starlight ☽",
+"𓆩 Angel 𓆪",
+"୨୧ Blossom ୨୧",
+"✿ Rose ✿",
+"❀ Daisy ❀",
+"☁ Cloudy ☁"
+
 ],
 
 Neon:[
-    "⚡ NeonBoy ⚡",
-    "✦ Cyber ✦",
-    "✧ Voltage ✧",
-    "★ NightGlow ★",
-    "✯ Laser ✯",
-    "☄ Cosmic ☄",
-    "⚡ Flash ⚡",
-    "✦ Electric ✦"
+
+"⚡ NeonBoy ⚡",
+"✦ Cyber ✦",
+"✧ Voltage ✧",
+"★ NightGlow ★",
+"✯ Laser ✯",
+"☄ Cosmic ☄",
+"⚡ Flash ⚡",
+"✦ Electric ✦"
+
 ]
 
 };
 
 
 /* =====================================================
-FALLBACK
-===================================================== */
-
-function getFallbackNames(){
-
-    return fallbackNames[currentCategory] ||
-           fallbackNames.Gaming;
-
-}
-
-
-/* =====================================================
-GENERATE USER NAME
+GENERATE
 ===================================================== */
 
 function generateNames(){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
+
 
     if(!input){
 
@@ -1606,7 +2292,9 @@ function generateNames(){
 
 
     document
-    .getElementById("resultCount")
+    .getElementById(
+        "resultCount"
+    )
     .textContent =
         generatedStyles.length +
         " unique styles";
@@ -1625,7 +2313,10 @@ function renderGenerated(){
 
     const grid =
         document
-        .getElementById("resultsGrid");
+        .getElementById(
+            "resultsGrid"
+        );
+
 
     grid.innerHTML="";
 
@@ -1646,28 +2337,31 @@ function renderGenerated(){
         new Set();
 
 
-    items.forEach((text,index)=>{
+    items.forEach(
+        (text,index)=>{
 
-        const key =
-            text.trim().toLowerCase();
+            const key =
+                text
+                .trim()
+                .toLowerCase();
 
 
-        if(shown.has(key)){
-            return;
+            if(shown.has(key))
+                return;
+
+
+            shown.add(key);
+
+
+            createCard(
+                text,
+                index,
+                grid,
+                currentCategory
+            );
+
         }
-
-
-        shown.add(key);
-
-
-        createCard(
-            text,
-            index,
-            grid,
-            currentCategory
-        );
-
-    });
+    );
 
 
     updatePagination();
@@ -1687,13 +2381,17 @@ function createCard(
 ){
 
     const card =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     card.className="nameCard";
 
 
     const badge =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     badge.className="cardBadge";
 
@@ -1704,7 +2402,9 @@ function createCard(
 
 
     const name =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     name.className =
         "styledName f"+
@@ -1714,13 +2414,17 @@ function createCard(
 
 
     const tags =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     tags.className="tags";
 
 
     const tag1 =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
     tag1.className="tag";
 
@@ -1728,7 +2432,9 @@ function createCard(
 
 
     const tag2 =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
 
     tag2.className="tag";
 
@@ -1743,15 +2449,20 @@ function createCard(
 
 
     const bottom =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     bottom.className="cardBottom";
 
 
     const fav =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
-    fav.className="cardBtn favoriteBtn";
+    fav.className =
+        "cardBtn favoriteBtn";
 
 
     const isSaved =
@@ -1780,7 +2491,9 @@ function createCard(
 
 
     const copy =
-        document.createElement("button");
+        document.createElement(
+            "button"
+        );
 
     copy.className="cardBtn";
 
@@ -1795,12 +2508,16 @@ function createCard(
 
 
     bottom.appendChild(fav);
+
     bottom.appendChild(copy);
 
 
     card.appendChild(badge);
+
     card.appendChild(name);
+
     card.appendChild(tags);
+
     card.appendChild(bottom);
 
 
@@ -1810,7 +2527,7 @@ function createCard(
 
 
 /* =====================================================
-FAVORITES
+FAVORITE
 ===================================================== */
 
 function toggleFavorite(
@@ -1861,7 +2578,9 @@ function toggleFavorite(
 
     localStorage.setItem(
         "namecraft_favorites",
-        JSON.stringify(favorites)
+        JSON.stringify(
+            favorites
+        )
     );
 
 
@@ -1878,17 +2597,22 @@ function renderFavorites(){
 
     const list =
         document
-        .getElementById("favoriteList");
+        .getElementById(
+            "favoriteList"
+        );
+
 
     list.innerHTML="";
 
 
     if(!favorites.length){
 
-        list.innerHTML=
-        `<div class="loading">
-        No favorites yet ❤️
-        </div>`;
+        list.innerHTML =
+        `
+        <div class="loading">
+            No favorites yet ❤️
+        </div>
+        `;
 
         return;
 
@@ -1897,16 +2621,18 @@ function renderFavorites(){
 
     favorites
     .slice(0,12)
-    .forEach((text,index)=>{
+    .forEach(
+        (text,index)=>{
 
-        createCard(
-            text,
-            index,
-            list,
-            "Favorite"
-        );
+            createCard(
+                text,
+                index,
+                list,
+                "Favorite"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -1931,19 +2657,27 @@ async function copyText(text){
         }else{
 
             const area =
-                document.createElement("textarea");
+                document.createElement(
+                    "textarea"
+                );
 
             area.value=text;
 
             area.style.position="fixed";
+
             area.style.opacity="0";
 
-            document.body.appendChild(area);
+            document.body.appendChild(
+                area
+            );
 
             area.focus();
+
             area.select();
 
-            document.execCommand("copy");
+            document.execCommand(
+                "copy"
+            );
 
             area.remove();
 
@@ -1969,17 +2703,25 @@ async function copyText(text){
 CATEGORY
 ===================================================== */
 
-function selectCategory(element){
+function selectCategory(
+    element
+){
 
     document
-    .querySelectorAll(".category")
+    .querySelectorAll(
+        ".category"
+    )
     .forEach(
         item =>
-        item.classList.remove("active")
+        item.classList.remove(
+            "active"
+        )
     );
 
 
-    element.classList.add("active");
+    element.classList.add(
+        "active"
+    );
 
 
     currentCategory =
@@ -1991,7 +2733,9 @@ function selectCategory(element){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
 
@@ -2010,32 +2754,31 @@ function selectCategory(element){
 
 
 /* =====================================================
-LOAD SUPABASE NAMES
+SUPABASE POPULAR NAMES
 ===================================================== */
 
 async function loadPopularNames(){
 
     const grid =
         document
-        .getElementById("resultsGrid");
+        .getElementById(
+            "resultsGrid"
+        );
 
 
-    grid.innerHTML = `
+    grid.innerHTML=`
+
         <div class="loading">
+
             Loading stylish names...
+
         </div>
+
     `;
 
 
     popularNames=[];
 
-
-    /*
-      We fetch the database in chunks.
-
-      This is important because Supabase can limit
-      the number of rows returned in one request.
-    */
 
     if(supabaseClient){
 
@@ -2055,8 +2798,8 @@ async function loadPopularNames(){
             ){
 
                 const to =
-                    from +
-                    CHUNK_SIZE -
+                    from+
+                    CHUNK_SIZE-
                     1;
 
 
@@ -2072,7 +2815,9 @@ async function loadPopularNames(){
                     )
                     .order(
                         "id",
-                        {ascending:false}
+                        {
+                            ascending:false
+                        }
                     )
                     .range(
                         from,
@@ -2103,11 +2848,6 @@ async function loadPopularNames(){
                 );
 
 
-                /*
-                  If fewer rows came back than
-                  requested, there are no more rows.
-                */
-
                 if(
                     data.length <
                     CHUNK_SIZE
@@ -2120,71 +2860,56 @@ async function loadPopularNames(){
             }
 
 
-            /*
-              ==============================
-              REMOVE DUPLICATE NAMES
-              ==============================
-            */
-
             const unique =
                 new Map();
 
 
-            allRows.forEach(item=>{
+            allRows.forEach(
+                item=>{
 
-                if(
-                    !item ||
-                    !item.name
-                ){
+                    if(
+                        !item ||
+                        !item.name
+                    ){
 
-                    return;
+                        return;
 
-                }
-
-
-                const cleanName =
-                    String(item.name)
-                    .trim();
+                    }
 
 
-                if(!cleanName){
-
-                    return;
-
-                }
-
-
-                /*
-                  Case-insensitive duplicate check.
-
-                  Example:
-
-                  Shadow
-                  shadow
-                  SHADOW
-
-                  will become ONE result.
-                */
-
-                const key =
-                    cleanName.toLowerCase();
+                    const cleanName =
+                        String(
+                            item.name
+                        ).trim();
 
 
-                if(!unique.has(key)){
+                    if(!cleanName)
+                        return;
 
-                    unique.set(
-                        key,
-                        {
-                            name:cleanName,
-                            category:
-                                item.category ||
-                                currentCategory
-                        }
-                    );
+
+                    const key =
+                        cleanName
+                        .toLowerCase();
+
+
+                    if(!unique.has(key)){
+
+                        unique.set(
+                            key,
+                            {
+                                name:
+                                    cleanName,
+
+                                category:
+                                    item.category ||
+                                    currentCategory
+                            }
+                        );
+
+                    }
 
                 }
-
-            });
+            );
 
 
             popularNames =
@@ -2193,15 +2918,11 @@ async function loadPopularNames(){
                 );
 
 
-            /*
-              If database has unique names,
-              use them.
-            */
-
-            if(popularNames.length>0){
+            if(
+                popularNames.length>0
+            ){
 
                 usingDatabase=true;
-
 
                 currentPage=1;
 
@@ -2221,12 +2942,11 @@ async function loadPopularNames(){
                     "resultCount"
                 )
                 .textContent =
-                    popularNames.length +
+                    popularNames.length+
                     " unique styles";
 
 
                 renderPopularPage();
-
 
                 return;
 
@@ -2236,7 +2956,7 @@ async function loadPopularNames(){
         }catch(error){
 
             console.warn(
-                "Supabase request failed:",
+                "Supabase failed:",
                 error
             );
 
@@ -2244,12 +2964,6 @@ async function loadPopularNames(){
 
     }
 
-
-    /*
-      ==============================
-      DATABASE FAILED / EMPTY
-      ==============================
-    */
 
     usingDatabase=false;
 
@@ -2259,14 +2973,17 @@ async function loadPopularNames(){
 
 
 /* =====================================================
-RENDER POPULAR PAGE
+POPULAR PAGE
 ===================================================== */
 
 function renderPopularPage(){
 
     const grid =
         document
-        .getElementById("resultsGrid");
+        .getElementById(
+            "resultsGrid"
+        );
+
 
     grid.innerHTML="";
 
@@ -2283,43 +3000,38 @@ function renderPopularPage(){
         );
 
 
-    /*
-      Extra duplicate protection.
-    */
-
     const shown =
         new Set();
 
 
-    items.forEach((item,index)=>{
+    items.forEach(
+        (item,index)=>{
 
-        const text =
-            item.name.trim();
-
-
-        const key =
-            text.toLowerCase();
+            const text =
+                item.name.trim();
 
 
-        if(shown.has(key)){
+            const key =
+                text.toLowerCase();
 
-            return;
+
+            if(shown.has(key))
+                return;
+
+
+            shown.add(key);
+
+
+            createCard(
+                text,
+                index,
+                grid,
+                item.category ||
+                currentCategory
+            );
 
         }
-
-
-        shown.add(key);
-
-
-        createCard(
-            text,
-            index,
-            grid,
-            item.category ||
-            currentCategory
-        );
-
-    });
+    );
 
 
     updatePagination();
@@ -2334,23 +3046,31 @@ FALLBACK
 function renderFallbackNames(){
 
     const names =
-        getFallbackNames();
+        fallbackNames[
+            currentCategory
+        ] ||
+        fallbackNames.Gaming;
 
-
-    /*
-      Remove duplicates from local list too.
-    */
 
     const unique =
-        [...new Map(
-            names.map(name=>[
-                name.trim().toLowerCase(),
-                {
-                    name:name,
-                    category:currentCategory
-                }
-            ])
-        ).values()];
+        [
+            ...new Map(
+                names.map(
+                    name=>[
+                        name
+                        .trim()
+                        .toLowerCase(),
+
+                        {
+                            name:name,
+                            category:
+                                currentCategory
+                        }
+
+                    ]
+                )
+            ).values()
+        ];
 
 
     popularNames=unique;
@@ -2370,9 +3090,11 @@ function renderFallbackNames(){
 
 
     document
-    .getElementById("resultCount")
+    .getElementById(
+        "resultCount"
+    )
     .textContent =
-        popularNames.length +
+        popularNames.length+
         " unique styles";
 
 
@@ -2388,19 +3110,25 @@ PAGINATION
 function updatePagination(){
 
     document
-    .getElementById("pageInfo")
+    .getElementById(
+        "pageInfo"
+    )
     .textContent =
         `Page ${currentPage} / ${totalPages}`;
 
 
     document
-    .getElementById("prevBtn")
+    .getElementById(
+        "prevBtn"
+    )
     .disabled =
         currentPage<=1;
 
 
     document
-    .getElementById("nextBtn")
+    .getElementById(
+        "nextBtn"
+    )
     .disabled =
         currentPage>=totalPages;
 
@@ -2408,7 +3136,7 @@ function updatePagination(){
 
 
 /* =====================================================
-NEXT PAGE
+NEXT
 ===================================================== */
 
 function nextPage(){
@@ -2427,7 +3155,9 @@ function nextPage(){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
 
@@ -2452,7 +3182,7 @@ function nextPage(){
 
 
 /* =====================================================
-PREVIOUS PAGE
+PREVIOUS
 ===================================================== */
 
 function previousPage(){
@@ -2471,7 +3201,9 @@ function previousPage(){
 
     const input =
         document
-        .getElementById("nameInput")
+        .getElementById(
+            "nameInput"
+        )
         .value
         .trim();
 
@@ -2496,11 +3228,13 @@ function previousPage(){
 
 
 /* =====================================================
-INPUT
+ENTER KEY
 ===================================================== */
 
 document
-.getElementById("nameInput")
+.getElementById(
+    "nameInput"
+)
 .addEventListener(
     "keydown",
     function(event){
@@ -2549,7 +3283,9 @@ TOAST
 let toastTimer;
 
 
-function showToast(message){
+function showToast(
+    message
+){
 
     const toast =
         document.getElementById(
@@ -2574,9 +3310,11 @@ function showToast(message){
     toastTimer =
         setTimeout(
             ()=>{
+
                 toast.classList.remove(
                     "show"
                 );
+
             },
             1800
         );
@@ -2592,5 +3330,8 @@ renderFavorites();
 
 loadPopularNames();
 
-</script></body>
+</script>
+
+</body>
+
 </html>
