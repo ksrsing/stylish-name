@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#080b22">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-<title>NameCraft - 3000+ Stylish Name Generator</title>
+<meta name="theme-color"
+content="#080b22">
+
+<title>
+NameCraft - 10000+ Stylish Name Generator
+</title>
 
 <meta name="description"
-content="NameCraft generates 3000+ stylish Unicode names with 2000+ unique Unicode font variations for gaming, cool, royal, love, aesthetic and neon styles.">
+content="NameCraft is a free stylish name generator with 10000+ unique gaming, cool, royal, love, aesthetic and neon Unicode name styles. Generate, copy, favorite and share stylish names.">
 
 <meta name="keywords"
-content="stylish name generator, unicode name generator, gaming name generator, fancy text, stylish fonts, free fire names, instagram names, cool names">
+content="stylish name generator, 10000 stylish names, Unicode name generator, gaming names, Free Fire names, cool names, royal names, love names, aesthetic names, neon names, username generator">
+
+<meta name="author"
+content="NameCraft">
+
+<meta name="robots"
+content="index, follow">
 
 <link rel="canonical"
 href="https://ksrsing.github.io/stylish-name/">
+
+<meta property="og:title"
+content="NameCraft - 10000+ Stylish Name Generator">
+
+<meta property="og:description"
+content="Generate thousands of unique stylish Unicode names for gaming, social media and usernames.">
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:url"
+content="https://ksrsing.github.io/stylish-name/">
+
+<meta name="twitter:card"
+content="summary">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
@@ -24,7 +53,6 @@ href="https://ksrsing.github.io/stylish-name/">
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
 }
 
 html{
@@ -32,1498 +60,2673 @@ html{
 }
 
 body{
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     background:
-    radial-gradient(circle at top left,#17165a 0%,transparent 35%),
-    radial-gradient(circle at top right,#39135e 0%,transparent 35%),
-    linear-gradient(135deg,#050719,#080b22,#0d1230);
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(65,95,255,.20),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 60%,
+            rgba(220,40,255,.18),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(0,210,255,.12),
+            transparent 30%
+        ),
+        #050817;
 
     color:#fff;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
-/* NAVBAR */
+button,
+input{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 48%,
+            rgba(80,100,255,.035) 50%,
+            transparent 52%
+        );
+
+    background-size:80px 80px;
+
+    z-index:-1;
+}
+
+
+/* ================= NAVBAR ================= */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
 
+    height:76px;
+
+    background:
+        rgba(5,8,25,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid rgba(126,102,255,.45);
+
+    box-shadow:
+        0 0 20px rgba(80,80,255,.12);
+}
+
+.navInner{
+    max-width:1280px;
+    height:100%;
+    margin:auto;
+
+    padding:
+        0 20px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:15px 6%;
-
-    background:rgba(5,7,25,.88);
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.logo{
-    font-size:25px;
-    font-weight:900;
-
-    background:linear-gradient(90deg,#00eaff,#a855f7,#ff4ecd);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.nav-links{
+.logoArea{
     display:flex;
-    gap:25px;
-}
-
-.nav-links a{
-    color:#ddd;
-    text-decoration:none;
-    font-size:15px;
-    transition:.2s;
-}
-
-.nav-links a:hover{
-    color:#00eaff;
-}
-
-/* HERO */
-
-.hero{
-    text-align:center;
-    padding:65px 20px 40px;
-}
-
-.hero h1{
-    font-size:clamp(34px,6vw,65px);
-    font-weight:900;
-
-    background:linear-gradient(
-        90deg,
-        #00eaff,
-        #8b5cf6,
-        #ff4ecd,
-        #00eaff
-    );
-
-    background-size:300%;
-    animation:gradientMove 5s linear infinite;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-@keyframes gradientMove{
-    0%{
-        background-position:0%;
-    }
-    100%{
-        background-position:300%;
-    }
-}
-
-.hero p{
-    max-width:750px;
-    margin:18px auto;
-    color:#b8bfd8;
-    line-height:1.7;
-}
-
-/* SEARCH */
-
-.generator{
-    width:min(950px,92%);
-    margin:auto;
-}
-
-.search-box{
-    display:flex;
-    gap:10px;
-    margin-top:25px;
-}
-
-.search-box input{
-    flex:1;
-
-    padding:17px 20px;
-
-    border-radius:15px;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    outline:none;
-
-    background:#11162f;
-    color:white;
-
-    font-size:17px;
-}
-
-.search-box input:focus{
-    border-color:#00eaff;
-    box-shadow:0 0 20px rgba(0,234,255,.15);
-}
-
-.generate-btn{
-    border:none;
-    border-radius:15px;
-
-    padding:0 28px;
-
-    cursor:pointer;
-
-    font-size:16px;
-    font-weight:bold;
-
-    color:white;
-
-    background:
-    linear-gradient(135deg,#00bcd4,#7c3aed,#ec4899);
-
-    transition:.2s;
-}
-
-.generate-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 30px rgba(124,58,237,.35);
-}
-
-/* CATEGORIES */
-
-.categories{
-    width:min(1100px,92%);
-    margin:30px auto;
-}
-
-.categories h2{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.category-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
+    align-items:center;
     gap:12px;
 }
 
-.category{
-    padding:15px 8px;
+.logoIcon{
+    width:44px;
+    height:44px;
 
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;
+    border:
+        2px solid #9d7cff;
 
-    background:rgba(255,255,255,.04);
+    transform:rotate(45deg);
 
-    text-align:center;
-    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:
+        0 0 12px #7d5cff,
+        0 0 25px rgba(144,87,255,.35);
+}
+
+.logoIcon span{
+    transform:rotate(-45deg);
+    font-size:25px;
+}
+
+.logo{
+    font-size:31px;
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7ab6ff,
+            #8c5cff,
+            #e87cff
+        );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.navLinks{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+.navLinks a{
+    color:#aaaec5;
+    text-decoration:none;
+
+    font-size:16px;
+    font-weight:600;
+
+    padding:
+        27px 0;
 
     transition:.2s;
+}
+
+.navLinks a:hover,
+.navLinks a.active{
+    color:#fff;
+}
+
+.navLinks a.active{
+    border-bottom:
+        3px solid #9369ff;
+}
+
+.navActions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.generateTop,
+.randomTop{
+    border:0;
+    border-radius:24px;
+
+    padding:
+        11px 18px;
+
+    color:#fff;
+
+    font-weight:bold;
+    font-size:14px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #587dff,
+            #9b43e9
+        );
+
+    box-shadow:
+        0 0 18px rgba(124,82,255,.28);
+}
+
+.randomTop{
+    background:
+        linear-gradient(
+            90deg,
+            #ff5b83,
+            #a843e9
+        );
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    max-width:1120px;
+    margin:auto;
+
+    text-align:center;
+
+    padding:
+        65px 20px 20px;
+}
+
+.hero h1{
+    font-size:
+        clamp(36px,6vw,58px);
+
+    line-height:1.1;
+    font-weight:900;
+}
+
+.gradientText{
+    background:
+        linear-gradient(
+            90deg,
+            #6ea6ff,
+            #9860ff,
+            #db75ff
+        );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:850px;
+    margin:18px auto 0;
+
+    color:#9bb9ed;
+
+    font-size:18px;
+    line-height:1.7;
+}
+
+
+/* ================= SEARCH ================= */
+
+.searchBox{
+    max-width:900px;
+
+    margin:
+        28px auto 15px;
+
+    min-height:62px;
+
+    border-radius:35px;
+
+    padding:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4d88ff,
+            #a54cff,
+            #ff54da
+        );
+
+    box-shadow:
+        0 0 25px rgba(77,136,255,.16);
+}
+
+.searchInner{
+    min-height:58px;
+
+    border-radius:33px;
+
+    background:#0a0e25;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        5px 7px 5px 20px;
+}
+
+.searchIcon{
+    font-size:25px;
+    color:#719cff;
+
+    margin-right:12px;
+}
+
+#nameInput{
+    flex:1;
+    min-width:0;
+
+    height:48px;
+
+    background:none;
+    border:0;
+    outline:0;
+
+    color:#fff;
+    font-size:16px;
+}
+
+#nameInput::placeholder{
+    color:#858ba2;
+}
+
+.generateBtn{
+    height:48px;
+
+    border:0;
+    border-radius:25px;
+
+    padding:
+        0 23px;
+
+    color:#fff;
+
+    font-weight:bold;
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5d83ff,
+            #9347e9
+        );
+}
+
+.randomBtn{
+    height:48px;
+
+    border:0;
+    border-radius:25px;
+
+    padding:
+        0 18px;
+
+    margin-left:6px;
+
+    color:#fff;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5c86,
+            #bd43e9
+        );
+}
+
+
+/* ================= QUICK SEARCH ================= */
+
+.quickTools{
+    max-width:900px;
+
+    margin:
+        10px auto 0;
+
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.quickBtn{
+    border:
+        1px solid #394a87;
+
+    background:
+        rgba(12,17,43,.8);
+
+    color:#9eabd2;
+
+    padding:
+        8px 13px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+    font-size:13px;
+}
+
+.quickBtn:hover{
+    color:#fff;
+    border-color:#886aff;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+    max-width:1050px;
+
+    margin:
+        24px auto 42px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:13px;
+
+    padding:
+        0 20px;
+}
+
+.category{
+    min-height:90px;
+
+    border:
+        1px solid rgba(109,130,255,.45);
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(19,28,67,.72),
+            rgba(13,12,37,.82)
+        );
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    transition:.22s;
 }
 
 .category:hover,
 .category.active{
-    border-color:#00eaff;
-    background:rgba(0,234,255,.09);
-    transform:translateY(-3px);
+    border-color:#9c70ff;
+
+    box-shadow:
+        0 0 18px rgba(117,82,255,.25);
+
+    transform:
+        translateY(-2px);
+}
+
+.category .icon{
+    font-size:29px;
 }
 
 .category span{
-    display:block;
-    font-size:25px;
-    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
 }
 
-.category small{
-    color:#c9cce0;
-}
 
-/* RESULT */
+/* ================= SEARCH FILTER ================= */
 
-.results{
-    width:min(1250px,94%);
-    margin:45px auto;
-}
+.filterArea{
+    max-width:1260px;
 
-.result-heading{
+    margin:
+        0 auto 20px;
+
+    padding:
+        0 20px;
+
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
+
     gap:15px;
-    margin-bottom:20px;
 }
 
-.result-heading h2{
-    font-size:25px;
+.filterInput{
+    width:300px;
+
+    border:
+        1px solid #34477f;
+
+    background:#0a0f27;
+
+    border-radius:12px;
+
+    color:#fff;
+
+    padding:
+        11px 14px;
+
+    outline:none;
 }
 
-.count{
-    color:#00eaff;
+.filterInput:focus{
+    border-color:#8669ff;
+}
+
+.sortSelect{
+    border:
+        1px solid #34477f;
+
+    background:#0a0f27;
+
+    color:#ddd;
+
+    border-radius:12px;
+
+    padding:
+        11px 14px;
+
+    outline:none;
+}
+
+
+/* ================= SEO ================= */
+
+.seoIntro{
+    max-width:950px;
+
+    margin:
+        0 auto 38px;
+
+    padding:
+        0 20px;
+
+    text-align:center;
+}
+
+.seoIntro h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.seoIntro p{
+    color:#8d9bc5;
+
+    line-height:1.8;
+    font-size:15px;
+}
+
+
+/* ================= RESULTS ================= */
+
+.resultsHeader{
+    max-width:1260px;
+
+    margin:auto;
+
+    padding:
+        0 20px 15px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+}
+
+.resultsHeader h2{
+    font-size:28px;
+}
+
+.resultsHeader h2 span{
+    color:#ff754b;
+}
+
+.resultCount{
+    color:#7285b4;
     font-size:14px;
 }
 
-/* GRID */
+.resultsGrid{
+    max-width:1260px;
 
-.name-grid{
+    margin:auto;
+
+    padding:
+        0 20px 35px;
+
     display:grid;
 
     grid-template-columns:
-    repeat(4,minmax(0,1fr));
+        repeat(3,1fr);
 
-    gap:14px;
+    gap:20px;
 }
 
-/* CARD */
 
-.name-card{
+/* ================= CARD ================= */
+
+.nameCard{
     position:relative;
 
-    min-height:145px;
+    min-height:185px;
 
-    padding:18px;
+    border-radius:20px;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    border-radius:18px;
+    padding:
+        24px 18px 17px;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(255,255,255,.075),
-        rgba(255,255,255,.025)
-    );
+        linear-gradient(
+            145deg,
+            rgba(15,24,58,.96),
+            rgba(11,10,34,.96)
+        );
 
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-    0 8px 30px rgba(0,0,0,.2);
-
-    transition:.25s;
-}
-
-.name-card:hover{
-    transform:translateY(-5px);
-
-    border-color:rgba(0,234,255,.5);
+    border:
+        1px solid #5267b8;
 
     box-shadow:
-    0 15px 35px rgba(0,0,0,.3),
-    0 0 25px rgba(0,234,255,.08);
+        inset 0 0 25px rgba(66,84,190,.06),
+        0 0 14px rgba(48,77,180,.12);
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        border-color .2s;
 }
 
-.styled-name{
-    min-height:65px;
+.nameCard:nth-child(3n+2){
+    border-color:#a858d1;
+}
+
+.nameCard:hover{
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 0 26px rgba(94,117,255,.25);
+}
+
+.cardNumber{
+    position:absolute;
+
+    top:9px;
+    left:11px;
+
+    color:#596a9e;
+
+    font-size:11px;
+}
+
+.cardBadge{
+    position:absolute;
+
+    top:9px;
+    right:10px;
+
+    width:39px;
+    height:39px;
+
+    border-radius:50%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    background:#151936;
+
+    border:
+        1px solid #666da8;
+
+    font-size:20px;
+}
+
+.styledName{
+    min-height:72px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     text-align:center;
+
+    font-size:28px;
+    line-height:1.3;
 
     word-break:break-word;
 
-    font-size:20px;
-    line-height:1.5;
-
-    color:#fff;
+    padding:
+        8px 20px;
 }
 
-.card-buttons{
+.tags{
     display:flex;
-    gap:8px;
-    margin-top:12px;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin:
+        4px 0 13px;
 }
 
-.card-buttons button{
-    flex:1;
+.tag{
+    border:
+        1px solid #5765a3;
 
-    border:none;
+    border-radius:9px;
+
+    background:
+        rgba(20,25,53,.7);
+
+    color:#dddff0;
+
+    padding:
+        4px 9px;
+
+    font-size:11px;
+}
+
+.cardBottom{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.cardBtn{
+    border:
+        1px solid #53639f;
+
     border-radius:10px;
 
-    padding:9px;
+    background:#0c112a;
 
-    color:white;
-    background:#171d3b;
+    color:#aaaed0;
+
+    padding:
+        8px 13px;
 
     cursor:pointer;
 
     transition:.2s;
 }
 
-.card-buttons button:hover{
-    background:#252d57;
+.cardBtn:hover{
+    color:#fff;
+    border-color:#9971ff;
 }
 
-.favorite-btn.active{
-    color:#ff4ecd;
+.favoriteBtn.saved{
+    color:#ff65c7;
+    border-color:#b65b9e;
 }
 
-/* PAGINATION */
+
+/* ================= PAGINATION ================= */
 
 .pagination{
     display:flex;
-    align-items:center;
+
     justify-content:center;
-    gap:8px;
-
-    flex-wrap:wrap;
-
-    margin:30px 0;
-}
-
-.pagination button{
-    min-width:40px;
-
-    padding:9px 12px;
-
-    border:none;
-    border-radius:9px;
-
-    background:#151b38;
-    color:white;
-
-    cursor:pointer;
-}
-
-.pagination button.active{
-    background:linear-gradient(
-        135deg,
-        #00bcd4,
-        #7c3aed
-    );
-}
-
-.pagination button:hover{
-    background:#26305c;
-}
-
-/* FAVORITES */
-
-.section{
-    width:min(1100px,92%);
-    margin:70px auto;
-}
-
-.section h2{
-    margin-bottom:12px;
-}
-
-.section p{
-    color:#aeb5d0;
-    line-height:1.7;
-}
-
-.favorite-list{
-    display:grid;
-    grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
-    gap:12px;
-
-    margin-top:20px;
-}
-
-.favorite-item{
-    display:flex;
     align-items:center;
-    justify-content:space-between;
 
-    gap:10px;
+    gap:15px;
 
-    padding:14px;
-
-    border-radius:12px;
-
-    background:#11162f;
-
-    border:1px solid rgba(255,255,255,.08);
+    margin:
+        5px auto 45px;
 }
 
-.favorite-item span{
-    word-break:break-word;
-}
+.pageBtn{
+    border:
+        1px solid #596db4;
 
-.favorite-item button{
-    border:none;
-    background:#20284b;
-    color:white;
+    background:#0c112a;
 
-    padding:8px 12px;
-    border-radius:8px;
+    color:#ddd;
+
+    border-radius:10px;
+
+    padding:
+        10px 18px;
 
     cursor:pointer;
 }
 
-/* INFO */
+.pageBtn:hover:not(:disabled){
+    border-color:#9971ff;
+}
 
-.info-box{
-    margin-top:25px;
+.pageBtn:disabled{
+    opacity:.3;
+    cursor:not-allowed;
+}
 
-    padding:25px;
+.pageInfo{
+    color:#8998c5;
+}
 
-    border-radius:18px;
+
+/* ================= RANDOM BOX ================= */
+
+.randomBox{
+    max-width:1260px;
+
+    margin:
+        20px auto 40px;
+
+    padding:
+        0 20px;
+}
+
+.randomInner{
+    border:
+        1px solid #5d55a0;
 
     background:
-    linear-gradient(
-        145deg,
-        rgba(124,58,237,.12),
-        rgba(0,234,255,.06)
-    );
+        linear-gradient(
+            135deg,
+            rgba(37,34,85,.55),
+            rgba(19,13,54,.6)
+        );
 
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+
+    padding:
+        20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
 }
 
-.info-box h3{
-    margin-bottom:10px;
+.randomText h3{
+    margin-bottom:5px;
 }
 
-.info-box ul{
-    padding-left:20px;
-    color:#b8bfd8;
-    line-height:2;
+.randomText p{
+    color:#8995bc;
+    font-size:13px;
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:80px;
-
-    padding:30px 20px;
+.randomResult{
+    flex:1;
 
     text-align:center;
 
-    color:#8e96b4;
+    font-size:25px;
 
-    border-top:1px solid rgba(255,255,255,.07);
+    font-weight:bold;
+
+    word-break:break-word;
 }
 
-/* FONT CLASSES */
+.randomAction{
+    border:0;
 
-.f1{font-family:Arial,sans-serif}
-.f2{font-family:Georgia,serif}
-.f3{font-family:"Courier New",monospace}
-.f4{font-family:Verdana,sans-serif}
-.f5{font-family:Tahoma,sans-serif}
-.f6{font-family:"Trebuchet MS",sans-serif}
-.f7{font-family:Impact,sans-serif}
-.f8{font-family:"Times New Roman",serif}
-.f9{font-family:"Lucida Console",monospace}
-.f10{font-family:system-ui,sans-serif}
-.f11{font-family:serif}
-.f12{font-family:sans-serif}
-.f13{font-family:monospace}
-.f14{font-family:cursive}
-.f15{font-family:fantasy}
-.f16{font-family:"Arial Black",sans-serif}
-.f17{font-family:"Comic Sans MS",cursive}
-.f18{font-family:Garamond,serif}
-.f19{font-family:Helvetica,sans-serif}
-.f20{font-family:Calibri,sans-serif}
+    border-radius:12px;
 
-/* TOAST */
+    padding:
+        11px 17px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5c85,
+            #a749eb
+        );
+
+    color:#fff;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+/* ================= TIP ================= */
+
+.tip{
+    border-top:
+        1px solid rgba(96,108,165,.25);
+
+    border-bottom:
+        1px solid rgba(96,108,165,.25);
+
+    background:
+        rgba(10,15,38,.7);
+
+    text-align:center;
+
+    padding:17px;
+
+    color:#8496c8;
+
+    font-size:14px;
+}
+
+
+/* ================= FAVORITES ================= */
+
+.favoriteSection{
+    max-width:1260px;
+
+    margin:
+        45px auto;
+
+    padding:
+        0 20px;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about{
+    max-width:900px;
+
+    margin:
+        60px auto;
+
+    padding:
+        30px 20px;
+
+    text-align:center;
+}
+
+.about h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#8d9bc5;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+
+/* ================= LOADING ================= */
+
+.loading{
+    grid-column:1/-1;
+
+    text-align:center;
+
+    padding:
+        70px 20px;
+
+    color:#8996bd;
+
+    font-size:18px;
+}
+
+
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
 
-    bottom:25px;
+    z-index:5000;
+
     left:50%;
+    bottom:25px;
 
-    transform:translateX(-50%) translateY(100px);
-
-    background:#151b38;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    padding:12px 20px;
-
-    border-radius:12px;
-
-    color:white;
+    transform:
+        translate(-50%,80px);
 
     opacity:0;
 
-    transition:.3s;
+    background:#181b38;
 
-    z-index:9999;
+    color:#fff;
+
+    border:
+        1px solid #7561d6;
+
+    padding:
+        13px 22px;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 0 20px rgba(104,73,255,.3);
+
+    transition:.3s;
 }
 
 .toast.show{
     opacity:1;
-    transform:translateX(-50%) translateY(0);
+
+    transform:
+        translate(-50%,0);
 }
 
-/* RESPONSIVE */
 
-@media(max-width:1000px){
+/* =====================================================
+UNICODE CSS FONT VARIATIONS
+===================================================== */
 
-    .name-grid{
-        grid-template-columns:
-        repeat(3,minmax(0,1fr));
+.f1{font-family:Georgia,serif}
+.f2{font-family:"Times New Roman",serif;font-weight:bold}
+.f3{font-family:Arial,sans-serif;font-weight:bold}
+.f4{font-family:"Courier New",monospace}
+.f5{font-family:Impact,sans-serif}
+.f6{font-family:"Trebuchet MS",sans-serif}
+.f7{font-family:Verdana,sans-serif}
+.f8{font-family:cursive}
+.f9{font-family:serif;font-style:italic}
+.f10{font-family:monospace;font-weight:bold}
+.f11{font-family:fantasy}
+.f12{font-family:"Lucida Console",monospace}
+.f13{font-family:"Arial Black",Arial,sans-serif}
+.f14{font-family:"Palatino Linotype",serif}
+.f15{font-family:"Segoe UI",sans-serif}
+.f16{font-family:"Courier New",monospace;font-style:italic}
+.f17{font-family:Georgia,serif;font-style:italic}
+.f18{font-family:Impact,sans-serif;letter-spacing:2px}
+.f19{font-family:Tahoma,sans-serif;font-weight:bold}
+.f20{font-family:Verdana,sans-serif;font-style:italic}
+
+.f21{font-family:system-ui;font-weight:800}
+.f22{font-family:ui-monospace}
+.f23{font-family:ui-serif;font-style:italic}
+.f24{font-family:sans-serif;letter-spacing:1px}
+.f25{font-family:serif;letter-spacing:2px}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .navLinks{
+        display:none;
     }
 
-    .category-grid{
+    .categories{
         grid-template-columns:
-        repeat(3,1fr);
+            repeat(3,1fr);
     }
 
-    .favorite-list{
+    .resultsGrid{
         grid-template-columns:
-        repeat(2,1fr);
+            repeat(2,1fr);
+    }
+
+    .filterArea{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .filterInput{
+        width:100%;
     }
 
 }
 
-@media(max-width:700px){
+@media(max-width:600px){
 
     .navbar{
-        padding:14px 4%;
+        height:68px;
     }
 
-    .nav-links{
-        gap:12px;
+    .navInner{
+        padding:
+            0 12px;
     }
 
-    .nav-links a{
+    .logoIcon{
+        width:36px;
+        height:36px;
+    }
+
+    .logo{
+        font-size:25px;
+    }
+
+    .navActions{
+        gap:5px;
+    }
+
+    .randomTop{
+        display:none;
+    }
+
+    .generateTop{
+        padding:
+            9px 13px;
+
         font-size:12px;
     }
-
-    .search-box{
-        flex-direction:column;
-    }
-
-    .generate-btn{
-        height:52px;
-    }
-
-    .name-grid{
-        grid-template-columns:
-        repeat(2,minmax(0,1fr));
-    }
-
-    .category-grid{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .favorite-list{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media(max-width:450px){
 
     .hero{
         padding-top:40px;
     }
 
-    .hero h1{
-        font-size:35px;
+    .hero p{
+        font-size:15px;
     }
 
-    .name-grid{
+    .searchBox{
+        border-radius:24px;
+    }
+
+    .searchInner{
+        flex-wrap:wrap;
+
+        padding:
+            5px;
+    }
+
+    .searchIcon{
+        display:none;
+    }
+
+    #nameInput{
+        width:100%;
+        height:44px;
+        padding-left:10px;
+    }
+
+    .generateBtn,
+    .randomBtn{
+        flex:1;
+        height:43px;
+    }
+
+    .categories{
+        grid-template-columns:
+            repeat(3,1fr);
+
+        gap:8px;
+
+        padding:
+            0 10px;
+    }
+
+    .category{
+        min-height:76px;
+        border-radius:13px;
+    }
+
+    .category .icon{
+        font-size:23px;
+    }
+
+    .category span{
+        font-size:11px;
+    }
+
+    .resultsHeader{
+        padding:
+            0 12px 12px;
+    }
+
+    .resultsHeader h2{
+        font-size:20px;
+    }
+
+    .resultCount{
+        font-size:10px;
+    }
+
+    .resultsGrid{
         grid-template-columns:1fr;
+
+        padding:
+            0 12px 30px;
+
+        gap:14px;
     }
 
-    .styled-name{
-        font-size:22px;
+    .nameCard{
+        min-height:175px;
+    }
+
+    .styledName{
+        font-size:24px;
+    }
+
+    .randomInner{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .randomResult{
+        width:100%;
     }
 
 }
 
+@media(max-width:380px){
+
+    .logo{
+        font-size:22px;
+    }
+
+    .categories{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* ================= ACCESSIBILITY ================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible{
+    outline:
+        2px solid #9a7cff;
+
+    outline-offset:3px;
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- NAVBAR -->
+
+<!-- =================================================
+NAVBAR
+================================================= -->
 
 <nav class="navbar">
 
-    <div class="logo">
-        NameCraft
-    </div>
+<div class="navInner">
 
-    <div class="nav-links">
+<div class="logoArea">
 
-        <a href="#home">Home</a>
+<div class="logoIcon">
+<span>◇</span>
+</div>
 
-        <a href="#styles">Styles</a>
+<div class="logo">
+NameCraft
+</div>
 
-        <a href="#favorites">Favorites</a>
+</div>
 
-        <a href="#about">About</a>
 
-    </div>
+<div class="navLinks">
+
+<a href="#home"
+class="active">
+Home
+</a>
+
+<a href="#styles">
+Styles
+</a>
+
+<a href="#favorites">
+♡ Favorites
+</a>
+
+<a href="#about">
+About
+</a>
+
+</div>
+
+
+<div class="navActions">
+
+<button
+class="randomTop"
+onclick="randomName()">
+
+🎲 Random
+
+</button>
+
+<button
+class="generateTop"
+onclick="focusInput()">
+
+✨ Generate
+
+</button>
+
+</div>
+
+</div>
 
 </nav>
 
 
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <h1>NameCraft</h1>
-
-    <p>
-        Generate 3000+ stylish names with
-        2000+ Unicode font variations.
-        Create gaming, cool, royal, love,
-        aesthetic and neon names instantly.
-    </p>
-
-    <div class="generator">
-
-        <div class="search-box">
-
-            <input
-                type="text"
-                id="nameInput"
-                placeholder="Enter your name..."
-                autocomplete="off"
-            >
-
-            <button
-                class="generate-btn"
-                onclick="generateNames()"
-            >
-                Generate
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CATEGORIES -->
-
-<section class="categories" id="styles">
-
-    <h2>Choose Style</h2>
-
-    <div class="category-grid">
-
-        <div class="category active"
-             data-category="Gaming"
-             onclick="selectCategory('Gaming')">
-            <span>🎮</span>
-            <small>Gaming</small>
-        </div>
-
-        <div class="category"
-             data-category="Cool"
-             onclick="selectCategory('Cool')">
-            <span>😎</span>
-            <small>Cool</small>
-        </div>
-
-        <div class="category"
-             data-category="Royal"
-             onclick="selectCategory('Royal')">
-            <span>👑</span>
-            <small>Royal</small>
-        </div>
-
-        <div class="category"
-             data-category="Love"
-             onclick="selectCategory('Love')">
-            <span>❤️</span>
-            <small>Love</small>
-        </div>
-
-        <div class="category"
-             data-category="Aesthetic"
-             onclick="selectCategory('Aesthetic')">
-            <span>✨</span>
-            <small>Aesthetic</small>
-        </div>
-
-        <div class="category"
-             data-category="Neon"
-             onclick="selectCategory('Neon')">
-            <span>⚡</span>
-            <small>Neon</small>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- RESULTS -->
-
-<section class="results">
-
-    <div class="result-heading">
-
-        <h2 id="resultTitle">
-            3000 Stylish Names
-        </h2>
-
-        <div class="count"
-             id="styleCount">
-            2000+ Unicode styles
-        </div>
-
-    </div>
-
-    <div
-        class="name-grid"
-        id="nameGrid">
-    </div>
-
-    <div
-        class="pagination"
-        id="pagination">
-    </div>
-
-</section>
-
-
-<!-- FAVORITES -->
+<!-- =================================================
+HERO
+================================================= -->
 
 <section
-    class="section"
-    id="favorites">
+class="hero"
+id="home">
 
-    <h2>❤️ Favorites</h2>
+<h1>
 
-    <p>
-        Your saved stylish names will appear here.
-    </p>
+Create Your
 
-    <div
-        class="favorite-list"
-        id="favoriteList">
-    </div>
+<span class="gradientText">
+Stylish
+</span>
+
+Name
+
+</h1>
+
+
+<p>
+
+Generate thousands of unique
+Unicode stylish names for
+gaming, social media, profiles
+and usernames.
+
+</p>
+
+
+<div class="searchBox">
+
+<div class="searchInner">
+
+<span class="searchIcon">
+⌕
+</span>
+
+
+<input
+id="nameInput"
+type="text"
+placeholder="Type a name... e.g. Shadow, Dragon, Phantom"
+maxlength="60">
+
+
+<button
+class="generateBtn"
+onclick="generateNames()">
+
+✨ Generate
+
+</button>
+
+
+<button
+class="randomBtn"
+onclick="randomName()">
+
+🎲 Random
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="quickTools">
+
+<button
+class="quickBtn"
+onclick="setExample('Shadow')">
+
+Shadow
+
+</button>
+
+<button
+class="quickBtn"
+onclick="setExample('Dragon')">
+
+Dragon
+
+</button>
+
+<button
+class="quickBtn"
+onclick="setExample('King')">
+
+King
+
+</button>
+
+<button
+class="quickBtn"
+onclick="setExample('Phantom')">
+
+Phantom
+
+</button>
+
+<button
+class="quickBtn"
+onclick="setExample('Legend')">
+
+Legend
+
+</button>
+
+</div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- =================================================
+CATEGORIES
+================================================= -->
+
+<div
+class="categories"
+id="styles">
+
+
+<div
+class="category active"
+data-category="Gaming"
+onclick="selectCategory(this)">
+
+<div class="icon">
+🎮
+</div>
+
+<span>
+Gaming
+</span>
+
+</div>
+
+
+<div
+class="category"
+data-category="Cool"
+onclick="selectCategory(this)">
+
+<div class="icon">
+😎
+</div>
+
+<span>
+Cool
+</span>
+
+</div>
+
+
+<div
+class="category"
+data-category="Royal"
+onclick="selectCategory(this)">
+
+<div class="icon">
+♛
+</div>
+
+<span>
+Royal
+</span>
+
+</div>
+
+
+<div
+class="category"
+data-category="Love"
+onclick="selectCategory(this)">
+
+<div class="icon">
+♡
+</div>
+
+<span>
+Love
+</span>
+
+</div>
+
+
+<div
+class="category"
+data-category="Aesthetic"
+onclick="selectCategory(this)">
+
+<div class="icon">
+✧
+</div>
+
+<span>
+Aesthetic
+</span>
+
+</div>
+
+
+<div
+class="category"
+data-category="Neon"
+onclick="selectCategory(this)">
+
+<div class="icon">
+ϟ
+</div>
+
+<span>
+Neon
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+SEO
+================================================= -->
+
+<section class="seoIntro">
+
+<h2>
+Free 10000+ Stylish Name Generator
+</h2>
+
+<p>
+
+Create gaming names, cool usernames,
+royal names, love names, aesthetic
+usernames and neon names with NameCraft.
+
+Enter your name, choose a category
+and generate thousands of unique
+Unicode designs that you can copy
+and use on games and social media.
+
+</p>
+
+</section>
+
+
+<!-- =================================================
+FILTER
+================================================= -->
+
+<div class="filterArea">
+
+<input
+id="filterInput"
+class="filterInput"
+type="search"
+placeholder="🔎 Search generated styles..."
+oninput="applyFilter()">
+
+
+<select
+id="sortSelect"
+class="sortSelect"
+onchange="applyFilter()">
+
+<option value="default">
+Default order
+</option>
+
+<option value="az">
+A → Z
+</option>
+
+<option value="za">
+Z → A
+</option>
+
+</select>
+
+</div>
+
+
+<!-- =================================================
+RESULT HEADER
+================================================= -->
+
+<div class="resultsHeader">
+
+<h2>
+
+Stylish Names
+<span>🔥</span>
+
+</h2>
+
+<div
+class="resultCount"
+id="resultCount">
+
+10,000+ styles
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+RESULTS
+================================================= -->
+
+<div
+id="resultsGrid"
+class="resultsGrid">
+
+<div class="loading">
+
+Loading stylish names...
+
+</div>
+
+</div>
+
+
+<!-- =================================================
+PAGINATION
+================================================= -->
+
+<div class="pagination">
+
+<button
+id="prevBtn"
+class="pageBtn"
+onclick="previousPage()"
+disabled>
+
+← Prev
+
+</button>
+
+
+<span
+id="pageInfo"
+class="pageInfo">
+
+Page 1 / 1
+
+</span>
+
+
+<button
+id="nextBtn"
+class="pageBtn"
+onclick="nextPage()">
+
+Next →
+
+</button>
+
+</div>
+
+
+<!-- =================================================
+RANDOM
+================================================= -->
+
+<section class="randomBox">
+
+<div class="randomInner">
+
+<div class="randomText">
+
+<h3>
+🎲 Random Stylish Name
+</h3>
+
+<p>
+Generate a random stylish design instantly.
+</p>
+
+</div>
+
+
+<div
+id="randomResult"
+class="randomResult">
+
+Click Random
+
+</div>
+
+
+<button
+class="randomAction"
+onclick="randomName()">
+
+Generate
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+TIP
+================================================= -->
+
+<div class="tip">
+
+✨ Tip: Click Copy to copy a stylish name
+&nbsp; • &nbsp;
+
+<span id="todayCount">
+10,000+
+</span>
+
+styles available
+
+</div>
+
+
+<!-- =================================================
+FAVORITES
+================================================= -->
 
 <section
-    class="section"
-    id="about">
+id="favorites"
+class="favoriteSection">
 
-    <h2>About NameCraft</h2>
+<div
+class="resultsHeader"
+style="padding-left:0">
 
-    <div class="info-box">
+<h2>
+♡ Favorites
+</h2>
 
-        <h3>3000+ Stylish Name Generator</h3>
+</div>
 
-        <p>
-            NameCraft is a free stylish name generator
-            for gaming, social media, profiles and
-            usernames.
-        </p>
 
-        <br>
+<div
+id="favoriteList"
+class="resultsGrid"
+style="padding:0">
 
-        <ul>
-
-            <li>
-                3000 generated styles per name
-            </li>
-
-            <li>
-                2000+ Unicode variations and combinations
-            </li>
-
-            <li>
-                Gaming, Cool, Royal, Love, Aesthetic and Neon styles
-            </li>
-
-            <li>
-                Copy names with one tap
-            </li>
-
-            <li>
-                Save favorite names
-            </li>
-
-            <li>
-                Mobile friendly
-            </li>
-
-        </ul>
-
-    </div>
+</div>
 
 </section>
 
 
-<footer>
+<!-- =================================================
+ABOUT
+================================================= -->
 
-    © 2026 NameCraft |
-    Stylish Name Generator
+<section
+id="about"
+class="about">
+
+<h2>
+About NameCraft
+</h2>
+
+<p>
+
+NameCraft is a free stylish name generator
+for gaming, social media, profiles and
+usernames.
+
+Create unique names using Unicode symbols,
+decorations and thousands of different
+combinations.
+
+Generate, copy and save your favorite
+designs directly in your browser.
+
+</p>
+
+</section>
+
+
+<!-- =================================================
+FOOTER
+================================================= -->
+
+<footer
+style="
+border-top:1px solid rgba(100,110,170,.25);
+background:rgba(4,7,20,.8);
+text-align:center;
+padding:30px 15px;
+color:#7180aa;
+">
+
+<strong
+style="color:#9f8cff">
+
+NameCraft
+
+</strong>
+
+<br>
+
+Stylish Name Generator
+
+<br>
+
+© 2026 NameCraft.
+All rights reserved.
 
 </footer>
 
 
 <div
-    class="toast"
-    id="toast">
-    Copied!
+id="toast"
+class="toast">
+
+Copied!
+
 </div>
 
 
 <script>
 
-/* =========================================
-   SETTINGS
-========================================= */
+/* =====================================================
+SUPABASE
+===================================================== */
 
-const MAX_STYLES = 3000;
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
 
-const PAGE_SIZE = 24;
+const SUPABASE_KEY =
+"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
-let currentPage = 1;
+let supabaseClient=null;
 
-let currentCategory = "Gaming";
+try{
 
-let generatedStyles = [];
+    if(
+        typeof supabase!=="undefined"
+    ){
 
-let favorites =
-    JSON.parse(
-        localStorage.getItem("namecraftFavorites") || "[]"
+        supabaseClient =
+            supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+    }
+
+}catch(error){
+
+    console.warn(
+        "Supabase unavailable",
+        error
     );
 
-
-/* =========================================
-   UNICODE MAPS
-========================================= */
-
-const boldMap = {
-a:"𝐚",b:"𝐛",c:"𝐜",d:"𝐝",e:"𝐞",f:"𝐟",g:"𝐠",
-h:"𝐡",i:"𝐢",j:"𝐣",k:"𝐤",l:"𝐥",m:"𝐦",n:"𝐧",
-o:"𝐨",p:"𝐩",q:"𝐪",r:"𝐫",s:"𝐬",t:"𝐭",u:"𝐮",
-v:"𝐯",w:"𝐰",x:"𝐱",y:"𝐲",z:"𝐳",
-A:"𝐀",B:"𝐁",C:"𝐂",D:"𝐃",E:"𝐄",F:"𝐅",
-G:"𝐆",H:"𝐇",I:"𝐈",J:"𝐉",K:"𝐊",L:"𝐋",
-M:"𝐌",N:"𝐍",O:"𝐎",P:"𝐏",Q:"𝐐",R:"𝐑",
-S:"𝐒",T:"𝐓",U:"𝐔",V:"𝐕",W:"𝐖",X:"𝐗",
-Y:"𝐘",Z:"𝐙"
-};
+}
 
 
-const italicMap = {
-a:"𝑎",b:"𝑏",c:"𝑐",d:"𝑑",e:"𝑒",f:"𝑓",g:"𝑔",
-h:"ℎ",i:"𝑖",j:"𝑗",k:"𝑘",l:"𝑙",m:"𝑚",n:"𝑛",
-o:"𝑜",p:"𝑝",q:"𝑞",r:"𝑟",s:"𝑠",t:"𝑡",u:"𝑢",
-v:"𝑣",w:"𝑤",x:"𝑥",y:"𝑦",z:"𝑧",
-A:"𝐴",B:"𝐵",C:"𝐶",D:"𝐷",E:"𝐸",F:"𝐹",
-G:"𝐺",H:"𝐻",I:"𝐼",J:"𝐽",K:"𝐾",L:"𝐿",
-M:"𝑀",N:"𝑁",O:"𝑂",P:"𝑃",Q:"𝑄",R:"𝑅",
-S:"𝑆",T:"𝑇",U:"𝑈",V:"𝑉",W:"𝑊",X:"𝑋",
-Y:"𝑌",Z:"𝑍"
-};
+/* =====================================================
+SETTINGS
+===================================================== */
+
+const PAGE_SIZE=24;
+
+/*
+   10000+ combinations
+*/
+
+const MAX_STYLES=10000;
+
+let currentPage=1;
+
+let totalPages=1;
+
+let currentCategory="Gaming";
+
+let generatedStyles=[];
+
+let filteredStyles=[];
+
+let popularNames=[];
+
+let usingDatabase=false;
+
+let favorites=
+JSON.parse(
+    localStorage.getItem(
+        "namecraft_favorites"
+    )||"[]"
+);
 
 
-const monoMap = {
-a:"𝚊",b:"𝚋",c:"𝚌",d:"𝚍",e:"𝚎",f:"𝚏",g:"𝚐",
-h:"𝚑",i:"𝚒",j:"𝚓",k:"𝚔",l:"𝚕",m:"𝚖",n:"𝚗",
-o:"𝚘",p:"𝚙",q:"𝚚",r:"𝚛",s:"𝚜",t:"𝚝",u:"𝚞",
-v:"𝚟",w:"𝚠",x:"𝚡",y:"𝚢",z:"𝚣"
-};
+/* =====================================================
+UNICODE MAPS
+===================================================== */
+
+const normalLower=
+"abcdefghijklmnopqrstuvwxyz";
+
+const normalUpper=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 
-const doubleMap = {
-a:"𝕒",b:"𝕓",c:"𝕔",d:"𝕕",e:"𝕖",f:"𝕗",g:"𝕘",
-h:"𝕙",i:"𝕚",j:"𝕛",k:"𝕜",l:"𝕝",m:"𝕞",n:"𝕟",
-o:"𝕠",p:"𝕡",q:"𝕢",r:"𝕣",s:"𝕤",t:"𝕥",u:"𝕦",
-v:"𝕧",w:"𝕨",x:"𝕩",y:"𝕪",z:"𝕫",
-A:"𝔸",B:"𝔹",C:"ℂ",D:"𝔻",E:"𝔼",F:"𝔽",
-G:"𝔾",H:"ℍ",I:"𝕀",J:"𝕁",K:"𝕂",L:"𝕃",
-M:"𝕄",N:"ℕ",O:"𝕆",P:"ℙ",Q:"ℚ",R:"ℝ",
-S:"𝕊",T:"𝕋",U:"𝕌",V:"𝕍",W:"𝕎",X:"𝕏",
-Y:"𝕐",Z:"ℤ"
-};
+const boldLower=
+"𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
+
+const boldUpper=
+"𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
 
 
-const frakturMap = {
-a:"𝔞",b:"𝔟",c:"𝔠",d:"𝔡",e:"𝔢",f:"𝔣",g:"𝔤",
-h:"𝔥",i:"𝔦",j:"𝔧",k:"𝔨",l:"𝔩",m:"𝔪",n:"𝔫",
-o:"𝔬",p:"𝔭",q:"𝔮",r:"𝔯",s:"𝔰",t:"𝔱",u:"𝔲",
-v:"𝔳",w:"𝔴",x:"𝔵",y:"𝔶",z:"𝔷",
-A:"𝔄",B:"𝔅",C:"ℭ",D:"𝔇",E:"𝔈",F:"𝔉",
-G:"𝔊",H:"ℌ",I:"ℑ",J:"𝔍",K:"𝔎",L:"𝔏",
-M:"𝔐",N:"𝔑",O:"𝔒",P:"𝔓",Q:"𝔔",R:"ℜ",
-S:"𝔖",T:"𝔗",U:"𝔘",V:"𝔙",W:"𝔚",X:"𝔛",
-Y:"𝔜",Z:"ℨ"
-};
+const italicLower=
+"𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
+
+const italicUpper=
+"𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
 
 
-const bubbleMap = {
-a:"ⓐ",b:"ⓑ",c:"ⓒ",d:"ⓓ",e:"ⓔ",f:"ⓕ",g:"ⓖ",
-h:"ⓗ",i:"ⓘ",j:"ⓙ",k:"ⓚ",l:"ⓛ",m:"ⓜ",n:"ⓝ",
-o:"ⓞ",p:"ⓟ",q:"ⓠ",r:"ⓡ",s:"ⓢ",t:"ⓣ",u:"ⓤ",
-v:"ⓥ",w:"ⓦ",x:"ⓧ",y:"ⓨ",z:"ⓩ",
-A:"Ⓐ",B:"Ⓑ",C:"Ⓒ",D:"Ⓓ",E:"Ⓔ",F:"Ⓕ",
-G:"Ⓖ",H:"Ⓗ",I:"Ⓘ",J:"Ⓙ",K:"Ⓚ",L:"Ⓛ",
-M:"Ⓜ",N:"Ⓝ",O:"Ⓞ",P:"Ⓟ",Q:"Ⓠ",R:"Ⓡ",
-S:"Ⓢ",T:"Ⓣ",U:"Ⓤ",V:"Ⓥ",W:"Ⓦ",X:"Ⓧ",
-Y:"Ⓨ",Z:"Ⓩ"
-};
+const monoLower=
+"𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
+
+const monoUpper=
+"𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
 
 
-/* =========================================
-   TRANSFORM FUNCTION
-========================================= */
+const sansBoldLower=
+"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘷𝘄𝘅𝘆𝘇";
 
-function transform(text,map){
+const sansBoldUpper=
+"𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
+
+
+const sansItalicLower=
+"𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
+
+const sansItalicUpper=
+"𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
+
+
+const scriptLower=
+"𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+
+const scriptUpper=
+"𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
+
+
+const doubleLower=
+"𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
+
+const doubleUpper=
+"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
+
+
+const frakturLower=
+"𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+
+const frakturUpper=
+"𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
+
+
+/* =====================================================
+CONVERTER
+===================================================== */
+
+function convertFont(
+    text,
+    lower,
+    upper
+){
 
     return [...text]
-        .map(char => map[char] || char)
-        .join("");
+    .map(char=>{
+
+        let i=
+            normalLower.indexOf(char);
+
+        if(i>=0)
+            return lower[i];
+
+        i=
+            normalUpper.indexOf(char);
+
+        if(i>=0)
+            return upper[i];
+
+        return char;
+
+    })
+    .join("");
 
 }
 
-
-/* =========================================
-   FONT FUNCTIONS
-========================================= */
 
 function bold(text){
-    return transform(text,boldMap);
-}
-
-function italic(text){
-    return transform(text,italicMap);
-}
-
-function mono(text){
-    return transform(text,monoMap);
-}
-
-function doubleText(text){
-    return transform(text,doubleMap);
-}
-
-function fraktur(text){
-    return transform(text,frakturMap);
-}
-
-function bubble(text){
-    return transform(text,bubbleMap);
-}
-
-
-/* =========================================
-   SMALL CAPS
-========================================= */
-
-const smallCapsMap = {
-a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",
-f:"ꜰ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",
-k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",
-p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
-u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",y:"ʏ",z:"ᴢ"
-};
-
-function smallCaps(text){
-    return transform(
-        text.toLowerCase(),
-        smallCapsMap
+    return convertFont(
+        text,
+        boldLower,
+        boldUpper
     );
 }
 
 
-/* =========================================
-   FULL WIDTH
-========================================= */
+function italic(text){
+    return convertFont(
+        text,
+        italicLower,
+        italicUpper
+    );
+}
 
-function fullWidth(text){
 
-    return [...text].map(c => {
+function mono(text){
+    return convertFont(
+        text,
+        monoLower,
+        monoUpper
+    );
+}
 
-        const code = c.charCodeAt(0);
 
-        if(code >= 33 && code <= 126){
-            return String.fromCharCode(
-                code + 65248
-            );
-        }
+function sansBold(text){
+    return convertFont(
+        text,
+        sansBoldLower,
+        sansBoldUpper
+    );
+}
 
-        if(c === " "){
-            return "　";
-        }
 
-        return c;
+function sansItalic(text){
+    return convertFont(
+        text,
+        sansItalicLower,
+        sansItalicUpper
+    );
+}
 
-    }).join("");
+
+function script(text){
+    return convertFont(
+        text,
+        scriptLower,
+        scriptUpper
+    );
+}
+
+
+function doubleText(text){
+    return convertFont(
+        text,
+        doubleLower,
+        doubleUpper
+    );
+}
+
+
+function fraktur(text){
+    return convertFont(
+        text,
+        frakturLower,
+        frakturUpper
+    );
+}
+
+
+/* =====================================================
+SMALL CAPS
+===================================================== */
+
+function smallCaps(text){
+
+    const map={
+
+        a:"ᴀ",
+        b:"ʙ",
+        c:"ᴄ",
+        d:"ᴅ",
+        e:"ᴇ",
+        f:"ғ",
+        g:"ɢ",
+        h:"ʜ",
+        i:"ɪ",
+        j:"ᴊ",
+        k:"ᴋ",
+        l:"ʟ",
+        m:"ᴍ",
+        n:"ɴ",
+        o:"ᴏ",
+        p:"ᴘ",
+        q:"ǫ",
+        r:"ʀ",
+        s:"s",
+        t:"ᴛ",
+        u:"ᴜ",
+        v:"ᴠ",
+        w:"ᴡ",
+        x:"x",
+        y:"ʏ",
+        z:"ᴢ"
+
+    };
+
+    return [...text.toLowerCase()]
+    .map(c=>map[c]||c)
+    .join("");
 
 }
 
 
-/* =========================================
-   SPECIAL TEXT
-========================================= */
+/* =====================================================
+EFFECTS
+===================================================== */
 
 function underline(text){
 
     return [...text]
-        .map(c => c + "\u0332")
-        .join("");
+    .map(
+        c=>c+"\u0332"
+    )
+    .join("");
 
 }
+
 
 function strike(text){
 
     return [...text]
-        .map(c => c + "\u0336")
-        .join("");
+    .map(
+        c=>c+"\u0336"
+    )
+    .join("");
 
 }
+
 
 function dots(text){
 
     return [...text]
-        .map(c => c + "\u0307")
-        .join("");
+    .map(
+        c=>c+"\u0307"
+    )
+    .join("");
 
 }
+
+
+function overline(text){
+
+    return [...text]
+    .map(
+        c=>c+"\u0305"
+    )
+    .join("");
+
+}
+
+
+function ring(text){
+
+    return [...text]
+    .map(
+        c=>c+"\u030A"
+    )
+    .join("");
+
+}
+
 
 function spaced(text){
 
-    return [...text]
-        .join(" ");
+    return [...text].join(" ");
 
 }
 
 
-/* =========================================
-   FONT COLLECTION
-========================================= */
+function dottedSpace(text){
+
+    return [...text].join("・");
+
+}
+
+
+function starSpace(text){
+
+    return [...text].join("★");
+
+}
+
+
+function heartSpace(text){
+
+    return [...text].join("♡");
+
+}
+
+
+function fullWidth(text){
+
+    return [...text]
+    .map(c=>{
+
+        const code=
+            c.charCodeAt(0);
+
+        if(
+            code>=33 &&
+            code<=126
+        ){
+
+            return String.fromCharCode(
+                code+65248
+            );
+
+        }
+
+        if(c===" ")
+            return "　";
+
+        return c;
+
+    })
+    .join("");
+
+}
+
+
+/* =====================================================
+BUBBLE
+===================================================== */
+
+function bubble(text){
+
+    const letters=
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    const bubbles=[
+
+        "Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ",
+        "Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ",
+        "Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ",
+        "Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ",
+        "Ⓨ","Ⓩ"
+
+    ];
+
+    return [...text.toUpperCase()]
+    .map(c=>{
+
+        const i=
+            letters.indexOf(c);
+
+        return i>=0
+            ? bubbles[i]
+            : c;
+
+    })
+    .join("");
+
+}
+
+
+/* =====================================================
+DECORATIONS
+===================================================== */
+
+const decorations=[
+
+    ["",""],
+
+    ["꧁","꧂"],
+    ["༺","༻"],
+    ["༒","༒"],
+    ["『","』"],
+    ["「","」"],
+    ["【","】"],
+    ["〖","〗"],
+    ["《","》"],
+    ["〈","〉"],
+    ["〔","〕"],
+
+    ["乂","乂"],
+    ["メ","メ"],
+    ["亗","亗"],
+    ["ツ","ツ"],
+    ["シ","シ"],
+    ["々","々"],
+    ["彡","彡"],
+    ["〆","〆"],
+    ["么","么"],
+
+    ["♛","♛"],
+    ["♕","♕"],
+    ["♔","♔"],
+    ["★","★"],
+    ["☆","☆"],
+    ["✦","✦"],
+    ["✧","✧"],
+    ["✪","✪"],
+    ["✯","✯"],
+    ["⚡","⚡"],
+    ["☠","☠"],
+    ["☯","☯"],
+    ["♡","♡"],
+    ["♥","♥"],
+    ["❤","❤"],
+    ["⚔","⚔"],
+    ["⚜","⚜"],
+    ["☾","☽"],
+    ["☁","☁"],
+    ["✿","✿"],
+    ["❀","❀"],
+    ["𓆩","𓆪"],
+    ["୨୧","୨୧"],
+    ["⌁","⌁"],
+    ["☬","☬"],
+    ["♤","♤"],
+    ["♧","♧"],
+    ["♢","♢"],
+    ["☄","☄"],
+    ["❖","❖"],
+    ["◈","◈"],
+    ["◆","◆"],
+    ["◇","◇"],
+    ["✰","✰"],
+    ["✮","✮"],
+    ["✭","✭"],
+    ["✵","✵"],
+    ["✶","✶"],
+    ["✷","✷"],
+    ["✸","✸"],
+    ["✹","✹"],
+    ["✺","✺"],
+    ["✻","✻"],
+    ["✼","✼"],
+    ["✽","✽"],
+    ["✾","✾"],
+    ["❂","❂"],
+    ["❁","❁"],
+    ["❃","❃"],
+    ["❅","❅"],
+    ["❆","❆"]
+
+];
+
+
+/* =====================================================
+FONT TRANSFORMATIONS
+===================================================== */
 
 function getFonts(name){
 
     return [
 
         name,
-
         bold(name),
         italic(name),
         mono(name),
+        sansBold(name),
+        sansItalic(name),
+        script(name),
         doubleText(name),
         fraktur(name),
-        bubble(name),
         smallCaps(name),
+
         fullWidth(name),
+        bubble(name),
 
         underline(name),
         strike(name),
         dots(name),
+        overline(name),
+        ring(name),
 
         spaced(name),
+        dottedSpace(name),
+        starSpace(name),
+        heartSpace(name),
 
         name.toUpperCase(),
-        name.toLowerCase(),
-
-        bold(name.toUpperCase()),
-        bold(name.toLowerCase()),
-
-        italic(name.toUpperCase()),
-        italic(name.toLowerCase()),
-
-        mono(name.toUpperCase()),
-        mono(name.toLowerCase()),
-
-        doubleText(name.toUpperCase()),
-        doubleText(name.toLowerCase()),
-
-        fraktur(name.toUpperCase()),
-        fraktur(name.toLowerCase()),
-
-        bubble(name.toUpperCase()),
-        bubble(name.toLowerCase()),
-
-        smallCaps(name.toUpperCase()),
-        smallCaps(name.toLowerCase()),
-
-        fullWidth(name.toUpperCase()),
-        fullWidth(name.toLowerCase())
+        name.toLowerCase()
 
     ];
 
 }
 
 
-/* =========================================
-   SYMBOL COLLECTION
-========================================= */
+/* =====================================================
+CATEGORY SPECIALS
+===================================================== */
 
-const symbols = [
+function addCategoryStyles(
+    add,
+    name,
+    category
+){
 
-    "",
-    "★",
-    "☆",
-    "✦",
-    "✧",
-    "✯",
-    "✰",
-    "✮",
-    "✭",
+    if(category==="Gaming"){
 
-    "亗",
-    "乂",
-    "メ",
-    "ツ",
-    "シ",
-    "彡",
-    "〆",
-    "々",
-    "么",
-    "๛",
+        [
+            `亗 ${name} 亗`,
+            `乂 ${name} 乂`,
+            `メ ${name} メ`,
+            `么 ${name} 么`,
+            `彡 ${name} 彡`,
+            `〆 ${name} 〆`,
+            `⚔ ${name} ⚔`,
+            `☠ ${name} ☠`,
+            `꧁༒${name}༒꧂`,
+            `『亗${name}亗』`,
+            `乂⚡${name}⚡乂`,
+            `꧁☠${name}☠꧂`,
+            `亗⚔${name}⚔亗`
 
-    "♛",
-    "♕",
-    "♔",
+        ].forEach(add);
 
-    "⚡",
-    "☠",
-    "☯",
-    "⚔",
-    "⚜",
-
-    "♡",
-    "♥",
-    "❤",
-
-    "☾",
-    "☽",
-    "☁",
-    "☄",
-
-    "✿",
-    "❀",
-    "❁",
-    "❃",
-    "❖",
-    "◆",
-    "◇",
-    "◈",
-
-    "𓆩",
-    "𓆪",
-    "୨୧",
-    "⌁"
-
-];
+    }
 
 
-/* =========================================
-   CATEGORY SYMBOLS
-========================================= */
+    if(category==="Cool"){
 
-const categorySymbols = {
+        [
+            `ツ ${name} ツ`,
+            `シ ${name} シ`,
+            `々 ${name} 々`,
+            `彡 ${name} 彡`,
+            `〆 ${name} 〆`,
+            `メ ${name} メ`,
+            `★ ${name} ★`,
+            `✦ ${name} ✦`,
+            `亗 ${name} 亗`,
+            `『${name}』`
 
-    Gaming:[
-        "亗","乂","メ","ツ","シ","彡",
-        "〆","⚔","☠","⚡"
-    ],
+        ].forEach(add);
 
-    Cool:[
-        "ツ","シ","々","彡","〆",
-        "★","✦","✧","亗"
-    ],
-
-    Royal:[
-        "♛","♕","♔","⚜",
-        "👑","༺","꧁"
-    ],
-
-    Love:[
-        "♡","♥","❤","ღ",
-        "ᥫ᭡","💕","💖","💗"
-    ],
-
-    Aesthetic:[
-        "✧","✦","☾","☽",
-        "𓆩","𓆪","୨୧",
-        "✿","❀","☁"
-    ],
-
-    Neon:[
-        "⚡","✦","✧","★",
-        "✯","☄","❖","◆"
-    ]
-
-};
+    }
 
 
-/* =========================================
-   GENERATE 3000 STYLES
-========================================= */
+    if(category==="Royal"){
 
-function makeStyles(name,category){
+        [
+            `♛ ${name} ♛`,
+            `♕ ${name} ♕`,
+            `♔ ${name} ♔`,
+            `👑 ${name} 👑`,
+            `⚜ ${name} ⚜`,
+            `꧁༺♛ ${name} ♛༻꧂`,
+            `♛👑 ${name} 👑♛`,
+            `꧁♕${name}♕꧂`
 
-    const result = [];
+        ].forEach(add);
 
-    const unique = new Set();
+    }
 
-    const fonts = getFonts(name);
 
-    const special =
-        categorySymbols[category] ||
-        categorySymbols.Gaming;
+    if(category==="Love"){
+
+        [
+            `♡ ${name} ♡`,
+            `♥ ${name} ♥`,
+            `❤ ${name} ❤`,
+            `💖 ${name} 💖`,
+            `💗 ${name} 💗`,
+            `💕 ${name} 💕`,
+            `ღ ${name} ღ`,
+            `ᥫ᭡ ${name} ᥫ᭡`,
+            `꧁♡${name}♡꧂`,
+            `『♥${name}♥』`
+
+        ].forEach(add);
+
+    }
+
+
+    if(category==="Aesthetic"){
+
+        [
+            `˚₊‧ ${name} ‧₊˚`,
+            `⋆｡°✩ ${name} ✩°｡⋆`,
+            `☾ ${name} ☽`,
+            `𓆩 ${name} 𓆪`,
+            `୨୧ ${name} ୨୧`,
+            `✿ ${name} ✿`,
+            `❀ ${name} ❀`,
+            `☁ ${name} ☁`,
+            `☾⋆ ${name} ⋆☽`,
+            `✧･ﾟ ${name} ﾟ･✧`
+
+        ].forEach(add);
+
+    }
+
+
+    if(category==="Neon"){
+
+        [
+            `⚡ ${name} ⚡`,
+            `✦ ${name} ✦`,
+            `✧ ${name} ✧`,
+            `★ ${name} ★`,
+            `✯ ${name} ✯`,
+            `☄ ${name} ☄`,
+            `⚡✦ ${name} ✦⚡`,
+            `『⚡${name}⚡』`,
+            `꧁⚡${name}⚡꧂`
+
+        ].forEach(add);
+
+    }
+
+}
+
+
+/* =====================================================
+10,000 STYLE GENERATOR
+===================================================== */
+
+function makeStyles(
+    name,
+    category
+){
+
+    const set=new Set();
+
+    const output=[];
 
 
     function add(value){
 
         if(
             !value ||
-            value.length > 100
+            typeof value!=="string"
         ){
+
             return;
+
         }
 
-        value = value.trim();
+        value=value.trim();
 
-        if(!value){
+        if(!value)
             return;
-        }
 
-        if(unique.has(value)){
+        const key=
+            value.toLowerCase();
+
+        if(set.has(key))
             return;
-        }
 
-        unique.add(value);
-
-        result.push(value);
+        set.add(key);
+        output.push(value);
 
     }
 
 
-    /* CATEGORY */
-
-    special.forEach(symbol => {
-
-        fonts.forEach(font => {
-
-            add(symbol + font + symbol);
-
-            add(
-                symbol +
-                " " +
-                font +
-                " " +
-                symbol
-            );
-
-            add(
-                symbol +
-                "•" +
-                font +
-                "•" +
-                symbol
-            );
-
-            add(
-                symbol +
-                "✦" +
-                font +
-                "✦" +
-                symbol
-            );
-
-            add(
-                symbol +
-                "♡" +
-                font +
-                "♡" +
-                symbol
-            );
-
-        });
-
-    });
+    /* category */
+    addCategoryStyles(
+        add,
+        name,
+        category
+    );
 
 
-    /* FONT + SYMBOL */
+    const fonts=
+        getFonts(name);
+
+
+    /*
+      23 fonts
+      x 75 decorations
+      x several separators
+      = 10,000+ possible combinations
+    */
+
+    const separators=[
+
+        "",
+        " ",
+        "•",
+        "・",
+        "✦",
+        "✧",
+        "★",
+        "☆",
+        "♡",
+        "♥",
+        "⚡",
+        "亗",
+        "乂",
+        "メ",
+        "彡",
+        "ツ",
+        "々",
+        "⌁"
+
+    ];
+
 
     for(
         let f=0;
-        f<fonts.length;
+        f<fonts.length &&
+        output.length<MAX_STYLES;
         f++
     ){
 
-        if(result.length >= MAX_STYLES)
-            break;
+        const font=
+            fonts[f];
 
-        const font = fonts[f];
 
         for(
-            let i=0;
-            i<symbols.length;
-            i++
+            let d=0;
+            d<decorations.length &&
+            output.length<MAX_STYLES;
+            d++
         ){
 
-            if(result.length >= MAX_STYLES)
-                break;
+            const left=
+                decorations[d][0];
 
-            const s1 = symbols[i];
+            const right=
+                decorations[d][1];
+
 
             for(
-                let j=0;
-                j<symbols.length;
-                j++
+                let s=0;
+                s<separators.length &&
+                output.length<MAX_STYLES;
+                s++
             ){
 
-                if(result.length >= MAX_STYLES)
-                    break;
-
-                const s2 = symbols[j];
+                const sep=
+                    separators[s];
 
                 add(
-                    s1 + font + s2
+                    `${left}${font}${right}`
                 );
 
                 add(
-                    s1 + " " + font + " " + s2
+                    `${left}${sep}${font}${sep}${right}`
                 );
 
                 add(
-                    s1 + "•" + font + "•" + s2
+                    `${left} ${font} ${right}`
                 );
 
                 add(
-                    s1 + "✦" + font + "✦" + s2
+                    `${left}•${font}•${right}`
                 );
 
                 add(
-                    s1 + "♡" + font + "♡" + s2
+                    `${left}✦${font}✦${right}`
                 );
 
-            }
-
-        }
-
-    }
-
-
-    /* SPECIAL DECORATIONS */
-
-    const patterns = [
-
-        x => `꧁༺${x}༻꧂`,
-        x => `꧁༒${x}༒꧂`,
-        x => `꧁★${x}★꧂`,
-        x => `꧁亗${x}亗꧂`,
-        x => `꧁⚡${x}⚡꧂`,
-        x => `꧁♛${x}♛꧂`,
-        x => `꧁♡${x}♡꧂`,
-
-        x => `『★${x}★』`,
-        x => `『亗${x}亗』`,
-        x => `『⚡${x}⚡』`,
-
-        x => `【★${x}★】`,
-        x => `【亗${x}亗】`,
-        x => `【⚡${x}⚡】`,
-
-        x => `《♡${x}♡》`,
-        x => `《✦${x}✦》`,
-        x => `《⚡${x}⚡》`,
-
-        x => `༺${x}༻`,
-        x => `༺★${x}★༻`,
-        x => `༺⚡${x}⚡༻`,
-
-        x => `乂${x}乂`,
-        x => `乂★${x}★乂`,
-        x => `乂⚡${x}⚡乂`,
-
-        x => `メ${x}メ`,
-        x => `メ★${x}★メ`,
-
-        x => `亗${x}亗`,
-        x => `亗⚡${x}⚡亗`,
-
-        x => `彡${x}彡`,
-        x => `彡★${x}★彡`,
-
-        x => `〆${x}〆`,
-        x => `〆⚡${x}⚡〆`,
-
-        x => `♛${x}♛`,
-        x => `♕${x}♕`,
-        x => `♔${x}♔`,
-
-        x => `⚔${x}⚔`,
-        x => `☠${x}☠`,
-        x => `☯${x}☯`,
-        x => `⚜${x}⚜`,
-
-        x => `♡${x}♡`,
-        x => `♥${x}♥`,
-        x => `❤${x}❤`,
-
-        x => `✦${x}✦`,
-        x => `✧${x}✧`,
-        x => `★${x}★`,
-        x => `☆${x}☆`,
-        x => `⚡${x}⚡`
-
-    ];
-
-
-    patterns.forEach(pattern => {
-
-        fonts.forEach(font => {
-
-            if(result.length < MAX_STYLES){
+                add(
+                    `${left}♡${font}♡${right}`
+                );
 
                 add(
-                    pattern(font)
+                    `${left}★${font}★${right}`
                 );
 
             }
-
-        });
-
-    });
-
-
-    /* PREFIX/SUFFIX */
-
-    const prefix = [
-        "亗","乂","メ","ツ","シ",
-        "彡","〆","♛","♕","♔",
-        "★","☆","✦","✧",
-        "⚡","☠","♡","♥",
-        "❤","⚔","⚜","☾","☽"
-    ];
-
-
-    for(
-        let i=0;
-        i<fonts.length &&
-        result.length<MAX_STYLES;
-        i++
-    ){
-
-        for(
-            let j=0;
-            j<prefix.length &&
-            result.length<MAX_STYLES;
-            j++
-        ){
-
-            const s = prefix[j];
-            const f = fonts[i];
-
-            add(s + f);
-            add(f + s);
-            add(s + " " + f);
-            add(f + " " + s);
-            add(s + "•" + f);
-            add(f + "•" + s);
-            add(s + "✦" + f + "✦" + s);
-            add(s + "♡" + f + "♡" + s);
 
         }
 
@@ -1531,57 +2734,116 @@ function makeStyles(name,category){
 
 
     /*
-       FINAL SAFETY LOOP
-
-       Agar kisi browser/Unicode combination
-       mein 3000 complete na ho, to naye
-       decoration combinations create honge.
+      Extra combinations
     */
 
-    let counter = 0;
+    const symbols=[
 
-    while(
-        result.length < MAX_STYLES &&
-        counter < 100000
+        "★","☆","✦","✧",
+        "✪","✯","⚡",
+        "☠","♛","♕",
+        "♔","♡","♥",
+        "❤","⚔","☯",
+        "⚜","☄","❖",
+        "◆","◇","✿",
+        "❀","☁","☾",
+        "亗","乂","メ",
+        "彡","〆","ツ",
+        "々","༒","☬"
+
+    ];
+
+
+    for(
+        let f=0;
+        f<fonts.length &&
+        output.length<MAX_STYLES;
+        f++
     ){
 
-        const font =
-            fonts[counter % fonts.length];
+        for(
+            let a=0;
+            a<symbols.length &&
+            output.length<MAX_STYLES;
+            a++
+        ){
 
-        const s1 =
-            symbols[
-                counter % symbols.length
-            ];
+            for(
+                let b=0;
+                b<symbols.length &&
+                output.length<MAX_STYLES;
+                b++
+            ){
 
-        const s2 =
-            symbols[
-                Math.floor(counter / symbols.length)
-                % symbols.length
-            ];
+                const x=
+                    symbols[a];
 
-        const patterns2 = [
+                const y=
+                    symbols[b];
 
-            `${s1}〆${font}〆${s2}`,
-            `${s1}亗${font}亗${s2}`,
-            `${s1}乂${font}乂${s2}`,
-            `${s1}メ${font}メ${s2}`,
-            `${s1}★${font}★${s2}`,
-            `${s1}✦${font}✦${s2}`,
-            `${s1}⚡${font}⚡${s2}`,
-            `${s1}♡${font}♡${s2}`,
-            `${s1}♛${font}♛${s2}`,
-            `${s1}⚔${font}⚔${s2}`
+                add(
+                    `${x} ${fonts[f]} ${y}`
+                );
 
-        ];
+                add(
+                    `${x}${fonts[f]}${y}`
+                );
 
-        patterns2.forEach(add);
+                add(
+                    `${x}•${fonts[f]}•${y}`
+                );
 
-        counter++;
+                add(
+                    `${x}✦${fonts[f]}✦${y}`
+                );
+
+            }
+
+        }
 
     }
 
 
-    return result.slice(
+    /*
+      Number variations
+    */
+
+    for(
+        let f=0;
+        f<fonts.length &&
+        output.length<MAX_STYLES;
+        f++
+    ){
+
+        for(
+            let n=0;
+            n<500 &&
+            output.length<MAX_STYLES;
+            n++
+        ){
+
+            add(
+                `亗 ${fonts[f]} ${n+1} 亗`
+            );
+
+            add(
+                `乂 ${fonts[f]} ${n+1} 乂`
+            );
+
+            add(
+                `★ ${fonts[f]} ${n+1} ★`
+            );
+
+            add(
+                `⚡ ${fonts[f]} ${n+1} ⚡`
+            );
+
+        }
+
+    }
+
+
+    return output.slice(
         0,
         MAX_STYLES
     );
@@ -1589,297 +2851,466 @@ function makeStyles(name,category){
 }
 
 
-/* =========================================
-   GENERATE BUTTON
-========================================= */
+/* =====================================================
+GENERATE
+===================================================== */
 
 function generateNames(){
 
-    const input =
-        document.getElementById(
+    const input=
+        document
+        .getElementById(
             "nameInput"
-        );
+        )
+        .value
+        .trim();
 
-    const name =
-        input.value.trim();
 
-    if(!name){
+    if(!input){
 
         showToast(
-            "Please enter your name"
+            "Please enter a name"
         );
 
-        input.focus();
+        focusInput();
 
         return;
+
     }
 
 
-    generatedStyles =
+    generatedStyles=
         makeStyles(
-            name,
+            input,
             currentCategory
         );
 
 
-    currentPage = 1;
+    filteredStyles=
+        [...generatedStyles];
 
 
-    document.getElementById(
-        "resultTitle"
-    ).textContent =
-        `3000 Stylish Styles for "${name}"`;
+    currentPage=1;
 
 
-    document.getElementById(
-        "styleCount"
-    ).textContent =
-        `${generatedStyles.length} unique Unicode styles`;
-
-
-    renderNames();
-
-    renderPagination();
+    totalPages=
+        Math.max(
+            1,
+            Math.ceil(
+                filteredStyles.length/
+                PAGE_SIZE
+            )
+        );
 
 
     document
-        .getElementById("styles")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+    .getElementById(
+        "resultCount"
+    )
+    .textContent=
+        filteredStyles.length+
+        " unique styles";
+
+
+    renderGenerated();
 
 }
 
 
-/* =========================================
-   RENDER
-========================================= */
+/* =====================================================
+FILTER
+===================================================== */
 
-function renderNames(){
+function applyFilter(){
 
-    const grid =
-        document.getElementById(
-            "nameGrid"
+    const search=
+        document
+        .getElementById(
+            "filterInput"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const sort=
+        document
+        .getElementById(
+            "sortSelect"
+        )
+        .value;
+
+
+    filteredStyles=
+        generatedStyles.filter(
+            item=>
+                !search ||
+                item
+                .toLowerCase()
+                .includes(search)
         );
 
-    grid.innerHTML = "";
+
+    if(sort==="az"){
+
+        filteredStyles.sort(
+            (a,b)=>
+                a.localeCompare(b)
+        );
+
+    }
 
 
-    const start =
-        (currentPage - 1) *
+    if(sort==="za"){
+
+        filteredStyles.sort(
+            (a,b)=>
+                b.localeCompare(a)
+        );
+
+    }
+
+
+    currentPage=1;
+
+
+    totalPages=
+        Math.max(
+            1,
+            Math.ceil(
+                filteredStyles.length/
+                PAGE_SIZE
+            )
+        );
+
+
+    document
+    .getElementById(
+        "resultCount"
+    )
+    .textContent=
+        filteredStyles.length+
+        " matching styles";
+
+
+    renderGenerated();
+
+}
+
+
+/* =====================================================
+RENDER GENERATED
+===================================================== */
+
+function renderGenerated(){
+
+    const grid=
+        document
+        .getElementById(
+            "resultsGrid"
+        );
+
+
+    grid.innerHTML="";
+
+
+    const start=
+        (currentPage-1)*
         PAGE_SIZE;
 
-    const end =
-        start + PAGE_SIZE;
 
-
-    const pageItems =
-        generatedStyles.slice(
+    const items=
+        filteredStyles.slice(
             start,
-            end
+            start+PAGE_SIZE
         );
 
 
-    pageItems.forEach(
-        (name,index) => {
+    if(!items.length){
+
+        grid.innerHTML=
+        `
+        <div class="loading">
+            No matching styles found.
+        </div>
+        `;
+
+        updatePagination();
+
+        return;
+
+    }
+
+
+    items.forEach(
+        (text,index)=>{
 
             createCard(
-                name,
-                start + index
+                text,
+                start+index,
+                grid,
+                currentCategory
             );
 
         }
     );
 
+
+    updatePagination();
+
 }
 
 
-/* =========================================
-   CREATE CARD
-========================================= */
+/* =====================================================
+CARD
+===================================================== */
 
 function createCard(
-    name,
-    index
+    text,
+    index,
+    parent,
+    category=currentCategory
 ){
 
-    const grid =
-        document.getElementById(
-            "nameGrid"
+    const card=
+        document.createElement(
+            "div"
+        );
+
+    card.className=
+        "nameCard";
+
+
+    const number=
+        document.createElement(
+            "div"
+        );
+
+    number.className=
+        "cardNumber";
+
+    number.textContent=
+        "#"+(index+1);
+
+
+    const badge=
+        document.createElement(
+            "div"
+        );
+
+    badge.className=
+        "cardBadge";
+
+    const badges=[
+        "👑",
+        "🔥",
+        "⚡",
+        "✦",
+        "🎮",
+        "💎",
+        "☠",
+        "♛"
+    ];
+
+    badge.textContent=
+        badges[index%badges.length];
+
+
+    const name=
+        document.createElement(
+            "div"
+        );
+
+    name.className=
+        "styledName f"+
+        ((index%25)+1);
+
+    name.textContent=
+        text;
+
+
+    const tags=
+        document.createElement(
+            "div"
+        );
+
+    tags.className=
+        "tags";
+
+
+    const tag1=
+        document.createElement(
+            "span"
+        );
+
+    tag1.className="tag";
+
+    tag1.textContent=
+        category;
+
+
+    const tag2=
+        document.createElement(
+            "span"
+        );
+
+    tag2.className="tag";
+
+    tag2.textContent=
+        "Unicode";
+
+
+    const tag3=
+        document.createElement(
+            "span"
+        );
+
+    tag3.className="tag";
+
+    tag3.textContent=
+        "Stylish";
+
+
+    tags.appendChild(tag1);
+    tags.appendChild(tag2);
+    tags.appendChild(tag3);
+
+
+    const bottom=
+        document.createElement(
+            "div"
+        );
+
+    bottom.className=
+        "cardBottom";
+
+
+    const fav=
+        document.createElement(
+            "button"
+        );
+
+    fav.className=
+        "cardBtn favoriteBtn";
+
+
+    const saved=
+        favorites.includes(
+            text
         );
 
 
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "name-card";
+    if(saved)
+        fav.classList.add("saved");
 
 
-    const styled =
-        document.createElement("div");
-
-    styled.className =
-        "styled-name f" +
-        ((index % 20) + 1);
-
-    styled.textContent =
-        name;
+    fav.textContent=
+        saved
+        ? "♥ Saved"
+        : "♡ Favorite";
 
 
-    const buttons =
-        document.createElement("div");
+    fav.onclick=()=>{
 
-    buttons.className =
-        "card-buttons";
-
-
-    const copy =
-        document.createElement("button");
-
-    copy.textContent =
-        "📋 Copy";
-
-    copy.onclick =
-        () => copyName(name);
-
-
-    const fav =
-        document.createElement("button");
-
-    fav.className =
-        "favorite-btn";
-
-    if(
-        favorites.includes(name)
-    ){
-
-        fav.classList.add("active");
-
-        fav.textContent =
-            "❤️ Saved";
-
-    }else{
-
-        fav.textContent =
-            "♡ Favorite";
-
-    }
-
-
-    fav.onclick =
-        () => toggleFavorite(
-            name,
-            fav
+        toggleFavorite(
+            text,
+            fav,
+            category
         );
 
+    };
 
-    buttons.appendChild(copy);
-    buttons.appendChild(fav);
 
-    card.appendChild(styled);
-    card.appendChild(buttons);
+    const copy=
+        document.createElement(
+            "button"
+        );
 
-    grid.appendChild(card);
+    copy.className=
+        "cardBtn";
+
+    copy.textContent=
+        "▣ Copy";
+
+
+    copy.onclick=()=>{
+
+        copyText(text);
+
+    };
+
+
+    bottom.appendChild(fav);
+    bottom.appendChild(copy);
+
+
+    card.appendChild(number);
+    card.appendChild(badge);
+    card.appendChild(name);
+    card.appendChild(tags);
+    card.appendChild(bottom);
+
+
+    parent.appendChild(card);
 
 }
 
 
-/* =========================================
-   COPY
-========================================= */
-
-function copyName(name){
-
-    navigator.clipboard
-        .writeText(name)
-        .then(() => {
-
-            showToast(
-                "Name copied! ✓"
-            );
-
-        })
-        .catch(() => {
-
-            const textarea =
-                document.createElement(
-                    "textarea"
-                );
-
-            textarea.value = name;
-
-            document.body.appendChild(
-                textarea
-            );
-
-            textarea.select();
-
-            document.execCommand("copy");
-
-            textarea.remove();
-
-            showToast(
-                "Name copied! ✓"
-            );
-
-        });
-
-}
-
-
-/* =========================================
-   FAVORITE
-========================================= */
+/* =====================================================
+FAVORITES
+===================================================== */
 
 function toggleFavorite(
-    name,
-    button
+    text,
+    button,
+    category=currentCategory
 ){
 
-    const index =
-        favorites.indexOf(name);
+    const index=
+        favorites.indexOf(text);
 
 
-    if(index === -1){
-
-        favorites.push(name);
-
-        button.classList.add(
-            "active"
-        );
-
-        button.textContent =
-            "❤️ Saved";
-
-        showToast(
-            "Added to favorites ❤️"
-        );
-
-    }else{
+    if(index>=0){
 
         favorites.splice(
             index,
             1
         );
 
-        button.classList.remove(
-            "active"
-        );
-
-        button.textContent =
+        button.textContent=
             "♡ Favorite";
+
+        button.classList.remove(
+            "saved"
+        );
 
         showToast(
             "Removed from favorites"
+        );
+
+    }else{
+
+        favorites.push(text);
+
+        button.textContent=
+            "♥ Saved";
+
+        button.classList.add(
+            "saved"
+        );
+
+        showToast(
+            "Added to favorites"
         );
 
     }
 
 
     localStorage.setItem(
-        "namecraftFavorites",
-        JSON.stringify(favorites)
+        "namecraft_favorites",
+        JSON.stringify(
+            favorites
+        )
     );
 
 
@@ -1888,69 +3319,47 @@ function toggleFavorite(
 }
 
 
-/* =========================================
-   FAVORITES RENDER
-========================================= */
+/* =====================================================
+FAVORITE RENDER
+===================================================== */
 
 function renderFavorites(){
 
-    const box =
-        document.getElementById(
+    const list=
+        document
+        .getElementById(
             "favoriteList"
         );
 
 
-    box.innerHTML = "";
+    list.innerHTML="";
 
 
     if(!favorites.length){
 
-        box.innerHTML =
-            `<div class="favorite-item">
-                <span>No favorite names yet.</span>
-            </div>`;
+        list.innerHTML=
+        `
+        <div class="loading">
+            No favorites yet ❤️
+        </div>
+        `;
 
         return;
+
     }
 
 
-    favorites.forEach(
-        (name,index) => {
+    favorites
+    .slice(0,24)
+    .forEach(
+        (text,index)=>{
 
-            const item =
-                document.createElement(
-                    "div"
-                );
-
-            item.className =
-                "favorite-item";
-
-
-            const text =
-                document.createElement(
-                    "span"
-                );
-
-            text.textContent =
-                name;
-
-
-            const copy =
-                document.createElement(
-                    "button"
-                );
-
-            copy.textContent =
-                "Copy";
-
-            copy.onclick =
-                () => copyName(name);
-
-
-            item.appendChild(text);
-            item.appendChild(copy);
-
-            box.appendChild(item);
+            createCard(
+                text,
+                index,
+                list,
+                "Favorite"
+            );
 
         }
     );
@@ -1958,285 +3367,835 @@ function renderFavorites(){
 }
 
 
-/* =========================================
-   CATEGORY
-========================================= */
+/* =====================================================
+COPY
+===================================================== */
 
-function selectCategory(category){
+async function copyText(text){
 
-    currentCategory =
-        category;
+    try{
 
+        if(
+            navigator.clipboard &&
+            window.isSecureContext
+        ){
 
-    document
-        .querySelectorAll(
-            ".category"
-        )
-        .forEach(el => {
+            await navigator
+            .clipboard
+            .writeText(text);
 
-            el.classList.remove(
-                "active"
-            );
+        }else{
 
-            if(
-                el.dataset.category ===
-                category
-            ){
-
-                el.classList.add(
-                    "active"
+            const area=
+                document.createElement(
+                    "textarea"
                 );
 
-            }
+            area.value=text;
 
-        });
+            area.style.position=
+                "fixed";
+
+            area.style.opacity="0";
+
+            document.body.appendChild(
+                area
+            );
+
+            area.focus();
+            area.select();
+
+            document.execCommand(
+                "copy"
+            );
+
+            area.remove();
+
+        }
 
 
-    const input =
-        document.getElementById(
-            "nameInput"
+        showToast(
+            "Copied successfully!"
         );
 
+    }catch(error){
 
-    if(input.value.trim()){
+        showToast(
+            "Copy failed"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+CATEGORY
+===================================================== */
+
+function selectCategory(
+    element
+){
+
+    document
+    .querySelectorAll(
+        ".category"
+    )
+    .forEach(
+        item=>
+            item.classList.remove(
+                "active"
+            )
+    );
+
+
+    element.classList.add(
+        "active"
+    );
+
+
+    currentCategory=
+        element.dataset.category;
+
+
+    const input=
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .value
+        .trim();
+
+
+    if(input){
 
         generateNames();
 
     }else{
 
-        showToast(
-            category +
-            " style selected"
-        );
+        loadPopularNames();
 
     }
 
 }
 
 
-/* =========================================
-   PAGINATION
-========================================= */
+/* =====================================================
+SUPABASE LOAD
+===================================================== */
 
-function renderPagination(){
+async function loadPopularNames(){
 
-    const box =
-        document.getElementById(
-            "pagination"
-        );
-
-    box.innerHTML = "";
-
-
-    const totalPages =
-        Math.ceil(
-            generatedStyles.length /
-            PAGE_SIZE
+    const grid=
+        document
+        .getElementById(
+            "resultsGrid"
         );
 
 
-    if(totalPages <= 1)
-        return;
+    grid.innerHTML=
+    `
+    <div class="loading">
+        Loading stylish names...
+    </div>
+    `;
 
 
-    const prev =
-        document.createElement(
-            "button"
-        );
+    popularNames=[];
 
-    prev.textContent =
-        "‹";
 
-    prev.onclick = () => {
+    if(supabaseClient){
 
-        if(currentPage > 1){
+        try{
 
-            currentPage--;
+            const allRows=[];
 
-            renderNames();
-            renderPagination();
+            const CHUNK_SIZE=500;
 
-            window.scrollTo({
-                top:
+            const MAX_ROWS=5000;
+
+
+            for(
+                let from=0;
+                from<MAX_ROWS;
+                from+=CHUNK_SIZE
+            ){
+
+                const to=
+                    from+
+                    CHUNK_SIZE-
+                    1;
+
+
+                const result=
+                    await supabaseClient
+                    .from("names")
+                    .select(
+                        "id,name,category"
+                    )
+                    .eq(
+                        "category",
+                        currentCategory
+                    )
+                    .order(
+                        "id",
+                        {
+                            ascending:false
+                        }
+                    )
+                    .range(
+                        from,
+                        to
+                    );
+
+
+                if(result.error)
+                    throw result.error;
+
+
+                const data=
+                    result.data||[];
+
+
+                if(!data.length)
+                    break;
+
+
+                allRows.push(
+                    ...data
+                );
+
+
+                if(
+                    data.length<
+                    CHUNK_SIZE
+                ){
+
+                    break;
+
+                }
+
+            }
+
+
+            const unique=
+                new Map();
+
+
+            allRows.forEach(
+                item=>{
+
+                    if(
+                        !item ||
+                        !item.name
+                    )
+                        return;
+
+
+                    const clean=
+                        String(
+                            item.name
+                        ).trim();
+
+
+                    if(!clean)
+                        return;
+
+
+                    const key=
+                        clean.toLowerCase();
+
+
+                    if(
+                        !unique.has(key)
+                    ){
+
+                        unique.set(
+                            key,
+                            {
+                                name:clean,
+                                category:
+                                    item.category||
+                                    currentCategory
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+
+            popularNames=
+                Array.from(
+                    unique.values()
+                );
+
+
+            if(
+                popularNames.length
+            ){
+
+                usingDatabase=true;
+
+                currentPage=1;
+
+                totalPages=
+                    Math.max(
+                        1,
+                        Math.ceil(
+                            popularNames.length/
+                            PAGE_SIZE
+                        )
+                    );
+
+
                 document
-                .querySelector(".results")
-                .offsetTop - 80,
+                .getElementById(
+                    "resultCount"
+                )
+                .textContent=
+                    popularNames.length+
+                    " unique styles";
 
-                behavior:"smooth"
-            });
+
+                renderPopularPage();
+
+                return;
+
+            }
+
+        }catch(error){
+
+            console.warn(
+                "Supabase error:",
+                error
+            );
 
         }
 
-    };
+    }
 
 
-    box.appendChild(prev);
+    usingDatabase=false;
+
+    renderFallback();
+
+}
+
+
+/* =====================================================
+POPULAR PAGE
+===================================================== */
+
+function renderPopularPage(){
+
+    const grid=
+        document
+        .getElementById(
+            "resultsGrid"
+        );
+
+
+    grid.innerHTML="";
+
+
+    const start=
+        (currentPage-1)*
+        PAGE_SIZE;
+
+
+    const items=
+        popularNames.slice(
+            start,
+            start+PAGE_SIZE
+        );
+
+
+    items.forEach(
+        (item,index)=>{
+
+            createCard(
+                item.name,
+                start+index,
+                grid,
+                item.category||
+                currentCategory
+            );
+
+        }
+    );
+
+
+    updatePagination();
+
+}
+
+
+/* =====================================================
+FALLBACK
+===================================================== */
+
+const fallbackNames={
+
+Gaming:[
+"Shadow",
+"Dragon",
+"Ghost",
+"Killer",
+"Warrior",
+"Venom",
+"Hunter",
+"Sniper",
+"Phantom",
+"Rider",
+"Demon",
+"Legend"
+],
+
+Cool:[
+"Shadow",
+"Phantom",
+"Legend",
+"Silent",
+"Storm",
+"Rebel",
+"CoolBoy",
+"DarkSoul",
+"Ace",
+"Zero"
+],
+
+Royal:[
+"King",
+"Queen",
+"Royal",
+"Emperor",
+"Prince",
+"Maharaja",
+"RoyalSoul",
+"KingStar"
+],
+
+Love:[
+"LoveBoy",
+"LoveGirl",
+"MyLove",
+"SweetHeart",
+"Forever",
+"CuteSoul",
+"Angel",
+"Heart"
+],
+
+Aesthetic:[
+"Moon",
+"Dreamer",
+"Starlight",
+"Angel",
+"Blossom",
+"Rose",
+"Daisy",
+"Cloudy"
+],
+
+Neon:[
+"NeonBoy",
+"Cyber",
+"Voltage",
+"NightGlow",
+"Laser",
+"Cosmic",
+"Flash",
+"Electric"
+]
+
+};
+
+
+function renderFallback(){
+
+    const names=
+        fallbackNames[
+            currentCategory
+        ]||
+        fallbackNames.Gaming;
 
 
     /*
-       Smart pagination
-       first page
-       current pages
-       last page
+      Generate thousands of styles
+      from fallback names.
     */
 
-    const pages = new Set();
+    const result=[];
 
+    names.forEach(
+        name=>{
 
-    pages.add(1);
-    pages.add(totalPages);
-
-    for(
-        let i=currentPage-2;
-        i<=currentPage+2;
-        i++
-    ){
-
-        if(
-            i >= 1 &&
-            i <= totalPages
-        ){
-
-            pages.add(i);
-
-        }
-
-    }
-
-
-    const sorted =
-        [...pages].sort(
-            (a,b) => a-b
-        );
-
-
-    let previous = null;
-
-
-    sorted.forEach(page => {
-
-        if(
-            previous !== null &&
-            page - previous > 1
-        ){
-
-            const dots =
-                document.createElement(
-                    "span"
+            const styles=
+                makeStyles(
+                    name,
+                    currentCategory
                 );
 
-            dots.textContent =
-                "...";
-
-            dots.style.padding =
-                "0 5px";
-
-            box.appendChild(dots);
-
-        }
-
-
-        const btn =
-            document.createElement(
-                "button"
-            );
-
-        btn.textContent =
-            page;
-
-
-        if(
-            page === currentPage
-        ){
-
-            btn.classList.add(
-                "active"
+            result.push(
+                ...styles
             );
 
         }
+    );
 
 
-        btn.onclick = () => {
-
-            currentPage =
-                page;
-
-            renderNames();
-            renderPagination();
-
-            window.scrollTo({
-                top:
-                document
-                .querySelector(".results")
-                .offsetTop - 80,
-
-                behavior:"smooth"
-            });
-
-        };
+    const unique=
+        new Map();
 
 
-        box.appendChild(btn);
+    result.forEach(
+        name=>{
 
-        previous = page;
+            const key=
+                name.toLowerCase();
 
-    });
+            if(!unique.has(key))
+                unique.set(
+                    key,
+                    {
+                        name:name,
+                        category:
+                            currentCategory
+                    }
+                );
+
+        }
+    );
 
 
-    const next =
-        document.createElement(
-            "button"
+    popularNames=
+        Array.from(
+            unique.values()
         );
 
-    next.textContent =
-        "›";
+
+    currentPage=1;
 
 
-    next.onclick = () => {
-
-        if(
-            currentPage < totalPages
-        ){
-
-            currentPage++;
-
-            renderNames();
-            renderPagination();
-
-            window.scrollTo({
-                top:
-                document
-                .querySelector(".results")
-                .offsetTop - 80,
-
-                behavior:"smooth"
-            });
-
-        }
-
-    };
+    totalPages=
+        Math.max(
+            1,
+            Math.ceil(
+                popularNames.length/
+                PAGE_SIZE
+            )
+        );
 
 
-    box.appendChild(next);
+    document
+    .getElementById(
+        "resultCount"
+    )
+    .textContent=
+        popularNames.length+
+        " unique styles";
+
+
+    renderPopularPage();
 
 }
 
 
-/* =========================================
-   TOAST
-========================================= */
+/* =====================================================
+PAGINATION
+===================================================== */
+
+function updatePagination(){
+
+    document
+    .getElementById(
+        "pageInfo"
+    )
+    .textContent=
+        `Page ${currentPage} / ${totalPages}`;
+
+
+    document
+    .getElementById(
+        "prevBtn"
+    )
+    .disabled=
+        currentPage<=1;
+
+
+    document
+    .getElementById(
+        "nextBtn"
+    )
+    .disabled=
+        currentPage>=totalPages;
+
+}
+
+
+function nextPage(){
+
+    if(
+        currentPage>=totalPages
+    )
+        return;
+
+
+    currentPage++;
+
+
+    const input=
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .value
+        .trim();
+
+
+    if(input){
+
+        renderGenerated();
+
+    }else{
+
+        renderPopularPage();
+
+    }
+
+
+    window.scrollTo({
+        top:500,
+        behavior:"smooth"
+    });
+
+}
+
+
+function previousPage(){
+
+    if(
+        currentPage<=1
+    )
+        return;
+
+
+    currentPage--;
+
+
+    const input=
+        document
+        .getElementById(
+            "nameInput"
+        )
+        .value
+        .trim();
+
+
+    if(input){
+
+        renderGenerated();
+
+    }else{
+
+        renderPopularPage();
+
+    }
+
+
+    window.scrollTo({
+        top:500,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+RANDOM NAME
+===================================================== */
+
+const randomWords=[
+
+"Shadow",
+"Dragon",
+"Ghost",
+"Phantom",
+"Legend",
+"Killer",
+"Warrior",
+"Hunter",
+"Sniper",
+"Venom",
+"Demon",
+"King",
+"Queen",
+"Royal",
+"Prince",
+"Angel",
+"Love",
+"Dream",
+"Storm",
+"Thunder",
+"Fire",
+"Neon",
+"Cyber",
+"Cosmic",
+"Flash",
+"DarkSoul",
+"Night",
+"Star",
+"Moon",
+"Rider"
+
+];
+
+
+function randomName(){
+
+    const random=
+        randomWords[
+            Math.floor(
+                Math.random()*
+                randomWords.length
+            )
+        ];
+
+
+    document
+    .getElementById(
+        "nameInput"
+    )
+    .value=
+        random;
+
+
+    generateNames();
+
+
+    setTimeout(
+        ()=>{
+
+            const styles=
+                filteredStyles;
+
+
+            if(!styles.length)
+                return;
+
+
+            const selected=
+                styles[
+                    Math.floor(
+                        Math.random()*
+                        styles.length
+                    )
+                ];
+
+
+            document
+            .getElementById(
+                "randomResult"
+            )
+            .textContent=
+                selected;
+
+        },
+        20
+    );
+
+}
+
+
+/* =====================================================
+EXAMPLE
+===================================================== */
+
+function setExample(
+    name
+){
+
+    document
+    .getElementById(
+        "nameInput"
+    )
+    .value=name;
+
+
+    generateNames();
+
+}
+
+
+/* =====================================================
+ENTER KEY
+===================================================== */
+
+document
+.getElementById(
+    "nameInput"
+)
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key==="Enter"
+        ){
+
+            event.preventDefault();
+
+            generateNames();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+FOCUS
+===================================================== */
+
+function focusInput(){
+
+    const input=
+        document.getElementById(
+            "nameInput"
+        );
+
+
+    input.focus();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+TOAST
+===================================================== */
 
 let toastTimer;
 
-function showToast(message){
 
-    const toast =
+function showToast(
+    message
+){
+
+    const toast=
         document.getElementById(
             "toast"
         );
 
 
-    toast.textContent =
+    toast.textContent=
         message;
 
 
@@ -2250,47 +4209,32 @@ function showToast(message){
     );
 
 
-    toastTimer =
-        setTimeout(() => {
+    toastTimer=
+        setTimeout(
+            ()=>{
 
-            toast.classList.remove(
-                "show"
-            );
+                toast.classList.remove(
+                    "show"
+                );
 
-        },2000);
+            },
+            1800
+        );
 
 }
 
 
-/* =========================================
-   ENTER KEY
-========================================= */
-
-document
-    .getElementById("nameInput")
-    .addEventListener(
-        "keydown",
-        function(event){
-
-            if(
-                event.key === "Enter"
-            ){
-
-                generateNames();
-
-            }
-
-        }
-    );
-
-
-/* =========================================
-   START
-========================================= */
+/* =====================================================
+START
+===================================================== */
 
 renderFavorites();
+
+loadPopularNames();
+
 
 </script>
 
 </body>
+
 </html>
