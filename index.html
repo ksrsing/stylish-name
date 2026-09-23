@@ -31,29 +31,45 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
+
     background:
-    radial-gradient(circle at 15% 10%,rgba(112,76,255,.20),transparent 30%),
-    radial-gradient(circle at 85% 20%,rgba(0,220,255,.12),transparent 30%),
+    radial-gradient(
+        circle at 15% 10%,
+        rgba(112,76,255,.20),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 85% 20%,
+        rgba(0,220,255,.12),
+        transparent 30%
+    ),
     #080b22;
+
     color:#fff;
     min-height:100vh;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar{
     position:sticky;
     top:0;
     z-index:1000;
+
     background:rgba(8,11,34,.85);
+
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.07);
+
+    border-bottom:
+    1px solid rgba(255,255,255,.07);
 }
 
 .nav-container{
     max-width:1250px;
     margin:auto;
+
     padding:15px 20px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -62,9 +78,17 @@ body{
 .logo{
     font-size:25px;
     font-weight:900;
-    background:linear-gradient(90deg,#8b75ff,#00eaff);
+
+    background:
+    linear-gradient(
+        90deg,
+        #8b75ff,
+        #00eaff
+    );
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
@@ -87,79 +111,124 @@ body{
 .get-started{
     border:0;
     color:white;
-    background:linear-gradient(135deg,#745cff,#00c8f5);
+
+    background:
+    linear-gradient(
+        135deg,
+        #745cff,
+        #00c8f5
+    );
+
     padding:11px 18px;
+
     border-radius:12px;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
     max-width:1100px;
     margin:auto;
+
     padding:80px 20px 50px;
+
     text-align:center;
 }
 
 .badge{
     display:inline-block;
+
     padding:8px 15px;
+
     border-radius:30px;
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.08);
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
     color:#b9bfff;
+
     font-size:13px;
+
     margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(42px,7vw,75px);
+    font-size:
+    clamp(42px,7vw,75px);
+
     line-height:1.05;
+
     font-weight:900;
 }
 
 .gradient-text{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         90deg,
         #fff,
         #9b88ff,
         #00eaff
     );
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
 .hero p{
     max-width:700px;
+
     margin:22px auto 30px;
+
     color:#9da5cd;
+
     line-height:1.7;
 }
 
-/* SEARCH */
+/* ================= SEARCH ================= */
 
 .search-box{
     max-width:720px;
+
     margin:auto;
+
     display:flex;
+
     gap:8px;
+
     padding:7px;
+
     border-radius:18px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.09);
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.09);
 }
 
 .search-box input{
     flex:1;
+
     min-width:0;
+
     border:0;
     outline:0;
+
     background:transparent;
+
     color:white;
+
     padding:15px;
+
     font-size:16px;
 }
 
@@ -169,43 +238,68 @@ body{
 
 .search-box button{
     border:0;
+
     color:white;
-    background:linear-gradient(135deg,#765cff,#00c8f5);
+
+    background:
+    linear-gradient(
+        135deg,
+        #765cff,
+        #00c8f5
+    );
+
     padding:0 25px;
+
     border-radius:13px;
+
     cursor:pointer;
+
     font-weight:800;
 }
 
-/* PREVIEW */
+/* ================= PREVIEW ================= */
 
 .preview{
     max-width:650px;
+
     margin:25px auto 0;
+
     padding:20px;
+
     border-radius:18px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid rgba(255,255,255,.07);
 }
 
 .preview-label{
     color:#737b9e;
+
     font-size:11px;
+
     margin-bottom:10px;
 }
 
 #livePreview{
     font-size:25px;
+
     font-weight:800;
+
     min-height:32px;
+
     word-break:break-word;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 
 .section{
     max-width:1250px;
+
     margin:auto;
+
     padding:55px 20px;
 }
 
@@ -219,49 +313,70 @@ body{
 
 .section-heading p{
     color:#7f87ad;
+
     margin-top:7px;
 }
 
-/* CATEGORIES */
+/* ================= CATEGORIES ================= */
 
 .categories{
     display:grid;
-    grid-template-columns:repeat(7,1fr);
+
+    grid-template-columns:
+    repeat(7,1fr);
+
     gap:12px;
 }
 
 .category-card{
     padding:18px 8px;
+
     border-radius:17px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid rgba(255,255,255,.07);
+
     text-align:center;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .category-card:hover{
     transform:translateY(-4px);
-    background:rgba(255,255,255,.07);
-    border-color:rgba(100,100,255,.5);
+
+    background:
+    rgba(255,255,255,.07);
+
+    border-color:
+    rgba(100,100,255,.5);
 }
 
 .category-icon{
     font-size:24px;
+
     margin-bottom:8px;
 }
 
 .category-name{
     font-size:13px;
+
     font-weight:700;
+
     color:#dfe2ff;
 }
 
-/* RESULTS */
+/* ================= RESULTS ================= */
 
 .results-header{
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:20px;
 }
 
@@ -271,140 +386,240 @@ body{
 
 .result-info{
     margin-top:7px;
+
     color:#737b9f;
+
     font-size:13px;
 }
 
 .name-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:15px;
 }
 
 .name-card{
     position:relative;
+
     min-height:145px;
+
     display:flex;
+
     flex-direction:column;
+
     justify-content:space-between;
+
     padding:18px;
+
     border-radius:18px;
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         145deg,
         rgba(255,255,255,.07),
         rgba(255,255,255,.025)
     );
-    border:1px solid rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
     overflow:hidden;
+
     transition:.2s;
 }
 
 .name-card:hover{
     transform:translateY(-4px);
-    border-color:rgba(0,220,255,.35);
+
+    border-color:
+    rgba(0,220,255,.35);
 }
 
 .name-text{
     font-size:21px;
+
     font-weight:800;
+
     line-height:1.5;
+
     word-break:break-word;
 }
 
 .name-meta{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
     gap:8px;
+
     margin-top:15px;
 }
 
 .style-tag{
     max-width:60%;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
+
     white-space:nowrap;
+
     padding:5px 8px;
+
     border-radius:8px;
-    background:rgba(100,90,255,.12);
+
+    background:
+    rgba(100,90,255,.12);
+
     color:#aaa1ff;
+
     font-size:10px;
+
     font-weight:700;
 }
 
 .card-actions{
     display:flex;
+
     gap:6px;
 }
 
 .card-btn{
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.05);
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    background:
+    rgba(255,255,255,.05);
+
     color:#dce0ff;
+
     padding:7px 9px;
+
     border-radius:9px;
+
     cursor:pointer;
+
     font-size:11px;
 }
 
 .card-btn:hover{
-    background:rgba(255,255,255,.1);
+    background:
+    rgba(255,255,255,.1);
 }
 
 .favorite-btn.active{
     color:#ff72ad;
 }
 
-/* LOAD MORE */
+/* ================= EMPTY ================= */
+
+.empty{
+    grid-column:1/-1;
+
+    padding:45px 20px;
+
+    text-align:center;
+
+    color:#737b9f;
+
+    border:
+    1px dashed rgba(255,255,255,.1);
+
+    border-radius:18px;
+}
+
+.loading{
+    grid-column:1/-1;
+
+    padding:50px;
+
+    text-align:center;
+
+    color:#7c84aa;
+}
+
+.error-box{
+    grid-column:1/-1;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,60,90,.07);
+
+    border:
+    1px solid rgba(255,60,90,.2);
+
+    color:#ff9bad;
+}
+
+/* ================= LOAD MORE ================= */
 
 .load-more-wrap{
     text-align:center;
+
     padding:30px 0;
 }
 
 .load-more{
     padding:13px 25px;
+
     border-radius:12px;
-    border:1px solid rgba(255,255,255,.1);
-    background:rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
+    background:
+    rgba(255,255,255,.05);
+
     color:#fff;
+
     cursor:pointer;
 }
 
-/* FAVORITES */
+/* ================= FAVORITES ================= */
 
 .favorite-list{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+    repeat(4,1fr);
+
     gap:15px;
 }
 
-.empty{
-    grid-column:1/-1;
-    padding:45px 20px;
-    text-align:center;
-    color:#737b9f;
-    border:1px dashed rgba(255,255,255,.1);
-    border-radius:18px;
-}
-
-/* FEATURES */
+/* ================= FEATURES ================= */
 
 .features{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:18px;
 }
 
 .feature{
     padding:25px;
+
     border-radius:20px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.07);
+
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid rgba(255,255,255,.07);
 }
 
 .feature-icon{
     font-size:28px;
+
     margin-bottom:14px;
 }
 
@@ -414,70 +629,114 @@ body{
 
 .feature p{
     color:#8088ad;
+
     line-height:1.6;
+
     font-size:14px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     margin-top:40px;
+
     padding:30px 20px;
+
     text-align:center;
-    border-top:1px solid rgba(255,255,255,.07);
+
+    border-top:
+    1px solid rgba(255,255,255,.07);
+
     color:#686f95;
+
     font-size:13px;
 }
 
-/* LOADING */
-
-.loading{
-    grid-column:1/-1;
-    padding:50px;
-    text-align:center;
-    color:#7c84aa;
-}
-
-.error-box{
-    grid-column:1/-1;
-    padding:25px;
-    border-radius:15px;
-    background:rgba(255,60,90,.07);
-    border:1px solid rgba(255,60,90,.2);
-    color:#ff9bad;
-}
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
+
     left:50%;
+
     bottom:25px;
-    transform:translate(-50%,20px);
+
+    transform:
+    translate(-50%,20px);
+
     opacity:0;
+
     pointer-events:none;
+
     z-index:9999;
+
     padding:12px 18px;
+
     border-radius:12px;
+
     background:#151936;
-    border:1px solid rgba(255,255,255,.1);
+
+    border:
+    1px solid rgba(255,255,255,.1);
+
     transition:.25s;
 }
 
 .toast.show{
     opacity:1;
-    transform:translate(-50%,0);
+
+    transform:
+    translate(-50%,0);
 }
 
-/* RESPONSIVE */
+/* ================= CATEGORY COLORS ================= */
+
+.category-gaming{
+    border-color:
+    rgba(255,80,80,.30);
+}
+
+.category-cool{
+    border-color:
+    rgba(0,220,255,.30);
+}
+
+.category-royal{
+    border-color:
+    rgba(255,200,50,.30);
+}
+
+.category-love{
+    border-color:
+    rgba(255,70,150,.30);
+}
+
+.category-aesthetic{
+    border-color:
+    rgba(190,100,255,.30);
+}
+
+.category-neon{
+    border-color:
+    rgba(0,255,220,.45);
+
+    box-shadow:
+    0 0 25px rgba(0,255,220,.08);
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1050px){
 
     .categories{
-        grid-template-columns:repeat(4,1fr);
+        grid-template-columns:
+        repeat(4,1fr);
     }
 
     .name-grid,
     .favorite-list{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+        repeat(3,1fr);
     }
 
 }
@@ -489,12 +748,14 @@ footer{
     }
 
     .categories{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+        repeat(3,1fr);
     }
 
     .name-grid,
     .favorite-list{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .features{
@@ -506,11 +767,13 @@ footer{
 @media(max-width:500px){
 
     .hero{
-        padding:55px 15px 40px;
+        padding:
+        55px 15px 40px;
     }
 
     .nav-container{
-        padding:13px 15px;
+        padding:
+        13px 15px;
     }
 
     .logo{
@@ -518,22 +781,29 @@ footer{
     }
 
     .get-started{
-        padding:9px 12px;
+        padding:
+        9px 12px;
+
         font-size:12px;
     }
 
     .search-box input{
-        padding:12px 8px;
+        padding:
+        12px 8px;
+
         font-size:14px;
     }
 
     .search-box button{
-        padding:0 14px;
+        padding:
+        0 14px;
+
         font-size:12px;
     }
 
     .categories{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .name-grid,
@@ -552,11 +822,10 @@ footer{
 
 </head>
 
-
 <body>
 
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
 <nav class="navbar">
 
@@ -568,13 +837,21 @@ NameCraft
 
 <div class="nav-links">
 
-<a href="#home">Home</a>
+<a href="#home">
+Home
+</a>
 
-<a href="#styles">Styles</a>
+<a href="#styles">
+Styles
+</a>
 
-<a href="#favorites">Favorites</a>
+<a href="#favorites">
+Favorites
+</a>
 
-<a href="#about">About</a>
+<a href="#about">
+About
+</a>
 
 </div>
 
@@ -591,7 +868,7 @@ Get Started
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section
 class="hero"
@@ -618,7 +895,6 @@ aesthetic names and more.
 
 </p>
 
-
 <div class="search-box">
 
 <input
@@ -635,7 +911,6 @@ Generate
 
 </div>
 
-
 <div class="preview">
 
 <div class="preview-label">
@@ -651,7 +926,7 @@ Your Name
 </section>
 
 
-<!-- STYLES -->
+<!-- ================= STYLES ================= -->
 
 <section
 class="section"
@@ -664,7 +939,7 @@ Choose a Style
 </h2>
 
 <p>
-Explore names from different categories
+Each category has its own unique style.
 </p>
 
 </div>
@@ -783,7 +1058,7 @@ Neon
 </section>
 
 
-<!-- RESULTS -->
+<!-- ================= RESULTS ================= -->
 
 <section class="section">
 
@@ -800,6 +1075,7 @@ class="result-info"
 id="resultInfo">
 
 Ready to generate
+
 </div>
 
 </div>
@@ -839,7 +1115,7 @@ Load More
 </section>
 
 
-<!-- FAVORITES -->
+<!-- ================= FAVORITES ================= -->
 
 <section
 class="section"
@@ -857,7 +1133,6 @@ Your saved names are stored on this device.
 
 </div>
 
-
 <div
 class="favorite-list"
 id="favoriteList">
@@ -867,7 +1142,7 @@ id="favoriteList">
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section
 class="section"
@@ -914,12 +1189,12 @@ variants instantly.
 </div>
 
 <h3>
-Multiple Fonts
+Multiple Styles
 </h3>
 
 <p>
-Bold, italic, script, fraktur,
-double, monospace and decorative styles.
+Gaming, Cool, Royal, Love, Aesthetic
+and Neon styles are generated separately.
 </p>
 
 </div>
@@ -966,17 +1241,24 @@ Copied!
 
 <script>
 
-/* ==========================================
+/* =====================================================
    SUPABASE
-========================================== */
+===================================================== */
 
 const SUPABASE_URL =
 "https://ujpzkpeslemcuizylymi.supabase.co";
 
 
 /*
-   IMPORTANT:
-   Apni Supabase publishable key yaha paste karo.
+IMPORTANT:
+
+Yaha apni existing Supabase
+PUBLISHABLE KEY paste karo.
+
+Example:
+
+const SUPABASE_PUBLISHABLE_KEY =
+"YOUR_KEY_HERE";
 */
 
 const SUPABASE_PUBLISHABLE_KEY =
@@ -990,9 +1272,9 @@ window.supabase.createClient(
 );
 
 
-/* ==========================================
+/* =====================================================
    VARIABLES
-========================================== */
+===================================================== */
 
 let favorites =
 JSON.parse(
@@ -1001,14 +1283,10 @@ JSON.parse(
     ) || "[]"
 );
 
-let currentPage = 0;
 
-const NAMES_PER_LOAD = 30;
-
-
-/* ==========================================
-   FONT DATA
-========================================== */
+/* =====================================================
+   FONT STYLES
+===================================================== */
 
 const fontStyles = {
 
@@ -1018,80 +1296,100 @@ const fontStyles = {
 
     bold:{
         name:"Bold",
+
         upper:
         "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
+
         lower:
         "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
     },
 
     italic:{
         name:"Italic",
+
         upper:
         "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡",
+
         lower:
         "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"
     },
 
     boldItalic:{
         name:"Bold Italic",
+
         upper:
         "𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕",
+
         lower:
         "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯"
     },
 
     script:{
         name:"Script",
+
         upper:
         "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵",
+
         lower:
         "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"
     },
 
     boldScript:{
         name:"Bold Script",
+
         upper:
         "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩",
+
         lower:
         "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"
     },
 
     fraktur:{
         name:"Fraktur",
+
         upper:
         "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ",
+
         lower:
         "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"
     },
 
     double:{
         name:"Double",
+
         upper:
         "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
+
         lower:
         "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
     },
 
     sans:{
         name:"Sans",
+
         upper:
         "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹",
+
         lower:
         "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓"
     },
 
     sansBold:{
         name:"Sans Bold",
+
         upper:
         "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
+
         lower:
         "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
     },
 
     monospace:{
         name:"Monospace",
+
         upper:
         "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉",
+
         lower:
         "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
     }
@@ -1099,49 +1397,9 @@ const fontStyles = {
 };
 
 
-/* ==========================================
-   DECORATIONS
-========================================== */
-
-const decorations = [
-
-    ["꧁༺ "," ༻꧂"],
-    ["亗 "," 亗"],
-    ["『 "," 』"],
-    ["【 "," 】"],
-    ["꧁ "," ꧂"],
-    ["★ "," ★"],
-    ["☆ "," ☆"],
-    ["♛ "," ♛"],
-    ["♔ "," ♔"],
-    ["☠ "," ☠"],
-    ["☠︎ "," ☠︎"],
-    ["⚡ "," ⚡"],
-    ["🔥 "," 🔥"],
-    ["❤️ "," ❤️"],
-    ["♡ "," ♡"],
-    ["✦ "," ✦"],
-    ["✧ "," ✧"],
-    ["༒ "," ༒"],
-    ["⚔ "," ⚔"],
-    ["➳ "," ➳"],
-    ["❀ "," ❀"],
-    ["☾ "," ☽"],
-    ["◉ "," ◉"],
-    ["◆ "," ◆"],
-    ["彡 "," 彡"],
-    ["乂 "," 乂"],
-    ["ツ "," ツ"],
-    ["シ "," シ"],
-    ["メ "," メ"],
-    ["〆 "," 〆"]
-
-];
-
-
-/* ==========================================
+/* =====================================================
    UNICODE CONVERTER
-========================================== */
+===================================================== */
 
 function convertUnicode(
     text,
@@ -1150,7 +1408,6 @@ function convertUnicode(
 
     const font =
     fontStyles[fontKey];
-
 
     if(
         !font ||
@@ -1162,20 +1419,13 @@ function convertUnicode(
 
     }
 
-
     const upper =
-    Array.from(
-        font.upper
-    );
+    Array.from(font.upper);
 
     const lower =
-    Array.from(
-        font.lower
-    );
-
+    Array.from(font.lower);
 
     let result = "";
-
 
     for(
         const char of text
@@ -1184,16 +1434,13 @@ function convertUnicode(
         const code =
         char.charCodeAt(0);
 
-
         if(
             code >= 65 &&
             code <= 90
         ){
 
             result +=
-            upper[
-                code - 65
-            ] || char;
+            upper[code - 65] || char;
 
         }
 
@@ -1203,9 +1450,7 @@ function convertUnicode(
         ){
 
             result +=
-            lower[
-                code - 97
-            ] || char;
+            lower[code - 97] || char;
 
         }
 
@@ -1217,23 +1462,179 @@ function convertUnicode(
 
     }
 
-
     return result;
 
 }
 
 
-/* ==========================================
-   GENERATE ANY NAME
-========================================== */
+/* =====================================================
+   CATEGORY STYLE DATA
+===================================================== */
 
-function generateName(
-    input
-){
+const categoryStyles = {
+
+
+/* ================= GAMING ================= */
+
+Gaming:{
+
+    tag:"Gaming",
+
+    decorations:[
+
+        ["꧁༺ "," ༻꧂"],
+        ["亗 "," 亗"],
+        ["『 "," 』"],
+        ["乂 "," 乂"],
+        ["メ "," メ"],
+        ["シ "," シ"],
+        ["ツ "," ツ"],
+        ["〆 "," 〆"],
+        ["⚔ "," ⚔"],
+        ["☠︎ "," ☠︎"],
+        ["༒ "," ༒"],
+        ["彡 "," 彡"]
+
+    ]
+
+},
+
+
+/* ================= COOL ================= */
+
+Cool:{
+
+    tag:"Cool",
+
+    decorations:[
+
+        ["『 "," 』"],
+        ["【 "," 】"],
+        ["★ "," ★"],
+        ["☆ "," ☆"],
+        ["✦ "," ✦"],
+        ["✧ "," ✧"],
+        ["◆ "," ◆"],
+        ["◇ "," ◇"],
+        ["乂 "," 乂"],
+        ["ツ "," ツ"],
+        ["シ "," シ"],
+        ["☾ "," ☽"]
+
+    ]
+
+},
+
+
+/* ================= ROYAL ================= */
+
+Royal:{
+
+    tag:"Royal",
+
+    decorations:[
+
+        ["♛ "," ♛"],
+        ["♕ "," ♕"],
+        ["♔ "," ♔"],
+        ["♚ "," ♚"],
+        ["👑 "," 👑"],
+        ["꧁♛ "," ♛꧂"],
+        ["꧁♕ "," ♕꧂"],
+        ["༺♛ "," ♛༻"],
+        ["『♕ "," ♕』"],
+        ["★♛ "," ♛★"]
+
+    ]
+
+},
+
+
+/* ================= LOVE ================= */
+
+Love:{
+
+    tag:"Love",
+
+    decorations:[
+
+        ["♡ "," ♡"],
+        ["♥ "," ♥"],
+        ["❤ "," ❤"],
+        ["💕 "," 💕"],
+        ["💗 "," 💗"],
+        ["💖 "," 💖"],
+        ["💘 "," 💘"],
+        ["❣ "," ❣"],
+        ["꧁♡ "," ♡꧂"],
+        ["༺♥ "," ♥༻"]
+
+    ]
+
+},
+
+
+/* ================= AESTHETIC ================= */
+
+Aesthetic:{
+
+    tag:"Aesthetic",
+
+    decorations:[
+
+        ["✧ "," ✧"],
+        ["✦ "," ✦"],
+        ["𓆩 "," 𓆪"],
+        ["𓆩♡ "," ♡𓆪"],
+        ["☾ "," ☽"],
+        ["☼ "," ☼"],
+        ["❀ "," ❀"],
+        ["✿ "," ✿"],
+        ["𖤐 "," 𖤐"],
+        ["୨୧ "," ୨୧"],
+        ["⋆｡°✩ "," ✩°｡⋆"]
+
+    ]
+
+},
+
+
+/* ================= NEON ================= */
+
+Neon:{
+
+    tag:"Neon",
+
+    decorations:[
+
+        ["⚡ "," ⚡"],
+        ["ϟ "," ϟ"],
+        ["⟡ "," ⟡"],
+        ["✦ "," ✦"],
+        ["✧ "," ✧"],
+        ["『⚡ "," ⚡』"],
+        ["꧁⚡ "," ⚡꧂"],
+        ["★彡 "," 彡★"],
+        ["◈ "," ◈"],
+        ["⬢ "," ⬢"],
+        ["⟦⚡ "," ⚡⟧"],
+        ["「⚡ "," ⚡」"]
+
+    ]
+
+}
+
+};
+
+
+/* =====================================================
+   GENERATE USER NAME
+===================================================== */
+
+function generateName(input){
 
     input =
     input.trim();
-
 
     if(!input){
 
@@ -1245,68 +1646,28 @@ function generateName(
 
     }
 
-
     const results = [];
 
-    const fontKeys =
+    const fonts =
     Object.keys(
         fontStyles
     );
 
 
-    /* NORMAL + FONT */
+    /* BASIC FONTS */
 
-    for(
-        const fontKey
-        of fontKeys
-    ){
-
-        results.push({
-
-            name:
-            convertUnicode(
-                input,
-                fontKey
-            ),
-
-            style:
-            fontStyles[
-                fontKey
-            ].name
-
-        });
-
-    }
-
-
-    /* DECORATED */
-
-    for(
-        const decoration
-        of decorations
-    ){
-
-        for(
-            const fontKey
-            of fontKeys
-        ){
-
-            const styled =
-            convertUnicode(
-                input,
-                fontKey
-            );
-
+    fonts.forEach(
+        function(fontKey){
 
             results.push({
 
                 name:
-                decoration[0] +
-                styled +
-                decoration[1],
+                convertUnicode(
+                    input,
+                    fontKey
+                ),
 
                 style:
-                "Stylish • " +
                 fontStyles[
                     fontKey
                 ].name
@@ -1314,40 +1675,65 @@ function generateName(
             });
 
         }
-
-    }
-
-
-    /* REMOVE DUPLICATES */
-
-    const unique = [];
-
-    const seen =
-    new Set();
+    );
 
 
-    for(
-        const item
-        of results
-    ){
+    /* GENERAL DECORATIONS */
 
-        if(
-            !seen.has(
-                item.name
-            )
-        ){
+    const generalDecorations = [
 
-            seen.add(
-                item.name
-            );
+        ["꧁༺ "," ༻꧂"],
+        ["亗 "," 亗"],
+        ["『 "," 』"],
+        ["【 "," 】"],
+        ["★ "," ★"],
+        ["✦ "," ✦"],
+        ["乂 "," 乂"],
+        ["ツ "," ツ"],
+        ["༒ "," ༒"],
+        ["彡 "," 彡"]
 
-            unique.push(
-                item
+    ];
+
+
+    generalDecorations.forEach(
+        function(decoration){
+
+            fonts.forEach(
+                function(fontKey){
+
+                    const styled =
+                    convertUnicode(
+                        input,
+                        fontKey
+                    );
+
+                    results.push({
+
+                        name:
+                        decoration[0] +
+                        styled +
+                        decoration[1],
+
+                        style:
+                        "Stylish • " +
+                        fontStyles[
+                            fontKey
+                        ].name
+
+                    });
+
+                }
             );
 
         }
+    );
 
-    }
+
+    const unique =
+    removeDuplicates(
+        results
+    );
 
 
     renderResults(
@@ -1384,201 +1770,11 @@ function generateName(
 }
 
 
-/* ==========================================
-   GENERATE BUTTON
-========================================== */
+/* =====================================================
+   CATEGORY GENERATOR
+===================================================== */
 
-document
-.getElementById(
-    "generateBtn"
-)
-.addEventListener(
-    "click",
-    function(){
-
-        const input =
-        document
-        .getElementById(
-            "nameInput"
-        )
-        .value;
-
-
-        generateName(
-            input
-        );
-
-    }
-);
-
-
-/* ==========================================
-   ENTER KEY
-========================================== */
-
-document
-.getElementById(
-    "nameInput"
-)
-.addEventListener(
-    "keydown",
-    function(event){
-
-        if(
-            event.key === "Enter"
-        ){
-
-            generateName(
-                this.value
-            );
-
-        }
-
-    }
-);
-
-
-/* ==========================================
-   LIVE PREVIEW
-========================================== */
-
-document
-.getElementById(
-    "nameInput"
-)
-.addEventListener(
-    "input",
-    function(){
-
-        document
-        .getElementById(
-            "livePreview"
-        )
-        .textContent =
-        this.value ||
-        "Your Name";
-
-    }
-);
-
-
-/* ==========================================
-   RENDER RESULTS
-========================================== */
-
-function renderResults(
-    results
-){
-
-    const grid =
-    document.getElementById(
-        "nameGrid"
-    );
-
-
-    grid.innerHTML = "";
-
-
-    for(
-        const item
-        of results
-    ){
-
-        const card =
-        document.createElement(
-            "div"
-        );
-
-
-        card.className =
-        "name-card";
-
-
-        const active =
-        favorites.includes(
-            item.name
-        );
-
-
-        card.innerHTML = `
-
-        <div class="name-text">
-            ${escapeHtml(item.name)}
-        </div>
-
-        <div class="name-meta">
-
-            <span class="style-tag">
-                ${escapeHtml(item.style)}
-            </span>
-
-            <div class="card-actions">
-
-                <button
-                class="card-btn copy-btn">
-                Copy
-                </button>
-
-                <button
-                class="card-btn favorite-btn ${active ? "active" : ""}">
-                ${active ? "♥" : "♡"}
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-
-
-        card
-        .querySelector(
-            ".copy-btn"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                copyName(
-                    item.name
-                );
-
-            }
-        );
-
-
-        card
-        .querySelector(
-            ".favorite-btn"
-        )
-        .addEventListener(
-            "click",
-            function(){
-
-                toggleFavorite(
-                    item.name
-                );
-
-            }
-        );
-
-
-        grid.appendChild(
-            card
-        );
-
-    }
-
-}
-
-
-/* ==========================================
-   CATEGORY FROM DATABASE
-========================================== */
-
-async function generateCategory(
-    category
-){
+async function generateCategory(category){
 
     if(
         !category
@@ -1598,13 +1794,32 @@ async function generateCategory(
 
 
     grid.innerHTML = `
-    <div class="loading">
-    Loading ${escapeHtml(category)} names...
-    </div>
+
+        <div class="loading">
+
+        Loading ${escapeHtml(category)} styles...
+
+        </div>
+
     `;
 
 
     try{
+
+        /*
+        IMPORTANT:
+
+        Yaha category ko database ke
+        style column se filter NAHI kar rahe.
+
+        Database ke normal names ko lekar
+        selected category ka style apply
+        kar rahe hain.
+
+        Isliye Neon ke liye DB me
+        Neon names hona zaroori nahi.
+        */
+
 
         const {
             data,
@@ -1615,9 +1830,11 @@ async function generateCategory(
         .select(
             "id,name,style"
         )
-        .ilike(
-            "style",
-            category + "%"
+        .order(
+            "id",
+            {
+                ascending:true
+            }
         )
         .limit(30);
 
@@ -1625,12 +1842,17 @@ async function generateCategory(
         if(error){
 
             grid.innerHTML = `
-            <div class="error-box">
-            Database Error:<br><br>
-            ${escapeHtml(
-                error.message
-            )}
-            </div>
+
+                <div class="error-box">
+
+                Database Error:<br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+                </div>
+
             `;
 
             return;
@@ -1644,9 +1866,13 @@ async function generateCategory(
         ){
 
             grid.innerHTML = `
-            <div class="empty">
-            No names found in ${escapeHtml(category)}.
-            </div>
+
+                <div class="empty">
+
+                Database me names nahi hain.
+
+                </div>
+
             `;
 
             return;
@@ -1657,27 +1883,31 @@ async function generateCategory(
         const results = [];
 
 
-        for(
-            const item
-            of data
-        ){
+        data.forEach(
+            function(item){
 
-            const variants =
-            generateDBVariants(
-                item.name,
-                category
-            );
+                const variants =
+                createCategoryVariants(
+                    item.name,
+                    category
+                );
+
+                results.push(
+                    ...variants
+                );
+
+            }
+        );
 
 
-            results.push(
-                ...variants
-            );
-
-        }
+        const unique =
+        removeDuplicates(
+            results
+        );
 
 
         renderResults(
-            results
+            unique
         );
 
 
@@ -1695,8 +1925,19 @@ async function generateCategory(
             "resultInfo"
         )
         .textContent =
-        results.length +
-        " stylish variants";
+        unique.length +
+        " " +
+        category +
+        " variants generated";
+
+
+        document
+        .getElementById(
+            "nameGrid"
+        )
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
     }
 
@@ -1707,9 +1948,13 @@ async function generateCategory(
         );
 
         grid.innerHTML = `
-        <div class="error-box">
-        Database connection failed.
-        </div>
+
+            <div class="error-box">
+
+            Database connection failed.
+
+            </div>
+
         `;
 
     }
@@ -1717,57 +1962,42 @@ async function generateCategory(
 }
 
 
-/* ==========================================
-   DATABASE VARIANTS
-========================================== */
+/* =====================================================
+   CREATE CATEGORY VARIANTS
+===================================================== */
 
-function generateDBVariants(
+function createCategoryVariants(
     original,
     category
 ){
 
     const results = [];
 
-    const fontKeys =
+    const config =
+    categoryStyles[
+        category
+    ];
+
+
+    if(!config){
+
+        return results;
+
+    }
+
+
+    const fonts =
     Object.keys(
         fontStyles
     );
 
 
-    for(
-        const fontKey
-        of fontKeys
-    ){
+    /* =================
+       FONT VARIANTS
+    ================= */
 
-        results.push({
-
-            name:
-            convertUnicode(
-                original,
-                fontKey
-            ),
-
-            style:
-            category +
-            " • " +
-            fontStyles[
-                fontKey
-            ].name
-
-        });
-
-    }
-
-
-    for(
-        const decoration
-        of decorations
-    ){
-
-        for(
-            const fontKey
-            of fontKeys
-        ){
+    fonts.forEach(
+        function(fontKey){
 
             const styled =
             convertUnicode(
@@ -1778,13 +2008,10 @@ function generateDBVariants(
 
             results.push({
 
-                name:
-                decoration[0] +
-                styled +
-                decoration[1],
+                name:styled,
 
                 style:
-                category +
+                config.tag +
                 " • " +
                 fontStyles[
                     fontKey
@@ -1793,8 +2020,47 @@ function generateDBVariants(
             });
 
         }
+    );
 
-    }
+
+    /* =================
+       CATEGORY DECORATIONS
+    ================= */
+
+    config.decorations.forEach(
+        function(decoration){
+
+            fonts.forEach(
+                function(fontKey){
+
+                    const styled =
+                    convertUnicode(
+                        original,
+                        fontKey
+                    );
+
+
+                    results.push({
+
+                        name:
+                        decoration[0] +
+                        styled +
+                        decoration[1],
+
+                        style:
+                        config.tag +
+                        " • " +
+                        fontStyles[
+                            fontKey
+                        ].name
+
+                    });
+
+                }
+            );
+
+        }
+    );
 
 
     return results;
@@ -1802,9 +2068,9 @@ function generateDBVariants(
 }
 
 
-/* ==========================================
-   LOAD DATABASE NAMES
-========================================== */
+/* =====================================================
+   ALL DATABASE NAMES
+===================================================== */
 
 async function loadDatabaseNames(){
 
@@ -1815,9 +2081,11 @@ async function loadDatabaseNames(){
 
 
     grid.innerHTML = `
-    <div class="loading">
-    Loading names...
-    </div>
+
+        <div class="loading">
+        Loading database names...
+        </div>
+
     `;
 
 
@@ -1844,12 +2112,17 @@ async function loadDatabaseNames(){
         if(error){
 
             grid.innerHTML = `
-            <div class="error-box">
-            Database Error:<br><br>
-            ${escapeHtml(
-                error.message
-            )}
-            </div>
+
+                <div class="error-box">
+
+                Database Error:<br><br>
+
+                ${escapeHtml(
+                    error.message
+                )}
+
+                </div>
+
             `;
 
             return;
@@ -1863,9 +2136,13 @@ async function loadDatabaseNames(){
         ){
 
             grid.innerHTML = `
-            <div class="empty">
-            Database me names nahi hain.
-            </div>
+
+                <div class="empty">
+
+                Database me names nahi hain.
+
+                </div>
+
             `;
 
             return;
@@ -1876,24 +2153,30 @@ async function loadDatabaseNames(){
         const results = [];
 
 
-        for(
-            const item
-            of data
-        ){
+        data.forEach(
+            function(item){
 
-            results.push(
-                ...generateDBVariants(
-                    item.name,
-                    item.style ||
-                    "Stylish"
-                )
-            );
+                const variants =
+                createAllVariants(
+                    item.name
+                );
 
-        }
+                results.push(
+                    ...variants
+                );
+
+            }
+        );
+
+
+        const unique =
+        removeDuplicates(
+            results
+        );
 
 
         renderResults(
-            results
+            unique
         );
 
 
@@ -1910,7 +2193,7 @@ async function loadDatabaseNames(){
             "resultInfo"
         )
         .textContent =
-        results.length +
+        unique.length +
         " stylish variants";
 
     }
@@ -1922,9 +2205,13 @@ async function loadDatabaseNames(){
         );
 
         grid.innerHTML = `
-        <div class="error-box">
-        Database connection failed.
-        </div>
+
+            <div class="error-box">
+
+            Database connection failed.
+
+            </div>
+
         `;
 
     }
@@ -1932,22 +2219,347 @@ async function loadDatabaseNames(){
 }
 
 
-/* ==========================================
-   LOAD MORE
-========================================== */
+/* =====================================================
+   ALL VARIANTS
+===================================================== */
 
-function loadMore(){
+function createAllVariants(
+    original
+){
 
-    showToast(
-        "Generate any name to create more styles"
+    const results = [];
+
+    const fonts =
+    Object.keys(
+        fontStyles
+    );
+
+
+    fonts.forEach(
+        function(fontKey){
+
+            results.push({
+
+                name:
+                convertUnicode(
+                    original,
+                    fontKey
+                ),
+
+                style:
+                fontStyles[
+                    fontKey
+                ].name
+
+            });
+
+        }
+    );
+
+
+    const decorations = [
+
+        ["꧁༺ "," ༻꧂"],
+        ["亗 "," 亗"],
+        ["『 "," 』"],
+        ["【 "," 】"],
+        ["★ "," ★"],
+        ["✦ "," ✦"],
+        ["♛ "," ♛"],
+        ["♡ "," ♡"],
+        ["☠ "," ☠"],
+        ["⚡ "," ⚡"],
+        ["❀ "," ❀"],
+        ["☾ "," ☽"],
+        ["乂 "," 乂"]
+
+    ];
+
+
+    decorations.forEach(
+        function(decoration){
+
+            fonts.forEach(
+                function(fontKey){
+
+                    const styled =
+                    convertUnicode(
+                        original,
+                        fontKey
+                    );
+
+
+                    results.push({
+
+                        name:
+                        decoration[0] +
+                        styled +
+                        decoration[1],
+
+                        style:
+                        "Stylish • " +
+                        fontStyles[
+                            fontKey
+                        ].name
+
+                    });
+
+                }
+            );
+
+        }
+    );
+
+
+    return results;
+
+}
+
+
+/* =====================================================
+   REMOVE DUPLICATES
+===================================================== */
+
+function removeDuplicates(
+    array
+){
+
+    const seen =
+    new Set();
+
+    const output = [];
+
+
+    array.forEach(
+        function(item){
+
+            if(
+                !seen.has(
+                    item.name
+                )
+            ){
+
+                seen.add(
+                    item.name
+                );
+
+                output.push(
+                    item
+                );
+
+            }
+
+        }
+    );
+
+
+    return output;
+
+}
+
+
+/* =====================================================
+   GENERATE BUTTON
+===================================================== */
+
+document
+.getElementById(
+    "generateBtn"
+)
+.addEventListener(
+    "click",
+    function(){
+
+        generateName(
+            document
+            .getElementById(
+                "nameInput"
+            )
+            .value
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+.getElementById(
+    "nameInput"
+)
+.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            generateName(
+                this.value
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LIVE PREVIEW
+===================================================== */
+
+document
+.getElementById(
+    "nameInput"
+)
+.addEventListener(
+    "input",
+    function(){
+
+        document
+        .getElementById(
+            "livePreview"
+        )
+        .textContent =
+        this.value ||
+        "Your Name";
+
+    }
+);
+
+
+/* =====================================================
+   RENDER RESULTS
+===================================================== */
+
+function renderResults(
+    results
+){
+
+    const grid =
+    document.getElementById(
+        "nameGrid"
+    );
+
+
+    grid.innerHTML = "";
+
+
+    results.forEach(
+        function(item){
+
+            const card =
+            document.createElement(
+                "div"
+            );
+
+
+            card.className =
+            "name-card";
+
+
+            const active =
+            favorites.includes(
+                item.name
+            );
+
+
+            card.innerHTML = `
+
+                <div class="name-text">
+
+                    ${escapeHtml(
+                        item.name
+                    )}
+
+                </div>
+
+
+                <div class="name-meta">
+
+                    <span class="style-tag">
+
+                        ${escapeHtml(
+                            item.style
+                        )}
+
+                    </span>
+
+
+                    <div class="card-actions">
+
+                        <button
+                        class="card-btn copy-btn">
+
+                        Copy
+
+                        </button>
+
+
+                        <button
+                        class="card-btn favorite-btn
+                        ${active ? "active" : ""}">
+
+                        ${active ? "♥" : "♡"}
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            card
+            .querySelector(
+                ".copy-btn"
+            )
+            .addEventListener(
+                "click",
+                function(){
+
+                    copyName(
+                        item.name
+                    );
+
+                }
+            );
+
+
+            card
+            .querySelector(
+                ".favorite-btn"
+            )
+            .addEventListener(
+                "click",
+                function(){
+
+                    toggleFavorite(
+                        item.name
+                    );
+
+                }
+            );
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
     );
 
 }
 
 
-/* ==========================================
+/* =====================================================
    COPY
-========================================== */
+===================================================== */
 
 async function copyName(
     name
@@ -1955,7 +2567,9 @@ async function copyName(
 
     try{
 
-        await navigator.clipboard.writeText(
+        await navigator
+        .clipboard
+        .writeText(
             name
         );
 
@@ -1977,7 +2591,9 @@ async function copyName(
         name;
 
 
-        document.body.appendChild(
+        document
+        .body
+        .appendChild(
             textarea
         );
 
@@ -2002,9 +2618,9 @@ async function copyName(
 }
 
 
-/* ==========================================
-   FAVORITES
-========================================== */
+/* =====================================================
+   FAVORITE
+===================================================== */
 
 function toggleFavorite(
     name
@@ -2024,7 +2640,6 @@ function toggleFavorite(
             name
         );
 
-
         showToast(
             "Added to favorites ♥"
         );
@@ -2037,7 +2652,6 @@ function toggleFavorite(
             index,
             1
         );
-
 
         showToast(
             "Removed from favorites"
@@ -2061,9 +2675,9 @@ function toggleFavorite(
 }
 
 
-/* ==========================================
-   FAVORITE BUTTONS
-========================================== */
+/* =====================================================
+   REFRESH FAVORITE BUTTONS
+===================================================== */
 
 function refreshFavoriteButtons(){
 
@@ -2123,9 +2737,9 @@ function refreshFavoriteButtons(){
 }
 
 
-/* ==========================================
-   FAVORITES RENDER
-========================================== */
+/* =====================================================
+   RENDER FAVORITES
+===================================================== */
 
 function renderFavorites(){
 
@@ -2143,9 +2757,13 @@ function renderFavorites(){
     ){
 
         container.innerHTML = `
-        <div class="empty">
-        No favorite names yet ❤️
-        </div>
+
+            <div class="empty">
+
+            No favorite names yet ❤️
+
+            </div>
+
         `;
 
         return;
@@ -2172,31 +2790,44 @@ function renderFavorites(){
 
             card.innerHTML = `
 
-            <div class="name-text">
-                ${escapeHtml(name)}
-            </div>
+                <div class="name-text">
 
-            <div class="name-meta">
-
-                <span class="style-tag">
-                    Favorite
-                </span>
-
-                <div class="card-actions">
-
-                    <button
-                    class="card-btn copy-btn">
-                    Copy
-                    </button>
-
-                    <button
-                    class="card-btn favorite-btn active">
-                    ♥
-                    </button>
+                    ${escapeHtml(
+                        name
+                    )}
 
                 </div>
 
-            </div>
+
+                <div class="name-meta">
+
+                    <span class="style-tag">
+
+                        Favorite
+
+                    </span>
+
+
+                    <div class="card-actions">
+
+                        <button
+                        class="card-btn copy-btn">
+
+                        Copy
+
+                        </button>
+
+
+                        <button
+                        class="card-btn favorite-btn active">
+
+                        ♥
+
+                        </button>
+
+                    </div>
+
+                </div>
 
             `;
 
@@ -2239,9 +2870,9 @@ function renderFavorites(){
 }
 
 
-/* ==========================================
+/* =====================================================
    TOAST
-========================================== */
+===================================================== */
 
 let toastTimer;
 
@@ -2285,9 +2916,9 @@ function showToast(
 }
 
 
-/* ==========================================
+/* =====================================================
    ESCAPE HTML
-========================================== */
+===================================================== */
 
 function escapeHtml(
     value
@@ -2323,9 +2954,9 @@ function escapeHtml(
 }
 
 
-/* ==========================================
+/* =====================================================
    START
-========================================== */
+===================================================== */
 
 renderFavorites();
 
