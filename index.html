@@ -11,7 +11,7 @@ content="width=device-width, initial-scale=1.0">
 content="#080b22">
 
 <meta name="description"
-content="NameCraft - Free stylish name generator for gaming, cool, royal, love, aesthetic and neon names.">
+content="NameCraft - Free stylish name generator with gaming, cool, royal, fire and danger names.">
 
 <title>NameCraft - Stylish Name Generator</title>
 
@@ -30,56 +30,79 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
     background:
+
     radial-gradient(
         circle at 15% 10%,
         rgba(112,76,255,.20),
         transparent 30%
     ),
+
     radial-gradient(
         circle at 85% 20%,
         rgba(0,220,255,.12),
         transparent 30%
     ),
+
     #080b22;
 
     color:#fff;
+
     min-height:100vh;
 }
+
 
 /* ================= NAVBAR ================= */
 
 .navbar{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    background:rgba(8,11,34,.85);
+    background:
+    rgba(8,11,34,.85);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:
+    blur(18px);
 
     border-bottom:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 }
 
 .nav-container{
+
     max-width:1250px;
+
     margin:auto;
 
-    padding:15px 20px;
+    padding:
+    15px 20px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 }
 
 .logo{
+
     font-size:25px;
+
     font-weight:900;
 
     background:
+
     linear-gradient(
         90deg,
         #8b75ff,
@@ -87,39 +110,51 @@ body{
     );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 }
 
 .nav-links{
+
     display:flex;
+
     gap:25px;
 }
 
 .nav-links a{
+
     color:#cbd0f5;
+
     text-decoration:none;
+
     font-size:14px;
+
     font-weight:600;
 }
 
 .nav-links a:hover{
+
     color:#fff;
 }
 
 .get-started{
+
     border:0;
+
     color:white;
 
     background:
+
     linear-gradient(
         135deg,
         #745cff,
         #00c8f5
     );
 
-    padding:11px 18px;
+    padding:
+    11px 18px;
 
     border-radius:12px;
 
@@ -128,21 +163,27 @@ body{
     cursor:pointer;
 }
 
+
 /* ================= HERO ================= */
 
 .hero{
+
     max-width:1100px;
+
     margin:auto;
 
-    padding:80px 20px 50px;
+    padding:
+    80px 20px 50px;
 
     text-align:center;
 }
 
 .badge{
+
     display:inline-block;
 
-    padding:8px 15px;
+    padding:
+    8px 15px;
 
     border-radius:30px;
 
@@ -150,7 +191,8 @@ body{
     rgba(255,255,255,.04);
 
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 
     color:#b9bfff;
 
@@ -160,6 +202,7 @@ body{
 }
 
 .hero h1{
+
     font-size:
     clamp(42px,7vw,75px);
 
@@ -169,7 +212,9 @@ body{
 }
 
 .gradient-text{
+
     background:
+
     linear-gradient(
         90deg,
         #fff,
@@ -178,24 +223,29 @@ body{
     );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
 }
 
 .hero p{
+
     max-width:700px;
 
-    margin:22px auto 30px;
+    margin:
+    22px auto 30px;
 
     color:#9da5cd;
 
     line-height:1.7;
 }
 
+
 /* ================= SEARCH ================= */
 
 .search-box{
+
     max-width:720px;
 
     margin:auto;
@@ -212,15 +262,18 @@ body{
     rgba(255,255,255,.05);
 
     border:
-    1px solid rgba(255,255,255,.09);
+    1px solid
+    rgba(255,255,255,.09);
 }
 
 .search-box input{
+
     flex:1;
 
     min-width:0;
 
     border:0;
+
     outline:0;
 
     background:transparent;
@@ -233,22 +286,26 @@ body{
 }
 
 .search-box input::placeholder{
+
     color:#737b9f;
 }
 
 .search-box button{
+
     border:0;
 
     color:white;
 
     background:
+
     linear-gradient(
         135deg,
         #765cff,
         #00c8f5
     );
 
-    padding:0 25px;
+    padding:
+    0 25px;
 
     border-radius:13px;
 
@@ -257,12 +314,15 @@ body{
     font-weight:800;
 }
 
+
 /* ================= PREVIEW ================= */
 
 .preview{
+
     max-width:650px;
 
-    margin:25px auto 0;
+    margin:
+    25px auto 0;
 
     padding:20px;
 
@@ -272,10 +332,12 @@ body{
     rgba(255,255,255,.035);
 
     border:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 }
 
 .preview-label{
+
     color:#737b9e;
 
     font-size:11px;
@@ -284,6 +346,7 @@ body{
 }
 
 #livePreview{
+
     font-size:25px;
 
     font-weight:800;
@@ -293,33 +356,41 @@ body{
     word-break:break-word;
 }
 
+
 /* ================= SECTION ================= */
 
 .section{
+
     max-width:1250px;
 
     margin:auto;
 
-    padding:55px 20px;
+    padding:
+    55px 20px;
 }
 
 .section-heading{
+
     margin-bottom:25px;
 }
 
 .section-heading h2{
+
     font-size:30px;
 }
 
 .section-heading p{
+
     color:#7f87ad;
 
     margin-top:7px;
 }
 
+
 /* ================= CATEGORIES ================= */
 
 .categories{
+
     display:grid;
 
     grid-template-columns:
@@ -329,7 +400,9 @@ body{
 }
 
 .category-card{
-    padding:18px 8px;
+
+    padding:
+    18px 8px;
 
     border-radius:17px;
 
@@ -337,7 +410,8 @@ body{
     rgba(255,255,255,.035);
 
     border:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 
     text-align:center;
 
@@ -347,7 +421,9 @@ body{
 }
 
 .category-card:hover{
-    transform:translateY(-4px);
+
+    transform:
+    translateY(-4px);
 
     background:
     rgba(255,255,255,.07);
@@ -357,12 +433,14 @@ body{
 }
 
 .category-icon{
+
     font-size:24px;
 
     margin-bottom:8px;
 }
 
 .category-name{
+
     font-size:13px;
 
     font-weight:700;
@@ -370,9 +448,11 @@ body{
     color:#dfe2ff;
 }
 
+
 /* ================= RESULTS ================= */
 
 .results-header{
+
     display:flex;
 
     justify-content:space-between;
@@ -381,10 +461,12 @@ body{
 }
 
 .results-header h2{
+
     font-size:25px;
 }
 
 .result-info{
+
     margin-top:7px;
 
     color:#737b9f;
@@ -393,6 +475,7 @@ body{
 }
 
 .name-grid{
+
     display:grid;
 
     grid-template-columns:
@@ -401,10 +484,14 @@ body{
     gap:15px;
 }
 
+
+/* ================= NAME CARD ================= */
+
 .name-card{
+
     position:relative;
 
-    min-height:145px;
+    min-height:150px;
 
     display:flex;
 
@@ -417,6 +504,7 @@ body{
     border-radius:18px;
 
     background:
+
     linear-gradient(
         145deg,
         rgba(255,255,255,.07),
@@ -424,7 +512,8 @@ body{
     );
 
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 
     overflow:hidden;
 
@@ -432,23 +521,42 @@ body{
 }
 
 .name-card:hover{
-    transform:translateY(-4px);
+
+    transform:
+    translateY(-4px);
 
     border-color:
     rgba(0,220,255,.35);
 }
 
+
+/* IMPORTANT:
+   Database ka actual Unicode
+   name yaha display hoga.
+*/
+
 .name-text{
-    font-size:21px;
 
-    font-weight:800;
+    font-size:23px;
 
-    line-height:1.5;
+    font-weight:400;
+
+    line-height:1.6;
 
     word-break:break-word;
+
+    min-height:65px;
+
+    display:flex;
+
+    align-items:center;
 }
 
+
+/* DATABASE FONT LABEL */
+
 .name-meta{
+
     display:flex;
 
     justify-content:space-between;
@@ -461,7 +569,8 @@ body{
 }
 
 .style-tag{
-    max-width:60%;
+
+    max-width:58%;
 
     overflow:hidden;
 
@@ -469,7 +578,8 @@ body{
 
     white-space:nowrap;
 
-    padding:5px 8px;
+    padding:
+    5px 8px;
 
     border-radius:8px;
 
@@ -484,21 +594,25 @@ body{
 }
 
 .card-actions{
+
     display:flex;
 
     gap:6px;
 }
 
 .card-btn{
+
     border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 
     background:
     rgba(255,255,255,.05);
 
     color:#dce0ff;
 
-    padding:7px 9px;
+    padding:
+    7px 9px;
 
     border-radius:9px;
 
@@ -508,33 +622,42 @@ body{
 }
 
 .card-btn:hover{
+
     background:
     rgba(255,255,255,.1);
 }
 
 .favorite-btn.active{
+
     color:#ff72ad;
 }
+
 
 /* ================= EMPTY ================= */
 
 .empty{
-    grid-column:1/-1;
 
-    padding:45px 20px;
+    grid-column:
+    1/-1;
+
+    padding:
+    45px 20px;
 
     text-align:center;
 
     color:#737b9f;
 
     border:
-    1px dashed rgba(255,255,255,.1);
+    1px dashed
+    rgba(255,255,255,.1);
 
     border-radius:18px;
 }
 
 .loading{
-    grid-column:1/-1;
+
+    grid-column:
+    1/-1;
 
     padding:50px;
 
@@ -544,7 +667,9 @@ body{
 }
 
 .error-box{
-    grid-column:1/-1;
+
+    grid-column:
+    1/-1;
 
     padding:25px;
 
@@ -554,26 +679,32 @@ body{
     rgba(255,60,90,.07);
 
     border:
-    1px solid rgba(255,60,90,.2);
+    1px solid
+    rgba(255,60,90,.2);
 
     color:#ff9bad;
 }
 
+
 /* ================= LOAD MORE ================= */
 
 .load-more-wrap{
+
     text-align:center;
 
     padding:30px 0;
 }
 
 .load-more{
-    padding:13px 25px;
+
+    padding:
+    13px 25px;
 
     border-radius:12px;
 
     border:
-    1px solid rgba(255,255,255,.1);
+    1px solid
+    rgba(255,255,255,.1);
 
     background:
     rgba(255,255,255,.05);
@@ -583,9 +714,11 @@ body{
     cursor:pointer;
 }
 
+
 /* ================= FAVORITES ================= */
 
 .favorite-list{
+
     display:grid;
 
     grid-template-columns:
@@ -594,9 +727,11 @@ body{
     gap:15px;
 }
 
+
 /* ================= FEATURES ================= */
 
 .features{
+
     display:grid;
 
     grid-template-columns:
@@ -606,6 +741,7 @@ body{
 }
 
 .feature{
+
     padding:25px;
 
     border-radius:20px;
@@ -614,20 +750,24 @@ body{
     rgba(255,255,255,.035);
 
     border:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 }
 
 .feature-icon{
+
     font-size:28px;
 
     margin-bottom:14px;
 }
 
 .feature h3{
+
     margin-bottom:8px;
 }
 
 .feature p{
+
     color:#8088ad;
 
     line-height:1.6;
@@ -635,9 +775,11 @@ body{
     font-size:14px;
 }
 
+
 /* ================= FOOTER ================= */
 
 footer{
+
     margin-top:40px;
 
     padding:30px 20px;
@@ -645,16 +787,19 @@ footer{
     text-align:center;
 
     border-top:
-    1px solid rgba(255,255,255,.07);
+    1px solid
+    rgba(255,255,255,.07);
 
     color:#686f95;
 
     font-size:13px;
 }
 
+
 /* ================= TOAST ================= */
 
 .toast{
+
     position:fixed;
 
     left:50%;
@@ -670,71 +815,42 @@ footer{
 
     z-index:9999;
 
-    padding:12px 18px;
+    padding:
+    12px 18px;
 
     border-radius:12px;
 
     background:#151936;
 
     border:
-    1px solid rgba(255,255,255,.1);
+    1px solid
+    rgba(255,255,255,.1);
 
     transition:.25s;
 }
 
 .toast.show{
+
     opacity:1;
 
     transform:
     translate(-50%,0);
 }
 
-/* ================= CATEGORY COLORS ================= */
-
-.category-gaming{
-    border-color:
-    rgba(255,80,80,.30);
-}
-
-.category-cool{
-    border-color:
-    rgba(0,220,255,.30);
-}
-
-.category-royal{
-    border-color:
-    rgba(255,200,50,.30);
-}
-
-.category-love{
-    border-color:
-    rgba(255,70,150,.30);
-}
-
-.category-aesthetic{
-    border-color:
-    rgba(190,100,255,.30);
-}
-
-.category-neon{
-    border-color:
-    rgba(0,255,220,.45);
-
-    box-shadow:
-    0 0 25px rgba(0,255,220,.08);
-}
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1050px){
 
     .categories{
+
         grid-template-columns:
         repeat(4,1fr);
     }
 
     .name-grid,
     .favorite-list{
+
         grid-template-columns:
         repeat(3,1fr);
     }
@@ -744,21 +860,25 @@ footer{
 @media(max-width:750px){
 
     .nav-links{
+
         display:none;
     }
 
     .categories{
+
         grid-template-columns:
         repeat(3,1fr);
     }
 
     .name-grid,
     .favorite-list{
+
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .features{
+
         grid-template-columns:1fr;
     }
 
@@ -767,20 +887,24 @@ footer{
 @media(max-width:500px){
 
     .hero{
+
         padding:
         55px 15px 40px;
     }
 
     .nav-container{
+
         padding:
         13px 15px;
     }
 
     .logo{
+
         font-size:21px;
     }
 
     .get-started{
+
         padding:
         9px 12px;
 
@@ -788,6 +912,7 @@ footer{
     }
 
     .search-box input{
+
         padding:
         12px 8px;
 
@@ -795,6 +920,7 @@ footer{
     }
 
     .search-box button{
+
         padding:
         0 14px;
 
@@ -802,18 +928,27 @@ footer{
     }
 
     .categories{
+
         grid-template-columns:
         repeat(2,1fr);
     }
 
     .name-grid,
     .favorite-list{
+
         grid-template-columns:1fr;
     }
 
     .section{
+
         padding-left:15px;
+
         padding-right:15px;
+    }
+
+    .name-text{
+
+        font-size:25px;
     }
 
 }
@@ -821,6 +956,7 @@ footer{
 </style>
 
 </head>
+
 
 <body>
 
@@ -890,8 +1026,7 @@ Perfect Name
 <p>
 
 Enter any name and generate stylish
-fonts, gaming names, royal names,
-aesthetic names and more.
+gaming, royal, fire and danger names.
 
 </p>
 
@@ -939,7 +1074,7 @@ Choose a Style
 </h2>
 
 <p>
-Each category has its own unique style.
+Choose a category from your database.
 </p>
 
 </div>
@@ -950,7 +1085,7 @@ Each category has its own unique style.
 
 <div
 class="category-card"
-onclick="generateCategory('')">
+onclick="loadDatabaseNames()">
 
 <div class="category-icon">
 ✨
@@ -1025,14 +1160,14 @@ Love
 
 <div
 class="category-card"
-onclick="generateCategory('Aesthetic')">
+onclick="generateCategory('Fire')">
 
 <div class="category-icon">
-🌸
+🔥
 </div>
 
 <div class="category-name">
-Aesthetic
+Fire
 </div>
 
 </div>
@@ -1040,14 +1175,14 @@ Aesthetic
 
 <div
 class="category-card"
-onclick="generateCategory('Neon')">
+onclick="generateCategory('Danger')">
 
 <div class="category-icon">
-⚡
+☠️
 </div>
 
 <div class="category-name">
-Neon
+Danger
 </div>
 
 </div>
@@ -1074,7 +1209,7 @@ Stylish Names
 class="result-info"
 id="resultInfo">
 
-Ready to generate
+Loading database...
 
 </div>
 
@@ -1087,10 +1222,9 @@ Ready to generate
 class="name-grid"
 id="nameGrid">
 
-<div class="empty">
+<div class="loading">
 
-Enter your name above
-and click Generate.
+Loading stylish names...
 
 </div>
 
@@ -1099,8 +1233,7 @@ and click Generate.
 
 <div
 class="load-more-wrap"
-id="loadMoreWrap"
-style="display:none;">
+id="loadMoreWrap">
 
 <button
 class="load-more"
@@ -1175,8 +1308,8 @@ Instant Generation
 </h3>
 
 <p>
-Type any name and generate stylish
-variants instantly.
+Generate stylish names directly
+from the NameCraft database.
 </p>
 
 </div>
@@ -1193,8 +1326,8 @@ Multiple Styles
 </h3>
 
 <p>
-Gaming, Cool, Royal, Love, Aesthetic
-and Neon styles are generated separately.
+Different Unicode styles and
+decorations are stored in the database.
 </p>
 
 </div>
@@ -1248,22 +1381,8 @@ Copied!
 const SUPABASE_URL =
 "https://ujpzkpeslemcuizylymi.supabase.co";
 
-
-/*
-IMPORTANT:
-
-Yaha apni existing Supabase
-PUBLISHABLE KEY paste karo.
-
-Example:
-
-const SUPABASE_PUBLISHABLE_KEY =
-"YOUR_KEY_HERE";
-*/
-
 const SUPABASE_PUBLISHABLE_KEY =
 "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
-
 
 const supabaseClient =
 window.supabase.createClient(
@@ -1283,358 +1402,519 @@ JSON.parse(
     ) || "[]"
 );
 
+let allDatabaseNames = [];
 
-/* =====================================================
-   FONT STYLES
-===================================================== */
+let currentPage = 0;
 
-const fontStyles = {
+const PAGE_SIZE = 40;
 
-    normal:{
-        name:"Normal"
-    },
+let currentCategory = "";
 
-    bold:{
-        name:"Bold",
-
-        upper:
-        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
-
-        lower:
-        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
-    },
-
-    italic:{
-        name:"Italic",
-
-        upper:
-        "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡",
-
-        lower:
-        "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"
-    },
-
-    boldItalic:{
-        name:"Bold Italic",
-
-        upper:
-        "𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕",
-
-        lower:
-        "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯"
-    },
-
-    script:{
-        name:"Script",
-
-        upper:
-        "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵",
-
-        lower:
-        "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"
-    },
-
-    boldScript:{
-        name:"Bold Script",
-
-        upper:
-        "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩",
-
-        lower:
-        "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃"
-    },
-
-    fraktur:{
-        name:"Fraktur",
-
-        upper:
-        "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ",
-
-        lower:
-        "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"
-    },
-
-    double:{
-        name:"Double",
-
-        upper:
-        "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
-
-        lower:
-        "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
-    },
-
-    sans:{
-        name:"Sans",
-
-        upper:
-        "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹",
-
-        lower:
-        "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓"
-    },
-
-    sansBold:{
-        name:"Sans Bold",
-
-        upper:
-        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
-
-        lower:
-        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
-    },
-
-    monospace:{
-        name:"Monospace",
-
-        upper:
-        "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉",
-
-        lower:
-        "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
-    }
-
-};
+let currentSearchName = "";
 
 
 /* =====================================================
-   UNICODE CONVERTER
+   LOAD DATABASE
 ===================================================== */
 
-function convertUnicode(
-    text,
-    fontKey
-){
+async function loadDatabaseNames(){
 
-    const font =
-    fontStyles[fontKey];
+    currentCategory = "";
 
-    if(
-        !font ||
-        !font.upper ||
-        !font.lower
-    ){
+    currentPage = 0;
 
-        return text;
+    currentSearchName = "";
 
-    }
+    const grid =
+    document.getElementById(
+        "nameGrid"
+    );
 
-    const upper =
-    Array.from(font.upper);
+    grid.innerHTML = `
 
-    const lower =
-    Array.from(font.lower);
+        <div class="loading">
 
-    let result = "";
+        Loading stylish names...
 
-    for(
-        const char of text
-    ){
+        </div>
 
-        const code =
-        char.charCodeAt(0);
+    `;
+
+
+    document
+    .getElementById(
+        "resultTitle"
+    )
+    .textContent =
+    "All Stylish Names";
+
+
+    document
+    .getElementById(
+        "resultInfo"
+    )
+    .textContent =
+    "Loading database...";
+
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+        await supabaseClient
+
+        .from("names")
+
+        .select(
+            "id,name,font,category"
+        )
+
+        .order(
+            "id",
+            {
+                ascending:true
+            }
+        );
+
+
+        if(error){
+
+            showDatabaseError(
+                error.message
+            );
+
+            return;
+
+        }
+
 
         if(
-            code >= 65 &&
-            code <= 90
+            !data ||
+            data.length === 0
         ){
 
-            result +=
-            upper[code - 65] || char;
+            grid.innerHTML = `
+
+                <div class="empty">
+
+                Database me abhi koi name nahi hai.
+
+                </div>
+
+            `;
+
+            document
+            .getElementById(
+                "resultInfo"
+            )
+            .textContent =
+            "0 names found";
+
+            document
+            .getElementById(
+                "loadMoreWrap"
+            )
+            .style.display =
+            "none";
+
+            return;
 
         }
 
-        else if(
-            code >= 97 &&
-            code <= 122
-        ){
 
-            result +=
-            lower[code - 97] || char;
+        allDatabaseNames =
+        data.map(
+            function(item){
 
-        }
+                return {
 
-        else{
+                    id:item.id,
 
-            result += char;
+                    name:
+                    item.name || "",
 
-        }
+                    font:
+                    item.font || "Stylish",
+
+                    category:
+                    item.category || "Gaming"
+
+                };
+
+            }
+        );
+
+
+        renderDatabasePage();
+
 
     }
 
-    return result;
+    catch(error){
+
+        console.error(error);
+
+        showDatabaseError(
+            error.message ||
+            "Database connection failed"
+        );
+
+    }
 
 }
 
 
 /* =====================================================
-   CATEGORY STYLE DATA
+   RENDER DATABASE PAGE
 ===================================================== */
 
-const categoryStyles = {
+function renderDatabasePage(){
+
+    let filtered =
+    getFilteredDatabaseNames();
 
 
-/* ================= GAMING ================= */
-
-Gaming:{
-
-    tag:"Gaming",
-
-    decorations:[
-
-        ["꧁༺ "," ༻꧂"],
-        ["亗 "," 亗"],
-        ["『 "," 』"],
-        ["乂 "," 乂"],
-        ["メ "," メ"],
-        ["シ "," シ"],
-        ["ツ "," ツ"],
-        ["〆 "," 〆"],
-        ["⚔ "," ⚔"],
-        ["☠︎ "," ☠︎"],
-        ["༒ "," ༒"],
-        ["彡 "," 彡"]
-
-    ]
-
-},
+    const start =
+    currentPage *
+    PAGE_SIZE;
 
 
-/* ================= COOL ================= */
-
-Cool:{
-
-    tag:"Cool",
-
-    decorations:[
-
-        ["『 "," 』"],
-        ["【 "," 】"],
-        ["★ "," ★"],
-        ["☆ "," ☆"],
-        ["✦ "," ✦"],
-        ["✧ "," ✧"],
-        ["◆ "," ◆"],
-        ["◇ "," ◇"],
-        ["乂 "," 乂"],
-        ["ツ "," ツ"],
-        ["シ "," シ"],
-        ["☾ "," ☽"]
-
-    ]
-
-},
+    const end =
+    start +
+    PAGE_SIZE;
 
 
-/* ================= ROYAL ================= */
-
-Royal:{
-
-    tag:"Royal",
-
-    decorations:[
-
-        ["♛ "," ♛"],
-        ["♕ "," ♕"],
-        ["♔ "," ♔"],
-        ["♚ "," ♚"],
-        ["👑 "," 👑"],
-        ["꧁♛ "," ♛꧂"],
-        ["꧁♕ "," ♕꧂"],
-        ["༺♛ "," ♛༻"],
-        ["『♕ "," ♕』"],
-        ["★♛ "," ♛★"]
-
-    ]
-
-},
+    const pageItems =
+    filtered.slice(
+        start,
+        end
+    );
 
 
-/* ================= LOVE ================= */
+    if(
+        currentPage === 0
+    ){
 
-Love:{
+        document
+        .getElementById(
+            "nameGrid"
+        )
+        .innerHTML = "";
 
-    tag:"Love",
-
-    decorations:[
-
-        ["♡ "," ♡"],
-        ["♥ "," ♥"],
-        ["❤ "," ❤"],
-        ["💕 "," 💕"],
-        ["💗 "," 💗"],
-        ["💖 "," 💖"],
-        ["💘 "," 💘"],
-        ["❣ "," ❣"],
-        ["꧁♡ "," ♡꧂"],
-        ["༺♥ "," ♥༻"]
-
-    ]
-
-},
+    }
 
 
-/* ================= AESTHETIC ================= */
+    pageItems.forEach(
+        function(item){
 
-Aesthetic:{
+            createDatabaseCard(
+                item
+            );
 
-    tag:"Aesthetic",
-
-    decorations:[
-
-        ["✧ "," ✧"],
-        ["✦ "," ✦"],
-        ["𓆩 "," 𓆪"],
-        ["𓆩♡ "," ♡𓆪"],
-        ["☾ "," ☽"],
-        ["☼ "," ☼"],
-        ["❀ "," ❀"],
-        ["✿ "," ✿"],
-        ["𖤐 "," 𖤐"],
-        ["୨୧ "," ୨୧"],
-        ["⋆｡°✩ "," ✩°｡⋆"]
-
-    ]
-
-},
+        }
+    );
 
 
-/* ================= NEON ================= */
+    const shown =
+    Math.min(
+        end,
+        filtered.length
+    );
 
-Neon:{
 
-    tag:"Neon",
+    document
+    .getElementById(
+        "resultInfo"
+    )
+    .textContent =
+    shown +
+    " of " +
+    filtered.length +
+    " stylish names";
 
-    decorations:[
 
-        ["⚡ "," ⚡"],
-        ["ϟ "," ϟ"],
-        ["⟡ "," ⟡"],
-        ["✦ "," ✦"],
-        ["✧ "," ✧"],
-        ["『⚡ "," ⚡』"],
-        ["꧁⚡ "," ⚡꧂"],
-        ["★彡 "," 彡★"],
-        ["◈ "," ◈"],
-        ["⬢ "," ⬢"],
-        ["⟦⚡ "," ⚡⟧"],
-        ["「⚡ "," ⚡」"]
+    document
+    .getElementById(
+        "loadMoreWrap"
+    )
+    .style.display =
+    shown < filtered.length
+    ? "block"
+    : "none";
 
-    ]
+
+    if(
+        filtered.length === 0
+    ){
+
+        document
+        .getElementById(
+            "nameGrid"
+        )
+        .innerHTML = `
+
+            <div class="empty">
+
+            No names found in this category.
+
+            </div>
+
+        `;
+
+    }
 
 }
 
-};
+
+/* =====================================================
+   FILTER DATABASE
+===================================================== */
+
+function getFilteredDatabaseNames(){
+
+    let data =
+    allDatabaseNames;
+
+
+    if(
+        currentCategory
+    ){
+
+        data =
+        data.filter(
+            function(item){
+
+                return String(
+                    item.category
+                )
+                .toLowerCase() ===
+                String(
+                    currentCategory
+                )
+                .toLowerCase();
+
+            }
+        );
+
+    }
+
+
+    if(
+        currentSearchName
+    ){
+
+        data =
+        data.filter(
+            function(item){
+
+                return String(
+                    item.name
+                )
+                .toLowerCase()
+                .includes(
+                    currentSearchName
+                    .toLowerCase()
+                );
+
+            }
+        );
+
+    }
+
+
+    return data;
+
+}
 
 
 /* =====================================================
-   GENERATE USER NAME
+   CATEGORY
 ===================================================== */
 
-function generateName(input){
+function generateCategory(
+    category
+){
+
+    currentCategory =
+    category;
+
+    currentPage = 0;
+
+    currentSearchName = "";
+
+
+    document
+    .getElementById(
+        "resultTitle"
+    )
+    .textContent =
+    category +
+    " Stylish Names";
+
+
+    document
+    .getElementById(
+        "nameGrid"
+    )
+    .innerHTML = "";
+
+
+    renderDatabasePage();
+
+
+    document
+    .getElementById(
+        "nameGrid"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   CREATE DATABASE CARD
+===================================================== */
+
+function createDatabaseCard(
+    item
+){
+
+    const grid =
+    document.getElementById(
+        "nameGrid"
+    );
+
+
+    const card =
+    document.createElement(
+        "div"
+    );
+
+
+    card.className =
+    "name-card";
+
+
+    const active =
+    favorites.includes(
+        item.name
+    );
+
+
+    card.innerHTML = `
+
+        <div class="name-text">
+
+            ${escapeHtml(
+                item.name
+            )}
+
+        </div>
+
+
+        <div class="name-meta">
+
+            <span class="style-tag">
+
+                ${escapeHtml(
+                    item.font
+                )}
+
+            </span>
+
+
+            <div class="card-actions">
+
+                <button
+                class="card-btn copy-btn">
+
+                Copy
+
+                </button>
+
+
+                <button
+                class="card-btn favorite-btn
+                ${active ? "active" : ""}">
+
+                ${active ? "♥" : "♡"}
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    card
+    .querySelector(
+        ".copy-btn"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            copyName(
+                item.name
+            );
+
+        }
+    );
+
+
+    card
+    .querySelector(
+        ".favorite-btn"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            toggleFavorite(
+                item.name
+            );
+
+        }
+    );
+
+
+    grid.appendChild(
+        card
+    );
+
+}
+
+
+/* =====================================================
+   LOAD MORE
+===================================================== */
+
+function loadMore(){
+
+    currentPage++;
+
+    renderDatabasePage();
+
+}
+
+
+/* =====================================================
+   GENERATE USER SEARCH NAME
+===================================================== */
+
+function generateName(
+    input
+){
 
     input =
     input.trim();
+
 
     if(!input){
 
@@ -1646,67 +1926,227 @@ function generateName(input){
 
     }
 
-    const results = [];
 
-    const fonts =
-    Object.keys(
-        fontStyles
-    );
+    currentSearchName =
+    input;
+
+    currentCategory = "";
+
+    currentPage = 0;
 
 
-    /* BASIC FONTS */
+    const exactMatches =
+    allDatabaseNames.filter(
+        function(item){
 
-    fonts.forEach(
-        function(fontKey){
-
-            results.push({
-
-                name:
-                convertUnicode(
-                    input,
-                    fontKey
-                ),
-
-                style:
-                fontStyles[
-                    fontKey
-                ].name
-
-            });
+            return String(
+                item.name
+            )
+            .toLowerCase()
+            .includes(
+                input.toLowerCase()
+            );
 
         }
     );
 
 
-    /* GENERAL DECORATIONS */
+    /*
+       Database me agar exact input
+       already stored nahi hai, to
+       database ke styles ko input par
+       apply karke new preview banayenge.
+    */
 
-    const generalDecorations = [
+    if(
+        exactMatches.length > 0
+    ){
 
-        ["꧁༺ "," ༻꧂"],
-        ["亗 "," 亗"],
-        ["『 "," 』"],
-        ["【 "," 】"],
-        ["★ "," ★"],
-        ["✦ "," ✦"],
-        ["乂 "," 乂"],
-        ["ツ "," ツ"],
-        ["༒ "," ༒"],
-        ["彡 "," 彡"]
+        document
+        .getElementById(
+            "nameGrid"
+        )
+        .innerHTML = "";
+
+
+        exactMatches
+        .slice(
+            0,
+            PAGE_SIZE
+        )
+        .forEach(
+            function(item){
+
+                createDatabaseCard(
+                    item
+                );
+
+            }
+        );
+
+
+        document
+        .getElementById(
+            "resultTitle"
+        )
+        .textContent =
+        "Results for " +
+        input;
+
+
+        document
+        .getElementById(
+            "resultInfo"
+        )
+        .textContent =
+        exactMatches.length +
+        " matching database names";
+
+
+        document
+        .getElementById(
+            "loadMoreWrap"
+        )
+        .style.display =
+        "none";
+
+
+    }
+
+    else{
+
+        generateInputStyles(
+            input
+        );
+
+    }
+
+
+    document
+    .getElementById(
+        "nameGrid"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   INPUT STYLES
+   Uses database font names to
+   decide which Unicode transformation
+   to apply.
+===================================================== */
+
+function generateInputStyles(
+    input
+){
+
+    const results = [];
+
+
+    /*
+       Actual Unicode styles.
+       Bold intentionally excluded.
+    */
+
+    const styles = [
+
+        {
+            name:"Italic",
+            upper:
+            "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡",
+            lower:
+            "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"
+        },
+
+        {
+            name:"Script",
+            upper:
+            "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵",
+            lower:
+            "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"
+        },
+
+        {
+            name:"Double",
+            upper:
+            "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
+            lower:
+            "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
+        },
+
+        {
+            name:"Fraktur",
+            upper:
+            "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ",
+            lower:
+            "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"
+        },
+
+        {
+            name:"Monospace",
+            upper:
+            "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉",
+            lower:
+            "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
+        },
+
+        {
+            name:"Sans",
+            upper:
+            "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹",
+            lower:
+            "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓"
+        }
 
     ];
 
 
-    generalDecorations.forEach(
-        function(decoration){
+    const decorations = [
 
-            fonts.forEach(
-                function(fontKey){
+        ["꧁༺ "," ༻꧂"],
+        ["亗 "," 亗"],
+        ["乂 "," 乂"],
+        ["『 "," 』"],
+        ["【 "," 】"],
+        ["★ "," ★"],
+        ["✦ "," ✦"],
+        ["♛ "," ♛"],
+        ["♡ "," ♡"],
+        ["☠ "," ☠"],
+        ["⚡ "," ⚡"],
+        ["❀ "," ❀"],
+        ["☾ "," ☽"]
 
-                    const styled =
-                    convertUnicode(
-                        input,
-                        fontKey
-                    );
+    ];
+
+
+    styles.forEach(
+        function(style){
+
+            const styled =
+            convertText(
+                input,
+                style.upper,
+                style.lower
+            );
+
+
+            results.push({
+
+                name:styled,
+
+                font:style.name
+
+            });
+
+
+            decorations
+            .forEach(
+                function(decoration){
 
                     results.push({
 
@@ -1715,11 +2155,9 @@ function generateName(input){
                         styled +
                         decoration[1],
 
-                        style:
-                        "Stylish • " +
-                        fontStyles[
-                            fontKey
-                        ].name
+                        font:
+                        style.name +
+                        " • Symbol"
 
                     });
 
@@ -1736,7 +2174,7 @@ function generateName(input){
     );
 
 
-    renderResults(
+    renderTemporaryResults(
         unique
     );
 
@@ -1756,323 +2194,96 @@ function generateName(input){
     )
     .textContent =
     unique.length +
-    " stylish variants generated";
+    " stylish variants";
 
 
     document
     .getElementById(
-        "nameGrid"
+        "loadMoreWrap"
     )
-    .scrollIntoView({
-        behavior:"smooth"
-    });
+    .style.display =
+    "none";
 
 }
 
 
 /* =====================================================
-   CATEGORY GENERATOR
+   CONVERT TEXT
 ===================================================== */
 
-async function generateCategory(category){
-
-    if(
-        !category
-    ){
-
-        loadDatabaseNames();
-
-        return;
-
-    }
-
-
-    const grid =
-    document.getElementById(
-        "nameGrid"
-    );
-
-
-    grid.innerHTML = `
-
-        <div class="loading">
-
-        Loading ${escapeHtml(category)} styles...
-
-        </div>
-
-    `;
-
-
-    try{
-
-        /*
-        IMPORTANT:
-
-        Yaha category ko database ke
-        style column se filter NAHI kar rahe.
-
-        Database ke normal names ko lekar
-        selected category ka style apply
-        kar rahe hain.
-
-        Isliye Neon ke liye DB me
-        Neon names hona zaroori nahi.
-        */
-
-
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-        .from("names")
-        .select(
-            "id,name,style"
-        )
-        .order(
-            "id",
-            {
-                ascending:true
-            }
-        )
-        .limit(30);
-
-
-        if(error){
-
-            grid.innerHTML = `
-
-                <div class="error-box">
-
-                Database Error:<br><br>
-
-                ${escapeHtml(
-                    error.message
-                )}
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        if(
-            !data ||
-            data.length === 0
-        ){
-
-            grid.innerHTML = `
-
-                <div class="empty">
-
-                Database me names nahi hain.
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        const results = [];
-
-
-        data.forEach(
-            function(item){
-
-                const variants =
-                createCategoryVariants(
-                    item.name,
-                    category
-                );
-
-                results.push(
-                    ...variants
-                );
-
-            }
-        );
-
-
-        const unique =
-        removeDuplicates(
-            results
-        );
-
-
-        renderResults(
-            unique
-        );
-
-
-        document
-        .getElementById(
-            "resultTitle"
-        )
-        .textContent =
-        category +
-        " Names";
-
-
-        document
-        .getElementById(
-            "resultInfo"
-        )
-        .textContent =
-        unique.length +
-        " " +
-        category +
-        " variants generated";
-
-
-        document
-        .getElementById(
-            "nameGrid"
-        )
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
-
-    catch(error){
-
-        console.error(
-            error
-        );
-
-        grid.innerHTML = `
-
-            <div class="error-box">
-
-            Database connection failed.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =====================================================
-   CREATE CATEGORY VARIANTS
-===================================================== */
-
-function createCategoryVariants(
-    original,
-    category
+function convertText(
+    text,
+    upper,
+    lower
 ){
 
-    const results = [];
+    const upperArray =
+    Array.from(
+        upper
+    );
 
-    const config =
-    categoryStyles[
-        category
-    ];
+    const lowerArray =
+    Array.from(
+        lower
+    );
 
 
-    if(!config){
+    let result = "";
 
-        return results;
+
+    for(
+        const char of text
+    ){
+
+        const code =
+        char.charCodeAt(0);
+
+
+        if(
+            code >= 65 &&
+            code <= 90
+        ){
+
+            result +=
+            upperArray[
+                code - 65
+            ] || char;
+
+        }
+
+        else if(
+            code >= 97 &&
+            code <= 122
+        ){
+
+            result +=
+            lowerArray[
+                code - 97
+            ] || char;
+
+        }
+
+        else{
+
+            result += char;
+
+        }
 
     }
 
 
-    const fonts =
-    Object.keys(
-        fontStyles
-    );
-
-
-    /* =================
-       FONT VARIANTS
-    ================= */
-
-    fonts.forEach(
-        function(fontKey){
-
-            const styled =
-            convertUnicode(
-                original,
-                fontKey
-            );
-
-
-            results.push({
-
-                name:styled,
-
-                style:
-                config.tag +
-                " • " +
-                fontStyles[
-                    fontKey
-                ].name
-
-            });
-
-        }
-    );
-
-
-    /* =================
-       CATEGORY DECORATIONS
-    ================= */
-
-    config.decorations.forEach(
-        function(decoration){
-
-            fonts.forEach(
-                function(fontKey){
-
-                    const styled =
-                    convertUnicode(
-                        original,
-                        fontKey
-                    );
-
-
-                    results.push({
-
-                        name:
-                        decoration[0] +
-                        styled +
-                        decoration[1],
-
-                        style:
-                        config.tag +
-                        " • " +
-                        fontStyles[
-                            fontKey
-                        ].name
-
-                    });
-
-                }
-            );
-
-        }
-    );
-
-
-    return results;
+    return result;
 
 }
 
 
 /* =====================================================
-   ALL DATABASE NAMES
+   TEMPORARY RESULT CARD
 ===================================================== */
 
-async function loadDatabaseNames(){
+function renderTemporaryResults(
+    results
+){
 
     const grid =
     document.getElementById(
@@ -2080,238 +2291,109 @@ async function loadDatabaseNames(){
     );
 
 
-    grid.innerHTML = `
-
-        <div class="loading">
-        Loading database names...
-        </div>
-
-    `;
+    grid.innerHTML = "";
 
 
-    try{
+    results.forEach(
+        function(item){
 
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
-        .from("names")
-        .select(
-            "id,name,style"
-        )
-        .order(
-            "id",
-            {
-                ascending:true
-            }
-        )
-        .limit(30);
+            const card =
+            document.createElement(
+                "div"
+            );
 
 
-        if(error){
+            card.className =
+            "name-card";
 
-            grid.innerHTML = `
 
-                <div class="error-box">
+            const active =
+            favorites.includes(
+                item.name
+            );
 
-                Database Error:<br><br>
 
-                ${escapeHtml(
-                    error.message
-                )}
+            card.innerHTML = `
+
+                <div class="name-text">
+
+                    ${escapeHtml(
+                        item.name
+                    )}
+
+                </div>
+
+
+                <div class="name-meta">
+
+                    <span class="style-tag">
+
+                        ${escapeHtml(
+                            item.font
+                        )}
+
+                    </span>
+
+
+                    <div class="card-actions">
+
+                        <button
+                        class="card-btn copy-btn">
+
+                        Copy
+
+                        </button>
+
+
+                        <button
+                        class="card-btn favorite-btn
+                        ${active ? "active" : ""}">
+
+                        ${active ? "♥" : "♡"}
+
+                        </button>
+
+                    </div>
 
                 </div>
 
             `;
 
-            return;
 
-        }
+            card
+            .querySelector(
+                ".copy-btn"
+            )
+            .onclick =
+            function(){
 
-
-        if(
-            !data ||
-            data.length === 0
-        ){
-
-            grid.innerHTML = `
-
-                <div class="empty">
-
-                Database me names nahi hain.
-
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        const results = [];
-
-
-        data.forEach(
-            function(item){
-
-                const variants =
-                createAllVariants(
+                copyName(
                     item.name
                 );
 
-                results.push(
-                    ...variants
+            };
+
+
+            card
+            .querySelector(
+                ".favorite-btn"
+            )
+            .onclick =
+            function(){
+
+                toggleFavorite(
+                    item.name
                 );
 
-            }
-        );
+            };
 
 
-        const unique =
-        removeDuplicates(
-            results
-        );
-
-
-        renderResults(
-            unique
-        );
-
-
-        document
-        .getElementById(
-            "resultTitle"
-        )
-        .textContent =
-        "All Stylish Names";
-
-
-        document
-        .getElementById(
-            "resultInfo"
-        )
-        .textContent =
-        unique.length +
-        " stylish variants";
-
-    }
-
-    catch(error){
-
-        console.error(
-            error
-        );
-
-        grid.innerHTML = `
-
-            <div class="error-box">
-
-            Database connection failed.
-
-            </div>
-
-        `;
-
-    }
-
-}
-
-
-/* =====================================================
-   ALL VARIANTS
-===================================================== */
-
-function createAllVariants(
-    original
-){
-
-    const results = [];
-
-    const fonts =
-    Object.keys(
-        fontStyles
-    );
-
-
-    fonts.forEach(
-        function(fontKey){
-
-            results.push({
-
-                name:
-                convertUnicode(
-                    original,
-                    fontKey
-                ),
-
-                style:
-                fontStyles[
-                    fontKey
-                ].name
-
-            });
-
-        }
-    );
-
-
-    const decorations = [
-
-        ["꧁༺ "," ༻꧂"],
-        ["亗 "," 亗"],
-        ["『 "," 』"],
-        ["【 "," 】"],
-        ["★ "," ★"],
-        ["✦ "," ✦"],
-        ["♛ "," ♛"],
-        ["♡ "," ♡"],
-        ["☠ "," ☠"],
-        ["⚡ "," ⚡"],
-        ["❀ "," ❀"],
-        ["☾ "," ☽"],
-        ["乂 "," 乂"]
-
-    ];
-
-
-    decorations.forEach(
-        function(decoration){
-
-            fonts.forEach(
-                function(fontKey){
-
-                    const styled =
-                    convertUnicode(
-                        original,
-                        fontKey
-                    );
-
-
-                    results.push({
-
-                        name:
-                        decoration[0] +
-                        styled +
-                        decoration[1],
-
-                        style:
-                        "Stylish • " +
-                        fontStyles[
-                            fontKey
-                        ].name
-
-                    });
-
-                }
+            grid.appendChild(
+                card
             );
 
         }
     );
-
-
-    return results;
 
 }
 
@@ -2327,33 +2409,27 @@ function removeDuplicates(
     const seen =
     new Set();
 
-    const output = [];
-
-
-    array.forEach(
+    return array.filter(
         function(item){
 
             if(
-                !seen.has(
+                seen.has(
                     item.name
                 )
             ){
 
-                seen.add(
-                    item.name
-                );
-
-                output.push(
-                    item
-                );
+                return false;
 
             }
 
+            seen.add(
+                item.name
+            );
+
+            return true;
+
         }
     );
-
-
-    return output;
 
 }
 
@@ -2430,131 +2506,6 @@ document
 
     }
 );
-
-
-/* =====================================================
-   RENDER RESULTS
-===================================================== */
-
-function renderResults(
-    results
-){
-
-    const grid =
-    document.getElementById(
-        "nameGrid"
-    );
-
-
-    grid.innerHTML = "";
-
-
-    results.forEach(
-        function(item){
-
-            const card =
-            document.createElement(
-                "div"
-            );
-
-
-            card.className =
-            "name-card";
-
-
-            const active =
-            favorites.includes(
-                item.name
-            );
-
-
-            card.innerHTML = `
-
-                <div class="name-text">
-
-                    ${escapeHtml(
-                        item.name
-                    )}
-
-                </div>
-
-
-                <div class="name-meta">
-
-                    <span class="style-tag">
-
-                        ${escapeHtml(
-                            item.style
-                        )}
-
-                    </span>
-
-
-                    <div class="card-actions">
-
-                        <button
-                        class="card-btn copy-btn">
-
-                        Copy
-
-                        </button>
-
-
-                        <button
-                        class="card-btn favorite-btn
-                        ${active ? "active" : ""}">
-
-                        ${active ? "♥" : "♡"}
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-
-            card
-            .querySelector(
-                ".copy-btn"
-            )
-            .addEventListener(
-                "click",
-                function(){
-
-                    copyName(
-                        item.name
-                    );
-
-                }
-            );
-
-
-            card
-            .querySelector(
-                ".favorite-btn"
-            )
-            .addEventListener(
-                "click",
-                function(){
-
-                    toggleFavorite(
-                        item.name
-                    );
-
-                }
-            );
-
-
-            grid.appendChild(
-                card
-            );
-
-        }
-    );
-
-}
 
 
 /* =====================================================
@@ -2676,7 +2627,7 @@ function toggleFavorite(
 
 
 /* =====================================================
-   REFRESH FAVORITE BUTTONS
+   FAVORITE BUTTONS
 ===================================================== */
 
 function refreshFavoriteButtons(){
@@ -2695,23 +2646,29 @@ function refreshFavoriteButtons(){
 
 
             if(!card){
+
                 return;
+
             }
 
 
-            const text =
+            const nameElement =
             card.querySelector(
                 ".name-text"
             );
 
 
-            if(!text){
+            if(!nameElement){
+
                 return;
+
             }
 
 
             const name =
-            text.textContent.trim();
+            nameElement
+            .textContent
+            .trim();
 
 
             const active =
@@ -2738,7 +2695,7 @@ function refreshFavoriteButtons(){
 
 
 /* =====================================================
-   RENDER FAVORITES
+   FAVORITES
 ===================================================== */
 
 function renderFavorites(){
@@ -2912,6 +2869,47 @@ function showToast(
         },
         1800
     );
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showDatabaseError(
+    message
+){
+
+    document
+    .getElementById(
+        "nameGrid"
+    )
+    .innerHTML = `
+
+        <div class="error-box">
+
+            <strong>
+            Database Error
+            </strong>
+
+            <br><br>
+
+            ${escapeHtml(
+                message
+            )}
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById(
+        "resultInfo"
+    )
+    .textContent =
+    "Database error";
 
 }
 
