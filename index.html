@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#080b22">
 
-<title>NameCraft - 10000+ Stylish Name Generator</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="NameCraft is a free stylish name generator with 10000+ unique names in 15 languages for gaming, social media and usernames.">
-<meta name="keywords" content="stylish name generator, gaming names, Free Fire names, Japanese names, Chinese names, Hindi names, Korean names, Arabic names, aesthetic names">
-<meta name="author" content="NameCraft">
-<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#050817">
+
+<meta name="description"
+content="NameCraft - Premium stylish name generator powered by a database. Generate unique gaming, cool, royal, love, aesthetic and neon names.">
+
+<title>NameCraft - Stylish Name Generator</title>
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -24,2351 +31,1950 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
     background:
-        radial-gradient(circle at 15% 20%,rgba(65,95,255,.20),transparent 25%),
-        radial-gradient(circle at 85% 60%,rgba(220,40,255,.18),transparent 27%),
-        radial-gradient(circle at 50% 100%,rgba(0,210,255,.12),transparent 30%),
-        #050817;
+    radial-gradient(circle at 20% 30%,rgba(120,40,255,.22),transparent 35%),
+    radial-gradient(circle at 80% 60%,rgba(0,210,255,.15),transparent 35%),
+    linear-gradient(135deg,#02030b,#08051a 45%,#030817);
+
     color:#fff;
     min-height:100vh;
     overflow-x:hidden;
 }
 
-button,input{
-    font-family:inherit;
+/* ================= BACKGROUND ================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+    radial-gradient(circle at 10% 80%,rgba(255,0,200,.10),transparent 25%),
+    radial-gradient(circle at 90% 20%,rgba(0,220,255,.08),transparent 25%);
+
+    z-index:-2;
 }
 
-button{
-    cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
+body::after{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    left:-200px;
+    bottom:-250px;
+
+    background:
+    radial-gradient(circle,rgba(180,0,255,.18),transparent 65%);
+
+    filter:blur(50px);
+    pointer-events:none;
+    z-index:-1;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .navbar{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    height:76px;
-    background:rgba(5,8,25,.88);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(126,102,255,.45);
-    box-shadow:0 0 20px rgba(80,80,255,.12);
-}
+    width:92%;
+    max-width:1400px;
 
-.navInner{
-    max-width:1280px;
-    height:100%;
-    margin:auto;
-    padding:0 20px;
+    margin:28px auto 0;
+
+    min-height:100px;
+
+    border:1px solid rgba(180,100,255,.65);
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        110deg,
+        rgba(8,14,38,.90),
+        rgba(22,13,45,.76),
+        rgba(8,18,40,.90)
+    );
+
+    backdrop-filter:blur(22px);
+
+    box-shadow:
+    0 0 25px rgba(150,60,255,.18),
+    inset 0 0 30px rgba(255,255,255,.02);
+
     display:flex;
     align-items:center;
-    justify-content:space-between;
+
+    padding:18px 30px;
+
+    position:relative;
+    z-index:100;
 }
 
-.logoArea{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.logoIcon{
-    width:44px;
-    height:44px;
-    border:2px solid #9d7cff;
-    transform:rotate(45deg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 0 12px #7d5cff,0 0 25px rgba(144,87,255,.35);
-}
-
-.logoIcon span{
-    transform:rotate(-45deg);
-    font-size:25px;
-}
+/* LOGO */
 
 .logo{
-    font-size:31px;
-    font-weight:900;
-    background:linear-gradient(90deg,#7ab6ff,#8c5cff,#e87cff);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.navLinks{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:13px;
+
+    font-size:34px;
+    font-weight:900;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a26bff,
+        #ffffff,
+        #5eeeff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    letter-spacing:-1.5px;
+
+    margin-right:auto;
 }
 
-.navLinks a{
-    color:#aaaec5;
+.logo-icon{
+    width:54px;
+    height:54px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:31px;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #00d9ff,
+        #7c3cff,
+        #ff32e9
+    );
+
+    box-shadow:
+    0 0 25px rgba(142,55,255,.65);
+
+    transform:rotate(12deg);
+}
+
+.logo-icon span{
+    transform:rotate(-12deg);
+}
+
+/* NAV LINKS */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
+
+.nav-links a{
+    color:#e8e7f6;
     text-decoration:none;
+
     font-size:16px;
     font-weight:600;
-    padding:27px 0;
-    transition:.2s;
-}
 
-.navLinks a:hover,
-.navLinks a.active{
-    color:#fff;
-}
-
-.navLinks a.active{
-    border-bottom:3px solid #9369ff;
-}
-
-.navActions{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.generateTop,
-.randomTop{
-    border:0;
-    border-radius:24px;
-    padding:11px 18px;
-    color:#fff;
-    font-weight:bold;
-    font-size:14px;
-    background:linear-gradient(90deg,#587dff,#9b43e9);
-}
-
-.randomTop{
-    background:linear-gradient(90deg,#ff5b83,#a843e9);
-}
-
-/* HERO */
-
-.hero{
-    max-width:1120px;
-    margin:auto;
-    text-align:center;
-    padding:65px 20px 20px;
-}
-
-.hero h1{
-    font-size:clamp(36px,6vw,58px);
-    line-height:1.1;
-    font-weight:900;
-}
-
-.gradientText{
-    background:linear-gradient(90deg,#6ea6ff,#9860ff,#db75ff);
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
-.hero p{
-    max-width:850px;
-    margin:18px auto 0;
-    color:#9bb9ed;
-    font-size:18px;
-    line-height:1.7;
-}
-
-/* SEARCH */
-
-.searchBox{
-    max-width:900px;
-    margin:28px auto 15px;
-    min-height:62px;
-    border-radius:35px;
-    padding:2px;
-    background:linear-gradient(90deg,#4d88ff,#a54cff,#ff54da);
-    box-shadow:0 0 25px rgba(77,136,255,.16);
-}
-
-.searchInner{
-    min-height:58px;
-    border-radius:33px;
-    background:#0a0e25;
-    display:flex;
-    align-items:center;
-    padding:5px 7px 5px 20px;
-}
-
-.searchIcon{
-    font-size:25px;
-    color:#719cff;
-    margin-right:12px;
-}
-
-#nameInput{
-    flex:1;
-    min-width:0;
-    height:48px;
-    background:none;
-    border:0;
-    outline:0;
-    color:#fff;
-    font-size:16px;
-}
-
-#nameInput::placeholder{
-    color:#858ba2;
-}
-
-.generateBtn,
-.randomBtn{
-    height:48px;
-    border:0;
-    border-radius:25px;
-    padding:0 22px;
-    color:#fff;
-    font-weight:bold;
-}
-
-.generateBtn{
-    background:linear-gradient(90deg,#5d83ff,#9347e9);
-}
-
-.randomBtn{
-    margin-left:6px;
-    background:linear-gradient(90deg,#ff5c86,#bd43e9);
-}
-
-/* QUICK */
-
-.quickTools{
-    max-width:900px;
-    margin:10px auto 0;
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-.quickBtn{
-    border:1px solid #394a87;
-    background:rgba(12,17,43,.8);
-    color:#9eabd2;
-    padding:8px 13px;
-    border-radius:20px;
-    font-size:13px;
-}
-
-.quickBtn:hover{
-    color:#fff;
-    border-color:#886aff;
-}
-
-/* CATEGORIES */
-
-.categories{
-    max-width:1050px;
-    margin:24px auto 28px;
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:13px;
-    padding:0 20px;
-}
-
-.category{
-    min-height:90px;
-    border:1px solid rgba(109,130,255,.45);
-    border-radius:18px;
-    background:linear-gradient(145deg,rgba(19,28,67,.72),rgba(13,12,37,.82));
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    transition:.22s;
-}
-
-.category:hover,
-.category.active{
-    border-color:#9c70ff;
-    box-shadow:0 0 18px rgba(117,82,255,.25);
-    transform:translateY(-2px);
-}
-
-.category .icon{
-    font-size:29px;
-}
-
-.category span{
-    font-size:14px;
-    font-weight:bold;
-}
-
-/* LANGUAGE */
-
-.languageArea{
-    max-width:1100px;
-    margin:0 auto 38px;
-    padding:0 20px;
-}
-
-.languageTitle{
-    text-align:center;
-    color:#9ca9cf;
-    font-size:14px;
-    margin-bottom:12px;
-}
-
-.languageButtons{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.languageBtn{
-    border:1px solid #394b85;
-    background:#0b102a;
-    color:#9ba9d1;
-    border-radius:25px;
-    padding:10px 15px;
-    font-size:13px;
-    transition:.2s;
-}
-
-.languageBtn:hover,
-.languageBtn.active{
-    color:#fff;
-    border-color:#9670ff;
-    background:linear-gradient(90deg,rgba(77,110,255,.25),rgba(155,67,233,.25));
-    box-shadow:0 0 15px rgba(112,81,255,.18);
-}
-
-/* SEO */
-
-.seoIntro{
-    max-width:950px;
-    margin:0 auto 38px;
-    padding:0 20px;
-    text-align:center;
-}
-
-.seoIntro h2{
-    font-size:28px;
-    margin-bottom:12px;
-}
-
-.seoIntro p{
-    color:#8d9bc5;
-    line-height:1.8;
-    font-size:15px;
-}
-
-/* RESULTS */
-
-.resultsHeader{
-    max-width:1260px;
-    margin:auto;
-    padding:0 20px 15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.resultsHeader h2{
-    font-size:28px;
-}
-
-.resultsHeader h2 span{
-    color:#ff754b;
-}
-
-.resultCount{
-    color:#7285b4;
-    font-size:14px;
-}
-
-.resultsGrid{
-    max-width:1260px;
-    margin:auto;
-    padding:0 20px 35px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-/* CARD */
-
-.nameCard{
     position:relative;
-    min-height:190px;
-    border-radius:20px;
-    padding:24px 18px 17px;
-    background:linear-gradient(145deg,rgba(15,24,58,.96),rgba(11,10,34,.96));
-    border:1px solid #5267b8;
-    box-shadow:inset 0 0 25px rgba(66,84,190,.06),0 0 14px rgba(48,77,180,.12);
-    transition:.2s;
-}
 
-.nameCard:nth-child(3n+2){
-    border-color:#a858d1;
-}
-
-.nameCard:hover{
-    transform:translateY(-4px);
-    box-shadow:0 0 26px rgba(94,117,255,.25);
-}
-
-.cardNumber{
-    position:absolute;
-    top:9px;
-    left:11px;
-    color:#596a9e;
-    font-size:11px;
-}
-
-.cardLanguage{
-    position:absolute;
-    top:10px;
-    right:55px;
-    color:#8292c3;
-    font-size:10px;
-    background:#101633;
-    border:1px solid #394779;
-    border-radius:8px;
-    padding:3px 6px;
-}
-
-.cardBadge{
-    position:absolute;
-    top:9px;
-    right:10px;
-    width:37px;
-    height:37px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#151936;
-    border:1px solid #666da8;
-    font-size:18px;
-}
-
-.styledName{
-    min-height:75px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    font-size:28px;
-    line-height:1.4;
-    word-break:break-word;
-    padding:8px 15px;
-}
-
-.tags{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:6px;
-    margin:4px 0 13px;
-}
-
-.tag{
-    border:1px solid #5765a3;
-    border-radius:9px;
-    background:rgba(20,25,53,.7);
-    color:#dddff0;
-    padding:4px 9px;
-    font-size:11px;
-}
-
-.cardBottom{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-}
-
-.cardBtn{
-    border:1px solid #53639f;
-    border-radius:10px;
-    background:#0c112a;
-    color:#aaaed0;
-    padding:8px 13px;
-    transition:.2s;
-}
-
-.cardBtn:hover{
-    color:#fff;
-    border-color:#9971ff;
-}
-
-.favoriteBtn.saved{
-    color:#ff65c7;
-    border-color:#b65b9e;
-}
-
-/* LOAD */
-
-.loadMoreStatus{
-    text-align:center;
-    padding:20px 20px 55px;
-    color:#7f8db8;
-    font-size:14px;
-}
-
-.loadMoreStatus.loading{
-    color:#a98cff;
-}
-
-.loadMoreStatus.done{
-    color:#6f7da8;
-}
-
-/* RANDOM */
-
-.randomBox{
-    max-width:1260px;
-    margin:20px auto 40px;
-    padding:0 20px;
-}
-
-.randomInner{
-    border:1px solid #5d55a0;
-    background:linear-gradient(135deg,rgba(37,34,85,.55),rgba(19,13,54,.6));
-    border-radius:20px;
-    padding:20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.randomText h3{
-    margin-bottom:5px;
-}
-
-.randomText p{
-    color:#8995bc;
-    font-size:13px;
-}
-
-.randomResult{
-    flex:1;
-    text-align:center;
-    font-size:25px;
-    font-weight:bold;
-    word-break:break-word;
-}
-
-.randomAction{
-    border:0;
-    border-radius:12px;
-    padding:11px 17px;
-    background:linear-gradient(90deg,#ff5c85,#a749eb);
-    color:#fff;
-    font-weight:bold;
-}
-
-/* ABOUT */
-
-.about{
-    max-width:900px;
-    margin:60px auto;
-    padding:30px 20px;
-    text-align:center;
-}
-
-.about h2{
-    font-size:30px;
-    margin-bottom:15px;
-}
-
-.about p{
-    color:#8d9bc5;
-    line-height:1.8;
-    font-size:16px;
-}
-
-/* LOADING */
-
-.loading{
-    grid-column:1/-1;
-    text-align:center;
-    padding:70px 20px;
-    color:#8996bd;
-    font-size:18px;
-}
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-    z-index:5000;
-    left:50%;
-    bottom:25px;
-    transform:translate(-50%,80px);
-    opacity:0;
-    background:#181b38;
-    color:#fff;
-    border:1px solid #7561d6;
-    padding:13px 22px;
-    border-radius:30px;
-    box-shadow:0 0 20px rgba(104,73,255,.3);
     transition:.3s;
 }
 
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-links a.active{
+    color:#fff;
+}
+
+.nav-links a.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:-12px;
+
+    height:3px;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #35dfff,
+        #b53cff,
+        #ff39e8
+    );
+
+    box-shadow:
+    0 0 10px #a93cff;
+}
+
+/* GET STARTED */
+
+.get-started{
+    margin-left:35px;
+
+    border:none;
+
+    padding:14px 27px;
+
+    border-radius:13px;
+
+    color:white;
+
+    font-size:16px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        110deg,
+        #4b37ff,
+        #bd2eff,
+        #ff3bd4
+    );
+
+    box-shadow:
+    0 0 22px rgba(187,42,255,.42);
+
+    transition:.3s;
+}
+
+.get-started:hover{
+    transform:translateY(-2px) scale(1.02);
+
+    box-shadow:
+    0 0 35px rgba(207,55,255,.65);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:92%;
+    max-width:1400px;
+
+    margin:55px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    minmax(0,1.35fr)
+    minmax(330px,.75fr);
+
+    gap:55px;
+
+    align-items:center;
+
+    min-height:650px;
+}
+
+/* HERO LEFT */
+
+.hero-left{
+    padding-left:45px;
+}
+
+.hero-title{
+    font-size:
+    clamp(70px,8vw,145px);
+
+    line-height:.88;
+
+    font-weight:950;
+
+    letter-spacing:-7px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff 5%,
+        #d5ecff 25%,
+        #9b6bff 58%,
+        #ff34ed 85%
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    text-shadow:
+    0 0 30px rgba(150,70,255,.55),
+    0 0 70px rgba(0,200,255,.18);
+
+    margin-bottom:30px;
+}
+
+.hero-subtitle{
+    font-size:
+    clamp(28px,3vw,43px);
+
+    line-height:1.15;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+        90deg,
+        #c7f8ff,
+        #78eaff,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    margin-bottom:20px;
+}
+
+.hero-description{
+    max-width:780px;
+
+    color:#d2d4e6;
+
+    font-size:17px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+/* ================= GENERATOR BOX ================= */
+
+.generator-box{
+    width:100%;
+    max-width:820px;
+
+    padding:12px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(206,95,255,.8);
+
+    background:
+    linear-gradient(
+        100deg,
+        rgba(14,20,45,.95),
+        rgba(29,14,48,.9)
+    );
+
+    box-shadow:
+    0 0 25px rgba(155,50,255,.25),
+    inset 0 0 25px rgba(255,255,255,.02);
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+}
+
+.generator-icon{
+    width:60px;
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:27px;
+
+    flex-shrink:0;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(170,50,255,.4),
+        rgba(0,200,255,.08)
+    );
+
+    color:#d9c8ff;
+}
+
+.name-input{
+    flex:1;
+
+    min-width:0;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:17px;
+
+    padding:12px;
+}
+
+.name-input::placeholder{
+    color:#aeb0c5;
+}
+
+.input-small{
+    display:block;
+
+    color:#8e91aa;
+
+    font-size:13px;
+
+    margin-top:4px;
+}
+
+/* GENERATE BUTTON */
+
+.generate-btn{
+    border:none;
+
+    min-width:250px;
+
+    padding:18px 24px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(
+        110deg,
+        #3e54ff,
+        #a832ff,
+        #ff35d7
+    );
+
+    box-shadow:
+    0 0 22px rgba(174,50,255,.45);
+
+    transition:.3s;
+}
+
+.generate-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 0 35px rgba(190,50,255,.75);
+}
+
+/* ================= INFO BADGES ================= */
+
+.info-row{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:25px;
+}
+
+.info-card{
+    min-width:210px;
+
+    border-radius:15px;
+
+    padding:13px 18px;
+
+    border:1px solid rgba(87,220,255,.45);
+
+    background:
+    rgba(8,17,43,.72);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+.info-icon{
+    font-size:24px;
+}
+
+.info-card strong{
+    display:block;
+
+    color:#d7faff;
+
+    font-size:15px;
+}
+
+.info-card small{
+    color:#999db8;
+
+    font-size:12px;
+}
+
+/* ================= RIGHT PANEL ================= */
+
+.category-panel{
+    min-height:560px;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    border:1px solid rgba(135,74,255,.75);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(10,18,46,.9),
+        rgba(28,10,47,.83)
+    );
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+    0 0 30px rgba(130,40,255,.25),
+    inset 0 0 30px rgba(255,255,255,.02);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.category-panel::before{
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    right:-80px;
+    bottom:-90px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(191,44,255,.35),
+        transparent 65%
+    );
+
+    filter:blur(25px);
+}
+
+.panel-title{
+    font-size:22px;
+
+    margin-bottom:20px;
+
+    position:relative;
+
+    display:inline-block;
+}
+
+.panel-title::after{
+    content:"";
+
+    display:block;
+
+    width:80px;
+    height:2px;
+
+    margin-top:8px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #63f5ff,
+        #bd42ff
+    );
+}
+
+/* CATEGORY */
+
+.category-list{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
+    position:relative;
+}
+
+.category{
+    min-height:76px;
+
+    border-radius:17px;
+
+    border:1px solid rgba(255,255,255,.17);
+
+    padding:12px 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    background:
+    rgba(255,255,255,.045);
+}
+
+.category:hover{
+    transform:translateX(-5px);
+
+    border-color:#9d52ff;
+
+    box-shadow:
+    0 0 20px rgba(148,57,255,.25);
+}
+
+.category-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:23px;
+
+    background:
+    rgba(80,70,255,.22);
+
+    flex-shrink:0;
+}
+
+.category-text{
+    flex:1;
+}
+
+.category-name{
+    font-size:15px;
+
+    font-weight:800;
+
+    color:#fff;
+}
+
+.category-description{
+    font-size:12px;
+
+    color:#999db8;
+
+    margin-top:4px;
+}
+
+.category-arrow{
+    font-size:22px;
+
+    color:#c0c4df;
+}
+
+/* ================= RESULTS ================= */
+
+.results-section{
+    width:92%;
+    max-width:1400px;
+
+    margin:70px auto;
+
+    display:none;
+}
+
+.results-section.show{
+    display:block;
+}
+
+.results-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+}
+
+.results-title{
+    font-size:34px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #9aefff,
+        #b76cff
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.loading{
+    color:#9eefff;
+
+    text-align:center;
+
+    padding:40px;
+
+    font-size:17px;
+}
+
+/* ================= NAME GRID ================= */
+
+.name-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.name-card{
+    border-radius:18px;
+
+    padding:22px;
+
+    border:1px solid rgba(144,70,255,.35);
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(13,20,48,.9),
+        rgba(29,12,48,.8)
+    );
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.18);
+
+    transition:.3s;
+}
+
+.name-card:hover{
+    transform:translateY(-5px);
+
+    border-color:#bd5cff;
+
+    box-shadow:
+    0 0 25px rgba(178,55,255,.28);
+}
+
+.name-value{
+    font-size:25px;
+
+    font-weight:800;
+
+    word-break:break-word;
+
+    margin-bottom:12px;
+}
+
+.name-meta{
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:16px;
+}
+
+.tag{
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    background:rgba(120,90,255,.12);
+
+    border:1px solid rgba(150,90,255,.25);
+
+    color:#bfc4ff;
+
+    font-size:11px;
+}
+
+.card-actions{
+    display:flex;
+
+    gap:10px;
+}
+
+.copy-btn,
+.favorite-btn{
+    flex:1;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-weight:700;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.06);
+}
+
+.copy-btn:hover,
+.favorite-btn:hover{
+    background:rgba(150,70,255,.22);
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+    width:92%;
+    max-width:1100px;
+
+    margin:0 auto 50px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    border-bottom:1px solid rgba(255,255,255,.1);
+
+    padding:28px 0;
+}
+
+.feature{
+    text-align:center;
+
+    padding:10px 20px;
+
+    border-right:1px solid rgba(255,255,255,.1);
+}
+
+.feature:last-child{
+    border-right:none;
+}
+
+.feature-icon{
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.feature strong{
+    display:block;
+
+    font-size:15px;
+}
+
+.feature span{
+    color:#8f94b0;
+
+    font-size:12px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+
+    padding:25px;
+
+    color:#737892;
+
+    font-size:13px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+
+    bottom:25px;
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(100px);
+
+    padding:13px 22px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        100deg,
+        #4b32ff,
+        #bd35ff
+    );
+
+    color:white;
+
+    font-weight:700;
+
+    box-shadow:
+    0 0 25px rgba(175,50,255,.45);
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
 .toast.show{
+    transform:
+    translateX(-50%)
+    translateY(0);
+
     opacity:1;
-    transform:translate(-50%,0);
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
-@media(max-width:900px){
-
-    .navLinks{
-        display:none;
-    }
-
-    .categories{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .resultsGrid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:600px){
+@media(max-width:1050px){
 
     .navbar{
-        height:68px;
+        padding:15px 20px;
     }
 
-    .navInner{
-        padding:0 12px;
+    .nav-links{
+        gap:20px;
     }
 
-    .logoIcon{
-        width:36px;
-        height:36px;
+    .get-started{
+        margin-left:20px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .hero-left{
+        padding-left:0;
+    }
+
+    .category-panel{
+        min-height:auto;
+    }
+
+    .name-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+
+    .navbar{
+        width:94%;
+
+        min-height:auto;
+
+        flex-wrap:wrap;
+
+        gap:18px;
+
+        padding:15px;
     }
 
     .logo{
         font-size:25px;
     }
 
-    .randomTop{
-        display:none;
-    }
+    .logo-icon{
+        width:42px;
+        height:42px;
 
-    .generateTop{
-        padding:9px 13px;
-        font-size:12px;
-    }
-
-    .hero{
-        padding-top:40px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .searchBox{
-        border-radius:24px;
-    }
-
-    .searchInner{
-        flex-wrap:wrap;
-        padding:5px;
-    }
-
-    .searchIcon{
-        display:none;
-    }
-
-    #nameInput{
-        width:100%;
-        height:44px;
-        padding-left:10px;
-    }
-
-    .generateBtn,
-    .randomBtn{
-        flex:1;
-        height:43px;
-        padding:0 10px;
-    }
-
-    .categories{
-        grid-template-columns:repeat(3,1fr);
-        gap:8px;
-        padding:0 10px;
-    }
-
-    .category{
-        min-height:76px;
-        border-radius:13px;
-    }
-
-    .category .icon{
         font-size:23px;
     }
 
-    .category span{
-        font-size:11px;
-    }
+    .nav-links{
+        order:3;
 
-    .languageButtons{
-        gap:7px;
-    }
-
-    .languageBtn{
-        padding:8px 11px;
-        font-size:11px;
-    }
-
-    .resultsHeader{
-        padding:0 12px 12px;
-    }
-
-    .resultsHeader h2{
-        font-size:20px;
-    }
-
-    .resultCount{
-        font-size:10px;
-    }
-
-    .resultsGrid{
-        grid-template-columns:1fr;
-        padding:0 12px 20px;
-        gap:14px;
-    }
-
-    .nameCard{
-        min-height:180px;
-    }
-
-    .styledName{
-        font-size:24px;
-    }
-
-    .randomInner{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .randomResult{
         width:100%;
+
+        justify-content:center;
+
+        gap:18px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+    }
+
+    .get-started{
+        margin-left:0;
+
+        padding:11px 16px;
+
+        font-size:13px;
+    }
+
+    .hero{
+        width:94%;
+
+        margin-top:35px;
+    }
+
+    .hero-title{
+        font-size:
+        clamp(54px,17vw,100px);
+
+        letter-spacing:-4px;
+    }
+
+    .hero-subtitle{
+        font-size:27px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .generator-box{
+        flex-wrap:wrap;
+
+        padding:10px;
+    }
+
+    .generator-icon{
+        width:48px;
+        height:48px;
+    }
+
+    .name-input{
+        width:calc(100% - 65px);
+    }
+
+    .generate-btn{
+        width:100%;
+
+        min-width:0;
+    }
+
+    .info-row{
+        display:grid;
+
+        grid-template-columns:1fr;
+    }
+
+    .info-card{
+        min-width:0;
+    }
+
+    .category-panel{
+        padding:18px;
+    }
+
+    .name-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .feature{
+        border-right:none;
+
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+        padding-bottom:15px;
+    }
+
+    .feature:last-child{
+        border-bottom:none;
     }
 }
 
-@media(max-width:380px){
-
-    .logo{
-        font-size:22px;
-    }
-
-    .categories{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
 </style>
+
 </head>
 
 <body>
 
-<nav class="navbar">
-<div class="navInner">
+<!-- ================= NAVBAR ================= -->
 
-<div class="logoArea">
-<div class="logoIcon"><span>◇</span></div>
-<div class="logo">NameCraft</div>
-</div>
+<header class="navbar">
 
-<div class="navLinks">
-<a href="#home" class="active">Home</a>
-<a href="#styles">Styles</a>
-<a href="#favorites">♡ Favorites</a>
-<a href="#about">About</a>
-</div>
+    <div class="logo">
 
-<div class="navActions">
-<button class="randomTop" onclick="randomName()">🎲 Random</button>
-<button class="generateTop" onclick="focusInput()">✨ Generate</button>
-</div>
+        <div class="logo-icon">
+            <span>✦</span>
+        </div>
 
-</div>
-</nav>
+        NameCraft
 
-<section class="hero" id="home">
+    </div>
 
-<h1>
-Create Your
-<span class="gradientText">Stylish</span>
-Name
-</h1>
+    <nav class="nav-links">
 
-<p>
-Generate thousands of unique stylish names
-for gaming, social media, profiles and usernames
-in 15 different languages.
-</p>
+        <a href="#home" class="active">
+            Home
+        </a>
 
-<div class="searchBox">
-<div class="searchInner">
+        <a href="#styles">
+            Styles
+        </a>
 
-<span class="searchIcon">⌕</span>
+        <a href="#favorites">
+            Favorites
+        </a>
 
-<input
-id="nameInput"
-type="text"
-placeholder="Type a name... e.g. Shadow, Dragon, Phantom"
-maxlength="60">
+        <a href="#about">
+            About
+        </a>
 
-<button class="generateBtn" onclick="generateNames()">
-✨ Generate
-</button>
+    </nav>
 
-<button class="randomBtn" onclick="randomName()">
-🎲 Random
-</button>
+    <!-- NO SIGN IN BUTTON -->
 
-</div>
-</div>
+    <button
+        class="get-started"
+        onclick="focusGenerator()">
 
-<div class="quickTools">
+        ✨ Get Started
 
-<button class="quickBtn" onclick="setExample('Shadow')">Shadow</button>
-<button class="quickBtn" onclick="setExample('Dragon')">Dragon</button>
-<button class="quickBtn" onclick="setExample('King')">King</button>
-<button class="quickBtn" onclick="setExample('Phantom')">Phantom</button>
-<button class="quickBtn" onclick="setExample('Legend')">Legend</button>
+    </button>
 
-</div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="home">
+
+<section class="hero">
+
+    <!-- LEFT -->
+
+    <div class="hero-left">
+
+        <h1 class="hero-title">
+            NameCraft
+        </h1>
+
+        <h2 class="hero-subtitle">
+            Ultra Premium Name Generator
+        </h2>
+
+        <p class="hero-description">
+
+            Generate unique and stylish names for gaming,
+            social media, profiles and usernames.
+            Names are loaded directly from our database.
+
+        </p>
+
+
+        <!-- GENERATOR -->
+
+        <div class="generator-box">
+
+            <div class="generator-icon">
+                ✨
+            </div>
+
+            <div style="flex:1">
+
+                <input
+                    id="nameInput"
+                    class="name-input"
+                    type="text"
+                    placeholder="Enter your name..."
+                    autocomplete="off"
+                >
+
+                <span class="input-small">
+                    e.g. Shadow, Dragon, Phantom
+                </span>
+
+            </div>
+
+            <button
+                id="generateBtn"
+                class="generate-btn">
+
+                ✨ Generate Names →
+                
+            </button>
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div class="info-row">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🌐
+                </div>
+
+                <div>
+
+                    <strong>
+                        15 Languages
+                    </strong>
+
+                    <small>
+                        English, Hindi, Japanese...
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    🗄️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Database Names
+                    </strong>
+
+                    <small>
+                        Loaded dynamically
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    💎
+                </div>
+
+                <div>
+
+                    <strong>
+                        No Login Required
+                    </strong>
+
+                    <small>
+                        Free to use
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <div
+        class="category-panel"
+        id="styles">
+
+        <h3 class="panel-title">
+            Popular Categories
+        </h3>
+
+        <div class="category-list">
+
+            <div
+                class="category"
+                onclick="generateCategory('Gaming')">
+
+                <div class="category-icon">
+                    🎮
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Gaming
+                    </div>
+
+                    <div class="category-description">
+                        Game names & tags
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="category"
+                onclick="generateCategory('Cool')">
+
+                <div class="category-icon">
+                    😎
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Cool
+                    </div>
+
+                    <div class="category-description">
+                        Attitude & stylish
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="category"
+                onclick="generateCategory('Royal')">
+
+                <div class="category-icon">
+                    👑
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Royal
+                    </div>
+
+                    <div class="category-description">
+                        King, Queen & royal
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="category"
+                onclick="generateCategory('Love')">
+
+                <div class="category-icon">
+                    💗
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Love
+                    </div>
+
+                    <div class="category-description">
+                        Romantic & cute
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="category"
+                onclick="generateCategory('Aesthetic')">
+
+                <div class="category-icon">
+                    ✨
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Aesthetic
+                    </div>
+
+                    <div class="category-description">
+                        Beautiful & unique
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="category"
+                onclick="generateCategory('Neon')">
+
+                <div class="category-icon">
+                    ⚡
+                </div>
+
+                <div class="category-text">
+
+                    <div class="category-name">
+                        Neon
+                    </div>
+
+                    <div class="category-description">
+                        Glow & cyber style
+                    </div>
+
+                </div>
+
+                <div class="category-arrow">
+                    ›
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<div class="categories" id="styles">
 
-<div class="category active" data-category="Gaming" onclick="selectCategory(this)">
-<div class="icon">🎮</div>
-<span>Gaming</span>
-</div>
+<!-- ================= DATABASE RESULTS ================= -->
 
-<div class="category" data-category="Cool" onclick="selectCategory(this)">
-<div class="icon">😎</div>
-<span>Cool</span>
-</div>
+<section
+    class="results-section"
+    id="results">
 
-<div class="category" data-category="Royal" onclick="selectCategory(this)">
-<div class="icon">♛</div>
-<span>Royal</span>
-</div>
+    <div class="results-header">
 
-<div class="category" data-category="Love" onclick="selectCategory(this)">
-<div class="icon">♡</div>
-<span>Love</span>
-</div>
+        <h2 class="results-title">
+            Generated Names
+        </h2>
 
-<div class="category" data-category="Aesthetic" onclick="selectCategory(this)">
-<div class="icon">✧</div>
-<span>Aesthetic</span>
-</div>
+    </div>
 
-<div class="category" data-category="Neon" onclick="selectCategory(this)">
-<div class="icon">ϟ</div>
-<span>Neon</span>
-</div>
+    <div
+        id="loading"
+        class="loading">
 
-</div>
+        Loading names from database...
 
-<div class="languageArea">
+    </div>
 
-<div class="languageTitle">
-Choose Name Language / Script
-</div>
+    <div
+        id="nameGrid"
+        class="name-grid">
 
-<div class="languageButtons">
-
-<button class="languageBtn active" data-language="All" onclick="selectLanguage(this)">🌐 All</button>
-
-<button class="languageBtn" data-language="English" onclick="selectLanguage(this)">🇬🇧 English</button>
-
-<button class="languageBtn" data-language="Hindi" onclick="selectLanguage(this)">🇮🇳 Hindi</button>
-
-<button class="languageBtn" data-language="Japanese" onclick="selectLanguage(this)">🇯🇵 Japanese</button>
-
-<button class="languageBtn" data-language="Chinese" onclick="selectLanguage(this)">🇨🇳 Chinese</button>
-
-<button class="languageBtn" data-language="Korean" onclick="selectLanguage(this)">🇰🇷 Korean</button>
-
-<button class="languageBtn" data-language="Arabic" onclick="selectLanguage(this)">🇸🇦 Arabic</button>
-
-<button class="languageBtn" data-language="Russian" onclick="selectLanguage(this)">🇷🇺 Russian</button>
-
-<button class="languageBtn" data-language="Spanish" onclick="selectLanguage(this)">🇪🇸 Spanish</button>
-
-<button class="languageBtn" data-language="French" onclick="selectLanguage(this)">🇫🇷 French</button>
-
-<button class="languageBtn" data-language="German" onclick="selectLanguage(this)">🇩🇪 German</button>
-
-<button class="languageBtn" data-language="Italian" onclick="selectLanguage(this)">🇮🇹 Italian</button>
-
-<button class="languageBtn" data-language="Portuguese" onclick="selectLanguage(this)">🇵🇹 Portuguese</button>
-
-<button class="languageBtn" data-language="Turkish" onclick="selectLanguage(this)">🇹🇷 Turkish</button>
-
-<button class="languageBtn" data-language="Greek" onclick="selectLanguage(this)">🇬🇷 Greek</button>
-
-<button class="languageBtn" data-language="Thai" onclick="selectLanguage(this)">🇹🇭 Thai</button>
-
-</div>
-</div>
-
-<section class="seoIntro">
-
-<h2>10000+ Stylish Names in 15 Languages</h2>
-
-<p>
-Create unique English, Hindi, Japanese, Chinese, Korean,
-Arabic, Russian, Spanish, French, German, Italian,
-Portuguese, Turkish, Greek and Thai gaming names.
-Choose a category, enter your name and generate stylish
-Unicode designs instantly.
-</p>
+    </div>
 
 </section>
 
-<div class="resultsHeader">
 
-<h2>
-Stylish Names <span>🔥</span>
-</h2>
+<!-- ================= FEATURES ================= -->
 
-<div class="resultCount" id="resultCount">
-Loading...
-</div>
+<section class="features">
 
-</div>
+    <div class="feature">
 
-<div id="resultsGrid" class="resultsGrid">
-<div class="loading">
-✨ Generating stylish names...
-</div>
-</div>
+        <div class="feature-icon">
+            ✨
+        </div>
 
-<div id="loadMoreStatus" class="loadMoreStatus">
-Scroll down to load more names...
-</div>
+        <strong>
+            Unique Styles
+        </strong>
 
-<section class="randomBox">
+        <span>
+            Database powered names
+        </span>
 
-<div class="randomInner">
+    </div>
 
-<div class="randomText">
-<h3>🎲 Random Stylish Name</h3>
-<p>Generate a random stylish design instantly.</p>
-</div>
 
-<div id="randomResult" class="randomResult">
-Click Random
-</div>
+    <div class="feature">
 
-<button class="randomAction" onclick="randomName()">
-Generate
-</button>
+        <div class="feature-icon">
+            🛡️
+        </div>
 
-</div>
-</section>
+        <strong>
+            Fast & Easy
+        </strong>
 
-<section id="favorites" class="favoriteSection">
+        <span>
+            Generate in seconds
+        </span>
 
-<div class="resultsHeader" style="padding-left:0">
-<h2>♡ Favorites</h2>
-</div>
+    </div>
 
-<div id="favoriteList" class="resultsGrid" style="padding:0"></div>
 
-</section>
+    <div
+        class="feature"
+        id="favorites">
 
-<section id="about" class="about">
+        <div class="feature-icon">
+            ♡
+        </div>
 
-<h2>About NameCraft</h2>
+        <strong>
+            Save Favorites
+        </strong>
 
-<p>
-NameCraft is a free stylish name generator for gaming,
-social media, profiles and usernames. Generate stylish
-names in 15 languages using Unicode symbols, decorations
-and creative combinations. Copy your favorite name with
-one tap and save it for later.
-</p>
+        <span>
+            Keep your best names
+        </span>
+
+    </div>
 
 </section>
 
-<footer style="
-border-top:1px solid rgba(100,110,170,.25);
-background:rgba(4,7,20,.8);
-text-align:center;
-padding:30px 15px;
-color:#7180aa;
-">
+</main>
 
-<strong style="color:#9f8cff">NameCraft</strong>
 
-<br>
+<!-- ================= ABOUT ================= -->
 
-15-Language Stylish Name Generator
+<footer id="about">
 
-<br><br>
-
-© 2026 NameCraft. All rights reserved.
+    © 2026 NameCraft
+    &nbsp; | &nbsp;
+    Stylish Name Generator
 
 </footer>
 
-<div id="toast" class="toast">Copied!</div>
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+
+    Copied!
+
+</div>
+
 
 <script>
 
-/* =========================================================
-   NAMECRAFT - LOCAL ENGINE
-   NO SUPABASE / NO API / NO DATABASE REQUIRED
-========================================================= */
+/* =====================================================
+   SUPABASE CONFIG
+   ===================================================== */
 
-const LOAD_SIZE = 30;
+/*
+   YAHAN APNI SUPABASE DETAILS DALO
 
-const MAX_STYLES = 10000;
+   Supabase Dashboard
+   → Project Settings
+   → API
+*/
 
-let currentCategory = "Gaming";
+const SUPABASE_URL =
+"https://ujpzkpeslemcuizylymi.supabase.co";
 
-let currentLanguage = "All";
-
-let generatedStyles = [];
-
-let visibleCount = 0;
-
-let loadingMore = false;
-
-let allNamesFinished = false;
+const SUPABASE_ANON_KEY =
+"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
 
-/* =========================================================
-   FAVORITES
-========================================================= */
-
-let favorites = JSON.parse(
-    localStorage.getItem("namecraft_favorites") || "[]"
+const supabaseClient =
+window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY
 );
 
 
-/* =========================================================
-   15 LANGUAGE DATA
-========================================================= */
+/* =====================================================
+   SETTINGS
+   ===================================================== */
 
-const languageData = {
+const NAMES_PER_LOAD = 6;
 
-English:{
-    flag:"🇬🇧",
-    convert:name=>name
-},
 
-Hindi:{
-    flag:"🇮🇳",
-    convert:name=>{
+/*
+   Database table:
 
-        const map = {
-            shadow:"छाया",
-            dragon:"ड्रैगन",
-            king:"राजा",
-            queen:"रानी",
-            phantom:"प्रेत",
-            legend:"किंवदंती",
-            warrior:"योद्धा",
-            killer:"हत्यारा",
-            demon:"राक्षस",
-            devil:"शैतान",
-            fire:"अग्नि",
-            dark:"अंधकार",
-            night:"रात",
-            moon:"चाँद",
-            star:"सितारा",
-            wolf:"भेड़िया",
-            lion:"शेर",
-            tiger:"बाघ",
-            hero:"नायक",
-            prince:"राजकुमार",
-            princess:"राजकुमारी",
-            master:"मास्टर",
-            ghost:"भूत",
-            angel:"देवदूत",
-            love:"प्यार",
-            boss:"बॉस",
-            ninja:"निंजा",
-            samurai:"समुराई"
-        };
+   names
 
-        return map[name.toLowerCase()] || "योद्धा";
+   Recommended columns:
+
+   id
+   name
+   category
+   language
+
+*/
+
+
+let currentCategory = null;
+
+
+/* =====================================================
+   DOM
+   ===================================================== */
+
+const nameInput =
+document.getElementById("nameInput");
+
+const generateBtn =
+document.getElementById("generateBtn");
+
+const results =
+document.getElementById("results");
+
+const nameGrid =
+document.getElementById("nameGrid");
+
+const loading =
+document.getElementById("loading");
+
+
+/* =====================================================
+   GET STARTED
+   ===================================================== */
+
+function focusGenerator(){
+
+    nameInput.focus();
+
+    window.scrollTo({
+        top:300,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   GENERATE
+   ===================================================== */
+
+generateBtn.addEventListener(
+    "click",
+    function(){
+
+        generateNames();
+
     }
-},
+);
 
-Japanese:{
-    flag:"🇯🇵",
-    convert:name=>{
 
-        const map={
-            a:"ア",b:"ブ",c:"ク",d:"ド",e:"エ",
-            f:"フ",g:"グ",h:"ハ",i:"イ",j:"ジ",
-            k:"カ",l:"ル",m:"ム",n:"ン",o:"オ",
-            p:"プ",q:"ク",r:"ラ",s:"ス",t:"ト",
-            u:"ウ",v:"ヴ",w:"ワ",x:"クス",
-            y:"ヤ",z:"ズ"
-        };
+/* ENTER KEY */
 
-        return [...name.toLowerCase()]
-            .map(c=>map[c]||c)
-            .join("");
-    }
-},
+nameInput.addEventListener(
+    "keydown",
+    function(event){
 
-Chinese:{
-    flag:"🇨🇳",
-    convert:name=>{
+        if(event.key === "Enter"){
 
-        const map={
-            shadow:"影子",
-            dragon:"龙",
-            king:"王",
-            queen:"女王",
-            phantom:"幽灵",
-            legend:"传奇",
-            warrior:"战士",
-            killer:"杀手",
-            demon:"恶魔",
-            devil:"恶魔",
-            fire:"火焰",
-            dark:"黑暗",
-            night:"夜",
-            moon:"月",
-            star:"星",
-            wolf:"狼",
-            lion:"狮子",
-            tiger:"老虎",
-            hero:"英雄",
-            prince:"王子",
-            princess:"公主",
-            master:"大师",
-            ghost:"鬼魂",
-            angel:"天使",
-            love:"爱",
-            ninja:"忍者",
-            samurai:"武士"
-        };
+            generateNames();
 
-        const lower=name.toLowerCase().trim();
-
-        if(map[lower]) return map[lower];
-
-        const chars=[
-            "影","龙","王","星","月","夜","战","神",
-            "魂","火","天","狼","虎","帝","皇","梦"
-        ];
-
-        return [...name]
-            .map((c,i)=>chars[(c.charCodeAt(0)+i)%chars.length])
-            .join("");
-    }
-},
-
-Korean:{
-    flag:"🇰🇷",
-    convert:name=>{
-
-        const map={
-            shadow:"그림자",
-            dragon:"드래곤",
-            king:"왕",
-            queen:"여왕",
-            phantom:"유령",
-            legend:"전설",
-            warrior:"전사",
-            killer:"킬러",
-            demon:"악마",
-            fire:"불꽃",
-            dark:"어둠",
-            night:"밤",
-            moon:"달",
-            star:"별",
-            wolf:"늑대",
-            lion:"사자",
-            tiger:"호랑이",
-            hero:"영웅",
-            ghost:"귀신",
-            angel:"천사",
-            love:"사랑",
-            ninja:"닌자",
-            samurai:"사무라이"
-        };
-
-        return map[name.toLowerCase()] || "전사";
-    }
-},
-
-Arabic:{
-    flag:"🇸🇦",
-    convert:name=>{
-
-        const map={
-            shadow:"ظل",
-            dragon:"تنين",
-            king:"ملك",
-            queen:"ملكة",
-            phantom:"شبح",
-            legend:"أسطورة",
-            warrior:"محارب",
-            killer:"قاتل",
-            demon:"شيطان",
-            fire:"نار",
-            dark:"ظلام",
-            night:"ليل",
-            moon:"قمر",
-            star:"نجم",
-            wolf:"ذئب",
-            lion:"أسد",
-            tiger:"نمر",
-            hero:"بطل",
-            ghost:"شبح",
-            angel:"ملاك",
-            love:"حب",
-            ninja:"نينجا",
-            samurai:"ساموراي"
-        };
-
-        return map[name.toLowerCase()] || "محارب";
-    }
-},
-
-Russian:{
-    flag:"🇷🇺",
-    convert:name=>{
-
-        const map={
-            shadow:"Тень",
-            dragon:"Дракон",
-            king:"Король",
-            queen:"Королева",
-            phantom:"Фантом",
-            legend:"Легенда",
-            warrior:"Воин",
-            killer:"Убийца",
-            demon:"Демон",
-            fire:"Огонь",
-            dark:"Тьма",
-            night:"Ночь",
-            moon:"Луна",
-            star:"Звезда",
-            wolf:"Волк",
-            lion:"Лев",
-            tiger:"Тигр",
-            hero:"Герой",
-            ghost:"Призрак",
-            angel:"Ангел",
-            love:"Любовь",
-            ninja:"Ниндзя",
-            samurai:"Самурай"
-        };
-
-        return map[name.toLowerCase()] || "Воин";
-    }
-},
-
-Spanish:{
-    flag:"🇪🇸",
-    convert:name=>{
-
-        const map={
-            shadow:"Sombra",
-            dragon:"Dragón",
-            king:"Rey",
-            queen:"Reina",
-            phantom:"Fantasma",
-            legend:"Leyenda",
-            warrior:"Guerrero",
-            killer:"Asesino",
-            demon:"Demonio",
-            fire:"Fuego",
-            dark:"Oscuro",
-            night:"Noche",
-            moon:"Luna",
-            star:"Estrella",
-            wolf:"Lobo",
-            lion:"León",
-            tiger:"Tigre",
-            hero:"Héroe",
-            ghost:"Fantasma",
-            angel:"Ángel",
-            love:"Amor",
-            ninja:"Ninja",
-            samurai:"Samurái"
-        };
-
-        return map[name.toLowerCase()] || "Guerrero";
-    }
-},
-
-French:{
-    flag:"🇫🇷",
-    convert:name=>{
-
-        const map={
-            shadow:"Ombre",
-            dragon:"Dragon",
-            king:"Roi",
-            queen:"Reine",
-            phantom:"Fantôme",
-            legend:"Légende",
-            warrior:"Guerrier",
-            killer:"Tueur",
-            demon:"Démon",
-            fire:"Feu",
-            dark:"Sombre",
-            night:"Nuit",
-            moon:"Lune",
-            star:"Étoile",
-            wolf:"Loup",
-            lion:"Lion",
-            tiger:"Tigre",
-            hero:"Héros",
-            ghost:"Fantôme",
-            angel:"Ange",
-            love:"Amour",
-            ninja:"Ninja",
-            samurai:"Samouraï"
-        };
-
-        return map[name.toLowerCase()] || "Guerrier";
-    }
-},
-
-German:{
-    flag:"🇩🇪",
-    convert:name=>{
-
-        const map={
-            shadow:"Schatten",
-            dragon:"Drache",
-            king:"König",
-            queen:"Königin",
-            phantom:"Phantom",
-            legend:"Legende",
-            warrior:"Krieger",
-            killer:"Killer",
-            demon:"Dämon",
-            fire:"Feuer",
-            dark:"Dunkel",
-            night:"Nacht",
-            moon:"Mond",
-            star:"Stern",
-            wolf:"Wolf",
-            lion:"Löwe",
-            tiger:"Tiger",
-            hero:"Held",
-            ghost:"Geist",
-            angel:"Engel",
-            love:"Liebe",
-            ninja:"Ninja",
-            samurai:"Samurai"
-        };
-
-        return map[name.toLowerCase()] || "Krieger";
-    }
-},
-
-Italian:{
-    flag:"🇮🇹",
-    convert:name=>{
-
-        const map={
-            shadow:"Ombra",
-            dragon:"Drago",
-            king:"Re",
-            queen:"Regina",
-            phantom:"Fantasma",
-            legend:"Leggenda",
-            warrior:"Guerriero",
-            killer:"Assassino",
-            demon:"Demone",
-            fire:"Fuoco",
-            dark:"Oscuro",
-            night:"Notte",
-            moon:"Luna",
-            star:"Stella",
-            wolf:"Lupo",
-            lion:"Leone",
-            tiger:"Tigre",
-            hero:"Eroe",
-            ghost:"Spettro",
-            angel:"Angelo",
-            love:"Amore",
-            ninja:"Ninja",
-            samurai:"Samurai"
-        };
-
-        return map[name.toLowerCase()] || "Guerriero";
-    }
-},
-
-Portuguese:{
-    flag:"🇵🇹",
-    convert:name=>{
-
-        const map={
-            shadow:"Sombra",
-            dragon:"Dragão",
-            king:"Rei",
-            queen:"Rainha",
-            phantom:"Fantasma",
-            legend:"Lenda",
-            warrior:"Guerreiro",
-            killer:"Assassino",
-            demon:"Demônio",
-            fire:"Fogo",
-            dark:"Escuro",
-            night:"Noite",
-            moon:"Lua",
-            star:"Estrela",
-            wolf:"Lobo",
-            lion:"Leão",
-            tiger:"Tigre",
-            hero:"Herói",
-            ghost:"Fantasma",
-            angel:"Anjo",
-            love:"Amor",
-            ninja:"Ninja",
-            samurai:"Samurai"
-        };
-
-        return map[name.toLowerCase()] || "Guerreiro";
-    }
-},
-
-Turkish:{
-    flag:"🇹🇷",
-    convert:name=>{
-
-        const map={
-            shadow:"Gölge",
-            dragon:"Ejderha",
-            king:"Kral",
-            queen:"Kraliçe",
-            phantom:"Hayalet",
-            legend:"Efsane",
-            warrior:"Savaşçı",
-            killer:"Katıl",
-            demon:"Şeytan",
-            fire:"Ateş",
-            dark:"Karanlık",
-            night:"Gece",
-            moon:"Ay",
-            star:"Yıldız",
-            wolf:"Kurt",
-            lion:"Aslan",
-            tiger:"Kaplan",
-            hero:"Kahraman",
-            ghost:"Hayalet",
-            angel:"Melek",
-            love:"Aşk",
-            ninja:"Ninja",
-            samurai:"Samuray"
-        };
-
-        return map[name.toLowerCase()] || "Savaşçı";
-    }
-},
-
-Greek:{
-    flag:"🇬🇷",
-    convert:name=>{
-
-        const map={
-            shadow:"Σκιά",
-            dragon:"Δράκος",
-            king:"Βασιλιάς",
-            queen:"Βασίλισσα",
-            phantom:"Φάντασμα",
-            legend:"Θρύλος",
-            warrior:"Πολεμιστής",
-            killer:"Δολοφόνος",
-            demon:"Δαίμονας",
-            fire:"Φωτιά",
-            dark:"Σκοτάδι",
-            night:"Νύχτα",
-            moon:"Σελήνη",
-            star:"Αστέρι",
-            wolf:"Λύκος",
-            lion:"Λιοντάρι",
-            tiger:"Τίγρης",
-            hero:"Ήρωας",
-            ghost:"Φάντασμα",
-            angel:"Άγγελος",
-            love:"Αγάπη",
-            ninja:"Νίντζα",
-            samurai:"Σαμουράι"
-        };
-
-        return map[name.toLowerCase()] || "Πολεμιστής";
-    }
-},
-
-Thai:{
-    flag:"🇹🇭",
-    convert:name=>{
-
-        const map={
-            shadow:"เงา",
-            dragon:"มังกร",
-            king:"ราชา",
-            queen:"ราชินี",
-            phantom:"ภูตผี",
-            legend:"ตำนาน",
-            warrior:"นักรบ",
-            killer:"นักฆ่า",
-            demon:"ปีศาจ",
-            fire:"ไฟ",
-            dark:"ความมืด",
-            night:"กลางคืน",
-            moon:"ดวงจันทร์",
-            star:"ดาว",
-            wolf:"หมาป่า",
-            lion:"สิงโต",
-            tiger:"เสือ",
-            hero:"ฮีโร่",
-            ghost:"ผี",
-            angel:"เทวดา",
-            love:"ความรัก",
-            ninja:"นินจา",
-            samurai:"ซามูไร"
-        };
-
-        return map[name.toLowerCase()] || "นักรบ";
-    }
-};
-
-
-/* =========================================================
-   FONT MAPS
-========================================================= */
-
-const normalLower="abcdefghijklmnopqrstuvwxyz";
-const normalUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-const boldLower="𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
-const boldUpper="𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
-
-const italicLower="𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
-const italicUpper="𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
-
-const monoLower="𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
-const monoUpper="𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
-
-const sansBoldLower="𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇";
-const sansBoldUpper="𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
-
-const sansItalicLower="𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
-const sansItalicUpper="𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
-
-const scriptLower="𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
-const scriptUpper="𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
-
-const doubleLower="𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
-const doubleUpper="𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
-
-const frakturLower="𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
-const frakturUpper="𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
-
-
-/* =========================================================
-   FONT FUNCTIONS
-========================================================= */
-
-function convertFont(text,lower,upper){
-
-    return [...text].map(char=>{
-
-        let i=normalLower.indexOf(char);
-
-        if(i>=0) return lower[i];
-
-        i=normalUpper.indexOf(char);
-
-        if(i>=0) return upper[i];
-
-        return char;
-
-    }).join("");
-}
-
-function bold(text){
-    return convertFont(text,boldLower,boldUpper);
-}
-
-function italic(text){
-    return convertFont(text,italicLower,italicUpper);
-}
-
-function mono(text){
-    return convertFont(text,monoLower,monoUpper);
-}
-
-function sansBold(text){
-    return convertFont(text,sansBoldLower,sansBoldUpper);
-}
-
-function sansItalic(text){
-    return convertFont(text,sansItalicLower,sansItalicUpper);
-}
-
-function script(text){
-    return convertFont(text,scriptLower,scriptUpper);
-}
-
-function doubleText(text){
-    return convertFont(text,doubleLower,doubleUpper);
-}
-
-function fraktur(text){
-    return convertFont(text,frakturLower,frakturUpper);
-}
-
-
-/* =========================================================
-   EXTRA EFFECTS
-========================================================= */
-
-function smallCaps(text){
-
-    const map={
-        a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",
-        f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",
-        k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",
-        p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
-        u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",
-        y:"ʏ",z:"ᴢ"
-    };
-
-    return [...text.toLowerCase()]
-        .map(c=>map[c]||c)
-        .join("");
-}
-
-function underline(text){
-    return [...text].map(c=>c+"\u0332").join("");
-}
-
-function strike(text){
-    return [...text].map(c=>c+"\u0336").join("");
-}
-
-function dots(text){
-    return [...text].map(c=>c+"\u0307").join("");
-}
-
-function overline(text){
-    return [...text].map(c=>c+"\u0305").join("");
-}
-
-function ring(text){
-    return [...text].map(c=>c+"\u030A").join("");
-}
-
-function spaced(text){
-    return [...text].join(" ");
-}
-
-function dottedSpace(text){
-    return [...text].join("・");
-}
-
-function starSpace(text){
-    return [...text].join("★");
-}
-
-function heartSpace(text){
-    return [...text].join("♡");
-}
-
-function fullWidth(text){
-
-    return [...text].map(c=>{
-
-        const code=c.charCodeAt(0);
-
-        if(code>=33 && code<=126){
-            return String.fromCharCode(code+65248);
         }
 
-        if(c===" ") return "　";
-
-        return c;
-
-    }).join("");
-}
-
-function bubble(text){
-
-    const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    const bubbles=[
-        "Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ",
-        "Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ",
-        "Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ",
-        "Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ",
-        "Ⓨ","Ⓩ"
-    ];
-
-    return [...text.toUpperCase()]
-        .map(c=>{
-            const i=letters.indexOf(c);
-            return i>=0 ? bubbles[i] : c;
-        })
-        .join("");
-}
+    }
+);
 
 
-/* =========================================================
-   FONT COLLECTION
-========================================================= */
+/* =====================================================
+   GENERATE NAMES FROM DATABASE
+   ===================================================== */
 
-function getFonts(name){
+async function generateNames(category = null){
 
-    return [
-        name,
-        bold(name),
-        italic(name),
-        mono(name),
-        sansBold(name),
-        sansItalic(name),
-        script(name),
-        doubleText(name),
-        fraktur(name),
-        smallCaps(name),
-        fullWidth(name),
-        bubble(name),
-        underline(name),
-        strike(name),
-        dots(name),
-        overline(name),
-        ring(name),
-        spaced(name),
-        dottedSpace(name),
-        starSpace(name),
-        heartSpace(name),
-        name.toUpperCase(),
-        name.toLowerCase()
-    ];
-}
+    currentCategory = category;
+
+    results.classList.add("show");
+
+    nameGrid.innerHTML = "";
+
+    loading.style.display = "block";
+
+    loading.textContent =
+    "Loading names from database...";
 
 
-/* =========================================================
-   DECORATIONS
-========================================================= */
-
-const decorations=[
-
-["",""],
-["꧁","꧂"],
-["༺","༻"],
-["༒","༒"],
-["『","』"],
-["「","」"],
-["【","】"],
-["〖","〗"],
-["《","》"],
-["〈","〉"],
-["〔","〕"],
-["乂","乂"],
-["メ","メ"],
-["亗","亗"],
-["ツ","ツ"],
-["シ","シ"],
-["々","々"],
-["彡","彡"],
-["〆","〆"],
-["么","么"],
-["♛","♛"],
-["♕","♕"],
-["♔","♔"],
-["★","★"],
-["☆","☆"],
-["✦","✦"],
-["✧","✧"],
-["✪","✪"],
-["✯","✯"],
-["⚡","⚡"],
-["☠","☠"],
-["☯","☯"],
-["♡","♡"],
-["♥","♥"],
-["❤","❤"],
-["⚔","⚔"],
-["⚜","⚜"],
-["☾","☽"],
-["☁","☁"],
-["✿","✿"],
-["❀","❀"],
-["𓆩","𓆪"],
-["୨୧","୨୧"],
-["⌁","⌁"],
-["☬","☬"],
-["♤","♤"],
-["♧","♧"],
-["♢","♢"],
-["☄","☄"],
-["❖","❖"],
-["◈","◈"],
-["◆","◆"],
-["◇","◇"],
-["✰","✰"],
-["✮","✮"],
-["✭","✭"],
-["✵","✵"],
-["✶","✶"],
-["✷","✷"],
-["✸","✸"],
-["✹","✹"],
-["✺","✺"],
-["✻","✻"],
-["✼","✼"],
-["✽","✽"],
-["✾","✾"],
-["❂","❂"],
-["❁","❁"],
-["❃","❃"],
-["❅","❅"],
-["❆","❆"]
-
-];
+    const inputName =
+    nameInput.value.trim();
 
 
-/* =========================================================
-   CATEGORY STYLES
-========================================================= */
+    try{
 
-function addCategoryStyles(add,name,category){
+        let query =
+        supabaseClient
+        .from("names")
+        .select("*")
+        .limit(NAMES_PER_LOAD);
 
-    if(category==="Gaming"){
 
-        [
-            `亗 ${name} 亗`,
-            `乂 ${name} 乂`,
-            `メ ${name} メ`,
-            `么 ${name} 么`,
-            `彡 ${name} 彡`,
-            `〆 ${name} 〆`,
-            `⚔ ${name} ⚔`,
-            `☠ ${name} ☠`,
-            `꧁༒${name}༒꧂`,
-            `『亗${name}亗』`,
-            `乂⚡${name}⚡乂`,
-            `꧁☠${name}☠꧂`,
-            `亗⚔${name}⚔亗`
-        ].forEach(add);
+        /*
+           CATEGORY FILTER
+        */
+
+        if(category){
+
+            query =
+            query.eq(
+                "category",
+                category
+            );
+
+        }
+
+
+        /*
+           NAME SEARCH
+
+           Agar user name enter karta hai
+           to database ke name column se match karega.
+
+           Agar match nahi mila,
+           category ke names show honge.
+        */
+
+        if(inputName){
+
+            query =
+            query.ilike(
+                "name",
+                `%${inputName}%`
+            );
+
+        }
+
+
+        const {
+            data,
+            error
+        } = await query;
+
+
+        if(error){
+
+            throw error;
+
+        }
+
+
+        /*
+           Agar entered name se
+           result nahi mila
+        */
+
+        if(
+            (!data || data.length === 0)
+            &&
+            inputName
+        ){
+
+            let fallback =
+            supabaseClient
+            .from("names")
+            .select("*")
+            .limit(NAMES_PER_LOAD);
+
+
+            if(category){
+
+                fallback =
+                fallback.eq(
+                    "category",
+                    category
+                );
+
+            }
+
+
+            const fallbackResult =
+            await fallback;
+
+
+            if(fallbackResult.error){
+
+                throw fallbackResult.error;
+
+            }
+
+
+            showNames(
+                fallbackResult.data || []
+            );
+
+            return;
+
+        }
+
+
+        showNames(data || []);
+
     }
 
-    if(category==="Cool"){
+    catch(error){
 
-        [
-            `ツ ${name} ツ`,
-            `シ ${name} シ`,
-            `々 ${name} 々`,
-            `彡 ${name} 彡`,
-            `〆 ${name} 〆`,
-            `メ ${name} メ`,
-            `★ ${name} ★`,
-            `✦ ${name} ✦`,
-            `亗 ${name} 亗`,
-            `『${name}』`
-        ].forEach(add);
+        console.error(error);
+
+        loading.style.display =
+        "block";
+
+        loading.textContent =
+        "Database connection error.";
+
     }
 
-    if(category==="Royal"){
-
-        [
-            `♛ ${name} ♛`,
-            `♕ ${name} ♕`,
-            `♔ ${name} ♔`,
-            `👑 ${name} 👑`,
-            `⚜ ${name} ⚜`,
-            `꧁༺♛ ${name} ♛༻꧂`,
-            `♛👑 ${name} 👑♛`,
-            `꧁♕${name}♕꧂`
-        ].forEach(add);
-    }
-
-    if(category==="Love"){
-
-        [
-            `♡ ${name} ♡`,
-            `♥ ${name} ♥`,
-            `❤ ${name} ❤`,
-            `💖 ${name} 💖`,
-            `💗 ${name} 💗`,
-            `💕 ${name} 💕`,
-            `ღ ${name} ღ`,
-            `ᥫ᭡ ${name} ᥫ᭡`,
-            `꧁♡${name}♡꧂`,
-            `『♥${name}♥』`
-        ].forEach(add);
-    }
-
-    if(category==="Aesthetic"){
-
-        [
-            `˚₊‧ ${name} ‧₊˚`,
-            `⋆｡°✩ ${name} ✩°｡⋆`,
-            `☾ ${name} ☽`,
-            `𓆩 ${name} 𓆪`,
-            `୨୧ ${name} ୨୧`,
-            `✿ ${name} ✿`,
-            `❀ ${name} ❀`,
-            `✧ ${name} ✧`,
-            `⊹ ${name} ⊹`,
-            `｡･ﾟﾟ･ ${name} ･ﾟﾟ･｡`
-        ].forEach(add);
-    }
-
-    if(category==="Neon"){
-
-        [
-            `⚡ ${name} ⚡`,
-            `ϟ ${name} ϟ`,
-            `✦⚡${name}⚡✦`,
-            `⟡ ${name} ⟡`,
-            `★彡${name}彡★`,
-            `『ϟ${name}ϟ』`,
-            `꧁⚡${name}⚡꧂`,
-            `⚡亗${name}亗⚡`
-        ].forEach(add);
-    }
 }
 
 
-/* =========================================================
-   MAKE STYLES
-========================================================= */
+/* =====================================================
+   CATEGORY
+   ===================================================== */
 
-function makeStyles(input,category){
+function generateCategory(category){
 
-    const styles=[];
-    const seen=new Set();
+    nameInput.value = "";
 
-    function addStyle(value,language){
+    generateNames(category);
 
-        if(!value || seen.has(value)) return;
-
-        seen.add(value);
-
-        styles.push({
-            value:value,
-            language:language,
-            category:category
-        });
-    }
-
-    const languages=
-        currentLanguage==="All"
-        ? Object.keys(languageData)
-        : [currentLanguage];
-
-    languages.forEach(language=>{
-
-        const translated=
-            languageData[language].convert(input);
-
-        getFonts(translated).forEach(font=>{
-            addStyle(font,language);
-        });
-
-        decorations.forEach(pair=>{
-
-            addStyle(
-                pair[0]+translated+pair[1],
-                language
-            );
-
-        });
-
-        addCategoryStyles(
-            value=>addStyle(value,language),
-            translated,
-            category
-        );
-
-        getFonts(translated).forEach((font,index)=>{
-
-            const pair=
-                decorations[index%decorations.length];
-
-            addStyle(
-                pair[0]+font+pair[1],
-                language
-            );
-
-            addStyle("★ "+font+" ★",language);
-
-            addStyle("亗 "+font+" 亗",language);
-
-            addStyle("꧁"+font+"꧂",language);
-
-            addStyle("『"+font+"』",language);
-
-            addStyle("乂"+font+"乂",language);
-
-        });
-
-    });
-
-
-    /* Number variations */
-
-    const numbers=[
-        "07","09","11","13","21","24","47",
-        "69","77","99","111","444","555",
-        "666","777","999","007","404","420","786"
-    ];
-
-    languages.forEach(language=>{
-
-        const translated=
-            languageData[language].convert(input);
-
-        numbers.forEach(number=>{
-
-            addStyle(
-                translated+number,
-                language
-            );
-
-            addStyle(
-                number+translated,
-                language
-            );
-
-            addStyle(
-                translated+"_"+number,
-                language
-            );
-
-            addStyle(
-                translated+"ツ"+number,
-                language
-            );
-
-            addStyle(
-                "亗"+translated+number+"亗",
-                language
-            );
-
-        });
-
-    });
-
-
-    /*
-       More combinations.
-       This creates thousands of local variations
-       without any database.
-    */
-
-    languages.forEach(language=>{
-
-        const translated=
-            languageData[language].convert(input);
-
-        const symbols=[
-            "★","☆","✦","✧","✪","✯","⚡",
-            "♡","♥","❤","♛","♕","☠","⚔",
-            "☯","☾","☄","❖","◆","◇","亗",
-            "ツ","シ","彡","メ","乂","々"
-        ];
-
-        symbols.forEach(symbol=>{
-
-            addStyle(
-                symbol+translated,
-                language
-            );
-
-            addStyle(
-                translated+symbol,
-                language
-            );
-
-            addStyle(
-                symbol+" "+translated+" "+symbol,
-                language
-            );
-
-            addStyle(
-                symbol+symbol+translated+symbol+symbol,
-                language
-            );
-
-        });
-
-    });
-
-
-    return styles.slice(0,MAX_STYLES);
 }
 
 
-/* =========================================================
-   GENERATE
-========================================================= */
+/* =====================================================
+   SHOW NAMES
+   ===================================================== */
 
-function generateNames(){
+function showNames(data){
 
-    const input=
-        document.getElementById("nameInput").value.trim();
+    loading.style.display = "none";
 
-    if(!input){
+    nameGrid.innerHTML = "";
 
-        showToast("Please enter a name");
 
-        document.getElementById("nameInput").focus();
+    if(!data || data.length === 0){
+
+        nameGrid.innerHTML = `
+
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+                color:#aeb2cc;
+            ">
+
+                No names found in database.
+
+            </div>
+
+        `;
 
         return;
+
     }
 
-    generatedStyles=
-        makeStyles(input,currentCategory);
 
-    visibleCount=0;
-    allNamesFinished=false;
-    loadingMore=false;
+    data.forEach(
+        function(item){
 
-    document.getElementById("resultCount").textContent=
-        generatedStyles.length+" styles";
+            createNameCard(item);
 
-    document.getElementById("resultsGrid").innerHTML="";
-
-    loadMoreGenerated();
-
-    setTimeout(()=>{
-
-        document.getElementById("resultsGrid")
-            .scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
-
-    },80);
-}
-
-
-/* =========================================================
-   LOAD GENERATED
-========================================================= */
-
-function loadMoreGenerated(){
-
-    if(loadingMore || allNamesFinished) return;
-
-    loadingMore=true;
-
-    updateLoadStatus(false,true);
-
-    requestAnimationFrame(()=>{
-
-        const grid=
-            document.getElementById("resultsGrid");
-
-        const start=visibleCount;
-
-        const end=Math.min(
-            start+LOAD_SIZE,
-            generatedStyles.length
-        );
-
-        const fragment=
-            document.createDocumentFragment();
-
-        for(let i=start;i<end;i++){
-
-            fragment.appendChild(
-                createCard(
-                    generatedStyles[i],
-                    i+1
-                )
-            );
         }
-
-        grid.appendChild(fragment);
-
-        visibleCount=end;
-
-        loadingMore=false;
-
-        if(visibleCount>=generatedStyles.length){
-
-            allNamesFinished=true;
-
-            updateLoadStatus(true,false);
-
-        }else{
-
-            updateLoadStatus(false,false);
-        }
-
-    });
-}
+    );
 
 
-/* =========================================================
-   DEFAULT NAMES
-========================================================= */
-
-const popularBaseNames=[
-    "Shadow",
-    "Dragon",
-    "Phantom",
-    "Legend",
-    "Warrior",
-    "Hunter",
-    "Killer",
-    "Demon",
-    "Devil",
-    "King",
-    "Queen",
-    "Master",
-    "Ghost",
-    "Angel",
-    "Titan",
-    "Storm",
-    "Fire",
-    "Wolf",
-    "Lion",
-    "Tiger",
-    "Sniper",
-    "Ninja",
-    "Samurai",
-    "Raven",
-    "Venom",
-    "Blaze",
-    "Fury",
-    "Dark",
-    "Night",
-    "Moon",
-    "Star",
-    "Hero",
-    "Prince",
-    "Princess",
-    "Emperor",
-    "Boss",
-    "Reaper",
-    "Viper",
-    "Destroyer",
-    "Infinity",
-    "Legendary",
-    "Savage",
-    "Mystic",
-    "Alpha",
-    "Omega",
-    "Phoenix",
-    "Thunder",
-    "Ice",
-    "FireLord",
-    "DarkLord",
-    "God",
-    "KingX",
-    "Noob",
-    "Pro",
-    "MasterX",
-    "ShadowX",
-    "DragonX",
-    "GhostX",
-    "NightKing",
-    "Death",
-    "Dominator",
-    "Champion"
-];
-
-
-/* =========================================================
-   DEFAULT PAGE LOAD
-========================================================= */
-
-function loadPopularNames(){
-
-    const grid=
-        document.getElementById("resultsGrid");
-
-    grid.innerHTML="";
-
-    generatedStyles=[];
-
-    const pool=[];
-
-    popularBaseNames.forEach(name=>{
-
-        const styles=
-            makeStyles(name,currentCategory);
-
-        styles.slice(0,35).forEach(style=>{
-            pool.push(style);
-        });
-
+    results.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
 
-    generatedStyles=
-        pool.slice(0,MAX_STYLES);
-
-    visibleCount=0;
-    allNamesFinished=false;
-
-    document.getElementById("resultCount").textContent=
-        "10000+ styles";
-
-    loadMoreGenerated();
 }
 
 
-/* =========================================================
-   CARD
-========================================================= */
+/* =====================================================
+   CREATE CARD
+   ===================================================== */
 
-function createCard(style,number){
+function createNameCard(item){
 
-    const card=document.createElement("div");
+    /*
+       Database column:
+       name
 
-    card.className="nameCard";
+       Optional:
+       category
+       language
+    */
 
-    const value=style.value || "";
+    const name =
+    item.name || "Unnamed";
 
-    const language=style.language || "English";
 
-    const category=style.category || currentCategory;
+    const category =
+    item.category || "Stylish";
 
-    const flag=
-        languageData[language]?.flag || "🌐";
 
-    const isSaved=
-        favorites.includes(value);
+    const language =
+    item.language || "English";
 
-    card.innerHTML=`
 
-        <div class="cardNumber">
-            #${number}
+    const card =
+    document.createElement("div");
+
+    card.className =
+    "name-card";
+
+
+    card.innerHTML = `
+
+        <div class="name-value">
+            ${escapeHTML(name)}
         </div>
 
-        <div class="cardLanguage">
-            ${flag} ${escapeHTML(language)}
-        </div>
-
-        <div class="cardBadge">
-            ${getCategoryIcon(category)}
-        </div>
-
-        <div class="styledName">
-            ${escapeHTML(value)}
-        </div>
-
-        <div class="tags">
+        <div class="name-meta">
 
             <span class="tag">
                 ${escapeHTML(category)}
@@ -2378,419 +1984,140 @@ function createCard(style,number){
                 ${escapeHTML(language)}
             </span>
 
-            <span class="tag">
-                Unicode
-            </span>
-
         </div>
 
-        <div class="cardBottom">
+        <div class="card-actions">
 
             <button
-                class="cardBtn"
-                onclick="copyName(this)"
-                data-name="${encodeURIComponent(value)}">
+                class="copy-btn"
+                onclick="copyName('${escapeJS(name)}')">
+
                 📋 Copy
+
             </button>
 
             <button
-                class="cardBtn favoriteBtn ${isSaved?"saved":""}"
-                onclick="toggleFavorite(this)"
-                data-name="${encodeURIComponent(value)}">
-                ${isSaved?"♥ Saved":"♡ Favorite"}
+                class="favorite-btn"
+                onclick="favoriteName('${escapeJS(name)}')">
+
+                ♡ Favorite
+
             </button>
 
         </div>
+
     `;
 
-    return card;
+
+    nameGrid.appendChild(card);
+
 }
 
 
-/* =========================================================
-   CATEGORY ICON
-========================================================= */
-
-function getCategoryIcon(category){
-
-    const icons={
-        Gaming:"🎮",
-        Cool:"😎",
-        Royal:"♛",
-        Love:"♡",
-        Aesthetic:"✧",
-        Neon:"ϟ",
-        Favorite:"♥"
-    };
-
-    return icons[category] || "✨";
-}
-
-
-/* =========================================================
+/* =====================================================
    COPY
-========================================================= */
+   ===================================================== */
 
-function copyName(button){
+async function copyName(name){
 
-    const name=
-        decodeURIComponent(button.dataset.name);
+    try{
 
-    if(navigator.clipboard){
+        await navigator.clipboard.writeText(name);
 
-        navigator.clipboard.writeText(name)
-        .then(()=>{
-            showToast("Copied: "+name);
-        })
-        .catch(()=>{
-            fallbackCopy(name);
-        });
+        showToast(
+            "Name copied!"
+        );
 
-    }else{
-
-        fallbackCopy(name);
     }
-}
 
-function fallbackCopy(name){
+    catch(error){
 
-    const area=document.createElement("textarea");
+        showToast(
+            "Copy failed"
+        );
 
-    area.value=name;
+    }
 
-    document.body.appendChild(area);
-
-    area.select();
-
-    document.execCommand("copy");
-
-    area.remove();
-
-    showToast("Copied!");
 }
 
 
-/* =========================================================
+/* =====================================================
    FAVORITE
-========================================================= */
+   ===================================================== */
 
-function toggleFavorite(button){
+function favoriteName(name){
 
-    const name=
-        decodeURIComponent(button.dataset.name);
+    let favorites =
+    JSON.parse(
+        localStorage.getItem(
+            "namecraftFavorites"
+        ) || "[]"
+    );
 
-    const index=favorites.indexOf(name);
 
-    if(index>=0){
-
-        favorites.splice(index,1);
-
-        button.classList.remove("saved");
-
-        button.textContent="♡ Favorite";
-
-        showToast("Removed from favorites");
-
-    }else{
+    if(
+        !favorites.includes(name)
+    ){
 
         favorites.push(name);
 
-        button.classList.add("saved");
-
-        button.textContent="♥ Saved";
-
-        showToast("Added to favorites");
-    }
-
-    localStorage.setItem(
-        "namecraft_favorites",
-        JSON.stringify(favorites)
-    );
-
-    renderFavorites();
-}
-
-
-/* =========================================================
-   FAVORITES
-========================================================= */
-
-function renderFavorites(){
-
-    const list=
-        document.getElementById("favoriteList");
-
-    list.innerHTML="";
-
-    if(!favorites.length){
-
-        list.innerHTML=`
-            <div
-                class="loading"
-                style="
-                grid-column:1/-1;
-                padding:40px;
-                font-size:14px;">
-                No favorites yet.<br>
-                Click ♡ Favorite to save a name.
-            </div>
-        `;
-
-        return;
-    }
-
-    favorites.slice(0,50).forEach((name,index)=>{
-
-        list.appendChild(
-            createCard(
-                {
-                    value:name,
-                    language:"English",
-                    category:"Favorite"
-                },
-                index+1
-            )
+        localStorage.setItem(
+            "namecraftFavorites",
+            JSON.stringify(favorites)
         );
 
-    });
-}
+        showToast(
+            "Added to favorites ❤️"
+        );
 
-
-/* =========================================================
-   RANDOM
-========================================================= */
-
-function randomName(){
-
-    const names=popularBaseNames;
-
-    const randomBase=
-        names[
-            Math.floor(
-                Math.random()*names.length
-            )
-        ];
-
-    document.getElementById("nameInput").value=randomBase;
-
-    generateNames();
-
-    setTimeout(()=>{
-
-        if(!generatedStyles.length) return;
-
-        const selected=
-            generatedStyles[
-                Math.floor(
-                    Math.random()*generatedStyles.length
-                )
-            ];
-
-        document.getElementById("randomResult")
-            .textContent=selected.value;
-
-    },100);
-}
-
-
-/* =========================================================
-   CATEGORY
-========================================================= */
-
-function selectCategory(element){
-
-    document
-        .querySelectorAll(".category")
-        .forEach(item=>{
-            item.classList.remove("active");
-        });
-
-    element.classList.add("active");
-
-    currentCategory=
-        element.dataset.category;
-
-    const input=
-        document.getElementById("nameInput")
-            .value.trim();
-
-    if(input){
-
-        generateNames();
-
-    }else{
-
-        loadPopularNames();
     }
-}
+    else{
 
+        showToast(
+            "Already in favorites"
+        );
 
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
-function selectLanguage(button){
-
-    document
-        .querySelectorAll(".languageBtn")
-        .forEach(item=>{
-            item.classList.remove("active");
-        });
-
-    button.classList.add("active");
-
-    currentLanguage=
-        button.dataset.language;
-
-    const input=
-        document.getElementById("nameInput")
-            .value.trim();
-
-    if(input){
-
-        generateNames();
-
-    }else{
-
-        loadPopularNames();
-    }
-}
-
-
-/* =========================================================
-   QUICK EXAMPLE
-========================================================= */
-
-function setExample(name){
-
-    document.getElementById("nameInput").value=name;
-
-    generateNames();
-}
-
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
-function focusInput(){
-
-    const input=
-        document.getElementById("nameInput");
-
-    input.focus();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* =========================================================
-   LOAD STATUS
-========================================================= */
-
-function updateLoadStatus(done=false,loading=false){
-
-    const status=
-        document.getElementById("loadMoreStatus");
-
-    status.className="loadMoreStatus";
-
-    if(loading){
-
-        status.classList.add("loading");
-
-        status.textContent=
-            "✨ Loading more names...";
-
-        return;
     }
 
-    if(done){
-
-        status.classList.add("done");
-
-        status.textContent=
-            "✓ All generated names loaded";
-
-        return;
-    }
-
-    status.textContent=
-        "↓ Scroll down to load more names...";
 }
 
 
-/* =========================================================
-   INFINITE SCROLL
-========================================================= */
-
-let scrollTick=false;
-
-window.addEventListener(
-    "scroll",
-    ()=>{
-
-        if(scrollTick) return;
-
-        scrollTick=true;
-
-        requestAnimationFrame(()=>{
-
-            scrollTick=false;
-
-            if(
-                loadingMore ||
-                allNamesFinished
-            ) return;
-
-            const nearBottom=
-                window.innerHeight+
-                window.scrollY >=
-                document.documentElement.scrollHeight-900;
-
-            if(nearBottom){
-
-                loadMoreGenerated();
-            }
-
-        });
-
-    },
-    {passive:true}
-);
-
-
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
-
-let toastTimer;
+   ===================================================== */
 
 function showToast(message){
 
-    const toast=
-        document.getElementById("toast");
+    const toast =
+    document.getElementById(
+        "toast"
+    );
 
-    toast.textContent=message;
+    toast.textContent =
+    message;
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
-    clearTimeout(toastTimer);
 
-    toastTimer=setTimeout(()=>{
+    setTimeout(
+        function(){
 
-        toast.classList.remove("show");
+            toast.classList.remove(
+                "show"
+            );
 
-    },1800);
+        },
+        1800
+    );
+
 }
 
 
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
+/* =====================================================
+   SECURITY / HTML ESCAPE
+   ===================================================== */
 
 function escapeHTML(text){
 
@@ -2800,33 +2127,36 @@ function escapeHTML(text){
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
+
 }
 
 
-/* =========================================================
-   ENTER KEY
-========================================================= */
+function escapeJS(text){
 
-document
-    .getElementById("nameInput")
-    .addEventListener("keydown",function(event){
+    return String(text)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\n/g,"\\n")
+        .replace(/\r/g,"\\r");
 
-        if(event.key==="Enter"){
-            generateNames();
-        }
-
-    });
+}
 
 
-/* =========================================================
-   START
-========================================================= */
+/* =====================================================
+   OPTIONAL INITIAL DATABASE LOAD
+   ===================================================== */
 
-renderFavorites();
+/*
+   Page open hone par automatically
+   koi bada list load nahi hoga.
 
-loadPopularNames();
+   Sirf user Generate karega tab
+   database se names aayenge.
+*/
+
 
 </script>
 
 </body>
+
 </html>
