@@ -1,42 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="theme-color" content="#080b22">
 
 <title>NameCraft - 10000+ Stylish Name Generator</title>
 
-<meta name="description"
-content="NameCraft is a free stylish name generator with 10000+ unique English, Japanese and Chinese gaming names, cool names, royal names, love names, aesthetic names and neon names.">
-
-<meta name="keywords"
-content="stylish name generator, Japanese names, Chinese names, English names, gaming names, Free Fire names, cool names, royal names, aesthetic names, Unicode names">
-
+<meta name="description" content="NameCraft is a free stylish name generator with 10000+ unique names in 15 languages for gaming, social media and usernames.">
+<meta name="keywords" content="stylish name generator, gaming names, Free Fire names, Japanese names, Chinese names, Hindi names, Korean names, Arabic names, aesthetic names">
 <meta name="author" content="NameCraft">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical"
-href="https://ksrsing.github.io/stylish-name/">
-
-<meta property="og:title"
-content="NameCraft - 10000+ Stylish Name Generator">
-
-<meta property="og:description"
-content="Generate stylish English, Japanese and Chinese names for gaming and social media.">
-
-<meta property="og:type" content="website">
-
-<meta property="og:url"
-content="https://ksrsing.github.io/stylish-name/">
-
-<meta name="twitter:card" content="summary">
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -50,29 +26,16 @@ html{
 body{
     font-family:Arial,Helvetica,sans-serif;
     background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(65,95,255,.20),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 85% 60%,
-            rgba(220,40,255,.18),
-            transparent 27%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(0,210,255,.12),
-            transparent 30%
-        ),
+        radial-gradient(circle at 15% 20%,rgba(65,95,255,.20),transparent 25%),
+        radial-gradient(circle at 85% 60%,rgba(220,40,255,.18),transparent 27%),
+        radial-gradient(circle at 50% 100%,rgba(0,210,255,.12),transparent 30%),
         #050817;
     color:#fff;
     min-height:100vh;
     overflow-x:hidden;
 }
 
-button,
-input{
+button,input{
     font-family:inherit;
 }
 
@@ -81,7 +44,7 @@ button{
     -webkit-tap-highlight-color:transparent;
 }
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 
 .navbar{
     position:sticky;
@@ -118,9 +81,7 @@ button{
     display:flex;
     align-items:center;
     justify-content:center;
-    box-shadow:
-        0 0 12px #7d5cff,
-        0 0 25px rgba(144,87,255,.35);
+    box-shadow:0 0 12px #7d5cff,0 0 25px rgba(144,87,255,.35);
 }
 
 .logoIcon span{
@@ -131,13 +92,7 @@ button{
 .logo{
     font-size:31px;
     font-weight:900;
-    background:
-        linear-gradient(
-            90deg,
-            #7ab6ff,
-            #8c5cff,
-            #e87cff
-        );
+    background:linear-gradient(90deg,#7ab6ff,#8c5cff,#e87cff);
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -180,24 +135,14 @@ button{
     color:#fff;
     font-weight:bold;
     font-size:14px;
-    background:
-        linear-gradient(
-            90deg,
-            #587dff,
-            #9b43e9
-        );
+    background:linear-gradient(90deg,#587dff,#9b43e9);
 }
 
 .randomTop{
-    background:
-        linear-gradient(
-            90deg,
-            #ff5b83,
-            #a843e9
-        );
+    background:linear-gradient(90deg,#ff5b83,#a843e9);
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
     max-width:1120px;
@@ -213,13 +158,7 @@ button{
 }
 
 .gradientText{
-    background:
-        linear-gradient(
-            90deg,
-            #6ea6ff,
-            #9860ff,
-            #db75ff
-        );
+    background:linear-gradient(90deg,#6ea6ff,#9860ff,#db75ff);
     -webkit-background-clip:text;
     color:transparent;
 }
@@ -232,7 +171,7 @@ button{
     line-height:1.7;
 }
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
 .searchBox{
     max-width:900px;
@@ -240,15 +179,8 @@ button{
     min-height:62px;
     border-radius:35px;
     padding:2px;
-    background:
-        linear-gradient(
-            90deg,
-            #4d88ff,
-            #a54cff,
-            #ff54da
-        );
-    box-shadow:
-        0 0 25px rgba(77,136,255,.16);
+    background:linear-gradient(90deg,#4d88ff,#a54cff,#ff54da);
+    box-shadow:0 0 25px rgba(77,136,255,.16);
 }
 
 .searchInner{
@@ -292,25 +224,15 @@ button{
 }
 
 .generateBtn{
-    background:
-        linear-gradient(
-            90deg,
-            #5d83ff,
-            #9347e9
-        );
+    background:linear-gradient(90deg,#5d83ff,#9347e9);
 }
 
 .randomBtn{
     margin-left:6px;
-    background:
-        linear-gradient(
-            90deg,
-            #ff5c86,
-            #bd43e9
-        );
+    background:linear-gradient(90deg,#ff5c86,#bd43e9);
 }
 
-/* ================= QUICK ================= */
+/* QUICK */
 
 .quickTools{
     max-width:900px;
@@ -335,7 +257,7 @@ button{
     border-color:#886aff;
 }
 
-/* ================= CATEGORIES ================= */
+/* CATEGORIES */
 
 .categories{
     max-width:1050px;
@@ -350,12 +272,7 @@ button{
     min-height:90px;
     border:1px solid rgba(109,130,255,.45);
     border-radius:18px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(19,28,67,.72),
-            rgba(13,12,37,.82)
-        );
+    background:linear-gradient(145deg,rgba(19,28,67,.72),rgba(13,12,37,.82));
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -367,8 +284,7 @@ button{
 .category:hover,
 .category.active{
     border-color:#9c70ff;
-    box-shadow:
-        0 0 18px rgba(117,82,255,.25);
+    box-shadow:0 0 18px rgba(117,82,255,.25);
     transform:translateY(-2px);
 }
 
@@ -381,10 +297,10 @@ button{
     font-weight:bold;
 }
 
-/* ================= LANGUAGE ================= */
+/* LANGUAGE */
 
 .languageArea{
-    max-width:1050px;
+    max-width:1100px;
     margin:0 auto 38px;
     padding:0 20px;
 }
@@ -408,8 +324,8 @@ button{
     background:#0b102a;
     color:#9ba9d1;
     border-radius:25px;
-    padding:10px 18px;
-    font-size:14px;
+    padding:10px 15px;
+    font-size:13px;
     transition:.2s;
 }
 
@@ -417,17 +333,11 @@ button{
 .languageBtn.active{
     color:#fff;
     border-color:#9670ff;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(77,110,255,.25),
-            rgba(155,67,233,.25)
-        );
-    box-shadow:
-        0 0 15px rgba(112,81,255,.18);
+    background:linear-gradient(90deg,rgba(77,110,255,.25),rgba(155,67,233,.25));
+    box-shadow:0 0 15px rgba(112,81,255,.18);
 }
 
-/* ================= SEO ================= */
+/* SEO */
 
 .seoIntro{
     max-width:950px;
@@ -447,7 +357,7 @@ button{
     font-size:15px;
 }
 
-/* ================= RESULT HEADER ================= */
+/* RESULTS */
 
 .resultsHeader{
     max-width:1260px;
@@ -471,8 +381,6 @@ button{
     font-size:14px;
 }
 
-/* ================= RESULT GRID ================= */
-
 .resultsGrid{
     max-width:1260px;
     margin:auto;
@@ -482,27 +390,17 @@ button{
     gap:20px;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 
 .nameCard{
     position:relative;
     min-height:190px;
     border-radius:20px;
     padding:24px 18px 17px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(15,24,58,.96),
-            rgba(11,10,34,.96)
-        );
+    background:linear-gradient(145deg,rgba(15,24,58,.96),rgba(11,10,34,.96));
     border:1px solid #5267b8;
-    box-shadow:
-        inset 0 0 25px rgba(66,84,190,.06),
-        0 0 14px rgba(48,77,180,.12);
-    transition:
-        transform .2s,
-        box-shadow .2s,
-        border-color .2s;
+    box-shadow:inset 0 0 25px rgba(66,84,190,.06),0 0 14px rgba(48,77,180,.12);
+    transition:.2s;
 }
 
 .nameCard:nth-child(3n+2){
@@ -511,8 +409,7 @@ button{
 
 .nameCard:hover{
     transform:translateY(-4px);
-    box-shadow:
-        0 0 26px rgba(94,117,255,.25);
+    box-shadow:0 0 26px rgba(94,117,255,.25);
 }
 
 .cardNumber{
@@ -604,7 +501,7 @@ button{
     border-color:#b65b9e;
 }
 
-/* ================= LOAD ================= */
+/* LOAD */
 
 .loadMoreStatus{
     text-align:center;
@@ -621,7 +518,7 @@ button{
     color:#6f7da8;
 }
 
-/* ================= RANDOM ================= */
+/* RANDOM */
 
 .randomBox{
     max-width:1260px;
@@ -631,12 +528,7 @@ button{
 
 .randomInner{
     border:1px solid #5d55a0;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(37,34,85,.55),
-            rgba(19,13,54,.6)
-        );
+    background:linear-gradient(135deg,rgba(37,34,85,.55),rgba(19,13,54,.6));
     border-radius:20px;
     padding:20px;
     display:flex;
@@ -666,25 +558,12 @@ button{
     border:0;
     border-radius:12px;
     padding:11px 17px;
-    background:
-        linear-gradient(
-            90deg,
-            #ff5c85,
-            #a749eb
-        );
+    background:linear-gradient(90deg,#ff5c85,#a749eb);
     color:#fff;
     font-weight:bold;
 }
 
-/* ================= FAVORITES ================= */
-
-.favoriteSection{
-    max-width:1260px;
-    margin:45px auto;
-    padding:0 20px;
-}
-
-/* ================= ABOUT ================= */
+/* ABOUT */
 
 .about{
     max-width:900px;
@@ -704,7 +583,7 @@ button{
     font-size:16px;
 }
 
-/* ================= LOADING CARD ================= */
+/* LOADING */
 
 .loading{
     grid-column:1/-1;
@@ -714,7 +593,7 @@ button{
     font-size:18px;
 }
 
-/* ================= TOAST ================= */
+/* TOAST */
 
 .toast{
     position:fixed;
@@ -737,7 +616,7 @@ button{
     transform:translate(-50%,0);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -752,7 +631,6 @@ button{
     .resultsGrid{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
 @media(max-width:600px){
@@ -841,8 +719,8 @@ button{
     }
 
     .languageBtn{
-        padding:8px 12px;
-        font-size:12px;
+        padding:8px 11px;
+        font-size:11px;
     }
 
     .resultsHeader{
@@ -879,7 +757,6 @@ button{
     .randomResult{
         width:100%;
     }
-
 }
 
 @media(max-width:380px){
@@ -891,105 +768,53 @@ button{
     .categories{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <nav class="navbar">
-
 <div class="navInner">
 
 <div class="logoArea">
-
-<div class="logoIcon">
-<span>◇</span>
-</div>
-
-<div class="logo">
-NameCraft
-</div>
-
+<div class="logoIcon"><span>◇</span></div>
+<div class="logo">NameCraft</div>
 </div>
 
 <div class="navLinks">
-
-<a href="#home" class="active">
-Home
-</a>
-
-<a href="#styles">
-Styles
-</a>
-
-<a href="#favorites">
-♡ Favorites
-</a>
-
-<a href="#about">
-About
-</a>
-
+<a href="#home" class="active">Home</a>
+<a href="#styles">Styles</a>
+<a href="#favorites">♡ Favorites</a>
+<a href="#about">About</a>
 </div>
 
 <div class="navActions">
-
-<button
-class="randomTop"
-onclick="randomName()">
-🎲 Random
-</button>
-
-<button
-class="generateTop"
-onclick="focusInput()">
-✨ Generate
-</button>
-
+<button class="randomTop" onclick="randomName()">🎲 Random</button>
+<button class="generateTop" onclick="focusInput()">✨ Generate</button>
 </div>
 
 </div>
-
 </nav>
-
-
-<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
 <h1>
-
 Create Your
-
-<span class="gradientText">
-Stylish
-</span>
-
+<span class="gradientText">Stylish</span>
 Name
-
 </h1>
 
 <p>
-
-Generate thousands of unique
-English, Japanese and Chinese
-names for gaming, social media,
-profiles and usernames.
-
+Generate thousands of unique stylish names
+for gaming, social media, profiles and usernames
+in 15 different languages.
 </p>
 
 <div class="searchBox">
-
 <div class="searchInner">
 
-<span class="searchIcon">
-⌕
-</span>
+<span class="searchIcon">⌕</span>
 
 <input
 id="nameInput"
@@ -997,127 +822,61 @@ type="text"
 placeholder="Type a name... e.g. Shadow, Dragon, Phantom"
 maxlength="60">
 
-<button
-class="generateBtn"
-onclick="generateNames()">
+<button class="generateBtn" onclick="generateNames()">
 ✨ Generate
 </button>
 
-<button
-class="randomBtn"
-onclick="randomName()">
+<button class="randomBtn" onclick="randomName()">
 🎲 Random
 </button>
 
 </div>
-
 </div>
 
 <div class="quickTools">
 
-<button
-class="quickBtn"
-onclick="setExample('Shadow')">
-Shadow
-</button>
-
-<button
-class="quickBtn"
-onclick="setExample('Dragon')">
-Dragon
-</button>
-
-<button
-class="quickBtn"
-onclick="setExample('King')">
-King
-</button>
-
-<button
-class="quickBtn"
-onclick="setExample('Phantom')">
-Phantom
-</button>
-
-<button
-class="quickBtn"
-onclick="setExample('Legend')">
-Legend
-</button>
+<button class="quickBtn" onclick="setExample('Shadow')">Shadow</button>
+<button class="quickBtn" onclick="setExample('Dragon')">Dragon</button>
+<button class="quickBtn" onclick="setExample('King')">King</button>
+<button class="quickBtn" onclick="setExample('Phantom')">Phantom</button>
+<button class="quickBtn" onclick="setExample('Legend')">Legend</button>
 
 </div>
-
 </section>
-
-
-<!-- ================= CATEGORIES ================= -->
 
 <div class="categories" id="styles">
 
-<div
-class="category active"
-data-category="Gaming"
-onclick="selectCategory(this)">
-
+<div class="category active" data-category="Gaming" onclick="selectCategory(this)">
 <div class="icon">🎮</div>
 <span>Gaming</span>
-
 </div>
 
-<div
-class="category"
-data-category="Cool"
-onclick="selectCategory(this)">
-
+<div class="category" data-category="Cool" onclick="selectCategory(this)">
 <div class="icon">😎</div>
 <span>Cool</span>
-
 </div>
 
-<div
-class="category"
-data-category="Royal"
-onclick="selectCategory(this)">
-
+<div class="category" data-category="Royal" onclick="selectCategory(this)">
 <div class="icon">♛</div>
 <span>Royal</span>
-
 </div>
 
-<div
-class="category"
-data-category="Love"
-onclick="selectCategory(this)">
-
+<div class="category" data-category="Love" onclick="selectCategory(this)">
 <div class="icon">♡</div>
 <span>Love</span>
-
 </div>
 
-<div
-class="category"
-data-category="Aesthetic"
-onclick="selectCategory(this)">
-
+<div class="category" data-category="Aesthetic" onclick="selectCategory(this)">
 <div class="icon">✧</div>
 <span>Aesthetic</span>
-
 </div>
 
-<div
-class="category"
-data-category="Neon"
-onclick="selectCategory(this)">
-
+<div class="category" data-category="Neon" onclick="selectCategory(this)">
 <div class="icon">ϟ</div>
 <span>Neon</span>
-
 </div>
 
 </div>
-
-
-<!-- ================= LANGUAGE ================= -->
 
 <div class="languageArea">
 
@@ -1127,201 +886,122 @@ Choose Name Language / Script
 
 <div class="languageButtons">
 
-<button
-class="languageBtn active"
-data-language="All"
-onclick="selectLanguage(this)">
-🌐 All
-</button>
+<button class="languageBtn active" data-language="All" onclick="selectLanguage(this)">🌐 All</button>
 
-<button
-class="languageBtn"
-data-language="English"
-onclick="selectLanguage(this)">
-🇬🇧 English
-</button>
+<button class="languageBtn" data-language="English" onclick="selectLanguage(this)">🇬🇧 English</button>
 
-<button
-class="languageBtn"
-data-language="Japanese"
-onclick="selectLanguage(this)">
-🇯🇵 Japanese
-</button>
+<button class="languageBtn" data-language="Hindi" onclick="selectLanguage(this)">🇮🇳 Hindi</button>
 
-<button
-class="languageBtn"
-data-language="Chinese"
-onclick="selectLanguage(this)">
-🇨🇳 Chinese
-</button>
+<button class="languageBtn" data-language="Japanese" onclick="selectLanguage(this)">🇯🇵 Japanese</button>
+
+<button class="languageBtn" data-language="Chinese" onclick="selectLanguage(this)">🇨🇳 Chinese</button>
+
+<button class="languageBtn" data-language="Korean" onclick="selectLanguage(this)">🇰🇷 Korean</button>
+
+<button class="languageBtn" data-language="Arabic" onclick="selectLanguage(this)">🇸🇦 Arabic</button>
+
+<button class="languageBtn" data-language="Russian" onclick="selectLanguage(this)">🇷🇺 Russian</button>
+
+<button class="languageBtn" data-language="Spanish" onclick="selectLanguage(this)">🇪🇸 Spanish</button>
+
+<button class="languageBtn" data-language="French" onclick="selectLanguage(this)">🇫🇷 French</button>
+
+<button class="languageBtn" data-language="German" onclick="selectLanguage(this)">🇩🇪 German</button>
+
+<button class="languageBtn" data-language="Italian" onclick="selectLanguage(this)">🇮🇹 Italian</button>
+
+<button class="languageBtn" data-language="Portuguese" onclick="selectLanguage(this)">🇵🇹 Portuguese</button>
+
+<button class="languageBtn" data-language="Turkish" onclick="selectLanguage(this)">🇹🇷 Turkish</button>
+
+<button class="languageBtn" data-language="Greek" onclick="selectLanguage(this)">🇬🇷 Greek</button>
+
+<button class="languageBtn" data-language="Thai" onclick="selectLanguage(this)">🇹🇭 Thai</button>
 
 </div>
-
 </div>
-
-
-<!-- ================= SEO ================= -->
 
 <section class="seoIntro">
 
-<h2>
-10000+ English, Japanese & Chinese Stylish Names
-</h2>
+<h2>10000+ Stylish Names in 15 Languages</h2>
 
 <p>
-
-Create unique English, Japanese and Chinese
-gaming names, cool usernames, royal names,
-love names, aesthetic names and neon names.
-
-Enter your name and generate thousands of
-different designs. Copy any name with one tap
-and save your favorite names.
-
+Create unique English, Hindi, Japanese, Chinese, Korean,
+Arabic, Russian, Spanish, French, German, Italian,
+Portuguese, Turkish, Greek and Thai gaming names.
+Choose a category, enter your name and generate stylish
+Unicode designs instantly.
 </p>
 
 </section>
 
-
-<!-- ================= RESULT HEADER ================= -->
-
 <div class="resultsHeader">
 
 <h2>
-Stylish Names
-<span>🔥</span>
+Stylish Names <span>🔥</span>
 </h2>
 
-<div
-class="resultCount"
-id="resultCount">
+<div class="resultCount" id="resultCount">
 Loading...
 </div>
 
 </div>
 
-
-<!-- ================= RESULTS ================= -->
-
-<div
-id="resultsGrid"
-class="resultsGrid">
-
+<div id="resultsGrid" class="resultsGrid">
 <div class="loading">
-Loading stylish names...
+✨ Generating stylish names...
+</div>
 </div>
 
-</div>
-
-
-<!-- ================= LOAD STATUS ================= -->
-
-<div
-id="loadMoreStatus"
-class="loadMoreStatus">
-
+<div id="loadMoreStatus" class="loadMoreStatus">
 Scroll down to load more names...
-
 </div>
-
-
-<!-- ================= RANDOM ================= -->
 
 <section class="randomBox">
 
 <div class="randomInner">
 
 <div class="randomText">
-
-<h3>
-🎲 Random Stylish Name
-</h3>
-
-<p>
-Generate a random stylish design instantly.
-</p>
-
+<h3>🎲 Random Stylish Name</h3>
+<p>Generate a random stylish design instantly.</p>
 </div>
 
-<div
-id="randomResult"
-class="randomResult">
-
+<div id="randomResult" class="randomResult">
 Click Random
-
 </div>
 
-<button
-class="randomAction"
-onclick="randomName()">
-
+<button class="randomAction" onclick="randomName()">
 Generate
-
 </button>
 
 </div>
+</section>
+
+<section id="favorites" class="favoriteSection">
+
+<div class="resultsHeader" style="padding-left:0">
+<h2>♡ Favorites</h2>
+</div>
+
+<div id="favoriteList" class="resultsGrid" style="padding:0"></div>
 
 </section>
 
+<section id="about" class="about">
 
-<!-- ================= FAVORITES ================= -->
-
-<section
-id="favorites"
-class="favoriteSection">
-
-<div
-class="resultsHeader"
-style="padding-left:0">
-
-<h2>
-♡ Favorites
-</h2>
-
-</div>
-
-<div
-id="favoriteList"
-class="resultsGrid"
-style="padding:0">
-
-</div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section
-id="about"
-class="about">
-
-<h2>
-About NameCraft
-</h2>
+<h2>About NameCraft</h2>
 
 <p>
-
-NameCraft is a free stylish name generator
-for gaming, social media, profiles and
-usernames.
-
-Generate stylish English, Japanese and
-Chinese names using Unicode symbols,
-decorations and creative combinations.
-
-Copy your favorite name and use it on
-games, social media profiles and usernames.
-
+NameCraft is a free stylish name generator for gaming,
+social media, profiles and usernames. Generate stylish
+names in 15 languages using Unicode symbols, decorations
+and creative combinations. Copy your favorite name with
+one tap and save it for later.
 </p>
 
 </section>
 
-
-<!-- ================= FOOTER ================= -->
-
-<footer
-style="
+<footer style="
 border-top:1px solid rgba(100,110,170,.25);
 background:rgba(4,7,20,.8);
 text-align:center;
@@ -1329,168 +1009,127 @@ padding:30px 15px;
 color:#7180aa;
 ">
 
-<strong style="color:#9f8cff">
-NameCraft
-</strong>
+<strong style="color:#9f8cff">NameCraft</strong>
 
 <br>
 
-English • Japanese • Chinese Stylish Name Generator
+15-Language Stylish Name Generator
 
 <br><br>
 
-© 2026 NameCraft.
-All rights reserved.
+© 2026 NameCraft. All rights reserved.
 
 </footer>
 
-
-<div id="toast" class="toast">
-Copied!
-</div>
-
+<div id="toast" class="toast">Copied!</div>
 
 <script>
 
-/* =====================================================
-SUPABASE
-===================================================== */
+/* =========================================================
+   NAMECRAFT - LOCAL ENGINE
+   NO SUPABASE / NO API / NO DATABASE REQUIRED
+========================================================= */
 
-const SUPABASE_URL =
-"https://ujpzkpeslemcuizylymi.supabase.co";
+const LOAD_SIZE = 30;
 
-const SUPABASE_KEY =
-"sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
+const MAX_STYLES = 10000;
 
-let supabaseClient=null;
+let currentCategory = "Gaming";
 
-try{
+let currentLanguage = "All";
 
-    if(typeof supabase!=="undefined"){
+let generatedStyles = [];
 
-        supabaseClient=
-            supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
+let visibleCount = 0;
 
-    }
+let loadingMore = false;
 
-}catch(error){
-
-    console.warn(
-        "Supabase unavailable",
-        error
-    );
-
-}
+let allNamesFinished = false;
 
 
-/* =====================================================
-SETTINGS
-===================================================== */
+/* =========================================================
+   FAVORITES
+========================================================= */
 
-const LOAD_SIZE=24;
-
-const MAX_STYLES=10000;
-
-let currentCategory="Gaming";
-
-let currentLanguage="All";
-
-let generatedStyles=[];
-
-let popularNames=[];
-
-let usingDatabase=false;
-
-let visibleCount=0;
-
-let loadingMore=false;
-
-let allNamesFinished=false;
-
-let databaseOffset=0;
-
-let databaseFinished=false;
-
-
-/* =====================================================
-FAVORITES
-===================================================== */
-
-let favorites=
-JSON.parse(
-    localStorage.getItem(
-        "namecraft_favorites"
-    ) || "[]"
+let favorites = JSON.parse(
+    localStorage.getItem("namecraft_favorites") || "[]"
 );
 
 
-/* =====================================================
-LANGUAGE DATA
-===================================================== */
+/* =========================================================
+   15 LANGUAGE DATA
+========================================================= */
 
-const languageData={
+const languageData = {
 
 English:{
     flag:"🇬🇧",
+    convert:name=>name
+},
 
-    convert:function(name){
-        return name;
+Hindi:{
+    flag:"🇮🇳",
+    convert:name=>{
+
+        const map = {
+            shadow:"छाया",
+            dragon:"ड्रैगन",
+            king:"राजा",
+            queen:"रानी",
+            phantom:"प्रेत",
+            legend:"किंवदंती",
+            warrior:"योद्धा",
+            killer:"हत्यारा",
+            demon:"राक्षस",
+            devil:"शैतान",
+            fire:"अग्नि",
+            dark:"अंधकार",
+            night:"रात",
+            moon:"चाँद",
+            star:"सितारा",
+            wolf:"भेड़िया",
+            lion:"शेर",
+            tiger:"बाघ",
+            hero:"नायक",
+            prince:"राजकुमार",
+            princess:"राजकुमारी",
+            master:"मास्टर",
+            ghost:"भूत",
+            angel:"देवदूत",
+            love:"प्यार",
+            boss:"बॉस",
+            ninja:"निंजा",
+            samurai:"समुराई"
+        };
+
+        return map[name.toLowerCase()] || "योद्धा";
     }
 },
 
 Japanese:{
     flag:"🇯🇵",
-
-    convert:function(name){
+    convert:name=>{
 
         const map={
-
-            a:"ア",
-            b:"ブ",
-            c:"ク",
-            d:"ド",
-            e:"エ",
-            f:"フ",
-            g:"グ",
-            h:"ハ",
-            i:"イ",
-            j:"ジ",
-            k:"カ",
-            l:"ル",
-            m:"ム",
-            n:"ン",
-            o:"オ",
-            p:"プ",
-            q:"ク",
-            r:"ラ",
-            s:"ス",
-            t:"ト",
-            u:"ウ",
-            v:"ヴ",
-            w:"ワ",
-            x:"クス",
-            y:"ヤ",
-            z:"ズ"
-
+            a:"ア",b:"ブ",c:"ク",d:"ド",e:"エ",
+            f:"フ",g:"グ",h:"ハ",i:"イ",j:"ジ",
+            k:"カ",l:"ル",m:"ム",n:"ン",o:"オ",
+            p:"プ",q:"ク",r:"ラ",s:"ス",t:"ト",
+            u:"ウ",v:"ヴ",w:"ワ",x:"クス",
+            y:"ヤ",z:"ズ"
         };
 
         return [...name.toLowerCase()]
-        .map(c=>map[c]||c)
-        .join("");
-
+            .map(c=>map[c]||c)
+            .join("");
     }
 },
 
 Chinese:{
     flag:"🇨🇳",
-
-    convert:function(name){
+    convert:name=>{
 
         const map={
-
             shadow:"影子",
             dragon:"龙",
             king:"王",
@@ -1516,240 +1155,524 @@ Chinese:{
             ghost:"鬼魂",
             angel:"天使",
             love:"爱",
-            kingx:"王者"
-
+            ninja:"忍者",
+            samurai:"武士"
         };
 
-        const lower=
-            name.toLowerCase().trim();
+        const lower=name.toLowerCase().trim();
 
-        if(map[lower]){
-            return map[lower];
-        }
+        if(map[lower]) return map[lower];
 
         const chars=[
-            "影","龙","王","星",
-            "月","夜","战","神",
-            "魂","火","天","狼",
-            "虎","帝","皇","梦"
+            "影","龙","王","星","月","夜","战","神",
+            "魂","火","天","狼","虎","帝","皇","梦"
         ];
 
-        let result="";
-
-        [...name].forEach(
-            (char,index)=>{
-
-                result+=
-                    chars[
-                        (
-                            char.charCodeAt(0)+index
-                        )%chars.length
-                    ];
-
-            }
-        );
-
-        return result;
-
+        return [...name]
+            .map((c,i)=>chars[(c.charCodeAt(0)+i)%chars.length])
+            .join("");
     }
-}
+},
 
+Korean:{
+    flag:"🇰🇷",
+    convert:name=>{
+
+        const map={
+            shadow:"그림자",
+            dragon:"드래곤",
+            king:"왕",
+            queen:"여왕",
+            phantom:"유령",
+            legend:"전설",
+            warrior:"전사",
+            killer:"킬러",
+            demon:"악마",
+            fire:"불꽃",
+            dark:"어둠",
+            night:"밤",
+            moon:"달",
+            star:"별",
+            wolf:"늑대",
+            lion:"사자",
+            tiger:"호랑이",
+            hero:"영웅",
+            ghost:"귀신",
+            angel:"천사",
+            love:"사랑",
+            ninja:"닌자",
+            samurai:"사무라이"
+        };
+
+        return map[name.toLowerCase()] || "전사";
+    }
+},
+
+Arabic:{
+    flag:"🇸🇦",
+    convert:name=>{
+
+        const map={
+            shadow:"ظل",
+            dragon:"تنين",
+            king:"ملك",
+            queen:"ملكة",
+            phantom:"شبح",
+            legend:"أسطورة",
+            warrior:"محارب",
+            killer:"قاتل",
+            demon:"شيطان",
+            fire:"نار",
+            dark:"ظلام",
+            night:"ليل",
+            moon:"قمر",
+            star:"نجم",
+            wolf:"ذئب",
+            lion:"أسد",
+            tiger:"نمر",
+            hero:"بطل",
+            ghost:"شبح",
+            angel:"ملاك",
+            love:"حب",
+            ninja:"نينجا",
+            samurai:"ساموراي"
+        };
+
+        return map[name.toLowerCase()] || "محارب";
+    }
+},
+
+Russian:{
+    flag:"🇷🇺",
+    convert:name=>{
+
+        const map={
+            shadow:"Тень",
+            dragon:"Дракон",
+            king:"Король",
+            queen:"Королева",
+            phantom:"Фантом",
+            legend:"Легенда",
+            warrior:"Воин",
+            killer:"Убийца",
+            demon:"Демон",
+            fire:"Огонь",
+            dark:"Тьма",
+            night:"Ночь",
+            moon:"Луна",
+            star:"Звезда",
+            wolf:"Волк",
+            lion:"Лев",
+            tiger:"Тигр",
+            hero:"Герой",
+            ghost:"Призрак",
+            angel:"Ангел",
+            love:"Любовь",
+            ninja:"Ниндзя",
+            samurai:"Самурай"
+        };
+
+        return map[name.toLowerCase()] || "Воин";
+    }
+},
+
+Spanish:{
+    flag:"🇪🇸",
+    convert:name=>{
+
+        const map={
+            shadow:"Sombra",
+            dragon:"Dragón",
+            king:"Rey",
+            queen:"Reina",
+            phantom:"Fantasma",
+            legend:"Leyenda",
+            warrior:"Guerrero",
+            killer:"Asesino",
+            demon:"Demonio",
+            fire:"Fuego",
+            dark:"Oscuro",
+            night:"Noche",
+            moon:"Luna",
+            star:"Estrella",
+            wolf:"Lobo",
+            lion:"León",
+            tiger:"Tigre",
+            hero:"Héroe",
+            ghost:"Fantasma",
+            angel:"Ángel",
+            love:"Amor",
+            ninja:"Ninja",
+            samurai:"Samurái"
+        };
+
+        return map[name.toLowerCase()] || "Guerrero";
+    }
+},
+
+French:{
+    flag:"🇫🇷",
+    convert:name=>{
+
+        const map={
+            shadow:"Ombre",
+            dragon:"Dragon",
+            king:"Roi",
+            queen:"Reine",
+            phantom:"Fantôme",
+            legend:"Légende",
+            warrior:"Guerrier",
+            killer:"Tueur",
+            demon:"Démon",
+            fire:"Feu",
+            dark:"Sombre",
+            night:"Nuit",
+            moon:"Lune",
+            star:"Étoile",
+            wolf:"Loup",
+            lion:"Lion",
+            tiger:"Tigre",
+            hero:"Héros",
+            ghost:"Fantôme",
+            angel:"Ange",
+            love:"Amour",
+            ninja:"Ninja",
+            samurai:"Samouraï"
+        };
+
+        return map[name.toLowerCase()] || "Guerrier";
+    }
+},
+
+German:{
+    flag:"🇩🇪",
+    convert:name=>{
+
+        const map={
+            shadow:"Schatten",
+            dragon:"Drache",
+            king:"König",
+            queen:"Königin",
+            phantom:"Phantom",
+            legend:"Legende",
+            warrior:"Krieger",
+            killer:"Killer",
+            demon:"Dämon",
+            fire:"Feuer",
+            dark:"Dunkel",
+            night:"Nacht",
+            moon:"Mond",
+            star:"Stern",
+            wolf:"Wolf",
+            lion:"Löwe",
+            tiger:"Tiger",
+            hero:"Held",
+            ghost:"Geist",
+            angel:"Engel",
+            love:"Liebe",
+            ninja:"Ninja",
+            samurai:"Samurai"
+        };
+
+        return map[name.toLowerCase()] || "Krieger";
+    }
+},
+
+Italian:{
+    flag:"🇮🇹",
+    convert:name=>{
+
+        const map={
+            shadow:"Ombra",
+            dragon:"Drago",
+            king:"Re",
+            queen:"Regina",
+            phantom:"Fantasma",
+            legend:"Leggenda",
+            warrior:"Guerriero",
+            killer:"Assassino",
+            demon:"Demone",
+            fire:"Fuoco",
+            dark:"Oscuro",
+            night:"Notte",
+            moon:"Luna",
+            star:"Stella",
+            wolf:"Lupo",
+            lion:"Leone",
+            tiger:"Tigre",
+            hero:"Eroe",
+            ghost:"Spettro",
+            angel:"Angelo",
+            love:"Amore",
+            ninja:"Ninja",
+            samurai:"Samurai"
+        };
+
+        return map[name.toLowerCase()] || "Guerriero";
+    }
+},
+
+Portuguese:{
+    flag:"🇵🇹",
+    convert:name=>{
+
+        const map={
+            shadow:"Sombra",
+            dragon:"Dragão",
+            king:"Rei",
+            queen:"Rainha",
+            phantom:"Fantasma",
+            legend:"Lenda",
+            warrior:"Guerreiro",
+            killer:"Assassino",
+            demon:"Demônio",
+            fire:"Fogo",
+            dark:"Escuro",
+            night:"Noite",
+            moon:"Lua",
+            star:"Estrela",
+            wolf:"Lobo",
+            lion:"Leão",
+            tiger:"Tigre",
+            hero:"Herói",
+            ghost:"Fantasma",
+            angel:"Anjo",
+            love:"Amor",
+            ninja:"Ninja",
+            samurai:"Samurai"
+        };
+
+        return map[name.toLowerCase()] || "Guerreiro";
+    }
+},
+
+Turkish:{
+    flag:"🇹🇷",
+    convert:name=>{
+
+        const map={
+            shadow:"Gölge",
+            dragon:"Ejderha",
+            king:"Kral",
+            queen:"Kraliçe",
+            phantom:"Hayalet",
+            legend:"Efsane",
+            warrior:"Savaşçı",
+            killer:"Katıl",
+            demon:"Şeytan",
+            fire:"Ateş",
+            dark:"Karanlık",
+            night:"Gece",
+            moon:"Ay",
+            star:"Yıldız",
+            wolf:"Kurt",
+            lion:"Aslan",
+            tiger:"Kaplan",
+            hero:"Kahraman",
+            ghost:"Hayalet",
+            angel:"Melek",
+            love:"Aşk",
+            ninja:"Ninja",
+            samurai:"Samuray"
+        };
+
+        return map[name.toLowerCase()] || "Savaşçı";
+    }
+},
+
+Greek:{
+    flag:"🇬🇷",
+    convert:name=>{
+
+        const map={
+            shadow:"Σκιά",
+            dragon:"Δράκος",
+            king:"Βασιλιάς",
+            queen:"Βασίλισσα",
+            phantom:"Φάντασμα",
+            legend:"Θρύλος",
+            warrior:"Πολεμιστής",
+            killer:"Δολοφόνος",
+            demon:"Δαίμονας",
+            fire:"Φωτιά",
+            dark:"Σκοτάδι",
+            night:"Νύχτα",
+            moon:"Σελήνη",
+            star:"Αστέρι",
+            wolf:"Λύκος",
+            lion:"Λιοντάρι",
+            tiger:"Τίγρης",
+            hero:"Ήρωας",
+            ghost:"Φάντασμα",
+            angel:"Άγγελος",
+            love:"Αγάπη",
+            ninja:"Νίντζα",
+            samurai:"Σαμουράι"
+        };
+
+        return map[name.toLowerCase()] || "Πολεμιστής";
+    }
+},
+
+Thai:{
+    flag:"🇹🇭",
+    convert:name=>{
+
+        const map={
+            shadow:"เงา",
+            dragon:"มังกร",
+            king:"ราชา",
+            queen:"ราชินี",
+            phantom:"ภูตผี",
+            legend:"ตำนาน",
+            warrior:"นักรบ",
+            killer:"นักฆ่า",
+            demon:"ปีศาจ",
+            fire:"ไฟ",
+            dark:"ความมืด",
+            night:"กลางคืน",
+            moon:"ดวงจันทร์",
+            star:"ดาว",
+            wolf:"หมาป่า",
+            lion:"สิงโต",
+            tiger:"เสือ",
+            hero:"ฮีโร่",
+            ghost:"ผี",
+            angel:"เทวดา",
+            love:"ความรัก",
+            ninja:"นินจา",
+            samurai:"ซามูไร"
+        };
+
+        return map[name.toLowerCase()] || "นักรบ";
+    }
 };
 
 
-/* =====================================================
-UNICODE MAPS
-===================================================== */
+/* =========================================================
+   FONT MAPS
+========================================================= */
 
-const normalLower=
-"abcdefghijklmnopqrstuvwxyz";
+const normalLower="abcdefghijklmnopqrstuvwxyz";
+const normalUpper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-const normalUpper=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const boldLower="𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
+const boldUpper="𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
 
-const boldLower=
-"𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳";
+const italicLower="𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
+const italicUpper="𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
 
-const boldUpper=
-"𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙";
+const monoLower="𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
+const monoUpper="𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
 
-const italicLower=
-"𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧";
+const sansBoldLower="𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇";
+const sansBoldUpper="𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
 
-const italicUpper=
-"𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍";
+const sansItalicLower="𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
+const sansItalicUpper="𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
 
-const monoLower=
-"𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣";
+const scriptLower="𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+const scriptUpper="𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
 
-const monoUpper=
-"𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉";
+const doubleLower="𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
+const doubleUpper="𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
 
-const sansBoldLower=
-"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇";
-
-const sansBoldUpper=
-"𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭";
-
-const sansItalicLower=
-"𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻";
-
-const sansItalicUpper=
-"𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡";
-
-const scriptLower=
-"𝒶𝒷𝒸𝒹𝑒𝑓𝑔𝒽𝒾𝒿𝓀𝓁𝓂𝓃𝑜𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
-
-const scriptUpper=
-"𝒜𝐵𝒞𝒟𝐸𝐹𝒢𝐻𝐼𝒥𝒦𝐿𝑀𝒩𝒪𝒫𝒬𝑅𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵";
-
-const doubleLower=
-"𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫";
-
-const doubleUpper=
-"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ";
-
-const frakturLower=
-"𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
-
-const frakturUpper=
-"𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
+const frakturLower="𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+const frakturUpper="𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
 
 
-/* =====================================================
-FONT CONVERTER
-===================================================== */
+/* =========================================================
+   FONT FUNCTIONS
+========================================================= */
 
 function convertFont(text,lower,upper){
 
-    return [...text]
-    .map(char=>{
+    return [...text].map(char=>{
 
-        let i=
-            normalLower.indexOf(char);
+        let i=normalLower.indexOf(char);
 
-        if(i>=0)
-            return lower[i];
+        if(i>=0) return lower[i];
 
-        i=
-            normalUpper.indexOf(char);
+        i=normalUpper.indexOf(char);
 
-        if(i>=0)
-            return upper[i];
+        if(i>=0) return upper[i];
 
         return char;
 
-    })
-    .join("");
-
+    }).join("");
 }
 
 function bold(text){
-    return convertFont(
-        text,boldLower,boldUpper
-    );
+    return convertFont(text,boldLower,boldUpper);
 }
 
 function italic(text){
-    return convertFont(
-        text,italicLower,italicUpper
-    );
+    return convertFont(text,italicLower,italicUpper);
 }
 
 function mono(text){
-    return convertFont(
-        text,monoLower,monoUpper
-    );
+    return convertFont(text,monoLower,monoUpper);
 }
 
 function sansBold(text){
-    return convertFont(
-        text,sansBoldLower,sansBoldUpper
-    );
+    return convertFont(text,sansBoldLower,sansBoldUpper);
 }
 
 function sansItalic(text){
-    return convertFont(
-        text,sansItalicLower,sansItalicUpper
-    );
+    return convertFont(text,sansItalicLower,sansItalicUpper);
 }
 
 function script(text){
-    return convertFont(
-        text,scriptLower,scriptUpper
-    );
+    return convertFont(text,scriptLower,scriptUpper);
 }
 
 function doubleText(text){
-    return convertFont(
-        text,doubleLower,doubleUpper
-    );
+    return convertFont(text,doubleLower,doubleUpper);
 }
 
 function fraktur(text){
-    return convertFont(
-        text,frakturLower,frakturUpper
-    );
+    return convertFont(text,frakturLower,frakturUpper);
 }
 
 
-/* =====================================================
-SMALL CAPS
-===================================================== */
+/* =========================================================
+   EXTRA EFFECTS
+========================================================= */
 
 function smallCaps(text){
 
     const map={
-
-        a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",
-        e:"ᴇ",f:"ғ",g:"ɢ",h:"ʜ",
-        i:"ɪ",j:"ᴊ",k:"ᴋ",l:"ʟ",
-        m:"ᴍ",n:"ɴ",o:"ᴏ",p:"ᴘ",
-        q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
+        a:"ᴀ",b:"ʙ",c:"ᴄ",d:"ᴅ",e:"ᴇ",
+        f:"ғ",g:"ɢ",h:"ʜ",i:"ɪ",j:"ᴊ",
+        k:"ᴋ",l:"ʟ",m:"ᴍ",n:"ɴ",o:"ᴏ",
+        p:"ᴘ",q:"ǫ",r:"ʀ",s:"s",t:"ᴛ",
         u:"ᴜ",v:"ᴠ",w:"ᴡ",x:"x",
         y:"ʏ",z:"ᴢ"
-
     };
 
     return [...text.toLowerCase()]
-    .map(c=>map[c]||c)
-    .join("");
-
+        .map(c=>map[c]||c)
+        .join("");
 }
 
-
-/* =====================================================
-EFFECTS
-===================================================== */
-
 function underline(text){
-    return [...text]
-    .map(c=>c+"\u0332")
-    .join("");
+    return [...text].map(c=>c+"\u0332").join("");
 }
 
 function strike(text){
-    return [...text]
-    .map(c=>c+"\u0336")
-    .join("");
+    return [...text].map(c=>c+"\u0336").join("");
 }
 
 function dots(text){
-    return [...text]
-    .map(c=>c+"\u0307")
-    .join("");
+    return [...text].map(c=>c+"\u0307").join("");
 }
 
 function overline(text){
-    return [...text]
-    .map(c=>c+"\u0305")
-    .join("");
+    return [...text].map(c=>c+"\u0305").join("");
 }
 
 function ring(text){
-    return [...text]
-    .map(c=>c+"\u030A")
-    .join("");
+    return [...text].map(c=>c+"\u030A").join("");
 }
 
 function spaced(text){
@@ -1770,70 +1693,49 @@ function heartSpace(text){
 
 function fullWidth(text){
 
-    return [...text]
-    .map(c=>{
+    return [...text].map(c=>{
 
         const code=c.charCodeAt(0);
 
         if(code>=33 && code<=126){
-            return String.fromCharCode(
-                code+65248
-            );
+            return String.fromCharCode(code+65248);
         }
 
-        if(c===" ")
-            return "　";
+        if(c===" ") return "　";
 
         return c;
 
-    })
-    .join("");
-
+    }).join("");
 }
-
-
-/* =====================================================
-BUBBLE
-===================================================== */
 
 function bubble(text){
 
-    const letters=
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const bubbles=[
-
         "Ⓐ","Ⓑ","Ⓒ","Ⓓ","Ⓔ","Ⓕ",
         "Ⓖ","Ⓗ","Ⓘ","Ⓙ","Ⓚ","Ⓛ",
         "Ⓜ","Ⓝ","Ⓞ","Ⓟ","Ⓠ","Ⓡ",
         "Ⓢ","Ⓣ","Ⓤ","Ⓥ","Ⓦ","Ⓧ",
         "Ⓨ","Ⓩ"
-
     ];
 
     return [...text.toUpperCase()]
-    .map(c=>{
-
-        const i=letters.indexOf(c);
-
-        return i>=0
-            ? bubbles[i]
-            : c;
-
-    })
-    .join("");
-
+        .map(c=>{
+            const i=letters.indexOf(c);
+            return i>=0 ? bubbles[i] : c;
+        })
+        .join("");
 }
 
 
-/* =====================================================
-FONTS
-===================================================== */
+/* =========================================================
+   FONT COLLECTION
+========================================================= */
 
 function getFonts(name){
 
     return [
-
         name,
         bold(name),
         italic(name),
@@ -1857,96 +1759,94 @@ function getFonts(name){
         heartSpace(name),
         name.toUpperCase(),
         name.toLowerCase()
-
     ];
-
 }
 
 
-/* =====================================================
-DECORATIONS
-===================================================== */
+/* =========================================================
+   DECORATIONS
+========================================================= */
 
 const decorations=[
 
-    ["",""],
-    ["꧁","꧂"],
-    ["༺","༻"],
-    ["༒","༒"],
-    ["『","』"],
-    ["「","」"],
-    ["【","】"],
-    ["〖","〗"],
-    ["《","》"],
-    ["〈","〉"],
-    ["〔","〕"],
-    ["乂","乂"],
-    ["メ","メ"],
-    ["亗","亗"],
-    ["ツ","ツ"],
-    ["シ","シ"],
-    ["々","々"],
-    ["彡","彡"],
-    ["〆","〆"],
-    ["么","么"],
-    ["♛","♛"],
-    ["♕","♕"],
-    ["♔","♔"],
-    ["★","★"],
-    ["☆","☆"],
-    ["✦","✦"],
-    ["✧","✧"],
-    ["✪","✪"],
-    ["✯","✯"],
-    ["⚡","⚡"],
-    ["☠","☠"],
-    ["☯","☯"],
-    ["♡","♡"],
-    ["♥","♥"],
-    ["❤","❤"],
-    ["⚔","⚔"],
-    ["⚜","⚜"],
-    ["☾","☽"],
-    ["☁","☁"],
-    ["✿","✿"],
-    ["❀","❀"],
-    ["𓆩","𓆪"],
-    ["୨୧","୨୧"],
-    ["⌁","⌁"],
-    ["☬","☬"],
-    ["♤","♤"],
-    ["♧","♧"],
-    ["♢","♢"],
-    ["☄","☄"],
-    ["❖","❖"],
-    ["◈","◈"],
-    ["◆","◆"],
-    ["◇","◇"],
-    ["✰","✰"],
-    ["✮","✮"],
-    ["✭","✭"],
-    ["✵","✵"],
-    ["✶","✶"],
-    ["✷","✷"],
-    ["✸","✸"],
-    ["✹","✹"],
-    ["✺","✺"],
-    ["✻","✻"],
-    ["✼","✼"],
-    ["✽","✽"],
-    ["✾","✾"],
-    ["❂","❂"],
-    ["❁","❁"],
-    ["❃","❃"],
-    ["❅","❅"],
-    ["❆","❆"]
+["",""],
+["꧁","꧂"],
+["༺","༻"],
+["༒","༒"],
+["『","』"],
+["「","」"],
+["【","】"],
+["〖","〗"],
+["《","》"],
+["〈","〉"],
+["〔","〕"],
+["乂","乂"],
+["メ","メ"],
+["亗","亗"],
+["ツ","ツ"],
+["シ","シ"],
+["々","々"],
+["彡","彡"],
+["〆","〆"],
+["么","么"],
+["♛","♛"],
+["♕","♕"],
+["♔","♔"],
+["★","★"],
+["☆","☆"],
+["✦","✦"],
+["✧","✧"],
+["✪","✪"],
+["✯","✯"],
+["⚡","⚡"],
+["☠","☠"],
+["☯","☯"],
+["♡","♡"],
+["♥","♥"],
+["❤","❤"],
+["⚔","⚔"],
+["⚜","⚜"],
+["☾","☽"],
+["☁","☁"],
+["✿","✿"],
+["❀","❀"],
+["𓆩","𓆪"],
+["୨୧","୨୧"],
+["⌁","⌁"],
+["☬","☬"],
+["♤","♤"],
+["♧","♧"],
+["♢","♢"],
+["☄","☄"],
+["❖","❖"],
+["◈","◈"],
+["◆","◆"],
+["◇","◇"],
+["✰","✰"],
+["✮","✮"],
+["✭","✭"],
+["✵","✵"],
+["✶","✶"],
+["✷","✷"],
+["✸","✸"],
+["✹","✹"],
+["✺","✺"],
+["✻","✻"],
+["✼","✼"],
+["✽","✽"],
+["✾","✾"],
+["❂","❂"],
+["❁","❁"],
+["❃","❃"],
+["❅","❅"],
+["❆","❆"]
 
 ];
 
 
-/* =====================================================
-CATEGORY STYLES
-===================================================== */
+/* =========================================================
+   CATEGORY STYLES
+========================================================= */
 
 function addCategoryStyles(add,name,category){
 
@@ -1967,7 +1867,6 @@ function addCategoryStyles(add,name,category){
             `꧁☠${name}☠꧂`,
             `亗⚔${name}⚔亗`
         ].forEach(add);
-
     }
 
     if(category==="Cool"){
@@ -1984,7 +1883,6 @@ function addCategoryStyles(add,name,category){
             `亗 ${name} 亗`,
             `『${name}』`
         ].forEach(add);
-
     }
 
     if(category==="Royal"){
@@ -1999,7 +1897,6 @@ function addCategoryStyles(add,name,category){
             `♛👑 ${name} 👑♛`,
             `꧁♕${name}♕꧂`
         ].forEach(add);
-
     }
 
     if(category==="Love"){
@@ -2016,7 +1913,6 @@ function addCategoryStyles(add,name,category){
             `꧁♡${name}♡꧂`,
             `『♥${name}♥』`
         ].forEach(add);
-
     }
 
     if(category==="Aesthetic"){
@@ -2033,7 +1929,6 @@ function addCategoryStyles(add,name,category){
             `⊹ ${name} ⊹`,
             `｡･ﾟﾟ･ ${name} ･ﾟﾟ･｡`
         ].forEach(add);
-
     }
 
     if(category==="Neon"){
@@ -2048,25 +1943,22 @@ function addCategoryStyles(add,name,category){
             `꧁⚡${name}⚡꧂`,
             `⚡亗${name}亗⚡`
         ].forEach(add);
-
     }
-
 }
 
 
-/* =====================================================
-MAKE STYLES
-===================================================== */
+/* =========================================================
+   MAKE STYLES
+========================================================= */
 
 function makeStyles(input,category){
 
     const styles=[];
     const seen=new Set();
 
-    function addStyle(value,language="English"){
+    function addStyle(value,language){
 
-        if(!value || seen.has(value))
-            return;
+        if(!value || seen.has(value)) return;
 
         seen.add(value);
 
@@ -2075,21 +1967,20 @@ function makeStyles(input,category){
             language:language,
             category:category
         });
-
     }
 
-    let languageList=
+    const languages=
         currentLanguage==="All"
-        ? ["English","Japanese","Chinese"]
+        ? Object.keys(languageData)
         : [currentLanguage];
 
-    languageList.forEach(language=>{
+    languages.forEach(language=>{
 
         const translated=
             languageData[language].convert(input);
 
-        getFonts(translated).forEach(style=>{
-            addStyle(style,language);
+        getFonts(translated).forEach(font=>{
+            addStyle(font,language);
         });
 
         decorations.forEach(pair=>{
@@ -2102,126 +1993,73 @@ function makeStyles(input,category){
         });
 
         addCategoryStyles(
-            style=>{
-                addStyle(style,language);
-            },
+            value=>addStyle(value,language),
             translated,
             category
         );
 
-        const fonts=getFonts(translated);
-
-        fonts.forEach((font,index)=>{
+        getFonts(translated).forEach((font,index)=>{
 
             const pair=
-                decorations[
-                    index%decorations.length
-                ];
+                decorations[index%decorations.length];
 
             addStyle(
                 pair[0]+font+pair[1],
                 language
             );
 
-            addStyle(
-                "★ "+font+" ★",
-                language
-            );
+            addStyle("★ "+font+" ★",language);
 
-            addStyle(
-                "亗 "+font+" 亗",
-                language
-            );
+            addStyle("亗 "+font+" 亗",language);
 
-            addStyle(
-                "꧁"+font+"꧂",
-                language
-            );
+            addStyle("꧁"+font+"꧂",language);
 
-            addStyle(
-                "『"+font+"』",
-                language
-            );
+            addStyle("『"+font+"』",language);
 
-            addStyle(
-                "乂"+font+"乂",
-                language
-            );
+            addStyle("乂"+font+"乂",language);
 
         });
 
     });
 
 
+    /* Number variations */
+
     const numbers=[
-        "07","09","11","13","21",
-        "24","47","69","77","99",
-        "111","444","555","666",
-        "777","999","007","404",
-        "420","786"
+        "07","09","11","13","21","24","47",
+        "69","77","99","111","444","555",
+        "666","777","999","007","404","420","786"
     ];
 
-    const numberLanguages=[];
+    languages.forEach(language=>{
 
-    if(
-        currentLanguage==="All" ||
-        currentLanguage==="English"
-    ){
-        numberLanguages.push([
-            languageData.English.convert(input),
-            "English"
-        ]);
-    }
-
-    if(
-        currentLanguage==="All" ||
-        currentLanguage==="Japanese"
-    ){
-        numberLanguages.push([
-            languageData.Japanese.convert(input),
-            "Japanese"
-        ]);
-    }
-
-    if(
-        currentLanguage==="All" ||
-        currentLanguage==="Chinese"
-    ){
-        numberLanguages.push([
-            languageData.Chinese.convert(input),
-            "Chinese"
-        ]);
-    }
-
-    numberLanguages.forEach(item=>{
-
-        const value=item[0];
-        const language=item[1];
+        const translated=
+            languageData[language].convert(input);
 
         numbers.forEach(number=>{
 
             addStyle(
-                value+number,
+                translated+number,
                 language
             );
 
             addStyle(
-                number+value,
+                number+translated,
                 language
             );
 
             addStyle(
-                value+"_"+number,
+                translated+"_"+number,
                 language
             );
 
             addStyle(
-                value+"ツ"+number,
+                translated+"ツ"+number,
                 language
             );
 
             addStyle(
-                "亗"+value+number+"亗",
+                "亗"+translated+number+"亗",
                 language
             );
 
@@ -2229,110 +2067,107 @@ function makeStyles(input,category){
 
     });
 
+
+    /*
+       More combinations.
+       This creates thousands of local variations
+       without any database.
+    */
+
+    languages.forEach(language=>{
+
+        const translated=
+            languageData[language].convert(input);
+
+        const symbols=[
+            "★","☆","✦","✧","✪","✯","⚡",
+            "♡","♥","❤","♛","♕","☠","⚔",
+            "☯","☾","☄","❖","◆","◇","亗",
+            "ツ","シ","彡","メ","乂","々"
+        ];
+
+        symbols.forEach(symbol=>{
+
+            addStyle(
+                symbol+translated,
+                language
+            );
+
+            addStyle(
+                translated+symbol,
+                language
+            );
+
+            addStyle(
+                symbol+" "+translated+" "+symbol,
+                language
+            );
+
+            addStyle(
+                symbol+symbol+translated+symbol+symbol,
+                language
+            );
+
+        });
+
+    });
+
+
     return styles.slice(0,MAX_STYLES);
-
 }
 
 
-/* =====================================================
-RESET
-===================================================== */
-
-function resetInfiniteScroll(){
-
-    visibleCount=0;
-    loadingMore=false;
-    allNamesFinished=false;
-
-}
-
-
-/* =====================================================
-GENERATE
-===================================================== */
+/* =========================================================
+   GENERATE
+========================================================= */
 
 function generateNames(){
 
     const input=
-        document
-        .getElementById("nameInput")
-        .value
-        .trim();
+        document.getElementById("nameInput").value.trim();
 
     if(!input){
 
-        showToast(
-            "Please enter a name"
-        );
+        showToast("Please enter a name");
 
-        document
-        .getElementById("nameInput")
-        .focus();
+        document.getElementById("nameInput").focus();
 
         return;
-
     }
 
     generatedStyles=
-        makeStyles(
-            input,
-            currentCategory
-        );
+        makeStyles(input,currentCategory);
 
-    resetInfiniteScroll();
+    visibleCount=0;
+    allNamesFinished=false;
+    loadingMore=false;
 
-    document
-    .getElementById("resultCount")
-    .textContent=
-        generatedStyles.length+
-        " styles";
+    document.getElementById("resultCount").textContent=
+        generatedStyles.length+" styles";
 
-    renderGenerated();
-
-}
-
-
-/* =====================================================
-RENDER GENERATED
-===================================================== */
-
-function renderGenerated(){
-
-    const grid=
-        document
-        .getElementById("resultsGrid");
-
-    grid.innerHTML="";
-
-    if(!generatedStyles.length){
-
-        grid.innerHTML=
-            `<div class="loading">
-                No names found.
-             </div>`;
-
-        updateLoadStatus(true,false);
-
-        return;
-
-    }
+    document.getElementById("resultsGrid").innerHTML="";
 
     loadMoreGenerated();
 
+    setTimeout(()=>{
+
+        document.getElementById("resultsGrid")
+            .scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+    },80);
 }
 
 
-/* =====================================================
-LOAD GENERATED BATCH
-===================================================== */
+/* =========================================================
+   LOAD GENERATED
+========================================================= */
 
 function loadMoreGenerated(){
 
-    if(
-        loadingMore ||
-        allNamesFinished
-    )
-        return;
+    if(loadingMore || allNamesFinished) return;
 
     loadingMore=true;
 
@@ -2341,10 +2176,7 @@ function loadMoreGenerated(){
     requestAnimationFrame(()=>{
 
         const grid=
-            document
-            .getElementById(
-                "resultsGrid"
-            );
+            document.getElementById("resultsGrid");
 
         const start=visibleCount;
 
@@ -2356,11 +2188,7 @@ function loadMoreGenerated(){
         const fragment=
             document.createDocumentFragment();
 
-        for(
-            let i=start;
-            i<end;
-            i++
-        ){
+        for(let i=start;i<end;i++){
 
             fragment.appendChild(
                 createCard(
@@ -2368,18 +2196,15 @@ function loadMoreGenerated(){
                     i+1
                 )
             );
-
         }
 
         grid.appendChild(fragment);
 
         visibleCount=end;
+
         loadingMore=false;
 
-        if(
-            visibleCount>=
-            generatedStyles.length
-        ){
+        if(visibleCount>=generatedStyles.length){
 
             allNamesFinished=true;
 
@@ -2388,517 +2213,139 @@ function loadMoreGenerated(){
         }else{
 
             updateLoadStatus(false,false);
-
         }
 
     });
-
 }
 
 
-/* =====================================================
-LOAD DATABASE BATCH
-===================================================== */
+/* =========================================================
+   DEFAULT NAMES
+========================================================= */
 
-async function loadDatabaseBatch(){
-
-    if(
-        loadingMore ||
-        databaseFinished
-    )
-        return;
-
-    loadingMore=true;
-
-    updateLoadStatus(false,true);
-
-    try{
-
-        const start=databaseOffset;
-
-        const end=
-            start+LOAD_SIZE-1;
-
-        const response=
-            await supabaseClient
-            .from("names")
-            .select("id,name,language,category")
-            .range(start,end);
-
-        if(
-            response.error ||
-            !response.data ||
-            !response.data.length
-        ){
-
-            databaseFinished=true;
-            loadingMore=false;
-
-            updateLoadStatus(true,false);
-
-            return;
-
-        }
-
-        const grid=
-            document
-            .getElementById(
-                "resultsGrid"
-            );
-
-        const fragment=
-            document.createDocumentFragment();
-
-        response.data.forEach(
-            (item,index)=>{
-
-                const style={
-
-                    value:
-                        item.name ||
-                        item.value ||
-                        "",
-
-                    language:
-                        item.language ||
-                        "English",
-
-                    category:
-                        item.category ||
-                        currentCategory
-
-                };
-
-                fragment.appendChild(
-                    createCard(
-                        style,
-                        start+index+1
-                    )
-                );
-
-            }
-        );
-
-        grid.appendChild(fragment);
-
-        databaseOffset+=
-            response.data.length;
-
-        visibleCount=
-            databaseOffset;
-
-        if(
-            response.data.length<
-            LOAD_SIZE
-        ){
-
-            databaseFinished=true;
-
-            updateLoadStatus(
-                true,
-                false
-            );
-
-        }else{
-
-            updateLoadStatus(
-                false,
-                false
-            );
-
-        }
-
-    }catch(error){
-
-        console.warn(
-            "Database batch error",
-            error
-        );
-
-        databaseFinished=true;
-
-        updateLoadStatus(
-            true,
-            false
-        );
-
-    }
-
-    loadingMore=false;
-
-}
+const popularBaseNames=[
+    "Shadow",
+    "Dragon",
+    "Phantom",
+    "Legend",
+    "Warrior",
+    "Hunter",
+    "Killer",
+    "Demon",
+    "Devil",
+    "King",
+    "Queen",
+    "Master",
+    "Ghost",
+    "Angel",
+    "Titan",
+    "Storm",
+    "Fire",
+    "Wolf",
+    "Lion",
+    "Tiger",
+    "Sniper",
+    "Ninja",
+    "Samurai",
+    "Raven",
+    "Venom",
+    "Blaze",
+    "Fury",
+    "Dark",
+    "Night",
+    "Moon",
+    "Star",
+    "Hero",
+    "Prince",
+    "Princess",
+    "Emperor",
+    "Boss",
+    "Reaper",
+    "Viper",
+    "Destroyer",
+    "Infinity",
+    "Legendary",
+    "Savage",
+    "Mystic",
+    "Alpha",
+    "Omega",
+    "Phoenix",
+    "Thunder",
+    "Ice",
+    "FireLord",
+    "DarkLord",
+    "God",
+    "KingX",
+    "Noob",
+    "Pro",
+    "MasterX",
+    "ShadowX",
+    "DragonX",
+    "GhostX",
+    "NightKing",
+    "Death",
+    "Dominator",
+    "Champion"
+];
 
 
-/* =====================================================
-INITIAL DATABASE LOAD
-===================================================== */
+/* =========================================================
+   DEFAULT PAGE LOAD
+========================================================= */
 
-async function loadPopularNames(){
+function loadPopularNames(){
 
     const grid=
-        document
-        .getElementById(
-            "resultsGrid"
-        );
+        document.getElementById("resultsGrid");
 
-    grid.innerHTML=
-        `<div class="loading">
-            ⚡ Loading names...
-         </div>`;
+    grid.innerHTML="";
 
-    resetInfiniteScroll();
+    generatedStyles=[];
 
-    databaseOffset=0;
-    databaseFinished=false;
+    const pool=[];
 
-    if(!supabaseClient){
+    popularBaseNames.forEach(name=>{
 
-        renderFallback();
+        const styles=
+            makeStyles(name,currentCategory);
 
-        return;
+        styles.slice(0,35).forEach(style=>{
+            pool.push(style);
+        });
 
-    }
+    });
 
-    usingDatabase=true;
+    generatedStyles=
+        pool.slice(0,MAX_STYLES);
 
-    document
-    .getElementById(
-        "resultCount"
-    )
-    .textContent=
+    visibleCount=0;
+    allNamesFinished=false;
+
+    document.getElementById("resultCount").textContent=
         "10000+ styles";
 
-    grid.innerHTML="";
-
-    await loadDatabaseBatch();
-
+    loadMoreGenerated();
 }
 
 
-/* =====================================================
-FALLBACK
-===================================================== */
-
-function renderFallback(){
-
-    usingDatabase=false;
-
-    const fallback=[
-
-        "Shadow",
-        "Dragon",
-        "Phantom",
-        "Legend",
-        "Warrior",
-        "Hunter",
-        "Killer",
-        "Demon",
-        "Devil",
-        "King",
-        "Queen",
-        "Master",
-        "Ghost",
-        "Angel",
-        "Titan",
-        "Storm",
-        "Fire",
-        "Wolf",
-        "Lion",
-        "Tiger",
-        "Sniper",
-        "Ninja",
-        "Samurai",
-        "Raven",
-        "Venom",
-        "Blaze",
-        "Fury",
-        "Dark",
-        "Night",
-        "Moon",
-        "Star",
-        "Hero",
-        "Prince",
-        "Emperor",
-        "Boss",
-        "Reaper",
-        "Viper",
-        "Destroyer",
-        "Infinity"
-
-    ];
-
-    const all=[];
-
-    fallback.forEach(name=>{
-
-        makeStyles(
-            name,
-            currentCategory
-        )
-        .slice(0,50)
-        .forEach(item=>{
-            all.push(item);
-        });
-
-    });
-
-    popularNames=all;
-
-    document
-    .getElementById(
-        "resultCount"
-    )
-    .textContent=
-        popularNames.length+
-        " styles";
-
-    const grid=
-        document
-        .getElementById(
-            "resultsGrid"
-        );
-
-    grid.innerHTML="";
-
-    resetInfiniteScroll();
-
-    loadMoreFallback();
-
-}
-
-
-/* =====================================================
-FALLBACK BATCH
-===================================================== */
-
-function loadMoreFallback(){
-
-    if(
-        loadingMore ||
-        allNamesFinished
-    )
-        return;
-
-    loadingMore=true;
-
-    updateLoadStatus(false,true);
-
-    requestAnimationFrame(()=>{
-
-        const grid=
-            document
-            .getElementById(
-                "resultsGrid"
-            );
-
-        const start=visibleCount;
-
-        const end=Math.min(
-            start+LOAD_SIZE,
-            popularNames.length
-        );
-
-        const fragment=
-            document.createDocumentFragment();
-
-        for(
-            let i=start;
-            i<end;
-            i++
-        ){
-
-            fragment.appendChild(
-                createCard(
-                    popularNames[i],
-                    i+1
-                )
-            );
-
-        }
-
-        grid.appendChild(fragment);
-
-        visibleCount=end;
-
-        loadingMore=false;
-
-        if(
-            visibleCount>=
-            popularNames.length
-        ){
-
-            allNamesFinished=true;
-
-            updateLoadStatus(true,false);
-
-        }else{
-
-            updateLoadStatus(false,false);
-
-        }
-
-    });
-
-}
-
-
-/* =====================================================
-LOAD MORE
-===================================================== */
-
-function loadMore(){
-
-    if(usingDatabase){
-
-        loadDatabaseBatch();
-
-    }else{
-
-        loadMoreFallback();
-
-    }
-
-}
-
-
-/* =====================================================
-LOAD STATUS
-===================================================== */
-
-function updateLoadStatus(
-    done=false,
-    loading=false
-){
-
-    const status=
-        document
-        .getElementById(
-            "loadMoreStatus"
-        );
-
-    status.className=
-        "loadMoreStatus";
-
-    if(loading){
-
-        status.classList.add(
-            "loading"
-        );
-
-        status.textContent=
-            "✨ Loading more names...";
-
-        return;
-
-    }
-
-    if(done){
-
-        status.classList.add(
-            "done"
-        );
-
-        status.textContent=
-            "✓ All available names loaded";
-
-        return;
-
-    }
-
-    status.textContent=
-        "↓ Scroll down to load more names...";
-
-}
-
-
-/* =====================================================
-INFINITE SCROLL
-===================================================== */
-
-let scrollTick=false;
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        if(scrollTick)
-            return;
-
-        scrollTick=true;
-
-        requestAnimationFrame(()=>{
-
-            scrollTick=false;
-
-            if(
-                loadingMore ||
-                databaseFinished ||
-                allNamesFinished
-            )
-                return;
-
-            const nearBottom=
-                window.innerHeight+
-                window.scrollY >=
-                document.documentElement
-                .scrollHeight-
-                900;
-
-            if(nearBottom){
-
-                if(
-                    document
-                    .getElementById(
-                        "nameInput"
-                    )
-                    .value
-                    .trim()
-                ){
-
-                    loadMoreGenerated();
-
-                }else{
-
-                    loadMore();
-
-                }
-
-            }
-
-        });
-
-    },
-    {passive:true}
-);
-
-
-/* =====================================================
-CARD
-===================================================== */
+/* =========================================================
+   CARD
+========================================================= */
 
 function createCard(style,number){
 
-    const card=
-        document.createElement("div");
+    const card=document.createElement("div");
 
     card.className="nameCard";
 
-    const value=
-        style.value || "";
+    const value=style.value || "";
 
-    const language=
-        style.language ||
-        "English";
+    const language=style.language || "English";
 
-    const category=
-        style.category ||
-        currentCategory;
+    const category=style.category || currentCategory;
 
     const flag=
-        languageData[
-            language
-        ]?.flag ||
-        "🌐";
+        languageData[language]?.flag || "🌐";
 
     const isSaved=
         favorites.includes(value);
@@ -2910,7 +2357,7 @@ function createCard(style,number){
         </div>
 
         <div class="cardLanguage">
-            ${flag} ${language}
+            ${flag} ${escapeHTML(language)}
         </div>
 
         <div class="cardBadge">
@@ -2940,40 +2387,33 @@ function createCard(style,number){
         <div class="cardBottom">
 
             <button
-            class="cardBtn"
-            onclick="copyName(this)"
-            data-name="${encodeURIComponent(value)}">
-
-            📋 Copy
-
+                class="cardBtn"
+                onclick="copyName(this)"
+                data-name="${encodeURIComponent(value)}">
+                📋 Copy
             </button>
 
             <button
-            class="cardBtn favoriteBtn ${isSaved ? "saved":""}"
-            onclick="toggleFavorite(this)"
-            data-name="${encodeURIComponent(value)}">
-
-            ${isSaved ? "♥ Saved":"♡ Favorite"}
-
+                class="cardBtn favoriteBtn ${isSaved?"saved":""}"
+                onclick="toggleFavorite(this)"
+                data-name="${encodeURIComponent(value)}">
+                ${isSaved?"♥ Saved":"♡ Favorite"}
             </button>
 
         </div>
-
     `;
 
     return card;
-
 }
 
 
-/* =====================================================
-CATEGORY ICON
-===================================================== */
+/* =========================================================
+   CATEGORY ICON
+========================================================= */
 
 function getCategoryIcon(category){
 
     const icons={
-
         Gaming:"🎮",
         Cool:"😎",
         Royal:"♛",
@@ -2981,71 +2421,65 @@ function getCategoryIcon(category){
         Aesthetic:"✧",
         Neon:"ϟ",
         Favorite:"♥"
-
     };
 
     return icons[category] || "✨";
-
 }
 
 
-/* =====================================================
-COPY
-===================================================== */
+/* =========================================================
+   COPY
+========================================================= */
 
 function copyName(button){
 
     const name=
-        decodeURIComponent(
-            button.dataset.name
-        );
+        decodeURIComponent(button.dataset.name);
 
-    navigator.clipboard
-    .writeText(name)
-    .then(()=>{
+    if(navigator.clipboard){
 
-        showToast(
-            "Copied: "+name
-        );
+        navigator.clipboard.writeText(name)
+        .then(()=>{
+            showToast("Copied: "+name);
+        })
+        .catch(()=>{
+            fallbackCopy(name);
+        });
 
-    })
-    .catch(()=>{
+    }else{
 
-        const area=
-            document.createElement(
-                "textarea"
-            );
+        fallbackCopy(name);
+    }
+}
 
-        area.value=name;
+function fallbackCopy(name){
 
-        document.body.appendChild(area);
+    const area=document.createElement("textarea");
 
-        area.select();
+    area.value=name;
 
-        document.execCommand("copy");
+    document.body.appendChild(area);
 
-        area.remove();
+    area.select();
 
-        showToast("Copied!");
+    document.execCommand("copy");
 
-    });
+    area.remove();
 
+    showToast("Copied!");
 }
 
 
-/* =====================================================
-FAVORITE
-===================================================== */
+/* =========================================================
+   FAVORITE
+========================================================= */
 
 function toggleFavorite(button){
 
     const name=
-        decodeURIComponent(
-            button.dataset.name
-        );
+        decodeURIComponent(button.dataset.name);
 
-    const index=
-        favorites.indexOf(name);
+    const index=favorites.indexOf(name);
 
     if(index>=0){
 
@@ -3053,12 +2487,9 @@ function toggleFavorite(button){
 
         button.classList.remove("saved");
 
-        button.textContent=
-            "♡ Favorite";
+        button.textContent="♡ Favorite";
 
-        showToast(
-            "Removed from favorites"
-        );
+        showToast("Removed from favorites");
 
     }else{
 
@@ -3066,13 +2497,9 @@ function toggleFavorite(button){
 
         button.classList.add("saved");
 
-        button.textContent=
-            "♥ Saved";
+        button.textContent="♥ Saved";
 
-        showToast(
-            "Added to favorites"
-        );
-
+        showToast("Added to favorites");
     }
 
     localStorage.setItem(
@@ -3081,44 +2508,38 @@ function toggleFavorite(button){
     );
 
     renderFavorites();
-
 }
 
 
-/* =====================================================
-FAVORITES
-===================================================== */
+/* =========================================================
+   FAVORITES
+========================================================= */
 
 function renderFavorites(){
 
     const list=
-        document
-        .getElementById(
-            "favoriteList"
-        );
+        document.getElementById("favoriteList");
 
     list.innerHTML="";
 
     if(!favorites.length){
 
-        list.innerHTML=
-            `<div
+        list.innerHTML=`
+            <div
                 class="loading"
                 style="
                 grid-column:1/-1;
                 padding:40px;
                 font-size:14px;">
-                No favorites yet.
+                No favorites yet.<br>
                 Click ♡ Favorite to save a name.
-             </div>`;
+            </div>
+        `;
 
         return;
-
     }
 
-    favorites
-    .slice(0,24)
-    .forEach((name,index)=>{
+    favorites.slice(0,50).forEach((name,index)=>{
 
         list.appendChild(
             createCard(
@@ -3132,116 +2553,57 @@ function renderFavorites(){
         );
 
     });
-
 }
 
 
-/* =====================================================
-RANDOM
-===================================================== */
+/* =========================================================
+   RANDOM
+========================================================= */
 
 function randomName(){
 
-    const names=[
+    const names=popularBaseNames;
 
-        "Shadow",
-        "Dragon",
-        "Phantom",
-        "Legend",
-        "Warrior",
-        "Hunter",
-        "Killer",
-        "Demon",
-        "Devil",
-        "King",
-        "Queen",
-        "Master",
-        "Ghost",
-        "Angel",
-        "Titan",
-        "Storm",
-        "Fire",
-        "Wolf",
-        "Lion",
-        "Tiger",
-        "Sniper",
-        "Ninja",
-        "Samurai",
-        "Raven",
-        "Venom",
-        "Blaze",
-        "Fury",
-        "Dark",
-        "Night",
-        "Moon",
-        "Star",
-        "Hero",
-        "Prince",
-        "Emperor",
-        "God",
-        "Boss",
-        "Destroyer",
-        "Reaper",
-        "Viper"
-
-    ];
-
-    const random=
+    const randomBase=
         names[
             Math.floor(
-                Math.random()*
-                names.length
+                Math.random()*names.length
             )
         ];
 
-    document
-    .getElementById(
-        "nameInput"
-    )
-    .value=random;
+    document.getElementById("nameInput").value=randomBase;
 
     generateNames();
 
     setTimeout(()=>{
 
-        if(!generatedStyles.length)
-            return;
+        if(!generatedStyles.length) return;
 
         const selected=
             generatedStyles[
                 Math.floor(
-                    Math.random()*
-                    generatedStyles.length
+                    Math.random()*generatedStyles.length
                 )
             ];
 
-        const value=
-            typeof selected==="string"
-            ? selected
-            : selected.value;
+        document.getElementById("randomResult")
+            .textContent=selected.value;
 
-        document
-        .getElementById(
-            "randomResult"
-        )
-        .textContent=value;
-
-    },50);
-
+    },100);
 }
 
 
-/* =====================================================
-CATEGORY
-===================================================== */
+/* =========================================================
+   CATEGORY
+========================================================= */
 
 function selectCategory(element){
 
     document
-    .querySelectorAll(".category")
-    .forEach(item=>{
-        item.classList.remove("active");
-    });
+        .querySelectorAll(".category")
+        .forEach(item=>{
+            item.classList.remove("active");
+        });
 
     element.classList.add("active");
 
@@ -3249,12 +2611,8 @@ function selectCategory(element){
         element.dataset.category;
 
     const input=
-        document
-        .getElementById(
-            "nameInput"
-        )
-        .value
-        .trim();
+        document.getElementById("nameInput")
+            .value.trim();
 
     if(input){
 
@@ -3263,23 +2621,21 @@ function selectCategory(element){
     }else{
 
         loadPopularNames();
-
     }
-
 }
 
 
-/* =====================================================
-LANGUAGE
-===================================================== */
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 function selectLanguage(button){
 
     document
-    .querySelectorAll(".languageBtn")
-    .forEach(item=>{
-        item.classList.remove("active");
-    });
+        .querySelectorAll(".languageBtn")
+        .forEach(item=>{
+            item.classList.remove("active");
+        });
 
     button.classList.add("active");
 
@@ -3287,12 +2643,8 @@ function selectLanguage(button){
         button.dataset.language;
 
     const input=
-        document
-        .getElementById(
-            "nameInput"
-        )
-        .value
-        .trim();
+        document.getElementById("nameInput")
+            .value.trim();
 
     if(input){
 
@@ -3301,83 +2653,126 @@ function selectLanguage(button){
     }else{
 
         loadPopularNames();
-
     }
-
 }
 
 
-/* =====================================================
-EXAMPLE
-===================================================== */
+/* =========================================================
+   QUICK EXAMPLE
+========================================================= */
 
 function setExample(name){
 
-    document
-    .getElementById(
-        "nameInput"
-    )
-    .value=name;
+    document.getElementById("nameInput").value=name;
 
     generateNames();
-
-    setTimeout(()=>{
-
-        window.scrollTo({
-
-            top:
-                document
-                .getElementById(
-                    "resultsGrid"
-                )
-                .offsetTop-100,
-
-            behavior:"smooth"
-
-        });
-
-    },50);
-
 }
 
 
-/* =====================================================
-FOCUS
-===================================================== */
+/* =========================================================
+   FOCUS
+========================================================= */
 
 function focusInput(){
 
     const input=
-        document
-        .getElementById(
-            "nameInput"
-        );
+        document.getElementById("nameInput");
 
     input.focus();
 
     window.scrollTo({
-
         top:0,
         behavior:"smooth"
-
     });
-
 }
 
 
-/* =====================================================
-TOAST
-===================================================== */
+/* =========================================================
+   LOAD STATUS
+========================================================= */
+
+function updateLoadStatus(done=false,loading=false){
+
+    const status=
+        document.getElementById("loadMoreStatus");
+
+    status.className="loadMoreStatus";
+
+    if(loading){
+
+        status.classList.add("loading");
+
+        status.textContent=
+            "✨ Loading more names...";
+
+        return;
+    }
+
+    if(done){
+
+        status.classList.add("done");
+
+        status.textContent=
+            "✓ All generated names loaded";
+
+        return;
+    }
+
+    status.textContent=
+        "↓ Scroll down to load more names...";
+}
+
+
+/* =========================================================
+   INFINITE SCROLL
+========================================================= */
+
+let scrollTick=false;
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        if(scrollTick) return;
+
+        scrollTick=true;
+
+        requestAnimationFrame(()=>{
+
+            scrollTick=false;
+
+            if(
+                loadingMore ||
+                allNamesFinished
+            ) return;
+
+            const nearBottom=
+                window.innerHeight+
+                window.scrollY >=
+                document.documentElement.scrollHeight-900;
+
+            if(nearBottom){
+
+                loadMoreGenerated();
+            }
+
+        });
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   TOAST
+========================================================= */
 
 let toastTimer;
 
 function showToast(message){
 
     const toast=
-        document
-        .getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
     toast.textContent=message;
 
@@ -3385,59 +2780,47 @@ function showToast(message){
 
     clearTimeout(toastTimer);
 
-    toastTimer=
-        setTimeout(()=>{
+    toastTimer=setTimeout(()=>{
 
-            toast.classList.remove(
-                "show"
-            );
+        toast.classList.remove("show");
 
-        },1800);
-
+    },1800);
 }
 
 
-/* =====================================================
-ESCAPE
-===================================================== */
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
 function escapeHTML(text){
 
     return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 }
 
 
-/* =====================================================
-ENTER KEY
-===================================================== */
+/* =========================================================
+   ENTER KEY
+========================================================= */
 
 document
-.getElementById(
-    "nameInput"
-)
-.addEventListener(
-    "keydown",
-    function(event){
+    .getElementById("nameInput")
+    .addEventListener("keydown",function(event){
 
         if(event.key==="Enter"){
-
             generateNames();
-
         }
 
-    }
-);
+    });
 
 
-/* =====================================================
-START
-===================================================== */
+/* =========================================================
+   START
+========================================================= */
 
 renderFavorites();
 
