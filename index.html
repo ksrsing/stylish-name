@@ -605,6 +605,8 @@ body{
     1px solid rgba(255,60,90,.2);
 
     color:#ff9bad;
+
+    line-height:1.7;
 }
 
 /* LOAD MORE */
@@ -861,9 +863,7 @@ footer{
 <body>
 
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -908,9 +908,7 @@ Get Started
 </nav>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- HERO -->
 
 <section
 class="hero"
@@ -981,9 +979,7 @@ Your Name
 </section>
 
 
-<!-- =====================================================
-     STYLES
-===================================================== -->
+<!-- STYLES -->
 
 <section
 class="section"
@@ -1116,9 +1112,7 @@ Danger
 </section>
 
 
-<!-- =====================================================
-     RESULTS
-===================================================== -->
+<!-- RESULTS -->
 
 <section class="section">
 
@@ -1159,7 +1153,8 @@ Loading stylish names...
 
 <div
 class="load-more-wrap"
-id="loadMoreWrap">
+id="loadMoreWrap"
+style="display:none;">
 
 <button
 class="load-more"
@@ -1174,9 +1169,7 @@ Load More
 </section>
 
 
-<!-- =====================================================
-     FAVORITES
-===================================================== -->
+<!-- FAVORITES -->
 
 <section
 class="section"
@@ -1205,9 +1198,7 @@ id="favoriteList">
 </section>
 
 
-<!-- =====================================================
-     ABOUT
-===================================================== -->
+<!-- ABOUT -->
 
 <section
 class="section"
@@ -1351,12 +1342,15 @@ let generatedPage = 0;
 
 const GENERATED_PAGE_SIZE = 80;
 
+let currentMode = "database";
+
 
 /* =====================================================
-   UNICODE STYLE MAP
+   UNICODE STYLE MAPS
 ===================================================== */
 
 const UNICODE_STYLES = {
+
 
 italic: {
 
@@ -1427,7 +1421,7 @@ lower:
 
 
 /* =====================================================
-   FIND DATABASE CHARACTER STYLE
+   GET CHARACTER STYLE
 ===================================================== */
 
 function getCharStyle(char){
@@ -1441,6 +1435,7 @@ function getCharStyle(char){
             styleName
         ];
 
+
         if(
             Array.from(
                 style.upper
@@ -1450,6 +1445,7 @@ function getCharStyle(char){
             return styleName;
 
         }
+
 
         if(
             Array.from(
@@ -1464,23 +1460,24 @@ function getCharStyle(char){
     }
 
 
-    /*
-       Fullwidth
-    */
-
     const code =
     char.codePointAt(0);
 
 
     if(
+
         (
             code >= 0xFF21 &&
             code <= 0xFF3A
-        ) ||
+        )
+
+        ||
+
         (
             code >= 0xFF41 &&
             code <= 0xFF5A
         )
+
     ){
 
         return "fullwidth";
@@ -1489,11 +1486,12 @@ function getCharStyle(char){
 
 
     return null;
+
 }
 
 
 /* =====================================================
-   CHECK IF CHARACTER IS A NAME LETTER
+   CHECK CHARACTER
 ===================================================== */
 
 function isStyledLetter(char){
@@ -1510,11 +1508,12 @@ function isStyledLetter(char){
     return (
         getCharStyle(char) !== null
     );
+
 }
 
 
 /* =====================================================
-   CONVERT ONE CHARACTER
+   CONVERT CHARACTER
 ===================================================== */
 
 function convertCharacter(
@@ -1579,7 +1578,9 @@ function convertCharacter(
 
 
     if(!style){
+
         return char;
+
     }
 
 
@@ -1587,6 +1588,7 @@ function convertCharacter(
     Array.from(
         style.upper
     );
+
 
     const lower =
     Array.from(
@@ -1632,7 +1634,7 @@ function convertCharacter(
 
 
 /* =====================================================
-   APPLY STYLE TO INPUT
+   APPLY STYLE
 ===================================================== */
 
 function applyStyleToInput(
@@ -1658,23 +1660,7 @@ function applyStyleToInput(
 
 
 /* =====================================================
-   CREATE NAME FROM DATABASE TEMPLATE
-=====================================================
-
-Example:
-
-Database:
-
-꧁༺ 𝑹𝒂𝒉𝒖𝒍 ༻꧂
-
-Input:
-
-Shailendra
-
-Result:
-
-꧁༺ 𝑺𝒉𝒂𝒊𝒍𝒆𝒏𝒅𝒓𝒂 ༻꧂
-
+   CREATE NAME FROM DATABASE STYLE
 ===================================================== */
 
 function createNameFromTemplate(
@@ -1687,11 +1673,6 @@ function createNameFromTemplate(
         databaseName
     );
 
-
-    /*
-       Database ke alphabet characters
-       ki positions.
-    */
 
     const positions = [];
 
@@ -1715,12 +1696,6 @@ function createNameFromTemplate(
     }
 
 
-    /*
-       Agar database row me koi
-       alphabet/style nahi hai,
-       use generator me nahi lenge.
-    */
-
     if(
         positions.length === 0
     ){
@@ -1733,6 +1708,7 @@ function createNameFromTemplate(
     const first =
     positions[0];
 
+
     const last =
     positions[
         positions.length - 1
@@ -1740,8 +1716,8 @@ function createNameFromTemplate(
 
 
     /*
-       Prefix:
-       ꧁༺
+       Prefix aur suffix exactly
+       database se liye jayenge.
     */
 
     const prefix =
@@ -1753,11 +1729,6 @@ function createNameFromTemplate(
     .join("");
 
 
-    /*
-       Suffix:
-       ༻꧂
-    */
-
     const suffix =
     chars
     .slice(
@@ -1765,14 +1736,6 @@ function createNameFromTemplate(
     )
     .join("");
 
-
-    /*
-       Database name ke letters me
-       style identify karo.
-
-       First styled alphabet ko primary
-       style maana jayega.
-    */
 
     let styleName = null;
 
@@ -1799,21 +1762,12 @@ function createNameFromTemplate(
     }
 
 
-    /*
-       Agar database name normal letters
-       me hai to normal style.
-    */
-
     if(!styleName){
 
         styleName = "normal";
 
     }
 
-
-    /*
-       Input ko same style me convert karo.
-    */
 
     let styledInput;
 
@@ -1837,10 +1791,6 @@ function createNameFromTemplate(
     }
 
 
-    /*
-       Prefix + styled input + suffix
-    */
-
     return (
         prefix +
         styledInput +
@@ -1851,7 +1801,7 @@ function createNameFromTemplate(
 
 
 /* =====================================================
-   LOAD DATABASE
+   LOAD ALL DATABASE NAMES
 ===================================================== */
 
 async function loadDatabaseNames(){
@@ -1861,6 +1811,10 @@ async function loadDatabaseNames(){
     currentPage = 0;
 
     generatedResults = [];
+
+    generatedPage = 0;
+
+    currentMode = "database";
 
 
     const grid =
@@ -1873,7 +1827,13 @@ async function loadDatabaseNames(){
 
         <div class="loading">
 
-        Loading 2000+ database styles...
+            Loading database names...
+
+            <br><br>
+
+            <small>
+                Loading 2000+ names...
+            </small>
 
         </div>
 
@@ -1888,54 +1848,142 @@ async function loadDatabaseNames(){
     "All Stylish Names";
 
 
+    document
+    .getElementById(
+        "resultInfo"
+    )
+    .textContent =
+    "Loading database...";
+
+
+    document
+    .getElementById(
+        "loadMoreWrap"
+    )
+    .style.display =
+    "none";
+
+
     try{
 
+        let allRows = [];
+
+        let start = 0;
+
+        const batchSize = 1000;
+
+
         /*
-           IMPORTANT:
-
-           Supabase default limit normally
-           1000 rows ho sakta hai.
-
-           Isliye 5000 tak range use kar rahe hain
-           taaki tumhare 2000 names aa saken.
+           1000 + 1000 + 1000...
+           karke saare rows fetch honge.
         */
 
-        const {
-            data,
-            error
-        } =
-        await supabaseClient
+        while(true){
 
-        .from("names")
-
-        .select("*")
-
-        .order(
-            "id",
-            {
-                ascending:true
-            }
-        )
-
-        .range(
-            0,
-            4999
-        );
-
-
-        if(error){
-
-            showDatabaseError(
-                error.message
+            console.log(
+                "Loading rows:",
+                start,
+                "to",
+                start + batchSize - 1
             );
 
-            return;
+
+            const {
+                data,
+                error
+            } =
+            await supabaseClient
+
+            .from("names")
+
+            .select("*")
+
+            .order(
+                "id",
+                {
+                    ascending:true
+                }
+            )
+
+            .range(
+                start,
+                start + batchSize - 1
+            );
+
+
+            if(error){
+
+                console.error(
+                    "SUPABASE ERROR:",
+                    error
+                );
+
+
+                showDatabaseError(
+                    error.message
+                );
+
+
+                return;
+
+            }
+
+
+            const rows =
+            data || [];
+
+
+            allRows =
+            allRows.concat(
+                rows
+            );
+
+
+            /*
+               Agar last batch aa gaya.
+            */
+
+            if(
+                rows.length < batchSize
+            ){
+
+                break;
+
+            }
+
+
+            start += batchSize;
+
+
+            /*
+               Safety.
+            */
+
+            if(
+                start >= 10000
+            ){
+
+                break;
+
+            }
 
         }
 
 
+        console.log(
+            "TOTAL DATABASE ROWS:",
+            allRows.length
+        );
+
+
+        /*
+           Database data ko standard format me
+           convert karo.
+        */
+
         allDatabaseNames =
-        (data || [])
+        allRows
+
         .map(
             function(item){
 
@@ -1948,21 +1996,25 @@ async function loadDatabaseNames(){
                     item.name ||
                     item.styled_name ||
                     item.display_name ||
+                    item.title ||
                     "",
 
                     font:
                     item.font ||
                     item.style ||
+                    item.font_style ||
                     "Database Style",
 
                     category:
                     item.category ||
+                    item.category_name ||
                     "Gaming"
 
                 };
 
             }
         )
+
         .filter(
             function(item){
 
@@ -1977,14 +2029,72 @@ async function loadDatabaseNames(){
         );
 
 
-        document
-        .getElementById(
-            "resultInfo"
-        )
-        .textContent =
-        allDatabaseNames.length +
-        " database names loaded";
+        console.log(
+            "TOTAL USABLE NAMES:",
+            allDatabaseNames.length
+        );
 
+
+        /*
+           No names.
+        */
+
+        if(
+            allDatabaseNames.length === 0
+        ){
+
+            grid.innerHTML = `
+
+                <div class="error-box">
+
+                    <strong>
+                        Database connected,
+                        but no names were found.
+                    </strong>
+
+                    <br><br>
+
+                    Table:
+
+                    <b>names</b>
+
+                    <br><br>
+
+                    Name columns checked:
+
+                    <br>
+                    name
+
+                    <br>
+                    styled_name
+
+                    <br>
+                    display_name
+
+                    <br>
+                    title
+
+                </div>
+
+            `;
+
+
+            document
+            .getElementById(
+                "resultInfo"
+            )
+            .textContent =
+            "0 names found";
+
+
+            return;
+
+        }
+
+
+        /*
+           First page render.
+        */
 
         renderDatabasePage();
 
@@ -1992,8 +2102,15 @@ async function loadDatabaseNames(){
 
     catch(error){
 
+        console.error(
+            "DATABASE LOAD ERROR:",
+            error
+        );
+
+
         showDatabaseError(
-            error.message
+            error.message ||
+            "Unknown database error"
         );
 
     }
@@ -2002,10 +2119,54 @@ async function loadDatabaseNames(){
 
 
 /* =====================================================
-   DATABASE PAGE
+   GET FILTERED DATABASE
+===================================================== */
+
+function getFilteredDatabaseNames(){
+
+    let data =
+    allDatabaseNames;
+
+
+    if(
+        currentCategory
+    ){
+
+        data =
+        data.filter(
+            function(item){
+
+                return String(
+                    item.category
+                )
+                .trim()
+                .toLowerCase()
+                ===
+                String(
+                    currentCategory
+                )
+                .trim()
+                .toLowerCase();
+
+            }
+        );
+
+    }
+
+
+    return data;
+
+}
+
+
+/* =====================================================
+   RENDER DATABASE PAGE
 ===================================================== */
 
 function renderDatabasePage(){
+
+    currentMode = "database";
+
 
     const data =
     getFilteredDatabaseNames();
@@ -2083,52 +2244,13 @@ function renderDatabasePage(){
 
             <div class="empty">
 
-            No names found.
+                No names found in this category.
 
             </div>
 
         `;
 
     }
-
-}
-
-
-/* =====================================================
-   FILTER DATABASE
-===================================================== */
-
-function getFilteredDatabaseNames(){
-
-    let data =
-    allDatabaseNames;
-
-
-    if(
-        currentCategory
-    ){
-
-        data =
-        data.filter(
-            function(item){
-
-                return String(
-                    item.category
-                )
-                .toLowerCase()
-                ===
-                String(
-                    currentCategory
-                )
-                .toLowerCase();
-
-            }
-        );
-
-    }
-
-
-    return data;
 
 }
 
@@ -2141,12 +2263,29 @@ function generateCategory(
     category
 ){
 
+    if(
+        allDatabaseNames.length === 0
+    ){
+
+        showToast(
+            "Database abhi load ho raha hai..."
+        );
+
+        return;
+
+    }
+
+
     currentCategory =
     category;
 
     currentPage = 0;
 
     generatedResults = [];
+
+    generatedPage = 0;
+
+    currentMode = "database";
 
 
     document
@@ -2292,7 +2431,7 @@ function createDatabaseCard(
 
 
 /* =====================================================
-   GENERATE FROM DATABASE STYLES
+   GENERATE NAME
 ===================================================== */
 
 function generateName(
@@ -2315,7 +2454,7 @@ function generateName(
 
 
     /*
-       Database load nahi hua hai
+       Database load hone ka wait.
     */
 
     if(
@@ -2323,10 +2462,12 @@ function generateName(
     ){
 
         showToast(
-            "Database styles load ho rahe hain..."
+            "Database load ho raha hai..."
         );
 
+
         loadDatabaseNames();
+
 
         return;
 
@@ -2337,28 +2478,21 @@ function generateName(
 
     generatedPage = 0;
 
+    currentMode = "generated";
+
 
     const seen =
     new Set();
 
 
     /*
-       Current category selected hai
-       to sirf us category ke database
-       styles use honge.
-
-       Otherwise 2000 database names
-       use honge.
+       Agar category selected hai,
+       usi category ke styles.
     */
 
     const source =
     getFilteredDatabaseNames();
 
-
-    /*
-       Har database row ko style template
-       banakar user input apply karna.
-    */
 
     source.forEach(
         function(item){
@@ -2370,7 +2504,9 @@ function generateName(
 
 
             if(!template){
+
                 return;
+
             }
 
 
@@ -2381,14 +2517,16 @@ function generateName(
             );
 
 
-            if(
-                !result
-            ){
+            if(!result){
 
                 return;
 
             }
 
+
+            /*
+               Duplicate generated result hatao.
+            */
 
             if(
                 seen.has(result)
@@ -2409,7 +2547,6 @@ function generateName(
 
                 font:
                 item.font ||
-                item.style ||
                 "Database Style",
 
                 category:
@@ -2424,11 +2561,6 @@ function generateName(
         }
     );
 
-
-    /*
-       Agar database styles se result
-       nahi bana.
-    */
 
     if(
         generatedResults.length === 0
@@ -2467,10 +2599,13 @@ function generateName(
 
 
 /* =====================================================
-   RENDER GENERATED PAGE
+   RENDER GENERATED
 ===================================================== */
 
 function renderGeneratedPage(){
+
+    currentMode = "generated";
+
 
     const grid =
     document.getElementById(
@@ -2521,7 +2656,7 @@ function renderGeneratedPage(){
     end +
     " of " +
     generatedResults.length +
-    " database styles";
+    " generated styles";
 
 
     document
@@ -2656,41 +2791,70 @@ function createGeneratedCard(
 function loadMore(){
 
     /*
-       Generated database styles
+       Generated mode
     */
 
     if(
-        generatedResults.length > 0
+        currentMode === "generated"
     ){
 
-        const currentEnd =
-        (generatedPage + 1) *
+        const nextPage =
+        generatedPage + 1;
+
+
+        const nextStart =
+        nextPage *
         GENERATED_PAGE_SIZE;
 
 
         if(
-            currentEnd <
+            nextStart <
             generatedResults.length
         ){
 
-            generatedPage++;
+            generatedPage =
+            nextPage;
+
 
             renderGeneratedPage();
 
-            return;
-
         }
+
+
+        return;
 
     }
 
 
     /*
-       Database normal listing
+       Database mode
     */
 
-    currentPage++;
+    const data =
+    getFilteredDatabaseNames();
 
-    renderDatabasePage();
+
+    const nextPage =
+    currentPage + 1;
+
+
+    const nextStart =
+    nextPage *
+    PAGE_SIZE;
+
+
+    if(
+        nextStart <
+        data.length
+    ){
+
+        currentPage =
+        nextPage;
+
+
+        renderDatabasePage();
+
+    }
 
 }
 
@@ -2910,7 +3074,9 @@ function refreshFavoriteButtons(){
 
 
             if(!card){
+
                 return;
+
             }
 
 
@@ -2921,7 +3087,9 @@ function refreshFavoriteButtons(){
 
 
             if(!element){
+
                 return;
+
             }
 
 
@@ -3157,6 +3325,13 @@ function showDatabaseError(
                 message
             )}
 
+            <br><br>
+
+            <small>
+                Browser console me bhi exact
+                error check kiya gaya hai.
+            </small>
+
         </div>
 
     `;
@@ -3168,6 +3343,14 @@ function showDatabaseError(
     )
     .textContent =
     "Database error";
+
+
+    document
+    .getElementById(
+        "loadMoreWrap"
+    )
+    .style.display =
+    "none";
 
 }
 
@@ -3211,7 +3394,7 @@ function escapeHtml(
 
 
 /* =====================================================
-   START
+   START WEBSITE
 ===================================================== */
 
 renderFavorites();
