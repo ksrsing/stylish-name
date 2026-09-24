@@ -45,8 +45,6 @@ body{
     min-height:100vh;
 }
 
-/* NAVBAR */
-
 .navbar{
     position:sticky;
     top:0;
@@ -116,8 +114,6 @@ body{
     cursor:pointer;
 }
 
-/* HERO */
-
 .hero{
     max-width:1100px;
     margin:auto;
@@ -165,8 +161,6 @@ body{
     color:#9da5cd;
     line-height:1.7;
 }
-
-/* SEARCH */
 
 .search-box{
     max-width:720px;
@@ -218,8 +212,6 @@ body{
     font-weight:800;
 }
 
-/* PREVIEW */
-
 .preview{
     max-width:650px;
     margin:25px auto 0;
@@ -246,8 +238,6 @@ body{
     word-break:break-word;
 }
 
-/* SECTION */
-
 .section{
     max-width:1250px;
     margin:auto;
@@ -266,8 +256,6 @@ body{
     color:#7f87ad;
     margin-top:7px;
 }
-
-/* CATEGORIES */
 
 .categories{
     display:grid;
@@ -307,8 +295,6 @@ body{
     color:#dfe2ff;
 }
 
-/* RESULTS */
-
 .results-header{
     display:flex;
     justify-content:space-between;
@@ -330,8 +316,6 @@ body{
     grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
-
-/* CARD */
 
 .name-card{
     position:relative;
@@ -434,8 +418,6 @@ body{
     color:#ff72ad;
 }
 
-/* EMPTY */
-
 .empty{
     grid-column:1/-1;
 
@@ -474,8 +456,6 @@ body{
     color:#ff9bad;
 }
 
-/* LOAD MORE */
-
 .load-more-wrap{
     text-align:center;
     padding:30px 0;
@@ -495,15 +475,11 @@ body{
     cursor:pointer;
 }
 
-/* FAVORITES */
-
 .favorite-list{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:15px;
 }
-
-/* FEATURES */
 
 .features{
     display:grid;
@@ -536,8 +512,6 @@ body{
     font-size:14px;
 }
 
-/* FOOTER */
-
 footer{
     margin-top:40px;
     padding:30px 20px;
@@ -549,8 +523,6 @@ footer{
     color:#686f95;
     font-size:13px;
 }
-
-/* TOAST */
 
 .toast{
     position:fixed;
@@ -580,8 +552,6 @@ footer{
     opacity:1;
     transform:translate(-50%,0);
 }
-
-/* RESPONSIVE */
 
 @media(max-width:1050px){
 
@@ -700,7 +670,6 @@ Get Started
 
 </nav>
 
-
 <section class="hero" id="home">
 
 <div class="badge">
@@ -749,7 +718,6 @@ Your Name
 </div>
 
 </section>
-
 
 <section class="section" id="styles">
 
@@ -855,7 +823,6 @@ Danger
 
 </section>
 
-
 <section class="section">
 
 <div class="results-header">
@@ -904,7 +871,6 @@ Load More
 
 </section>
 
-
 <section class="section" id="favorites">
 
 <div class="section-heading">
@@ -926,7 +892,6 @@ id="favoriteList">
 </div>
 
 </section>
-
 
 <section class="section" id="about">
 
@@ -956,7 +921,7 @@ Simple, fast and stylish.
 
 <p>
 Generate thousands of unique
-font and decoration combinations.
+database-inspired font and decoration combinations.
 </p>
 
 </div>
@@ -972,8 +937,8 @@ Multiple Styles
 </h3>
 
 <p>
-Script, italic, fraktur, double,
-monospace, fullwidth and more.
+Database styles plus script, italic, fraktur,
+double, monospace, fullwidth and more.
 </p>
 
 </div>
@@ -999,13 +964,11 @@ on your device.
 
 </section>
 
-
 <footer>
 
 © 2026 NameCraft | Stylish Name Generator
 
 </footer>
-
 
 <div
 class="toast"
@@ -1061,9 +1024,18 @@ let generatedPage = 0;
 const GENERATED_PAGE_SIZE = 80;
 
 
+/*
+   NEW:
+   Database se learned style templates
+   yahan store honge.
+*/
+let databaseStyleTemplates = [];
+
+let databaseStylesReady = false;
+
+
 /* =====================================================
    FONT STYLES
-   Bold intentionally NOT included
 ===================================================== */
 
 const FONT_STYLES = [
@@ -1173,7 +1145,48 @@ special:"smallcaps"
 
 
 /* =====================================================
-   100+ DECORATIONS
+   EXTRA NEW FONTS
+===================================================== */
+
+const EXTRA_FONT_STYLES = [
+
+{
+name:"Bold Italic",
+upper:
+"𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁",
+lower:
+"𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛"
+},
+
+{
+name:"Bold Sans",
+upper:
+"𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
+lower:
+"𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
+},
+
+{
+name:"Bold",
+upper:
+"𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙",
+lower:
+"𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"
+},
+
+{
+name:"Slab",
+upper:
+"🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
+lower:
+"🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉"
+}
+
+];
+
+
+/* =====================================================
+   DECORATIONS
 ===================================================== */
 
 const DECORATIONS = [
@@ -1252,7 +1265,6 @@ const DECORATIONS = [
 ["♦ "," ♦"],
 ["♤ "," ♤"],
 ["♧ "," ♧"],
-["♡ "," ♡"],
 ["♢ "," ♢"],
 
 ["• "," •"],
@@ -1289,7 +1301,6 @@ const DECORATIONS = [
 ["☁ "," ☁"],
 ["☂ "," ☂"],
 ["☄ "," ☄"],
-["☘ "," ☘"],
 
 ["⚡꧁ "," ꧂⚡"],
 ["🔥꧁ "," ꧂🔥"],
@@ -1316,13 +1327,40 @@ const DECORATIONS = [
 ["【♛ "," ♛】"],
 ["【☠ "," ☠】"],
 ["【⚡ "," ⚡】"],
-["【🔥 "," 🔥】"]
+["【🔥 "," 🔥】"],
+
+/* NEW */
+
+["乂× "," ×乂"],
+["亗× "," ×亗"],
+["メ× "," ×メ"],
+["彡★ "," ★彡"],
+["彡✦ "," ✦彡"],
+["彡亗 "," 亗彡"],
+["〆 "," 〆"],
+["〆★ "," ★〆"],
+["〆亗 "," 亗〆"],
+["〆✦ "," ✦〆"],
+["么★ "," ★么"],
+["么亗 "," 亗么"],
+["么✦ "," ✦么"],
+["シ★ "," ★シ"],
+["ツ★ "," ★ツ"],
+["☯★ "," ★☯"],
+["☬★ "," ★☬"],
+["⚔★ "," ★⚔"],
+["⚡★ "," ★⚡"],
+["☠★ "," ★☠"],
+["♛★ "," ★♛"],
+["♡★ "," ★♡"],
+["🔥★ "," ★🔥"],
+["❄★ "," ★❄"]
 
 ];
 
 
 /* =====================================================
-   SPECIAL UNICODE FONTS
+   SPECIAL UNICODE
 ===================================================== */
 
 function specialConvert(text,type){
@@ -1333,118 +1371,72 @@ function specialConvert(text,type){
 
         const code=ch.codePointAt(0);
 
-        if(
-            type==="fullwidth"
-        ){
+        if(type==="fullwidth"){
 
             if(code>=65 && code<=90){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0xFF21+(code-65)
                 );
-
                 continue;
-
             }
 
             if(code>=97 && code<=122){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0xFF41+(code-97)
                 );
-
                 continue;
-
             }
 
             if(code>=48 && code<=57){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0xFF10+(code-48)
                 );
-
                 continue;
-
             }
-
         }
 
-
-        if(
-            type==="circled"
-        ){
+        if(type==="circled"){
 
             if(code>=65 && code<=90){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0x24B6+(code-65)
                 );
-
                 continue;
-
             }
 
             if(code>=97 && code<=122){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0x24D0+(code-97)
                 );
-
                 continue;
-
             }
 
             if(code>=49 && code<=57){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0x2460+(code-49)
                 );
-
                 continue;
-
             }
-
         }
 
-
-        if(
-            type==="squared"
-        ){
+        if(type==="squared"){
 
             if(code>=65 && code<=90){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0x1F130+(code-65)
                 );
-
                 continue;
-
             }
 
             if(code>=97 && code<=122){
-
-                result +=
-                String.fromCodePoint(
+                result += String.fromCodePoint(
                     0x1F130+(code-97)
                 );
-
                 continue;
-
             }
-
         }
 
-
-        if(
-            type==="smallcaps"
-        ){
+        if(type==="smallcaps"){
 
             const smallCaps={
 
@@ -1479,74 +1471,45 @@ function specialConvert(text,type){
 
             const lower=ch.toLowerCase();
 
-            if(
-                smallCaps[lower]
-            ){
-
-                result +=
-                smallCaps[lower];
-
+            if(smallCaps[lower]){
+                result += smallCaps[lower];
                 continue;
-
             }
-
         }
 
         result += ch;
-
     }
 
     return result;
-
 }
 
 
 /* =====================================================
-   NORMAL UNICODE CONVERTER
+   NORMAL CONVERTER
 ===================================================== */
 
-function convertText(
-    text,
-    upper,
-    lower
-){
+function convertText(text,upper,lower){
 
-    const upperArray =
-    Array.from(upper);
-
-    const lowerArray =
-    Array.from(lower);
+    const upperArray=Array.from(upper);
+    const lowerArray=Array.from(lower);
 
     let result="";
 
-    for(
-        const char of text
-    ){
+    for(const char of text){
 
-        const code =
-        char.charCodeAt(0);
+        const code=char.charCodeAt(0);
 
-        if(
-            code>=65 &&
-            code<=90
-        ){
+        if(code>=65 && code<=90){
 
             result +=
-            upperArray[
-                code-65
-            ] || char;
+            upperArray[code-65] || char;
 
         }
 
-        else if(
-            code>=97 &&
-            code<=122
-        ){
+        else if(code>=97 && code<=122){
 
             result +=
-            lowerArray[
-                code-97
-            ] || char;
+            lowerArray[code-97] || char;
 
         }
 
@@ -1555,11 +1518,9 @@ function convertText(
             result += char;
 
         }
-
     }
 
     return result;
-
 }
 
 
@@ -1567,10 +1528,7 @@ function convertText(
    APPLY FONT
 ===================================================== */
 
-function applyFont(
-    text,
-    style
-){
+function applyFont(text,style){
 
     if(style.special){
 
@@ -1586,6 +1544,639 @@ function applyFont(
         style.upper,
         style.lower
     );
+}
+
+
+/* =====================================================
+   FONT DETECTION
+   Database name kis Unicode font ka hai
+===================================================== */
+
+function getFontReverseMap(style){
+
+    if(style.special){
+        return null;
+    }
+
+    const map=new Map();
+
+    const upper=Array.from(style.upper);
+    const lower=Array.from(style.lower);
+
+    for(let i=0;i<upper.length;i++){
+
+        const normal=String.fromCharCode(65+i);
+
+        if(upper[i]){
+            map.set(upper[i],normal);
+        }
+    }
+
+    for(let i=0;i<lower.length;i++){
+
+        const normal=String.fromCharCode(97+i);
+
+        if(lower[i]){
+            map.set(lower[i],normal);
+        }
+    }
+
+    return map;
+}
+
+
+function detectDatabaseFont(text,metadata){
+
+    const meta=String(
+        metadata || ""
+    ).toLowerCase();
+
+    for(const style of [
+        ...FONT_STYLES,
+        ...EXTRA_FONT_STYLES
+    ]){
+
+        const styleName=style.name.toLowerCase();
+
+        if(
+            meta.includes(styleName)
+        ){
+
+            return style;
+
+        }
+
+    }
+
+    let bestStyle=null;
+    let bestScore=0;
+
+    for(
+        const style of [
+            ...FONT_STYLES,
+            ...EXTRA_FONT_STYLES
+        ]
+    ){
+
+        const map=getFontReverseMap(style);
+
+        if(!map){
+            continue;
+        }
+
+        let total=0;
+        let matched=0;
+
+        for(
+            const ch of Array.from(text)
+        ){
+
+            if(
+                /[A-Za-z]/.test(ch)
+            ){
+                continue;
+            }
+
+            if(
+                map.has(ch)
+            ){
+                matched++;
+                total++;
+            }
+
+        }
+
+        if(
+            matched>bestScore &&
+            matched>=1
+        ){
+
+            bestScore=matched;
+            bestStyle=style;
+
+        }
+
+    }
+
+    return bestStyle;
+}
+
+
+/* =====================================================
+   DATABASE STYLE EXTRACTION
+===================================================== */
+
+function isAsciiLetterOrNumber(ch){
+
+    return /^[A-Za-z0-9]$/.test(ch);
+
+}
+
+
+function getStyledCoreInfo(name){
+
+    const chars=Array.from(
+        String(name || "")
+    );
+
+    let first=-1;
+    let last=-1;
+
+    for(let i=0;i<chars.length;i++){
+
+        const ch=chars[i];
+
+        if(
+            isAsciiLetterOrNumber(ch)
+        ){
+
+            first=i;
+            break;
+
+        }
+
+    }
+
+    for(
+        let i=chars.length-1;
+        i>=0;
+        i--
+    ){
+
+        const ch=chars[i];
+
+        if(
+            isAsciiLetterOrNumber(ch)
+        ){
+
+            last=i;
+            break;
+
+        }
+
+    }
+
+    if(
+        first===-1 ||
+        last===-1 ||
+        last<first
+    ){
+
+        return null;
+
+    }
+
+    return{
+
+        prefix:chars
+            .slice(0,first)
+            .join(""),
+
+        core:chars
+            .slice(first,last+1)
+            .join(""),
+
+        suffix:chars
+            .slice(last+1)
+            .join("")
+
+    };
+
+}
+
+
+/*
+   Database ke records se style templates
+   automatically banaye jaate hain.
+*/
+
+function learnDatabaseStyles(){
+
+    databaseStyleTemplates=[];
+
+    const seen=new Set();
+
+    for(
+        const item of allDatabaseNames
+    ){
+
+        const name=
+        String(
+            item.name || ""
+        ).trim();
+
+        if(!name){
+            continue;
+        }
+
+        const info=
+        getStyledCoreInfo(name);
+
+        if(!info){
+            continue;
+        }
+
+        const style=
+        detectDatabaseFont(
+            info.core,
+            item.font
+        );
+
+        let fontStyle=
+        style;
+
+        /*
+           Agar database me font metadata hai
+           lekin Unicode font detect nahi hua,
+           to known font metadata se match.
+        */
+
+        if(!fontStyle){
+
+            const metadata=
+            String(
+                item.font || ""
+            ).toLowerCase();
+
+            for(
+                const candidate of [
+                    ...FONT_STYLES,
+                    ...EXTRA_FONT_STYLES
+                ]
+            ){
+
+                if(
+                    metadata.includes(
+                        candidate.name.toLowerCase()
+                    )
+                ){
+
+                    fontStyle=candidate;
+                    break;
+
+                }
+
+            }
+
+        }
+
+        /*
+           Plain database decoration style.
+        */
+
+        const key=
+        info.prefix+
+        "|" +
+        info.suffix+
+        "|" +
+        (fontStyle
+            ?fontStyle.name
+            :"plain");
+
+        if(
+            seen.has(key)
+        ){
+            continue;
+        }
+
+        seen.add(key);
+
+        databaseStyleTemplates.push({
+
+            prefix:info.prefix,
+
+            suffix:info.suffix,
+
+            font:fontStyle,
+
+            label:
+            item.font ||
+            "Database Style",
+
+            category:
+            item.category ||
+            "Database"
+
+        });
+
+    }
+
+
+    /*
+       Agar kuch database records wrapper ke
+       bina hain to fallback templates add honge.
+    */
+
+    for(
+        const decoration of DECORATIONS
+    ){
+
+        const key=
+        decoration[0]+
+        "|" +
+        decoration[1]+
+        "|fallback";
+
+        if(!seen.has(key)){
+
+            seen.add(key);
+
+            databaseStyleTemplates.push({
+
+                prefix:decoration[0],
+
+                suffix:decoration[1],
+
+                font:null,
+
+                label:"Database Inspired",
+
+                category:"Generated"
+
+            });
+
+        }
+
+    }
+
+
+    databaseStylesReady=true;
+
+    console.log(
+        "NameCraft learned styles:",
+        databaseStyleTemplates.length
+    );
+
+}
+
+
+/* =====================================================
+   APPLY DATABASE TEMPLATE
+===================================================== */
+
+function applyDatabaseTemplate(
+    input,
+    template
+){
+
+    let styled=input;
+
+    if(
+        template.font
+    ){
+
+        styled=
+        applyFont(
+            input,
+            template.font
+        );
+
+    }
+
+    return(
+        template.prefix+
+        styled+
+        template.suffix
+    );
+
+}
+
+
+/* =====================================================
+   GENERATE DATABASE-BASED STYLES
+===================================================== */
+
+function generateDatabaseBasedStyles(
+    input,
+    seen
+){
+
+    if(
+        !databaseStylesReady
+    ){
+        return;
+    }
+
+    for(
+        const template of databaseStyleTemplates
+    ){
+
+        const finalName=
+        applyDatabaseTemplate(
+            input,
+            template
+        );
+
+        if(
+            !finalName ||
+            seen.has(finalName)
+        ){
+            continue;
+        }
+
+        seen.add(finalName);
+
+        generatedResults.push({
+
+            name:finalName,
+
+            font:
+            "Database • " +
+            String(
+                template.label
+            ),
+
+            type:"Database Style"
+
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   GENERATE EXTRA FONT STYLES
+===================================================== */
+
+function generateExtraFonts(
+    input,
+    seen
+){
+
+    for(
+        const style of EXTRA_FONT_STYLES
+    ){
+
+        const styled=
+        applyFont(
+            input,
+            style
+        );
+
+        for(
+            const decoration of DECORATIONS
+        ){
+
+            const finalName=
+            decoration[0]+
+            styled+
+            decoration[1];
+
+            if(
+                seen.has(finalName)
+            ){
+                continue;
+            }
+
+            seen.add(finalName);
+
+            generatedResults.push({
+
+                name:finalName,
+
+                font:
+                style.name+
+                " • New",
+
+                type:"New Font"
+
+            });
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   GENERATE NORMAL STYLES
+===================================================== */
+
+function generateNormalStyles(
+    input,
+    seen
+){
+
+    for(
+        const style of FONT_STYLES
+    ){
+
+        const styled=
+        applyFont(
+            input,
+            style
+        );
+
+        for(
+            const decoration of DECORATIONS
+        ){
+
+            const finalName=
+            decoration[0]+
+            styled+
+            decoration[1];
+
+            if(
+                seen.has(finalName)
+            ){
+                continue;
+            }
+
+            seen.add(finalName);
+
+            generatedResults.push({
+
+                name:finalName,
+
+                font:style.name,
+
+                type:"Generated"
+
+            });
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   DOUBLE DECORATIONS
+===================================================== */
+
+function generateDoubleDecorations(
+    input,
+    seen
+){
+
+    const allFonts=[
+        ...FONT_STYLES,
+        ...EXTRA_FONT_STYLES
+    ];
+
+    for(
+        const style of allFonts
+    ){
+
+        const styled=
+        applyFont(
+            input,
+            style
+        );
+
+        for(
+            let i=0;
+            i<DECORATIONS.length;
+            i++
+        ){
+
+            for(
+                let j=i+1;
+                j<DECORATIONS.length;
+                j+=3
+            ){
+
+                const d1=
+                DECORATIONS[i];
+
+                const d2=
+                DECORATIONS[j];
+
+                const finalName=
+                d1[0]+
+                d2[0]+
+                styled+
+                d2[1]+
+                d1[1];
+
+                if(
+                    seen.has(finalName)
+                ){
+                    continue;
+                }
+
+                seen.add(finalName);
+
+                generatedResults.push({
+
+                    name:finalName,
+
+                    font:
+                    style.name+
+                    " • Double Decoration",
+
+                    type:"Generated"
+
+                });
+
+            }
+
+        }
+
+    }
 
 }
 
@@ -1602,123 +2193,143 @@ function generateInputStyles(
 
     const seen=new Set();
 
-    /*
-       11 fonts × 120+ decorations
-       = 1300+ combinations.
 
-       Additional double decoration
-       combinations push this above 2000.
+    /*
+       STEP 1
+       Sabse pehle DATABASE ke styles.
     */
 
-    for(
-        const style of FONT_STYLES
-    ){
-
-        const styled =
-        applyFont(
-            input,
-            style
-        );
-
-
-        for(
-            const decoration of DECORATIONS
-        ){
-
-            const finalName =
-            decoration[0] +
-            styled +
-            decoration[1];
-
-
-            if(
-                !seen.has(finalName)
-            ){
-
-                seen.add(finalName);
-
-                generatedResults.push({
-
-                    name:finalName,
-
-                    font:style.name,
-
-                    type:"Generated"
-
-                });
-
-            }
-
-        }
-
-    }
+    generateDatabaseBasedStyles(
+        input,
+        seen
+    );
 
 
     /*
-       FONT + DOUBLE DECORATION
+       STEP 2
+       New fonts + decorations.
     */
 
-    for(
-        const style of FONT_STYLES
+    generateExtraFonts(
+        input,
+        seen
+    );
+
+
+    /*
+       STEP 3
+       Existing built-in fonts.
+    */
+
+    generateNormalStyles(
+        input,
+        seen
+    );
+
+
+    /*
+       STEP 4
+       Double decoration.
+    */
+
+    generateDoubleDecorations(
+        input,
+        seen
+    );
+
+
+    /*
+       Safety:
+       Agar database me kam styles hain,
+       to extra combinations se count badhega.
+    */
+
+    if(
+        generatedResults.length<2000
     ){
 
-        const styled =
-        applyFont(
-            input,
-            style
-        );
+        const repeatFonts=[
+            ...FONT_STYLES,
+            ...EXTRA_FONT_STYLES
+        ];
 
+        let round=0;
 
-        for(
-            let i=0;
-            i<DECORATIONS.length;
-            i++
+        while(
+            generatedResults.length<2000 &&
+            round<10
         ){
 
             for(
-                let j=i+1;
-                j<DECORATIONS.length;
-                j+=4
+                const style of repeatFonts
             ){
 
-                const d1=DECORATIONS[i];
+                const styled=
+                applyFont(
+                    input,
+                    style
+                );
 
-                const d2=DECORATIONS[j];
-
-
-                const finalName =
-                d1[0] +
-                d2[0] +
-                styled +
-                d2[1] +
-                d1[1];
-
-
-                if(
-                    !seen.has(
-                        finalName
-                    )
+                for(
+                    const decoration of DECORATIONS
                 ){
 
-                    seen.add(
-                        finalName
+                    const left=
+                    decoration[0];
+
+                    const right=
+                    decoration[1];
+
+                    const extraLeft=
+                    round===0
+                    ?""
+                    :" ".repeat(
+                        Math.min(round,3)
                     );
+
+                    const finalName=
+                    left+
+                    extraLeft+
+                    styled+
+                    right;
+
+                    if(
+                        seen.has(finalName)
+                    ){
+                        continue;
+                    }
+
+                    seen.add(finalName);
 
                     generatedResults.push({
 
                         name:finalName,
 
                         font:
-                        style.name +
-                        " • Double Style",
+                        style.name+
+                        " • Extra",
 
                         type:"Generated"
 
                     });
 
+                    if(
+                        generatedResults.length>=2000
+                    ){
+                        break;
+                    }
+
+                }
+
+                if(
+                    generatedResults.length>=2000
+                ){
+                    break;
                 }
 
             }
+
+            round++;
 
         }
 
@@ -1735,7 +2346,7 @@ function generateInputStyles(
     .getElementById(
         "resultTitle"
     )
-    .textContent =
+    .textContent=
     "2000+ Stylish Names for " +
     input;
 
@@ -1757,11 +2368,10 @@ function generateInputStyles(
 
 function renderGeneratedPage(){
 
-    const grid =
+    const grid=
     document.getElementById(
         "nameGrid"
     );
-
 
     if(
         generatedPage===0
@@ -1772,14 +2382,13 @@ function renderGeneratedPage(){
     }
 
 
-    const start =
-    generatedPage *
+    const start=
+    generatedPage*
     GENERATED_PAGE_SIZE;
 
-
-    const end =
+    const end=
     Math.min(
-        start +
+        start+
         GENERATED_PAGE_SIZE,
         generatedResults.length
     );
@@ -1802,10 +2411,10 @@ function renderGeneratedPage(){
     .getElementById(
         "resultInfo"
     )
-    .textContent =
-    end +
-    " of " +
-    generatedResults.length +
+    .textContent=
+    end+
+    " of "+
+    generatedResults.length+
     " stylish variants";
 
 
@@ -1813,11 +2422,11 @@ function renderGeneratedPage(){
     .getElementById(
         "loadMoreWrap"
     )
-    .style.display =
-    end <
+    .style.display=
+    end<
     generatedResults.length
-    ? "block"
-    : "none";
+    ?"block"
+    :"none";
 
 }
 
@@ -1830,22 +2439,21 @@ function createGeneratedCard(
     item
 ){
 
-    const grid =
+    const grid=
     document.getElementById(
         "nameGrid"
     );
 
-
-    const card =
+    const card=
     document.createElement(
         "div"
     );
 
+    card.className=
+    "name-card";
 
-    card.className="name-card";
 
-
-    const active =
+    const active=
     favorites.includes(
         item.name
     );
@@ -1926,13 +2534,13 @@ function loadMore(){
         generatedResults.length>0
     ){
 
-        const currentEnd =
-        (generatedPage+1) *
+        const currentEnd=
+        (generatedPage+1)*
         GENERATED_PAGE_SIZE;
 
 
         if(
-            currentEnd <
+            currentEnd<
             generatedResults.length
         ){
 
@@ -1963,10 +2571,8 @@ async function loadDatabaseNames(){
     currentCategory="";
     currentPage=0;
 
-    generatedResults=[];
 
-
-    const grid =
+    const grid=
     document.getElementById(
         "nameGrid"
     );
@@ -1991,10 +2597,10 @@ async function loadDatabaseNames(){
 
     try{
 
-        const {
+        const{
             data,
             error
-        } =
+        }=
         await supabaseClient
 
         .from("names")
@@ -2020,8 +2626,9 @@ async function loadDatabaseNames(){
         }
 
 
-        allDatabaseNames =
-        (data||[]).map(
+        allDatabaseNames=
+        (data||[])
+        .map(
             function(item){
 
                 return{
@@ -2046,7 +2653,21 @@ async function loadDatabaseNames(){
                 };
 
             }
+        )
+        .filter(
+            function(item){
+                return item.name;
+            }
         );
+
+
+        /*
+           IMPORTANT:
+           Database load hone ke turant baad
+           uske styles learn honge.
+        */
+
+        learnDatabaseStyles();
 
 
         renderDatabasePage();
@@ -2070,16 +2691,14 @@ async function loadDatabaseNames(){
 
 function renderDatabasePage(){
 
-    const data =
+    const data=
     getFilteredDatabaseNames();
 
-
-    const start =
-    currentPage *
+    const start=
+    currentPage*
     PAGE_SIZE;
 
-
-    const end =
+    const end=
     Math.min(
         start+
         PAGE_SIZE,
@@ -2161,7 +2780,7 @@ function renderDatabasePage(){
 
 function getFilteredDatabaseNames(){
 
-    let data =
+    let data=
     allDatabaseNames;
 
 
@@ -2169,14 +2788,14 @@ function getFilteredDatabaseNames(){
         currentCategory
     ){
 
-        data =
+        data=
         data.filter(
             function(item){
 
                 return String(
                     item.category
                 )
-                .toLowerCase() ===
+                .toLowerCase()===
                 String(
                     currentCategory
                 )
@@ -2201,7 +2820,7 @@ function generateCategory(
     category
 ){
 
-    currentCategory =
+    currentCategory=
     category;
 
     currentPage=0;
@@ -2247,22 +2866,23 @@ function createDatabaseCard(
     item
 ){
 
-    const grid =
+    const grid=
     document.getElementById(
         "nameGrid"
     );
 
 
-    const card =
+    const card=
     document.createElement(
         "div"
     );
 
 
-    card.className="name-card";
+    card.className=
+    "name-card";
 
 
-    const active =
+    const active=
     favorites.includes(
         item.name
     );
@@ -2337,11 +2957,11 @@ function createDatabaseCard(
    GENERATE
 ===================================================== */
 
-function generateName(
+async function generateName(
     input
 ){
 
-    input =
+    input=
     input.trim();
 
 
@@ -2356,14 +2976,27 @@ function generateName(
     }
 
 
-    /*
-       Har input par naye 2000+
-       variants generate honge.
-    */
-
     currentCategory="";
 
-    allDatabaseNames=[];
+
+    /*
+       Agar database abhi load nahi hua,
+       to pehle database load karo.
+    */
+
+    if(
+        !databaseStylesReady
+    ){
+
+        showToast(
+            "Database styles load ho rahe hain..."
+        );
+
+
+        await loadDatabaseNames();
+
+    }
+
 
     generateInputStyles(
         input
@@ -2438,7 +3071,7 @@ document
         .getElementById(
             "livePreview"
         )
-        .textContent =
+        .textContent=
         this.value ||
         "Your Name";
 
@@ -2470,13 +3103,13 @@ async function copyName(
 
     catch(error){
 
-        const textarea =
+        const textarea=
         document.createElement(
             "textarea"
         );
 
-
-        textarea.value=name;
+        textarea.value=
+        name;
 
         document
         .body
@@ -2509,7 +3142,7 @@ function toggleFavorite(
     name
 ){
 
-    const index =
+    const index=
     favorites.indexOf(
         name
     );
@@ -2571,7 +3204,7 @@ function refreshFavoriteButtons(){
     .forEach(
         function(button){
 
-            const card =
+            const card=
             button.closest(
                 ".name-card"
             );
@@ -2580,7 +3213,7 @@ function refreshFavoriteButtons(){
             if(!card)return;
 
 
-            const element =
+            const element=
             card.querySelector(
                 ".name-text"
             );
@@ -2589,11 +3222,11 @@ function refreshFavoriteButtons(){
             if(!element)return;
 
 
-            const name =
+            const name=
             element.textContent.trim();
 
 
-            const active =
+            const active=
             favorites.includes(
                 name
             );
@@ -2605,7 +3238,7 @@ function refreshFavoriteButtons(){
             );
 
 
-            button.textContent =
+            button.textContent=
             active
             ?"♥"
             :"♡";
@@ -2622,7 +3255,7 @@ function refreshFavoriteButtons(){
 
 function renderFavorites(){
 
-    const container =
+    const container=
     document.getElementById(
         "favoriteList"
     );
@@ -2655,7 +3288,7 @@ function renderFavorites(){
     .forEach(
         function(name){
 
-            const card =
+            const card=
             document.createElement(
                 "div"
             );
@@ -2702,7 +3335,9 @@ function renderFavorites(){
             )
             .onclick=function(){
 
-                copyName(name);
+                copyName(
+                    name
+                );
 
             };
 
@@ -2713,7 +3348,9 @@ function renderFavorites(){
             )
             .onclick=function(){
 
-                toggleFavorite(name);
+                toggleFavorite(
+                    name
+                );
 
             };
 
@@ -2739,13 +3376,13 @@ function showToast(
     message
 ){
 
-    const toast =
+    const toast=
     document.getElementById(
         "toast"
     );
 
 
-    toast.textContent =
+    toast.textContent=
     message;
 
 
@@ -2759,7 +3396,7 @@ function showToast(
     );
 
 
-    toastTimer =
+    toastTimer=
     setTimeout(
         function(){
 
