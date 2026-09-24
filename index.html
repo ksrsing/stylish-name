@@ -1023,12 +1023,10 @@ let generatedPage = 0;
 
 const GENERATED_PAGE_SIZE = 80;
 
+/* Database aur generated view alag */
+let viewMode = "database";
 
-/*
-   NEW:
-   Database se learned style templates
-   yahan store honge.
-*/
+/* Database se learned styles */
 let databaseStyleTemplates = [];
 
 let databaseStylesReady = false;
@@ -1048,7 +1046,6 @@ upper:
 
 lower:
 "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧"
-
 },
 
 {
@@ -1059,7 +1056,6 @@ upper:
 
 lower:
 "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"
-
 },
 
 {
@@ -1070,7 +1066,6 @@ upper:
 
 lower:
 "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"
-
 },
 
 {
@@ -1081,7 +1076,6 @@ upper:
 
 lower:
 "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷"
-
 },
 
 {
@@ -1092,7 +1086,6 @@ upper:
 
 lower:
 "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
-
 },
 
 {
@@ -1103,7 +1096,6 @@ upper:
 
 lower:
 "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
-
 },
 
 {
@@ -1114,72 +1106,97 @@ upper:
 
 lower:
 "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓"
-
 },
 
 {
 name:"Fullwidth",
 special:"fullwidth"
-
 },
 
 {
 name:"Circled",
 special:"circled"
-
 },
 
 {
 name:"Squared",
 special:"squared"
-
 },
 
 {
 name:"Small Caps",
 special:"smallcaps"
-
 }
 
 ];
 
 
 /* =====================================================
-   EXTRA NEW FONTS
+   NEW FONTS
 ===================================================== */
 
 const EXTRA_FONT_STYLES = [
 
 {
 name:"Bold Italic",
+
 upper:
 "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁",
+
 lower:
 "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛"
 },
 
 {
 name:"Bold Sans",
+
 upper:
 "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
+
 lower:
 "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
 },
 
 {
 name:"Bold",
+
 upper:
 "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙",
+
 lower:
 "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳"
 },
 
 {
-name:"Slab",
+name:"Bold Fraktur",
+
 upper:
-"🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
+"𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅",
+
 lower:
-"🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉"
+"𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟"
+},
+
+{
+name:"Bold Double",
+
+upper:
+"𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
+
+lower:
+"𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
+},
+
+{
+name:"Bubble",
+
+special:"circled"
+},
+
+{
+name:"Wide",
+
+special:"fullwidth"
 }
 
 ];
@@ -1329,8 +1346,6 @@ const DECORATIONS = [
 ["【⚡ "," ⚡】"],
 ["【🔥 "," 🔥】"],
 
-/* NEW */
-
 ["乂× "," ×乂"],
 ["亗× "," ×亗"],
 ["メ× "," ×メ"],
@@ -1374,67 +1389,80 @@ function specialConvert(text,type){
         if(type==="fullwidth"){
 
             if(code>=65 && code<=90){
+
                 result += String.fromCodePoint(
                     0xFF21+(code-65)
                 );
+
                 continue;
             }
 
             if(code>=97 && code<=122){
+
                 result += String.fromCodePoint(
                     0xFF41+(code-97)
                 );
+
                 continue;
             }
 
             if(code>=48 && code<=57){
+
                 result += String.fromCodePoint(
                     0xFF10+(code-48)
                 );
+
                 continue;
             }
+
         }
+
 
         if(type==="circled"){
 
             if(code>=65 && code<=90){
+
                 result += String.fromCodePoint(
                     0x24B6+(code-65)
                 );
+
                 continue;
             }
 
             if(code>=97 && code<=122){
+
                 result += String.fromCodePoint(
                     0x24D0+(code-97)
                 );
+
                 continue;
             }
 
             if(code>=49 && code<=57){
+
                 result += String.fromCodePoint(
                     0x2460+(code-49)
                 );
+
                 continue;
             }
+
         }
+
 
         if(type==="squared"){
 
             if(code>=65 && code<=90){
+
                 result += String.fromCodePoint(
                     0x1F130+(code-65)
                 );
+
                 continue;
             }
 
-            if(code>=97 && code<=122){
-                result += String.fromCodePoint(
-                    0x1F130+(code-97)
-                );
-                continue;
-            }
         }
+
 
         if(type==="smallcaps"){
 
@@ -1472,15 +1500,22 @@ function specialConvert(text,type){
             const lower=ch.toLowerCase();
 
             if(smallCaps[lower]){
-                result += smallCaps[lower];
+
+                result +=
+                smallCaps[lower];
+
                 continue;
+
             }
+
         }
 
         result += ch;
+
     }
 
     return result;
+
 }
 
 
@@ -1490,26 +1525,32 @@ function specialConvert(text,type){
 
 function convertText(text,upper,lower){
 
-    const upperArray=Array.from(upper);
-    const lowerArray=Array.from(lower);
+    const upperArray=
+    Array.from(upper || "");
+
+    const lowerArray=
+    Array.from(lower || "");
 
     let result="";
 
     for(const char of text){
 
-        const code=char.charCodeAt(0);
+        const code=
+        char.charCodeAt(0);
 
         if(code>=65 && code<=90){
 
             result +=
-            upperArray[code-65] || char;
+            upperArray[code-65] ||
+            char;
 
         }
 
         else if(code>=97 && code<=122){
 
             result +=
-            lowerArray[code-97] || char;
+            lowerArray[code-97] ||
+            char;
 
         }
 
@@ -1518,9 +1559,11 @@ function convertText(text,upper,lower){
             result += char;
 
         }
+
     }
 
     return result;
+
 }
 
 
@@ -1529,6 +1572,12 @@ function convertText(text,upper,lower){
 ===================================================== */
 
 function applyFont(text,style){
+
+    if(!style){
+
+        return text;
+
+    }
 
     if(style.special){
 
@@ -1544,150 +1593,319 @@ function applyFont(text,style){
         style.upper,
         style.lower
     );
+
 }
 
 
 /* =====================================================
-   FONT DETECTION
-   Database name kis Unicode font ka hai
+   FONT REVERSE MAP
 ===================================================== */
 
 function getFontReverseMap(style){
 
     if(style.special){
+
         return null;
+
     }
 
     const map=new Map();
 
-    const upper=Array.from(style.upper);
-    const lower=Array.from(style.lower);
+    const upper=
+    Array.from(
+        style.upper || ""
+    );
 
-    for(let i=0;i<upper.length;i++){
+    const lower=
+    Array.from(
+        style.lower || ""
+    );
 
-        const normal=String.fromCharCode(65+i);
+
+    for(
+        let i=0;
+        i<upper.length;
+        i++
+    ){
 
         if(upper[i]){
-            map.set(upper[i],normal);
+
+            map.set(
+                upper[i],
+                String.fromCharCode(
+                    65+i
+                )
+            );
+
         }
+
     }
 
-    for(let i=0;i<lower.length;i++){
 
-        const normal=String.fromCharCode(97+i);
+    for(
+        let i=0;
+        i<lower.length;
+        i++
+    ){
 
         if(lower[i]){
-            map.set(lower[i],normal);
+
+            map.set(
+                lower[i],
+                String.fromCharCode(
+                    97+i
+                )
+            );
+
         }
+
     }
 
     return map;
-}
 
-
-function detectDatabaseFont(text,metadata){
-
-    const meta=String(
-        metadata || ""
-    ).toLowerCase();
-
-    for(const style of [
-        ...FONT_STYLES,
-        ...EXTRA_FONT_STYLES
-    ]){
-
-        const styleName=style.name.toLowerCase();
-
-        if(
-            meta.includes(styleName)
-        ){
-
-            return style;
-
-        }
-
-    }
-
-    let bestStyle=null;
-    let bestScore=0;
-
-    for(
-        const style of [
-            ...FONT_STYLES,
-            ...EXTRA_FONT_STYLES
-        ]
-    ){
-
-        const map=getFontReverseMap(style);
-
-        if(!map){
-            continue;
-        }
-
-        let total=0;
-        let matched=0;
-
-        for(
-            const ch of Array.from(text)
-        ){
-
-            if(
-                /[A-Za-z]/.test(ch)
-            ){
-                continue;
-            }
-
-            if(
-                map.has(ch)
-            ){
-                matched++;
-                total++;
-            }
-
-        }
-
-        if(
-            matched>bestScore &&
-            matched>=1
-        ){
-
-            bestScore=matched;
-            bestStyle=style;
-
-        }
-
-    }
-
-    return bestStyle;
 }
 
 
 /* =====================================================
-   DATABASE STYLE EXTRACTION
+   UNICODE REVERSE MAP
 ===================================================== */
 
-function isAsciiLetterOrNumber(ch){
+const UNICODE_REVERSE_MAP=new Map();
 
-    return /^[A-Za-z0-9]$/.test(ch);
+for(
+    const style of [
+        ...FONT_STYLES,
+        ...EXTRA_FONT_STYLES
+    ]
+){
+
+    if(style.special){
+        continue;
+    }
+
+    const upper=
+    Array.from(
+        style.upper || ""
+    );
+
+    const lower=
+    Array.from(
+        style.lower || ""
+    );
+
+
+    for(
+        let i=0;
+        i<upper.length;
+        i++
+    ){
+
+        if(upper[i]){
+
+            UNICODE_REVERSE_MAP.set(
+                upper[i],
+                String.fromCharCode(
+                    65+i
+                )
+            );
+
+        }
+
+    }
+
+
+    for(
+        let i=0;
+        i<lower.length;
+        i++
+    ){
+
+        if(lower[i]){
+
+            UNICODE_REVERSE_MAP.set(
+                lower[i],
+                String.fromCharCode(
+                    97+i
+                )
+            );
+
+        }
+
+    }
 
 }
 
 
+/* =====================================================
+   NORMALIZE DATABASE CHARACTER
+===================================================== */
+
+function normalizeDatabaseChar(ch){
+
+    if(
+        /^[A-Za-z0-9]$/.test(ch)
+    ){
+
+        return ch;
+
+    }
+
+
+    if(
+        UNICODE_REVERSE_MAP.has(ch)
+    ){
+
+        return UNICODE_REVERSE_MAP.get(ch);
+
+    }
+
+
+    const code=
+    ch.codePointAt(0);
+
+
+    /* Fullwidth */
+
+    if(
+        code>=0xFF21 &&
+        code<=0xFF3A
+    ){
+
+        return String.fromCharCode(
+            65+
+            (code-0xFF21)
+        );
+
+    }
+
+
+    if(
+        code>=0xFF41 &&
+        code<=0xFF5A
+    ){
+
+        return String.fromCharCode(
+            97+
+            (code-0xFF41)
+        );
+
+    }
+
+
+    if(
+        code>=0xFF10 &&
+        code<=0xFF19
+    ){
+
+        return String.fromCharCode(
+            48+
+            (code-0xFF10)
+        );
+
+    }
+
+
+    /* Circled */
+
+    if(
+        code>=0x24B6 &&
+        code<=0x24CF
+    ){
+
+        return String.fromCharCode(
+            65+
+            (code-0x24B6)
+        );
+
+    }
+
+
+    if(
+        code>=0x24D0 &&
+        code<=0x24E9
+    ){
+
+        return String.fromCharCode(
+            97+
+            (code-0x24D0)
+        );
+
+    }
+
+
+    /* Small caps */
+
+    const smallCapsReverse={
+
+        "ᴀ":"a",
+        "ʙ":"b",
+        "ᴄ":"c",
+        "ᴅ":"d",
+        "ᴇ":"e",
+        "ꜰ":"f",
+        "ɢ":"g",
+        "ʜ":"h",
+        "ɪ":"i",
+        "ᴊ":"j",
+        "ᴋ":"k",
+        "ʟ":"l",
+        "ᴍ":"m",
+        "ɴ":"n",
+        "ᴏ":"o",
+        "ᴘ":"p",
+        "ǫ":"q",
+        "ʀ":"r",
+        "s":"s",
+        "ᴛ":"t",
+        "ᴜ":"u",
+        "ᴠ":"v",
+        "ᴡ":"w",
+        "x":"x",
+        "ʏ":"y",
+        "ᴢ":"z"
+
+    };
+
+
+    if(
+        smallCapsReverse[ch]
+    ){
+
+        return smallCapsReverse[ch];
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   GET DATABASE CORE
+===================================================== */
+
 function getStyledCoreInfo(name){
 
-    const chars=Array.from(
+    const chars=
+    Array.from(
         String(name || "")
     );
 
     let first=-1;
     let last=-1;
 
-    for(let i=0;i<chars.length;i++){
 
-        const ch=chars[i];
+    for(
+        let i=0;
+        i<chars.length;
+        i++
+    ){
 
         if(
-            isAsciiLetterOrNumber(ch)
+            normalizeDatabaseChar(
+                chars[i]
+            )
         ){
 
             first=i;
@@ -1697,16 +1915,17 @@ function getStyledCoreInfo(name){
 
     }
 
+
     for(
         let i=chars.length-1;
         i>=0;
         i--
     ){
 
-        const ch=chars[i];
-
         if(
-            isAsciiLetterOrNumber(ch)
+            normalizeDatabaseChar(
+                chars[i]
+            )
         ){
 
             last=i;
@@ -1715,6 +1934,7 @@ function getStyledCoreInfo(name){
         }
 
     }
+
 
     if(
         first===-1 ||
@@ -1726,35 +1946,202 @@ function getStyledCoreInfo(name){
 
     }
 
+
     return{
 
-        prefix:chars
-            .slice(0,first)
-            .join(""),
+        prefix:
+        chars
+        .slice(
+            0,
+            first
+        )
+        .join(""),
 
-        core:chars
-            .slice(first,last+1)
-            .join(""),
+        core:
+        chars
+        .slice(
+            first,
+            last+1
+        )
+        .join(""),
 
-        suffix:chars
-            .slice(last+1)
-            .join("")
+        suffix:
+        chars
+        .slice(
+            last+1
+        )
+        .join("")
 
     };
 
 }
 
 
-/*
-   Database ke records se style templates
-   automatically banaye jaate hain.
-*/
+/* =====================================================
+   DETECT DATABASE FONT
+===================================================== */
+
+function detectDatabaseFont(
+    text,
+    metadata
+){
+
+    const meta=
+    String(
+        metadata || ""
+    )
+    .toLowerCase();
+
+
+    const allStyles=[
+        ...FONT_STYLES,
+        ...EXTRA_FONT_STYLES
+    ];
+
+
+    /* Metadata se detect */
+
+    for(
+        const style of allStyles
+    ){
+
+        if(
+            meta.includes(
+                style.name.toLowerCase()
+            )
+        ){
+
+            return style;
+
+        }
+
+    }
+
+
+    let bestStyle=null;
+    let bestScore=0;
+
+
+    for(
+        const style of allStyles
+    ){
+
+        const map=
+        getFontReverseMap(
+            style
+        );
+
+
+        if(!map){
+            continue;
+        }
+
+
+        let score=0;
+
+
+        for(
+            const ch of Array.from(
+                text
+            )
+        ){
+
+            if(
+                map.has(ch)
+            ){
+
+                score++;
+
+            }
+
+        }
+
+
+        if(
+            score>bestScore
+        ){
+
+            bestScore=score;
+            bestStyle=style;
+
+        }
+
+    }
+
+
+    /*
+       Special styles detect
+    */
+
+    if(
+        !bestStyle
+    ){
+
+        const chars=
+        Array.from(text);
+
+
+        if(
+            chars.some(
+                ch=>{
+                    const code=
+                    ch.codePointAt(0);
+
+                    return(
+                        code>=0xFF21 &&
+                        code<=0xFF5A
+                    );
+
+                }
+            )
+        ){
+
+            return FONT_STYLES.find(
+                s=>s.name==="Fullwidth"
+            );
+
+        }
+
+
+        if(
+            chars.some(
+                ch=>{
+                    const code=
+                    ch.codePointAt(0);
+
+                    return(
+                        code>=0x24B6 &&
+                        code<=0x24E9
+                    );
+
+                }
+            )
+        ){
+
+            return FONT_STYLES.find(
+                s=>s.name==="Circled"
+            );
+
+        }
+
+    }
+
+
+    return bestStyle;
+
+}
+
+
+/* =====================================================
+   LEARN DATABASE STYLES
+===================================================== */
 
 function learnDatabaseStyles(){
 
     databaseStyleTemplates=[];
 
     const seen=new Set();
+
 
     for(
         const item of allDatabaseNames
@@ -1765,16 +2152,22 @@ function learnDatabaseStyles(){
             item.name || ""
         ).trim();
 
+
         if(!name){
             continue;
         }
 
+
         const info=
-        getStyledCoreInfo(name);
+        getStyledCoreInfo(
+            name
+        );
+
 
         if(!info){
             continue;
         }
+
 
         const style=
         detectDatabaseFont(
@@ -1782,72 +2175,41 @@ function learnDatabaseStyles(){
             item.font
         );
 
-        let fontStyle=
-        style;
-
-        /*
-           Agar database me font metadata hai
-           lekin Unicode font detect nahi hua,
-           to known font metadata se match.
-        */
-
-        if(!fontStyle){
-
-            const metadata=
-            String(
-                item.font || ""
-            ).toLowerCase();
-
-            for(
-                const candidate of [
-                    ...FONT_STYLES,
-                    ...EXTRA_FONT_STYLES
-                ]
-            ){
-
-                if(
-                    metadata.includes(
-                        candidate.name.toLowerCase()
-                    )
-                ){
-
-                    fontStyle=candidate;
-                    break;
-
-                }
-
-            }
-
-        }
-
-        /*
-           Plain database decoration style.
-        */
 
         const key=
         info.prefix+
         "|" +
         info.suffix+
         "|" +
-        (fontStyle
-            ?fontStyle.name
-            :"plain");
+        (
+            style
+            ?style.name
+            :"plain"
+        );
+
 
         if(
             seen.has(key)
         ){
+
             continue;
+
         }
+
 
         seen.add(key);
 
+
         databaseStyleTemplates.push({
 
-            prefix:info.prefix,
+            prefix:
+            info.prefix,
 
-            suffix:info.suffix,
+            suffix:
+            info.suffix,
 
-            font:fontStyle,
+            font:
+            style,
 
             label:
             item.font ||
@@ -1863,8 +2225,9 @@ function learnDatabaseStyles(){
 
 
     /*
-       Agar kuch database records wrapper ke
-       bina hain to fallback templates add honge.
+       Agar database me decoration
+       identify nahi hua to known
+       decorations ko fallback rakho.
     */
 
     for(
@@ -1877,33 +2240,45 @@ function learnDatabaseStyles(){
         decoration[1]+
         "|fallback";
 
-        if(!seen.has(key)){
 
-            seen.add(key);
+        if(
+            seen.has(key)
+        ){
 
-            databaseStyleTemplates.push({
-
-                prefix:decoration[0],
-
-                suffix:decoration[1],
-
-                font:null,
-
-                label:"Database Inspired",
-
-                category:"Generated"
-
-            });
+            continue;
 
         }
+
+
+        seen.add(key);
+
+
+        databaseStyleTemplates.push({
+
+            prefix:
+            decoration[0],
+
+            suffix:
+            decoration[1],
+
+            font:null,
+
+            label:
+            "Database Inspired",
+
+            category:
+            "Generated"
+
+        });
 
     }
 
 
     databaseStylesReady=true;
 
+
     console.log(
-        "NameCraft learned styles:",
+        "Database styles learned:",
         databaseStyleTemplates.length
     );
 
@@ -1921,6 +2296,7 @@ function applyDatabaseTemplate(
 
     let styled=input;
 
+
     if(
         template.font
     ){
@@ -1933,6 +2309,7 @@ function applyDatabaseTemplate(
 
     }
 
+
     return(
         template.prefix+
         styled+
@@ -1943,7 +2320,7 @@ function applyDatabaseTemplate(
 
 
 /* =====================================================
-   GENERATE DATABASE-BASED STYLES
+   DATABASE BASED GENERATION
 ===================================================== */
 
 function generateDatabaseBasedStyles(
@@ -1954,11 +2331,15 @@ function generateDatabaseBasedStyles(
     if(
         !databaseStylesReady
     ){
+
         return;
+
     }
 
+
     for(
-        const template of databaseStyleTemplates
+        const template of
+        databaseStyleTemplates
     ){
 
         const finalName=
@@ -1967,26 +2348,35 @@ function generateDatabaseBasedStyles(
             template
         );
 
+
         if(
             !finalName ||
             seen.has(finalName)
         ){
+
             continue;
+
         }
 
-        seen.add(finalName);
+
+        seen.add(
+            finalName
+        );
+
 
         generatedResults.push({
 
-            name:finalName,
+            name:
+            finalName,
 
             font:
-            "Database • " +
+            "Database • "+
             String(
                 template.label
             ),
 
-            type:"Database Style"
+            type:
+            "Database Style"
 
         });
 
@@ -1996,7 +2386,7 @@ function generateDatabaseBasedStyles(
 
 
 /* =====================================================
-   GENERATE EXTRA FONT STYLES
+   NEW FONTS
 ===================================================== */
 
 function generateExtraFonts(
@@ -2005,7 +2395,8 @@ function generateExtraFonts(
 ){
 
     for(
-        const style of EXTRA_FONT_STYLES
+        const style of
+        EXTRA_FONT_STYLES
     ){
 
         const styled=
@@ -2014,8 +2405,10 @@ function generateExtraFonts(
             style
         );
 
+
         for(
-            const decoration of DECORATIONS
+            const decoration of
+            DECORATIONS
         ){
 
             const finalName=
@@ -2023,23 +2416,32 @@ function generateExtraFonts(
             styled+
             decoration[1];
 
+
             if(
                 seen.has(finalName)
             ){
+
                 continue;
+
             }
 
-            seen.add(finalName);
+
+            seen.add(
+                finalName
+            );
+
 
             generatedResults.push({
 
-                name:finalName,
+                name:
+                finalName,
 
                 font:
                 style.name+
                 " • New",
 
-                type:"New Font"
+                type:
+                "New Font"
 
             });
 
@@ -2051,7 +2453,7 @@ function generateExtraFonts(
 
 
 /* =====================================================
-   GENERATE NORMAL STYLES
+   NORMAL FONTS
 ===================================================== */
 
 function generateNormalStyles(
@@ -2060,7 +2462,8 @@ function generateNormalStyles(
 ){
 
     for(
-        const style of FONT_STYLES
+        const style of
+        FONT_STYLES
     ){
 
         const styled=
@@ -2069,8 +2472,10 @@ function generateNormalStyles(
             style
         );
 
+
         for(
-            const decoration of DECORATIONS
+            const decoration of
+            DECORATIONS
         ){
 
             const finalName=
@@ -2078,21 +2483,31 @@ function generateNormalStyles(
             styled+
             decoration[1];
 
+
             if(
                 seen.has(finalName)
             ){
+
                 continue;
+
             }
 
-            seen.add(finalName);
+
+            seen.add(
+                finalName
+            );
+
 
             generatedResults.push({
 
-                name:finalName,
+                name:
+                finalName,
 
-                font:style.name,
+                font:
+                style.name,
 
-                type:"Generated"
+                type:
+                "Generated"
 
             });
 
@@ -2117,6 +2532,7 @@ function generateDoubleDecorations(
         ...EXTRA_FONT_STYLES
     ];
 
+
     for(
         const style of allFonts
     ){
@@ -2126,6 +2542,7 @@ function generateDoubleDecorations(
             input,
             style
         );
+
 
         for(
             let i=0;
@@ -2145,6 +2562,7 @@ function generateDoubleDecorations(
                 const d2=
                 DECORATIONS[j];
 
+
                 const finalName=
                 d1[0]+
                 d2[0]+
@@ -2152,23 +2570,32 @@ function generateDoubleDecorations(
                 d2[1]+
                 d1[1];
 
+
                 if(
                     seen.has(finalName)
                 ){
+
                     continue;
+
                 }
 
-                seen.add(finalName);
+
+                seen.add(
+                    finalName
+                );
+
 
                 generatedResults.push({
 
-                    name:finalName,
+                    name:
+                    finalName,
 
                     font:
                     style.name+
                     " • Double Decoration",
 
-                    type:"Generated"
+                    type:
+                    "Generated"
 
                 });
 
@@ -2189,14 +2616,15 @@ function generateInputStyles(
     input
 ){
 
+    viewMode="generated";
+
     generatedResults=[];
 
     const seen=new Set();
 
 
     /*
-       STEP 1
-       Sabse pehle DATABASE ke styles.
+       1. DATABASE STYLES FIRST
     */
 
     generateDatabaseBasedStyles(
@@ -2206,8 +2634,7 @@ function generateInputStyles(
 
 
     /*
-       STEP 2
-       New fonts + decorations.
+       2. NEW FONTS
     */
 
     generateExtraFonts(
@@ -2217,8 +2644,7 @@ function generateInputStyles(
 
 
     /*
-       STEP 3
-       Existing built-in fonts.
+       3. OLD / BUILT-IN FONTS
     */
 
     generateNormalStyles(
@@ -2228,8 +2654,7 @@ function generateInputStyles(
 
 
     /*
-       STEP 4
-       Double decoration.
+       4. DOUBLE DECORATIONS
     */
 
     generateDoubleDecorations(
@@ -2239,99 +2664,109 @@ function generateInputStyles(
 
 
     /*
-       Safety:
-       Agar database me kam styles hain,
-       to extra combinations se count badhega.
+       Safety generation
     */
 
-    if(
-        generatedResults.length<2000
+    let round=0;
+
+
+    while(
+        generatedResults.length<2000 &&
+        round<20
     ){
 
-        const repeatFonts=[
+        const allFonts=[
             ...FONT_STYLES,
             ...EXTRA_FONT_STYLES
         ];
 
-        let round=0;
 
-        while(
-            generatedResults.length<2000 &&
-            round<10
+        for(
+            const style of allFonts
         ){
 
+            const styled=
+            applyFont(
+                input,
+                style
+            );
+
+
             for(
-                const style of repeatFonts
+                const decoration of
+                DECORATIONS
             ){
 
-                const styled=
-                applyFont(
-                    input,
-                    style
+                const extraLeft=
+                round===0
+                ?""
+                :" ".repeat(
+                    Math.min(
+                        round,
+                        3
+                    )
                 );
 
-                for(
-                    const decoration of DECORATIONS
+
+                const finalName=
+                decoration[0]+
+                extraLeft+
+                styled+
+                decoration[1];
+
+
+                if(
+                    seen.has(finalName)
                 ){
 
-                    const left=
-                    decoration[0];
-
-                    const right=
-                    decoration[1];
-
-                    const extraLeft=
-                    round===0
-                    ?""
-                    :" ".repeat(
-                        Math.min(round,3)
-                    );
-
-                    const finalName=
-                    left+
-                    extraLeft+
-                    styled+
-                    right;
-
-                    if(
-                        seen.has(finalName)
-                    ){
-                        continue;
-                    }
-
-                    seen.add(finalName);
-
-                    generatedResults.push({
-
-                        name:finalName,
-
-                        font:
-                        style.name+
-                        " • Extra",
-
-                        type:"Generated"
-
-                    });
-
-                    if(
-                        generatedResults.length>=2000
-                    ){
-                        break;
-                    }
+                    continue;
 
                 }
+
+
+                seen.add(
+                    finalName
+                );
+
+
+                generatedResults.push({
+
+                    name:
+                    finalName,
+
+                    font:
+                    style.name+
+                    " • Extra",
+
+                    type:
+                    "Generated"
+
+                });
+
 
                 if(
                     generatedResults.length>=2000
                 ){
+
                     break;
+
                 }
 
             }
 
-            round++;
+
+            if(
+                generatedResults.length>=2000
+            ){
+
+                break;
+
+            }
 
         }
+
+
+        round++;
 
     }
 
@@ -2347,7 +2782,7 @@ function generateInputStyles(
         "resultTitle"
     )
     .textContent=
-    "2000+ Stylish Names for " +
+    "2000+ Stylish Names for "+
     input;
 
 
@@ -2363,7 +2798,7 @@ function generateInputStyles(
 
 
 /* =====================================================
-   RENDER GENERATED PAGE
+   GENERATED PAGE
 ===================================================== */
 
 function renderGeneratedPage(){
@@ -2372,6 +2807,7 @@ function renderGeneratedPage(){
     document.getElementById(
         "nameGrid"
     );
+
 
     if(
         generatedPage===0
@@ -2385,6 +2821,7 @@ function renderGeneratedPage(){
     const start=
     generatedPage*
     GENERATED_PAGE_SIZE;
+
 
     const end=
     Math.min(
@@ -2444,10 +2881,12 @@ function createGeneratedCard(
         "nameGrid"
     );
 
+
     const card=
     document.createElement(
         "div"
     );
+
 
     card.className=
     "name-card";
@@ -2525,32 +2964,37 @@ function createGeneratedCard(
 
 
 /* =====================================================
-   LOAD MORE
+   LOAD MORE - FIXED
 ===================================================== */
 
 function loadMore(){
 
     if(
-        generatedResults.length>0
+        viewMode==="generated"
     ){
 
-        const currentEnd=
-        (generatedPage+1)*
+        const nextPage=
+        generatedPage+1;
+
+
+        const start=
+        nextPage*
         GENERATED_PAGE_SIZE;
 
 
         if(
-            currentEnd<
+            start<
             generatedResults.length
         ){
 
-            generatedPage++;
+            generatedPage=
+            nextPage;
 
             renderGeneratedPage();
 
-            return;
-
         }
+
+        return;
 
     }
 
@@ -2563,12 +3007,15 @@ function loadMore(){
 
 
 /* =====================================================
-   DATABASE
+   DATABASE LOAD
 ===================================================== */
 
 async function loadDatabaseNames(){
 
+    viewMode="database";
+
     currentCategory="";
+
     currentPage=0;
 
 
@@ -2602,11 +3049,8 @@ async function loadDatabaseNames(){
             error
         }=
         await supabaseClient
-
         .from("names")
-
         .select("*")
-
         .order(
             "id",
             {
@@ -2633,7 +3077,8 @@ async function loadDatabaseNames(){
 
                 return{
 
-                    id:item.id,
+                    id:
+                    item.id,
 
                     name:
                     item.name ||
@@ -2656,15 +3101,16 @@ async function loadDatabaseNames(){
         )
         .filter(
             function(item){
+
                 return item.name;
+
             }
         );
 
 
         /*
-           IMPORTANT:
-           Database load hone ke turant baad
-           uske styles learn honge.
+           Database ke original records
+           ko kabhi clear nahi karna.
         */
 
         learnDatabaseStyles();
@@ -2691,12 +3137,17 @@ async function loadDatabaseNames(){
 
 function renderDatabasePage(){
 
+    viewMode="database";
+
+
     const data=
     getFilteredDatabaseNames();
+
 
     const start=
     currentPage*
     PAGE_SIZE;
+
 
     const end=
     Math.min(
@@ -2775,7 +3226,7 @@ function renderDatabasePage(){
 
 
 /* =====================================================
-   FILTER
+   FILTER DATABASE
 ===================================================== */
 
 function getFilteredDatabaseNames(){
@@ -2819,6 +3270,8 @@ function getFilteredDatabaseNames(){
 function generateCategory(
     category
 ){
+
+    viewMode="database";
 
     currentCategory=
     category;
@@ -2978,11 +3431,6 @@ async function generateName(
 
     currentCategory="";
 
-
-    /*
-       Agar database abhi load nahi hua,
-       to pehle database load karo.
-    */
 
     if(
         !databaseStylesReady
@@ -3451,7 +3899,7 @@ function showDatabaseError(
 
 
 /* =====================================================
-   ESCAPE
+   ESCAPE HTML
 ===================================================== */
 
 function escapeHtml(
