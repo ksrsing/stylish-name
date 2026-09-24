@@ -859,11 +859,7 @@ footer{
 
 </head>
 
-
 <body>
-
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -873,27 +869,17 @@ footer{
 NameCraft
 </div>
 
-
 <div class="nav-links">
 
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#styles">
-Styles
-</a>
+<a href="#styles">Styles</a>
 
-<a href="#favorites">
-Favorites
-</a>
+<a href="#favorites">Favorites</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
 </div>
-
 
 <button
 class="get-started"
@@ -908,32 +894,23 @@ Get Started
 </nav>
 
 
-<!-- HERO -->
-
 <section
 class="hero"
 id="home">
 
-
 <div class="badge">
-
 ✦ Free 2000+ Stylish Name Generator
-
 </div>
-
 
 <h1>
 
 Create Your
 
 <span class="gradient-text">
-
 Perfect Name
-
 </span>
 
 </h1>
-
 
 <p>
 
@@ -942,7 +919,6 @@ using the styles already available in the database.
 
 </p>
 
-
 <div class="search-box">
 
 <input
@@ -950,28 +926,20 @@ type="text"
 id="nameInput"
 placeholder="Enter any name...">
 
-
 <button id="generateBtn">
-
 Generate
-
 </button>
 
 </div>
 
-
 <div class="preview">
 
 <div class="preview-label">
-
 LIVE PREVIEW
-
 </div>
 
 <div id="livePreview">
-
 Your Name
-
 </div>
 
 </div>
@@ -979,12 +947,9 @@ Your Name
 </section>
 
 
-<!-- STYLES -->
-
 <section
 class="section"
 id="styles">
-
 
 <div class="section-heading">
 
@@ -998,9 +963,7 @@ Choose a category from your database.
 
 </div>
 
-
 <div class="categories">
-
 
 <div
 class="category-card"
@@ -1106,16 +1069,12 @@ Danger
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- RESULTS -->
-
 <section class="section">
-
 
 <div class="results-header">
 
@@ -1143,9 +1102,7 @@ class="name-grid"
 id="nameGrid">
 
 <div class="loading">
-
 Loading stylish names...
-
 </div>
 
 </div>
@@ -1169,12 +1126,9 @@ Load More
 </section>
 
 
-<!-- FAVORITES -->
-
 <section
 class="section"
 id="favorites">
-
 
 <div class="section-heading">
 
@@ -1188,22 +1142,17 @@ Your saved names are stored on this device.
 
 </div>
 
-
 <div
 class="favorite-list"
 id="favoriteList">
-
 </div>
 
 </section>
 
 
-<!-- ABOUT -->
-
 <section
 class="section"
 id="about">
-
 
 <div class="section-heading">
 
@@ -1217,9 +1166,7 @@ Simple, fast and stylish.
 
 </div>
 
-
 <div class="features">
-
 
 <div class="feature">
 
@@ -1274,7 +1221,6 @@ on your device.
 
 </div>
 
-
 </div>
 
 </section>
@@ -1308,7 +1254,6 @@ const SUPABASE_URL =
 const SUPABASE_PUBLISHABLE_KEY =
 "sb_publishable_oT5xR6-pXK9vM9jlxvhydA_CgZs1qAB";
 
-
 const supabaseClient =
 window.supabase.createClient(
     SUPABASE_URL,
@@ -1326,7 +1271,6 @@ JSON.parse(
         "namecraftFavorites"
     ) || "[]"
 );
-
 
 let allDatabaseNames = [];
 
@@ -1346,11 +1290,10 @@ let currentMode = "database";
 
 
 /* =====================================================
-   UNICODE STYLE MAPS
+   UNICODE STYLES
 ===================================================== */
 
 const UNICODE_STYLES = {
-
 
 italic: {
 
@@ -1362,7 +1305,6 @@ lower:
 
 },
 
-
 script: {
 
 upper:
@@ -1372,7 +1314,6 @@ lower:
 "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏"
 
 },
-
 
 fraktur: {
 
@@ -1384,7 +1325,6 @@ lower:
 
 },
 
-
 double: {
 
 upper:
@@ -1395,7 +1335,6 @@ lower:
 
 },
 
-
 monospace: {
 
 upper:
@@ -1405,7 +1344,6 @@ lower:
 "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
 
 },
-
 
 sans: {
 
@@ -1431,38 +1369,26 @@ function getCharStyle(char){
     ){
 
         const style =
-        UNICODE_STYLES[
-            styleName
-        ];
-
+        UNICODE_STYLES[styleName];
 
         if(
-            Array.from(
-                style.upper
-            ).includes(char)
+            Array.from(style.upper)
+            .includes(char)
         ){
-
             return styleName;
-
         }
 
-
         if(
-            Array.from(
-                style.lower
-            ).includes(char)
+            Array.from(style.lower)
+            .includes(char)
         ){
-
             return styleName;
-
         }
 
     }
 
-
     const code =
     char.codePointAt(0);
-
 
     if(
 
@@ -1484,7 +1410,6 @@ function getCharStyle(char){
 
     }
 
-
     return null;
 
 }
@@ -1499,11 +1424,8 @@ function isStyledLetter(char){
     if(
         /^[A-Za-z0-9]$/.test(char)
     ){
-
         return true;
-
     }
-
 
     return (
         getCharStyle(char) !== null
@@ -1524,11 +1446,8 @@ function convertCharacter(
     if(
         !/^[A-Za-z]$/.test(char)
     ){
-
         return char;
-
     }
-
 
     if(
         styleName === "fullwidth"
@@ -1537,20 +1456,16 @@ function convertCharacter(
         const code =
         char.codePointAt(0);
 
-
         if(
             code >= 65 &&
             code <= 90
         ){
 
             return String.fromCodePoint(
-                0xFF21 +
-                code -
-                65
+                0xFF21 + code - 65
             );
 
         }
-
 
         if(
             code >= 97 &&
@@ -1558,47 +1473,30 @@ function convertCharacter(
         ){
 
             return String.fromCodePoint(
-                0xFF41 +
-                code -
-                97
+                0xFF41 + code - 97
             );
 
         }
 
-
         return char;
 
     }
-
 
     const style =
-    UNICODE_STYLES[
-        styleName
-    ];
-
+    UNICODE_STYLES[styleName];
 
     if(!style){
-
         return char;
-
     }
 
-
     const upper =
-    Array.from(
-        style.upper
-    );
-
+    Array.from(style.upper);
 
     const lower =
-    Array.from(
-        style.lower
-    );
-
+    Array.from(style.lower);
 
     const code =
     char.charCodeAt(0);
-
 
     if(
         code >= 65 &&
@@ -1606,13 +1504,11 @@ function convertCharacter(
     ){
 
         return (
-            upper[
-                code - 65
-            ] || char
+            upper[code - 65] ||
+            char
         );
 
     }
-
 
     if(
         code >= 97 &&
@@ -1620,13 +1516,11 @@ function convertCharacter(
     ){
 
         return (
-            lower[
-                code - 97
-            ] || char
+            lower[code - 97] ||
+            char
         );
 
     }
-
 
     return char;
 
@@ -1669,13 +1563,9 @@ function createNameFromTemplate(
 ){
 
     const chars =
-    Array.from(
-        databaseName
-    );
-
+    Array.from(databaseName);
 
     const positions = [];
-
 
     for(
         let i = 0;
@@ -1684,9 +1574,7 @@ function createNameFromTemplate(
     ){
 
         if(
-            isStyledLetter(
-                chars[i]
-            )
+            isStyledLetter(chars[i])
         ){
 
             positions.push(i);
@@ -1694,7 +1582,6 @@ function createNameFromTemplate(
         }
 
     }
-
 
     if(
         positions.length === 0
@@ -1704,10 +1591,8 @@ function createNameFromTemplate(
 
     }
 
-
     const first =
     positions[0];
-
 
     const last =
     positions[
@@ -1716,29 +1601,22 @@ function createNameFromTemplate(
 
 
     /*
-       Prefix aur suffix exactly
-       database se liye jayenge.
+       Database ke symbols/prefix/suffix
+       same rakhe jayenge.
     */
 
     const prefix =
     chars
-    .slice(
-        0,
-        first
-    )
+    .slice(0, first)
     .join("");
-
 
     const suffix =
     chars
-    .slice(
-        last + 1
-    )
+    .slice(last + 1)
     .join("");
 
 
     let styleName = null;
-
 
     for(
         const position of positions
@@ -1748,7 +1626,6 @@ function createNameFromTemplate(
         getCharStyle(
             chars[position]
         );
-
 
         if(detected){
 
@@ -1776,8 +1653,7 @@ function createNameFromTemplate(
         styleName === "normal"
     ){
 
-        styledInput =
-        input;
+        styledInput = input;
 
     }
     else{
@@ -1801,7 +1677,9 @@ function createNameFromTemplate(
 
 
 /* =====================================================
-   LOAD ALL DATABASE NAMES
+   LOAD DATABASE
+   IMPORTANT:
+   DATABASE NAME IS IN style COLUMN
 ===================================================== */
 
 async function loadDatabaseNames(){
@@ -1832,7 +1710,7 @@ async function loadDatabaseNames(){
             <br><br>
 
             <small>
-                Loading 2000+ names...
+                Loading 2000+ styles...
             </small>
 
         </div>
@@ -1873,11 +1751,6 @@ async function loadDatabaseNames(){
         const batchSize = 1000;
 
 
-        /*
-           1000 + 1000 + 1000...
-           karke saare rows fetch honge.
-        */
-
         while(true){
 
             console.log(
@@ -1896,7 +1769,13 @@ async function loadDatabaseNames(){
 
             .from("names")
 
-            .select("*")
+            /*
+               IMPORTANT:
+               name nahi,
+               style column load hoga.
+            */
+
+            .select("id, style")
 
             .order(
                 "id",
@@ -1934,14 +1813,14 @@ async function loadDatabaseNames(){
 
 
             allRows =
-            allRows.concat(
-                rows
+            allRows.concat(rows);
+
+
+            console.log(
+                "Batch loaded:",
+                rows.length
             );
 
-
-            /*
-               Agar last batch aa gaya.
-            */
 
             if(
                 rows.length < batchSize
@@ -1954,10 +1833,6 @@ async function loadDatabaseNames(){
 
             start += batchSize;
 
-
-            /*
-               Safety.
-            */
 
             if(
                 start >= 10000
@@ -1977,8 +1852,10 @@ async function loadDatabaseNames(){
 
 
         /*
-           Database data ko standard format me
-           convert karo.
+           YAHAN MAIN FIX HAI.
+
+           item.style ko name ki tarah
+           website me use kiya jayega.
         */
 
         allDatabaseNames =
@@ -1993,22 +1870,13 @@ async function loadDatabaseNames(){
                     item.id,
 
                     name:
-                    item.name ||
-                    item.styled_name ||
-                    item.display_name ||
-                    item.title ||
-                    "",
+                    item.style || "",
 
                     font:
-                    item.font ||
-                    item.style ||
-                    item.font_style ||
                     "Database Style",
 
                     category:
-                    item.category ||
-                    item.category_name ||
-                    "Gaming"
+                    "All"
 
                 };
 
@@ -2030,14 +1898,10 @@ async function loadDatabaseNames(){
 
 
         console.log(
-            "TOTAL USABLE NAMES:",
+            "TOTAL USABLE STYLES:",
             allDatabaseNames.length
         );
 
-
-        /*
-           No names.
-        */
 
         if(
             allDatabaseNames.length === 0
@@ -2049,30 +1913,23 @@ async function loadDatabaseNames(){
 
                     <strong>
                         Database connected,
-                        but no names were found.
+                        but the style column is empty.
                     </strong>
 
                     <br><br>
 
                     Table:
-
                     <b>names</b>
 
                     <br><br>
 
-                    Name columns checked:
+                    Column:
+                    <b>style</b>
 
-                    <br>
-                    name
+                    <br><br>
 
-                    <br>
-                    styled_name
-
-                    <br>
-                    display_name
-
-                    <br>
-                    title
+                    Supabase me style column
+                    ke andar data check karo.
 
                 </div>
 
@@ -2084,7 +1941,7 @@ async function loadDatabaseNames(){
                 "resultInfo"
             )
             .textContent =
-            "0 names found";
+            "0 styles found";
 
 
             return;
@@ -2092,11 +1949,8 @@ async function loadDatabaseNames(){
         }
 
 
-        /*
-           First page render.
-        */
-
         renderDatabasePage();
+
 
     }
 
@@ -2124,37 +1978,15 @@ async function loadDatabaseNames(){
 
 function getFilteredDatabaseNames(){
 
-    let data =
-    allDatabaseNames;
+    /*
+       Tumhare database me actual stylish data
+       style column me hai aur category column
+       use nahi kar rahe.
 
+       Isliye All Styles return honge.
+    */
 
-    if(
-        currentCategory
-    ){
-
-        data =
-        data.filter(
-            function(item){
-
-                return String(
-                    item.category
-                )
-                .trim()
-                .toLowerCase()
-                ===
-                String(
-                    currentCategory
-                )
-                .trim()
-                .toLowerCase();
-
-            }
-        );
-
-    }
-
-
-    return data;
+    return allDatabaseNames;
 
 }
 
@@ -2179,8 +2011,7 @@ function renderDatabasePage(){
 
     const end =
     Math.min(
-        start +
-        PAGE_SIZE,
+        start + PAGE_SIZE,
         data.length
     );
 
@@ -2219,7 +2050,7 @@ function renderDatabasePage(){
     end +
     " of " +
     data.length +
-    " database names";
+    " database styles";
 
 
     document
@@ -2244,7 +2075,7 @@ function renderDatabasePage(){
 
             <div class="empty">
 
-                No names found in this category.
+                No styles found.
 
             </div>
 
@@ -2276,8 +2107,13 @@ function generateCategory(
     }
 
 
-    currentCategory =
-    category;
+    /*
+       Current database me category data nahi hai,
+       isliye category button par bhi database
+       ke styles show honge.
+    */
+
+    currentCategory = "";
 
     currentPage = 0;
 
@@ -2363,9 +2199,7 @@ function createDatabaseCard(
 
             <span class="style-tag">
 
-                ${escapeHtml(
-                    item.font
-                )}
+                Database Style
 
             </span>
 
@@ -2453,10 +2287,6 @@ function generateName(
     }
 
 
-    /*
-       Database load hone ka wait.
-    */
-
     if(
         allDatabaseNames.length === 0
     ){
@@ -2484,11 +2314,6 @@ function generateName(
     const seen =
     new Set();
 
-
-    /*
-       Agar category selected hai,
-       usi category ke styles.
-    */
 
     const source =
     getFilteredDatabaseNames();
@@ -2524,10 +2349,6 @@ function generateName(
             }
 
 
-            /*
-               Duplicate generated result hatao.
-            */
-
             if(
                 seen.has(result)
             ){
@@ -2546,12 +2367,10 @@ function generateName(
                 result,
 
                 font:
-                item.font ||
                 "Database Style",
 
                 category:
-                item.category ||
-                "",
+                "Database",
 
                 source:
                 template
@@ -2717,9 +2536,7 @@ function createGeneratedCard(
 
             <span class="style-tag">
 
-                ${escapeHtml(
-                    item.font
-                )}
+                Database Style
 
             </span>
 
@@ -2790,10 +2607,6 @@ function createGeneratedCard(
 
 function loadMore(){
 
-    /*
-       Generated mode
-    */
-
     if(
         currentMode === "generated"
     ){
@@ -2825,10 +2638,6 @@ function loadMore(){
 
     }
 
-
-    /*
-       Database mode
-    */
 
     const data =
     getFilteredDatabaseNames();
@@ -3074,9 +2883,7 @@ function refreshFavoriteButtons(){
 
 
             if(!card){
-
                 return;
-
             }
 
 
@@ -3087,9 +2894,7 @@ function refreshFavoriteButtons(){
 
 
             if(!element){
-
                 return;
-
             }
 
 
@@ -3328,8 +3133,8 @@ function showDatabaseError(
             <br><br>
 
             <small>
-                Browser console me bhi exact
-                error check kiya gaya hai.
+                Supabase ke names table se
+                style column read nahi ho paaya.
             </small>
 
         </div>
@@ -3394,7 +3199,7 @@ function escapeHtml(
 
 
 /* =====================================================
-   START WEBSITE
+   START
 ===================================================== */
 
 renderFavorites();
